@@ -1,0 +1,29 @@
+/*for screen size greater or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .top_image_slider {
+    position: relative;
+    width: 100%;
+    padding-top: 25%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 #acacac;
+    z-index: 10;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .top_image_slider {
+    position: relative;
+    width: 100%;
+    padding-top: 30%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

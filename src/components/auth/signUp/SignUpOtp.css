@@ -1,0 +1,221 @@
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .sign_up_otp_main_div {
+    height: 100%;
+    width: 100%;
+  }
+
+  .sign_up_form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sign_up_label {
+    width: calc(80% + 16px);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #333333;
+  }
+
+  .sign_up_otp {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 80%;
+    border: 1px solid #ee57004d;
+    border-radius: 4px;
+    outline: none;
+    padding: 0 8px;
+    font-size: 1rem;
+    color: #333333;
+    /* font-weight: bold; */
+  }
+
+  .sign_up_otp_params {
+    margin-top: 16px;
+    width: calc(80% + 16px);
+    padding: 16px;
+    font-size: 0.8rem;
+    color: #ee5700;
+    display: flex;
+  }
+
+  .sign_up_resend_otp_timer--visible {
+    display: inline;
+  }
+
+  .sign_up_resend_otp_timer--hidden {
+    display: none;
+  }
+
+  .sign_up_resend_btn--visible {
+    display: inline;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .sign_up_resend_btn--hidden {
+    display: none;
+  }
+
+  .sign_up_otp_cnf_btn {
+    margin-top: 39px;
+    width: 35%;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #0b2e3b;
+    color: #ffffff;
+    font-size: 0.8rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .sign_up_otp_cnf_btn:hover {
+    background: #0f4153;
+  }
+
+  .sign_up_otp_back {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .sign_up_otp_back_btn {
+    margin: 32px;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #eeeeee;
+    color: #333333;
+    border: 1px solid #0b2e3b;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .sign_up_otp_back_btn:hover {
+    background-color: #dddddd;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .sign_up_otp_main_div {
+    height: 100%;
+    width: 100%;
+  }
+
+  .sign_up_form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sign_up_label {
+    width: calc(80% + 16px);
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #333333;
+  }
+
+  .sign_up_otp {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 80%;
+    border: 1px solid #ee57004d;
+    border-radius: 4px;
+    outline: none;
+    padding: 0 8px;
+    font-size: 0.9rem;
+    color: #333333;
+    /* font-weight: bold; */
+  }
+
+  .sign_up_otp_params {
+    margin-top: 16px;
+    width: calc(80% + 16px);
+    padding: 16px;
+    font-size: 0.8rem;
+    color: #ee5700;
+    display: flex;
+  }
+
+  .sign_up_resend_otp_timer--visible {
+    display: inline;
+  }
+
+  .sign_up_resend_otp_timer--hidden {
+    display: none;
+  }
+
+  .sign_up_resend_btn--visible {
+    display: inline;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .sign_up_resend_btn--hidden {
+    display: none;
+  }
+
+  .sign_up_otp_cnf_btn {
+    margin-top: 8px;
+    padding: 0 32px;
+    height: 35px;
+    border-radius: 4px;
+    background-color: #0b2e3b;
+    color: #ffffff;
+    font-size: 0.8rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .sign_up_otp_cnf_btn:active {
+    background: #0f4153;
+  }
+
+  .sign_up_otp_back {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .sign_up_otp_back_btn {
+    margin: 32px 32px 8px 32px;
+    width: 100%;
+    height: 35px;
+    border-radius: 4px;
+    background-color: #eeeeee;
+    color: #333333;
+    border: 1px solid #0b2e3b;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .sign_up_otp_back_btn:hover {
+    background-color: #dddddd;
+  }
+}

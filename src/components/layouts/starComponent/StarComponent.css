@@ -1,0 +1,50 @@
+/* For larger devices */
+@media screen and (min-width: 1024px) {
+  .star_component_star_group {
+    display: flex;
+  }
+
+  .star_component_star_group img {
+    height: 10px;
+    width: 10px;
+  }
+
+  .star_component_no_rating {
+    height: 10px;
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.65rem;
+    color: #fa8c16;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .star_component_star_group {
+    display: flex;
+  }
+
+  .star_component_star_group img {
+    height: 10px;
+    width: 10px;
+  }
+
+  /* .star_component_star_group .half_star {
+    height: 10px;
+    width: 5.5px;
+  } */
+
+  .star_component_no_rating {
+    height: 10px;
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.6rem;
+    color: #fa8c16;
+    text-align: center;
+    white-space: nowrap;
+  }
+}

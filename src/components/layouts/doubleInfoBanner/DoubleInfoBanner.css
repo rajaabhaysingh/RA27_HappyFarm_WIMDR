@@ -1,0 +1,104 @@
+/*for screen size more than 768px px*/
+@media screen and (min-width: 768px) {
+  .double_info_main_div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .double_info_banner_sub_div_one,
+  .double_info_banner_sub_div_two {
+    position: relative;
+    width: 40%;
+    padding-top: 18%;
+    cursor: pointer;
+  }
+
+  .mid_spacer_double_banner {
+    display: flex;
+    flex: 1;
+    min-width: 24px;
+  }
+
+  .double_info_details_one,
+  .double_info_details_two {
+    height: calc(100% - 16px);
+    width: calc(100% - 12px);
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 8px -1px #a0a0a0;
+    background-color: #0f4153;
+  }
+
+  .double_info_details_one:hover,
+  .double_info_details_two:hover {
+    transform: scale(0.99);
+    transition: all 0.25s;
+  }
+
+  .double_info_details_one {
+    position: absolute;
+    top: 0;
+    /* right: 0; */
+    margin: 8px 8px 0 0;
+  }
+
+  .double_info_details_two {
+    margin: 8px 0 0 8px;
+    position: absolute;
+    top: 0;
+    /* left: 0px; */
+  }
+}
+
+/*for screen size less than 768px px*/
+@media screen and (max-width: 767px) {
+  .double_info_main_div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 8px -3px #b1b1b1;
+  }
+
+  .double_info_banner_sub_div_one,
+  .double_info_banner_sub_div_two {
+    position: relative;
+    width: 100%;
+    padding-top: 35%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .double_info_details_one,
+  .double_info_details_two {
+    height: calc(100% - 9px);
+    width: calc(100% - 12px);
+    background: #0f4153;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 0px 6px -1px #cfcfcf;
+  }
+
+  .double_info_details_one:active,
+  .double_info_details_two:active {
+    transform: scale(0.98);
+    transition: all 0.1s;
+  }
+
+  .double_info_details_one {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+  }
+
+  .double_info_details_two {
+    position: absolute;
+    top: 3px;
+    left: 6px;
+  }
+}

@@ -1,14 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import { render } from "react-dom";
+import App from "./App";
+import "./index.css";
+import * as serviceWorker from "./serviceWorker";
+import MetaTags from "react-meta-tags";
 
-ReactDOM.render(
+// Handling redux imports
+import { Provider } from "react-redux";
+import store from "./redux/store/Index";
+
+render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <MetaTags>
+        <meta name="theme-color" content="#ee5700" />
+      </MetaTags>
+      <App />
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

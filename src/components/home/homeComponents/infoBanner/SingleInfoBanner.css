@@ -1,0 +1,28 @@
+/*for screen size more than 1024px px*/
+@media screen and (min-width: 1024px) {
+}
+
+/*for screen size less than 1360 px*/
+@media screen and (max-width: 1023px) {
+  .single_info_banner {
+    position: relative;
+    width: 100%;
+    padding-top: 20%;
+    box-shadow: 0 1px 8px -2px #a0a0a0;
+    z-index: -99;
+    background: #ffffff;
+  }
+
+  .single_info_details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 8px 8px 8px 8px;
+    width: calc(100% - 17px);
+    height: calc(100% - 17px);
+    border-radius: 8px;
+    border: 0.5px solid #000;
+    background: rgb(187, 236, 236);
+    z-index: -100;
+  }
+}

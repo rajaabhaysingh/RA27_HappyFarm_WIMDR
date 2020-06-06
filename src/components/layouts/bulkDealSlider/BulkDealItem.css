@@ -1,0 +1,873 @@
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .bulk_outer_main_div {
+    min-width: 425px;
+    margin: 4px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffdfcd;
+    border-radius: 8px;
+    box-shadow: 1px 1px 6px -1px #b3b3b3;
+    font-family: Arial, Helvetica, sans-serif;
+    white-space: nowrap;
+    background: #ffffff;
+  }
+
+  .bulk_inner_main_div {
+    width: calc(100% - 24px);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bulk_content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bulk_info_top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .bulk_info_top_left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bulk_details_pri {
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_image {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 1px 1px 8px #dddddd;
+  }
+
+  .bulk_image:hover > img {
+    transform: scale(1.05);
+    transition: all 0.1s;
+  }
+
+  .bulk_image img {
+    height: 75px;
+    width: 75px;
+    border-radius: 4px;
+    cursor: pointer;
+    object-fit: cover;
+    -o-object-fit: cover;
+  }
+
+  .bulk_primary_details {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bulk_name {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+    color: black;
+    cursor: pointer;
+  }
+
+  .bulk_desc {
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #5c5c5c;
+  }
+
+  .bulk_breed {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .bulk_type {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .bulk_location {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_loc_icon {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #000000;
+  }
+
+  .bulk_loc_text {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #5c5c5c;
+    cursor: pointer;
+  }
+
+  .bulk_details_sec {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bulk_lot_size {
+    display: flex;
+    align-items: center;
+    color: #5c5c5c;
+    font-size: 0.95rem;
+  }
+
+  .bulk_lot_size_text {
+    display: flex;
+    align-items: center;
+    /* font-weight: bold; */
+  }
+
+  .bulk_lot_size_digit {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_lot_size_unit {
+    margin-left: 2px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_price {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+
+  .bulk_price_text {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #5c5c5c;
+  }
+
+  .bulk_price_amount {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .bulk_price_per_unit {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .bulk_info_top_right {
+    /* margin-left: 80px; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .bulk_product_contact_utility {
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_product_contact_utility button {
+    padding: 2px 8px 2px 4px;
+    min-width: 92px;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 16px;
+    border: 1px solid #fac412;
+    box-shadow: 1px 1px 5px -1px #929292;
+    cursor: pointer;
+    background: #ffffff;
+  }
+
+  .bulk_product_contact_utility button:active {
+    background: #fffbef;
+    border: 1px solid #ee5700;
+  }
+
+  .bulk_contact_symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    color: #fac412;
+    font-size: 0.9rem;
+  }
+
+  .bulk_button_text {
+    flex: 1;
+    text-align: center;
+    color: black;
+  }
+
+  .bulk_profile_link {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    color: #fa8d19;
+    font-size: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .bulk_rating {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .bulk_rating_star {
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_rating_text {
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    color: #5c5c5c;
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+
+  .bulk_utility {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_utility_nego {
+    padding: 4px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #fac412;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 5px -1px #929292;
+    cursor: pointer;
+  }
+
+  .bulk_utility_nego:active {
+    background: #fffbef;
+    border: 1px solid #ee5700;
+  }
+
+  .bulk_utility_fav {
+    margin-left: 8px;
+    padding: 4px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #fac412;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 5px -1px #929292;
+    cursor: pointer;
+  }
+
+  .bulk_utility_fav:active {
+    background: #fffbef;
+    border: 1px solid #ee5700;
+  }
+
+  .bulk_info_mid {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    color: #fa8d19;
+    font-size: 0.95rem;
+  }
+
+  .bulk_expected_del_icon {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+  }
+
+  .bulk_expected_del_text {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+  }
+
+  .bulk_expected_del_time {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  .bulk_info_bottom {
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_info_bottom > form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .bulk_form_left {
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_book_label {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #5c5c5c;
+  }
+
+  .bulk_form_input_container {
+    height: 26px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #fac412;
+    border-radius: 4px;
+    font-size: 0.95rem;
+  }
+
+  .bulk_qty_input {
+    margin-left: 1px;
+    height: 22px;
+    width: 80px;
+    padding-left: 7px;
+    border-radius: 4px 0 0 4px;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    font-size: 0.85rem;
+  }
+
+  .bulk_book_select {
+    padding-right: 4px;
+    height: calc(100% + 2px);
+    position: relative;
+    right: -3px;
+    border: 1px solid #fac412;
+    outline: none;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+  }
+
+  .bulk_book_option {
+    font-size: 0.85rem;
+  }
+
+  .bulk_book_now_btn {
+    margin-left: 4px;
+    height: 26px;
+    width: 92px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 4px #b3b3b3;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    color: #ffffff;
+    background-image: linear-gradient(#fac412, #fa8c16);
+    cursor: pointer;
+    text-shadow: 1px 1px 4px black;
+  }
+
+  .bulk_status {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_status_bar {
+    margin-top: 12px;
+    width: 100%;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .bulk_outer_main_div {
+    min-width: 350px;
+    margin: 4px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffdfcd;
+    border-radius: 8px;
+    box-shadow: 1px 1px 8px -2px #b3b3b3;
+    font-family: Arial, Helvetica, sans-serif;
+    white-space: nowrap;
+    text-align: center;
+    background: #ffffff;
+  }
+
+  .bulk_inner_main_div {
+    width: calc(100% - 16px);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bulk_content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bulk_info_top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .bulk_info_top_left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bulk_details_pri {
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_image {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .bulk_image:active > img {
+    transform: scale(1.1);
+    transition: all ease-in 0.1s;
+  }
+
+  .bulk_image img {
+    height: 75px;
+    width: 75px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px #dddddd;
+    object-fit: cover;
+    -o-object-fit: cover;
+  }
+
+  .bulk_primary_details {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bulk_name {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+    color: black;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulk_desc {
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #5c5c5c;
+  }
+
+  .bulk_breed {
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulk_type {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulk_location {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_loc_icon {
+    display: flex;
+    align-items: center;
+    font-size: 0.65rem;
+    color: #000000;
+  }
+
+  .bulk_loc_text {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #5c5c5c;
+  }
+
+  .bulk_details_sec {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bulk_lot_size {
+    display: flex;
+    align-items: center;
+    color: #5c5c5c;
+    font-size: 0.85rem;
+  }
+
+  .bulk_lot_size_text {
+    display: flex;
+    align-items: center;
+    /* font-weight: bold; */
+  }
+
+  .bulk_lot_size_digit {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_lot_size_unit {
+    margin-left: 2px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_price {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+
+  .bulk_price_text {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #5c5c5c;
+  }
+
+  .bulk_price_amount {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .bulk_price_per_unit {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .bulk_info_top_right {
+    /* margin-left: 80px; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .bulk_product_contact_utility {
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_product_contact_utility button {
+    padding: 4px 8px 4px 4px;
+    min-width: 92px;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 16px;
+    border: 1px solid #fac412;
+    box-shadow: 1px 1px 5px -1px #929292;
+    cursor: pointer;
+    background: #ffffff;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulk_product_contact_utility button:active {
+    background: #fffbef;
+    border: 1px solid #ee5700;
+  }
+
+  .bulk_contact_symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    color: #fac412;
+    font-size: 0.9rem;
+  }
+
+  .bulk_button_text {
+    flex: 1;
+    text-align: center;
+    color: black;
+    font-size: 0.75rem;
+    padding-top: 1px;
+  }
+
+  .bulk_profile_link {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    color: #fa8d19;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulk_profile_link:active {
+    color: #000000;
+  }
+
+  .bulk_rating {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .bulk_rating_star {
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_rating_text {
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    color: #5c5c5c;
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+
+  .bulk_utility {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_utility_nego {
+    padding: 5px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #fac412;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 5px -1px #929292;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulk_utility_nego:active {
+    background: #fffbef;
+    border: 1px solid #ee5700;
+  }
+
+  .bulk_utility_fav {
+    margin-left: 8px;
+    padding: 5px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #fac412;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 5px -1px #929292;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulk_utility_fav:active {
+    background: #fffbef;
+    border: 1px solid #ee5700;
+  }
+
+  .bulk_info_mid {
+    display: flex;
+    align-items: center;
+    color: #fa8d19;
+    font-size: 0.85rem;
+  }
+
+  .bulk_expected_del_icon {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+  }
+
+  .bulk_expected_del_text {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+  }
+
+  .bulk_expected_del_time {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  .bulk_info_bottom {
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_info_bottom > form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .bulk_form_left {
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_book_label {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #5c5c5c;
+    white-space: nowrap;
+  }
+
+  .bulk_form_input_container {
+    height: 26px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #fac412;
+    border-radius: 4px;
+    font-size: 0.95rem;
+  }
+
+  .bulk_qty_input {
+    margin-left: 1px;
+    height: 20px;
+    width: 64px;
+    padding-left: 3px;
+    border-radius: 4px 0 0 4px;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    font-size: 0.85rem;
+  }
+
+  .bulk_book_select {
+    padding-right: 4px;
+    height: calc(100% + 2px);
+    position: relative;
+    right: -1px;
+    border: 1px solid #fac412;
+    outline: none;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+  }
+
+  .bulk_book_option {
+    font-size: 0.85rem;
+  }
+
+  .bulk_book_now_btn {
+    margin-top: -2px;
+    margin-left: 4px;
+    height: 28px;
+    width: 92px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 4px #b3b3b3;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    color: #ffffff;
+    background-image: linear-gradient(#fac412, #fa8c16);
+    cursor: pointer;
+    font-size: 0.75rem;
+    text-shadow: 1px 1px 4px black;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulk_book_now_btn:active {
+    background-image: linear-gradient(#fa8c16, #fac412);
+  }
+
+  .bulk_status {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .bulk_status_bar {
+    margin-top: 12px;
+    width: 100%;
+  }
+}

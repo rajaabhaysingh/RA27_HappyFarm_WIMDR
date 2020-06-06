@@ -1,0 +1,44 @@
+/*for screen size larger than 1024px px*/
+@media screen and (min-width: 1024px) {
+  .top_message_main_div {
+    height: 30px;
+    width: 100%;
+    background: #ee5700;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+    z-index: 10000;
+    justify-content: space-between;
+    color: #ffffff;
+    font-family: "Arial", Helvetica, sans-serif;
+    font-size: 0.8rem;
+  }
+
+  .top_message_left {
+    margin-left: 16px;
+  }
+
+  .top_message_left > span > a,
+  .top_message_right > span > a {
+    text-decoration: none;
+  }
+
+  .top_message_left > span > a:hover,
+  .top_message_right > span > a:hover {
+    text-decoration: underline;
+  }
+
+  .top_message_right {
+    margin-right: 16px;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .top_message_main_div {
+    display: none;
+  }
+}

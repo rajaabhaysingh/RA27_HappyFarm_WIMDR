@@ -1,0 +1,15 @@
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .sign_up_main_div {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .sign_up_main_div {
+    height: 100%;
+    width: 100%;
+  }
+}

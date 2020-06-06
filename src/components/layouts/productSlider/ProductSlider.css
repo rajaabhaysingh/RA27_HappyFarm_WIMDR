@@ -1,0 +1,185 @@
+/* For larger devices */
+@media screen and (min-width: 1024px) {
+  .product_slider_main_div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px #dddddd;
+  }
+
+  .product_slider_inner_main_div {
+    padding-top: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-bottom: 8px; */
+  }
+
+  .product_slider_header {
+    width: 100%;
+    display: flex;
+  }
+
+  .product_slider_header_content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+  }
+
+  .product_slider_header_heading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    color: #000000;
+  }
+
+  .product_slider_header_view_all button {
+    padding: 5px;
+    outline: none;
+    border: none;
+    background: none;
+    color: #ee5700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .product_slider_header_view_all button:hover {
+    text-decoration: underline;
+  }
+
+  .product_slider_contents {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .product_slider_left_arrow,
+  .product_slider_right_arrow {
+    margin: 8px;
+    color: #a0a0a0;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .product_slider_left_arrow:hover,
+  .product_slider_right_arrow:hover {
+    color: #000000;
+    transform: scale(1.1);
+    transition: all ease-in 0.1s;
+  }
+
+  .product_slider_container {
+    margin: 8px 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* box-shadow: inset 25px 0px 25px -25px rgb(255, 255, 255),
+      inset -25px 0px 25px -25px rgba(0, 0, 0, 0.45); */
+  }
+
+  .product_slider_container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .product_slider_main_div {
+    width: 100%;
+    box-shadow: 0 0px 8px -1px #cfcfcf;
+  }
+
+  .product_slider_inner_main_div {
+    padding-top: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4px;
+  }
+
+  .product_slider_header {
+    width: 100%;
+  }
+
+  .product_slider_header_content {
+    width: calc(100% - 16px);
+    margin: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product_slider_header_heading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    color: #000000;
+    padding-left: 4px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .product_slider_header_view_all button {
+    padding: 5px;
+    outline: none;
+    border: none;
+    background: none;
+    color: #ee5700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .product_slider_header_view_all button:active {
+    color: #000000;
+    transform: scale(0.95);
+  }
+
+  .product_slider_contents {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none;
+  }
+
+  .product_slider_contents::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  .product_slider_left_arrow {
+    display: none;
+  }
+
+  .product_slider_container {
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+  }
+
+  .product_slider_right_arrow {
+    display: none;
+  }
+}

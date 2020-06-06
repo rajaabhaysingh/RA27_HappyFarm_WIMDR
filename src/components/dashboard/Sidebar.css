@@ -1,0 +1,193 @@
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sidebar_profile_info {
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar_profile_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar_profile_image img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px #5c5c5c;
+    background-color: #ee5700;
+  }
+
+  .sidebar_profile_image_change_btn {
+    font-size: 1.2rem;
+    position: relative;
+    top: -12px;
+    padding: 0px 4px 0 4px;
+    border-radius: 4px;
+    background-color: #ffffffb6;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #5c5c5c;
+  }
+
+  .sidebar_profile_image_change_btn:hover {
+    color: black;
+  }
+
+  .sidebar_username {
+    margin-top: -4px;
+    font-size: 0.95rem;
+    /* font-weight: bold; */
+    color: #5c5c5c;
+    text-transform: capitalize;
+  }
+
+  .sidebar_plan {
+    margin-top: 2px;
+    display: flex;
+    font-size: 0.75rem;
+  }
+
+  .sidebar_plan_text {
+    color: #5c5c5c;
+  }
+
+  .sidebar_plan_value {
+    margin-left: 4px;
+    color: #009900;
+    text-transform: capitalize;
+  }
+
+  .sidebar_contact {
+    margin-top: 8px;
+    color: #ee5700;
+    font-size: 0.8rem;
+    /* font-weight: bold; */
+  }
+
+  .sell_new_product_button_group {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sell_new_product_button {
+    width: 200px;
+    height: 35px;
+    border-radius: 8px;
+    background: #fa8c16;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    /* box-shadow: 2px 2px 4px -2px #000000; */
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+
+  .sell_new_product_button:hover {
+    background: #ff6207;
+  }
+
+  .menu_text_display {
+    margin-top: 48px;
+    font-size: 0.75rem;
+  }
+
+  .sidebar_menu {
+    margin-top: 24px;
+  }
+
+  .sidebar_menu_list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar_menu_item--active {
+    padding-left: 24px;
+    width: 176px;
+    height: 35px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin: 2px 0;
+    box-shadow: 0 2px 4px #cccccc;
+    font-size: 0.8rem;
+    color: #333333;
+  }
+
+  .sidebar_menu_item {
+    padding-left: 24px;
+    width: 176px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    margin: 2px 0;
+    font-size: 0.8rem;
+    color: #5c5c5c;
+    cursor: pointer;
+  }
+
+  .sidebar_menu_item:hover {
+    box-shadow: 0 2px 4px #cccccc;
+    border-radius: 20px;
+  }
+
+  .sidebar_menu_item_icon {
+    margin-right: 8px;
+    font-size: 1rem;
+  }
+
+  .sidebar_menu_item_icon--active {
+    margin-right: 8px;
+    font-size: 1rem;
+    color: #ee5700;
+  }
+
+  .sidebar_logout {
+    margin-top: 120px;
+    margin-bottom: 16px;
+    width: 200px;
+    height: 35px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px #cccccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #5c5c5c;
+  }
+
+  .sidebar_logout:hover {
+    background: #ffffff;
+    color: #333333;
+    box-shadow: 0 2px 4px #cccccc;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+}

@@ -1,0 +1,28 @@
+/* For larger devices */
+@media screen and (min-width: 1024px) {
+  .breadcrumbs_main_div {
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px -1px #b4b4b4;
+    margin-top: 79px;
+    overflow: hidden;
+  }
+
+  .breadcrumbs_inner_main_div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* For smaller devices */
+@media screen and (max-width: 1023px) {
+  .breadcrumbs_main_div {
+    display: none;
+  }
+}

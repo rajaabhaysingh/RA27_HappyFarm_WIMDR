@@ -1,0 +1,20 @@
+/*for screen size greater or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .slide {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .slide {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

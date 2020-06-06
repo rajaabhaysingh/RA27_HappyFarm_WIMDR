@@ -1,0 +1,12 @@
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .central_content_main_div {
+    padding: 32px 40px 32px 40px;
+    width: calc(100% - 80px);
+    height: calc(100% - 64px);
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+}

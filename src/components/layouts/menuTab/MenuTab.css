@@ -1,0 +1,134 @@
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .menu_tab_main_div {
+    /* position: absolute; */
+    width: calc(100% - 64px);
+    /* min-height: 400px; */
+    background: #ffffff;
+    box-shadow: 0 4px 8px #333333;
+    border-radius: 0 0 16px 16px;
+    padding: 0 32px 24px 32px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .categoryTabs {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .category_tab_list {
+    margin-top: 32px;
+    border-bottom: 1px solid #ee5700;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    text-transform: uppercase;
+    overflow-x: scroll;
+    overflow-y: visible;
+    scrollbar-width: none;
+  }
+
+  .category_tab {
+    margin: 0 2px;
+    height: 40px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 4px;
+    list-style: none;
+    cursor: pointer;
+    color: #333333;
+    white-space: nowrap;
+    background: rgb(233, 233, 233);
+    font-size: 0.75rem;
+  }
+
+  .category_tab:focus {
+    outline: none;
+  }
+
+  .category_tab:hover {
+    font-weight: bold;
+  }
+
+  /* .category_tab:focus {
+    box-shadow: 0 0 5px #ee5700;
+    border-color: #ee5700;
+    border-bottom: 3px solid #ee5700;
+    outline: none;
+  } */
+
+  /* .category_tab:focus::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    left: -4px;
+    right: -4px;
+    bottom: -5px;
+    background: #fff;
+  } */
+
+  .category_tab--selected {
+    background: #ffefd1;
+    color: black;
+    border: 1px solid #ee5700;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 3px solid #ee5700;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+
+  .category_tab--disabled {
+    color: GrayText;
+    cursor: default;
+  }
+
+  .category_panel {
+    display: none;
+    margin-top: 32px;
+  }
+
+  .category_panel--selected {
+    display: block;
+  }
+
+  .category_panel_data {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    column-gap: 4px;
+    row-gap: 4px;
+    overflow: scroll;
+    max-height: 360px;
+  }
+
+  .cat_menu_items {
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cat_menu_items a {
+    color: #5c5c5c;
+    text-decoration: none;
+  }
+
+  .cat_menu_items a:hover {
+    color: #333333;
+    font-weight: bold;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .menu_tab_main_div {
+    display: none;
+  }
+}

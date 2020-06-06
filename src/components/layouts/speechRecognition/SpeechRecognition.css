@@ -1,0 +1,43 @@
+/*for screen size more than 1024px px*/
+@media screen and (min-width: 1024px) {
+  .speech_recog_div {
+    padding: 8px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #5c5c5c;
+  }
+
+  .speech_recog_div:hover {
+    background: #e2e2e2;
+  }
+
+  .speech_recog_div:active {
+    transform: scale(0.95);
+    color: black;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .speech_recog_div {
+    padding: 6px;
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #5c5c5c;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .speech_recog_div:active {
+    transform: scale(1.05);
+    color: black;
+    background: #e2e2e2;
+  }
+}

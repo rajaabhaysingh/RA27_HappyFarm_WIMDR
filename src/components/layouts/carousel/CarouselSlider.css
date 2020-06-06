@@ -1,0 +1,68 @@
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .carousel_main_div {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* following line added due to overflow-hidden bug in safari */
+    transform: translateZ(0);
+  }
+
+  .carousel_slide_container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 25%;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: inset 0px 11px 8px -10px #333333;
+  }
+
+  .carousel_image {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    object-fit: cover;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .carousel_main_div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 0 0 0 0;
+  }
+
+  .carousel_slide_container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 30%;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 0 0 0 0;
+  }
+
+  .carousel_image {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    object-fit: cover;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}

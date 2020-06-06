@@ -1,0 +1,276 @@
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .sign_in_normal_main_div {
+    height: 100%;
+    width: 100%;
+  }
+
+  .sign_in_form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sign_in_email_mob,
+  .sign_in_pwd {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 80%;
+    border: 1px solid #ee57004d;
+    border-radius: 4px;
+    outline: none;
+    padding: 0 8px;
+    font-size: 1rem;
+    color: #333333;
+    /* font-weight: bold; */
+  }
+
+  .sign_in_email_mob {
+    /* margin-top: 16px; */
+  }
+
+  .sign_in_pwd {
+    margin-top: 8px;
+  }
+
+  .sign_in_login_btn {
+    margin-top: 32px;
+    width: 35%;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #0b2e3b;
+    color: #ffffff;
+    font-size: 0.8rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .sign_in_login_btn:hover {
+    background: #0f4153;
+  }
+
+  .sign_in_forgot_pwd {
+    margin-top: 32px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #ee5700;
+    cursor: pointer;
+    /* font-weight: bold; */
+  }
+
+  .sign_in_forgot_pwd:hover {
+    text-decoration: underline;
+  }
+
+  .sign_in_using_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sign_in_using_or {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex: 1; */
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .sign_in_using_desc {
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #5c5c5c;
+  }
+
+  .sign_in_ext_btn {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .sign_in_using_btn {
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 0.8rem;
+  }
+
+  .sign_in_using_google {
+    width: 100px;
+    background: #cc0000;
+  }
+  .sign_in_using_fb {
+    width: 120px;
+    background: #182b7e;
+  }
+  .sign_in_using_twitter {
+    width: 100px;
+    background: #00a3cc;
+  }
+}
+
+/* --- */
+/* --- */
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .sign_in_normal_main_div {
+    height: 100%;
+    width: 100%;
+  }
+
+  .sign_in_form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sign_in_email_mob,
+  .sign_in_pwd {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 80%;
+    border: 1px solid #ee57004d;
+    border-radius: 4px;
+    outline: none;
+    padding: 0 8px;
+    font-size: 0.9rem;
+    color: #333333;
+    font-weight: bold;
+  }
+
+  .sign_in_email_mob {
+    /* margin-top: 16px; */
+  }
+
+  .sign_in_pwd {
+    margin-top: 8px;
+  }
+
+  .sign_in_login_btn {
+    margin-top: 16px;
+    /* width: 80px; */
+    padding: 0 32px;
+    height: 35px;
+    border-radius: 4px;
+    background-color: #0b2e3b;
+    color: #ffffff;
+    font-size: 0.8rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .sign_in_login_btn:active {
+    background: #0f4153;
+  }
+
+  .sign_in_forgot_pwd {
+    margin-top: 24px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #ee5700;
+    cursor: pointer;
+    font-weight: bold;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .sign_in_forgot_pwd:active {
+    text-decoration: underline;
+  }
+
+  .sign_in_using_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sign_in_using_or {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .sign_in_using_desc {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #5c5c5c;
+  }
+
+  .sign_in_ext_btn {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .sign_in_using_btn {
+    height: 35px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 0.8rem;
+  }
+
+  .sign_in_using_google {
+    width: 100px;
+    background: #cc0000;
+  }
+  .sign_in_using_fb {
+    width: 120px;
+    background: #182b7e;
+  }
+  .sign_in_using_twitter {
+    width: 100px;
+    background: #00a3cc;
+  }
+}
