@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import DrawerToggleButton from "../sideDrawer/SideDrawerToggleButton";
-import ChangeLangBtn from "../../../res/header/language_icon.svg";
 import "./Header.css";
 import {
   CaretDownFilled,
   PlusOutlined,
-  ShoppingFilled,
+  GlobalOutlined,
   SearchOutlined,
   MinusOutlined,
 } from "@ant-design/icons";
@@ -18,8 +17,6 @@ import MenuTab from "../menuTab/MenuTab";
 import { NavLink } from "react-router-dom";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
-
-import Popup from "reactjs-popup";
 
 export const Header = (props) => {
   // -------CATEGORY LIST F(n)----------------
@@ -55,6 +52,17 @@ export const Header = (props) => {
   // -----------------------------------------
 
   // ------HEADER SEARCH BTN FUNCTIONS--------
+
+  // toggle mobile searchbar visiblity
+  const [isSearchBarVisible, setIsSearchBarVisible] = useState(true);
+
+  let searchBarClass = "search_bar_container_mobile--visible";
+
+  if (!isSearchBarVisible) {
+    searchBarClass = "search_bar_container_mobile--hidden";
+  }
+
+  // pc search btn functions
   const scrollToSearchBar = () => {
     if (
       document.body.scrollTop !== 0 ||
@@ -66,21 +74,9 @@ export const Header = (props) => {
   };
 
   const handleSearchBtnClick = () => {
-    if (window.innerWidth >= 1024) {
-      scrollToSearchBar();
-    }
+    setIsSearchBarVisible(!isSearchBarVisible);
   };
-  // focus searchbar fun
-  // -----------------------------------------
 
-  // ------conditionally render mobile search bar------
-  // const renderMobileSearchBar = () => {
-  //   if (window.innerWidth < 1024) {
-  //     return <SearchBarPc productItems={ProductOptions} />;
-  //   } else {
-  //     return <div>Please reload the page...</div>;
-  //   }
-  // };
   // --------------------------------------------------
 
   return (
@@ -108,7 +104,7 @@ export const Header = (props) => {
                 onMouseEnter={catListClickHandler}
                 onClick={catListClickHandler}
               >
-                <span>Categories</span>
+                <span>Products</span>
                 <span className="navbar_categories_down_icon">
                   <CaretDownFilled />
                 </span>
@@ -118,19 +114,19 @@ export const Header = (props) => {
               <MinusOutlined rotate="90" />
             </li>
             <li className="navbar_menu_item">
-              <span className="navbar_offers">Offers</span>
+              <span className="navbar_offers">Farmers</span>
             </li>
             <li className="navbar_menu_items_separator">
               <MinusOutlined rotate="90" />
             </li>
             <li className="navbar_menu_item">
-              <span className="navbar_premium">Premium</span>
+              <span className="navbar_premium">Solution</span>
             </li>
             <li className="navbar_menu_items_separator">
               <MinusOutlined rotate="90" />
             </li>
             <li className="navbar_menu_item">
-              <span className="navbar_farmers_solution">Farmer's Solution</span>
+              <span className="navbar_farmers_solution">Offers</span>
             </li>
             <li className="navbar_menu_items_separator">
               <MinusOutlined rotate="90" />
@@ -163,14 +159,8 @@ export const Header = (props) => {
         <div className="navbar_utilities">
           <ul className="navbar_utilities_list">
             <li className="navbar_utilities_item">
-              <div className="navbar_cart_icon">
-                <ShoppingFilled />
-                <div className="navbar_notification_badge"></div>
-              </div>
-            </li>
-            <li className="navbar_utilities_item">
               <div className="navbar_lang_icon">
-                <img src={ChangeLangBtn} alt="change_language" />
+                <GlobalOutlined />
               </div>
             </li>
           </ul>
@@ -180,26 +170,14 @@ export const Header = (props) => {
           id="navbar_search_btn_container"
           className="navbar_search_btn_container"
         >
-          <Popup
-            trigger={
-              <button
-                onClick={handleSearchBtnClick}
-                className="navbar_search_btn"
-              >
-                <SearchOutlined />
-              </button>
-            }
-            modal
-            closeOnDocumentClick
-            lockScroll={true}
-            contentStyle={{
-              borderRadius: "12px",
-            }}
+          <button
+            onClick={handleSearchBtnClick}
+            className="navbar_search_btn_group"
           >
-            <div className="search_bar_pc">
-              <SearchBarPc productItems={ProductOptions} />
+            <div className="navbar_search_btn">
+              <SearchOutlined />
             </div>
-          </Popup>
+          </button>
         </div>
         {/* End spacer div */}
         <div className="spacer_end"></div>
@@ -217,8 +195,8 @@ export const Header = (props) => {
       {/* ------------ */}
 
       {/* ---Searcbar div for mobile device--- */}
-      <div className="search_bar_container">
-        <div className="search_bar">
+      <div className={searchBarClass}>
+        <div className="search_bar_mobile">
           {/* <SearchBarAutoComplete */}
           <SearchBarPc productItems={ProductOptions} />
         </div>

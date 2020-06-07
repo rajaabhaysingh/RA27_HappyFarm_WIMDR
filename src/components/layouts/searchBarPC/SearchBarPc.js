@@ -121,7 +121,7 @@ function SearchBarPc(props) {
                 value={productQueryPC}
                 className="input_field"
                 type="text"
-                placeholder="Search products..."
+                placeholder="Search products"
                 onChange={onProductTextChangePC}
               />
               {/* speech recognition button */}

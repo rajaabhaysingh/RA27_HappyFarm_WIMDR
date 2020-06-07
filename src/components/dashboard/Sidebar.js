@@ -100,7 +100,7 @@ export const Sidebar = (props) => {
             <span className={setIconClass(3)}>
               <ShoppingCartOutlined />
             </span>
-            <span className="sidebar_menu_selling_now">Selling now</span>
+            <span className="sidebar_menu_selling_now">My orders</span>
           </li>
           <li
             className={setBtnClass(4)}
@@ -111,7 +111,7 @@ export const Sidebar = (props) => {
             <span className={setIconClass(4)}>
               <HistoryOutlined />
             </span>
-            <span className="sidebar_menu_history">History</span>
+            <span className="sidebar_menu_history">Sales {"&"} History</span>
           </li>
           <li
             className={setBtnClass(5)}

@@ -3,7 +3,6 @@ import { render } from "react-dom";
 import App from "./App";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import MetaTags from "react-meta-tags";
 
 // Handling redux imports
 import { Provider } from "react-redux";
@@ -12,9 +11,6 @@ import store from "./redux/store/Index";
 render(
   <React.StrictMode>
     <Provider store={store}>
-      <MetaTags>
-        <meta name="theme-color" content="#ee5700" />
-      </MetaTags>
       <App />
     </Provider>
   </React.StrictMode>,

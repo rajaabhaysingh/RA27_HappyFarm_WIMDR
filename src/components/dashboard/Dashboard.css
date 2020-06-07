@@ -49,7 +49,7 @@
   .dashboard_ad {
     min-width: 250px;
     width: 20%;
-    background-color: rgb(255, 0, 191);
+    background-color: #eeeeee;
     box-shadow: inset 0px 11px 8px -10px #ccc;
     overflow: scroll;
   }

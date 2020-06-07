@@ -31,6 +31,15 @@
     display: flex;
   }
 
+  .profile_basic_info_item--focused {
+    margin-top: 8px;
+    height: 40px;
+    width: 480px;
+    border-radius: 4px;
+    border: 1px solid #ee570028;
+    display: flex;
+  }
+
   .profile_basic_info_item input {
     height: 100%;
     display: flex;
@@ -45,20 +54,41 @@
     background: none;
   }
 
-  .profile_basic_info_item button {
-    height: 40px;
-    width: 40px;
-    border-radius: 4px;
+  .profile_edit_btn--lock {
+    height: 32px;
+    width: 32px;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-left: 8px;
     outline: none;
     border: none;
     font-size: 1rem;
     background: none;
-    color: #8a8a8a;
+    color: #333333;
     cursor: pointer;
+    align-self: center;
+    background: #eeeeee;
   }
 
-  .profile_basic_info_item button:hover {
-    color: #000000;
+  .profile_edit_btn--unlock {
+    height: 32px;
+    width: 32px;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-left: 8px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    background: none;
+    color: #ee5700;
+    cursor: pointer;
+    align-self: center;
+    background: #eeeeee;
+  }
+
+  .profile_edit_btn--lock:hover,
+  .profile_edit_btn--unlock:hover {
+    background: #dddddd;
   }
 
   .profile_mob_code {
@@ -79,7 +109,7 @@
 
   .profile_mob_verified_info {
     height: 100%;
-    width: 75px;
+    width: 30px;
     color: #009900;
     font-size: 0.8rem;
     display: flex;
@@ -89,7 +119,7 @@
 
   .profile_email_verified_info {
     height: 100%;
-    width: 75px;
+    width: 30px;
     color: #990000;
     font-size: 0.8rem;
     display: flex;

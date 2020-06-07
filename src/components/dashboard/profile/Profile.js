@@ -29,15 +29,17 @@ function Profile(props) {
             selectedTabPanelClassName="profile_panel--selected"
           >
             <TabList className="profile_tab_list">
-              <Tab className="profile_tab">Basic Information</Tab>
-              <Tab className="profile_tab">Payment details</Tab>
+              <Tab className="profile_tab">Basic Info</Tab>
+              <Tab className="profile_tab">Preferences</Tab>
+              <Tab className="profile_tab">Payments</Tab>
             </TabList>
 
             {/* profile panel -- basic info */}
             <TabPanel className="profile_panel">
               <ProfileBasicInfo profileData={props.profileData} />
             </TabPanel>
-            <TabPanel className="profile_panel">Payment</TabPanel>
+            <TabPanel className="profile_panel">Preferences</TabPanel>
+            <TabPanel className="profile_panel">Payments</TabPanel>
           </Tabs>
         </div>
       </div>

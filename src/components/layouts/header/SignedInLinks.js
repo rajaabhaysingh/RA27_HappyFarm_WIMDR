@@ -4,8 +4,7 @@ import { NavLink } from "react-router-dom";
 import {
   LogoutOutlined,
   UserOutlined,
-  AreaChartOutlined,
-  ShoppingCartOutlined,
+  MessageOutlined,
   HeartOutlined,
   StarOutlined,
 } from "@ant-design/icons";
@@ -68,10 +67,12 @@ function SignedInLinks() {
           src={UserPlaceholder}
           alt="user-profile"
         />
+        <div className="signed_in_notification_badge"></div>
         {/* <div className="profile_dropdown_icon">
               <CaretDownFilled />
             </div> */}
       </div>
+
       <div
         className="signed_in_dropdown_component"
         // onMouseLeave={handleSignedInListClose}
@@ -81,7 +82,7 @@ function SignedInLinks() {
             <div className="signed_in_top_arrow"></div>
           </li>
           <li className="signed_in_item" onClick={handleOptionClick}>
-            <NavLink className="signed_in_my_profile" to="/">
+            <NavLink className="signed_in_my_profile" to="/dashboard/">
               <div className="signed_in_icon signed_in_my_profile_icon">
                 <UserOutlined />
               </div>
@@ -91,20 +92,12 @@ function SignedInLinks() {
             </NavLink>
           </li>
           <li className="signed_in_item" onClick={handleOptionClick}>
-            <NavLink className="signed_in_orders" to="/">
-              <div className="signed_in_icon signed_in_orders_icon">
-                <ShoppingCartOutlined />
+            <NavLink className="signed_in_messages" to="/">
+              <div className="signed_in_icon signed_in_message_icon">
+                <MessageOutlined />
               </div>
-              <div className="signed_in_text signed_in_orders_text">Orders</div>
-            </NavLink>
-          </li>
-          <li className="signed_in_item" onClick={handleOptionClick}>
-            <NavLink className="signed_in_dashboard" to="/dashboard">
-              <div className="signed_in_icon signed_in_dashboard_icon">
-                <AreaChartOutlined />
-              </div>
-              <div className="signed_in_text signed_in_dashboard_text">
-                Dashboard
+              <div className="signed_in_text signed_in_message_text">
+                Messages
               </div>
             </NavLink>
           </li>

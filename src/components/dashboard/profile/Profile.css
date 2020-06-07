@@ -73,7 +73,7 @@
   }
 
   .profile_tab:hover {
-    color: #333333;
+    border-bottom: 2px solid #ee5700;
   }
 
   /* .profile_tab:focus {

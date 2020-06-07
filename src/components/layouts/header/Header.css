@@ -64,6 +64,7 @@
 
   .sell_with_us_button_group {
     margin: 0 10px;
+    z-index: 999;
   }
 
   .signed_in_component {
@@ -142,35 +143,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .navbar_lang_icon img {
-    height: 25px;
-    width: 25px;
-    border-radius: 2px;
-    box-shadow: 1px 1px 2px #333333;
-  }
-
-  .navbar_cart_icon {
-    font-size: 1.5rem;
-    position: relative;
-  }
-
-  .navbar_notification_badge {
-    height: 8px;
-    width: 8px;
-    border: 2px solid #ffffff;
+    height: 24px;
+    width: 24px;
+    padding: 4px;
+    background: #333333;
+    color: #ffffff;
     border-radius: 50%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #ff0000;
+    font-size: 1.15rem;
+    box-shadow: 1px 1px 2px -1px #333333;
+    z-index: 999;
+  }
+
+  .navbar_lang_icon:hover {
+    background: #cccccc;
+    color: #000000;
   }
 
   .navbar_menu_item:hover {
     cursor: pointer;
     color: black;
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
   }
 
   .navbar_menu_item:active {
@@ -194,51 +186,70 @@
 
   .navbar_search_btn_container {
     display: flex;
-    height: 25px;
-    width: 25px;
+    height: 32px;
+    width: 32px;
     border-radius: 50%;
-    margin: 0 32px 0 10px;
+    margin: 0 32px 0 8px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
 
-  .navbar_search_btn_container .navbar_search_btn {
+  .navbar_search_btn_group {
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    background: #ee5700;
+    background: #333333;
     color: #ffffff;
     border: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     outline: none;
-    box-shadow: 1px 1px 2px #333333;
+    box-shadow: 1px 1px 2px -1px #333333;
+    z-index: 999;
   }
 
-  .navbar_search_btn_container .navbar_search_btn:active {
-    transform: scale(0.95);
+  .navbar_search_btn_group:hover {
+    background: #cccccc;
+    color: #000000;
   }
 
-  /* CSS for search bar */
-  .search_bar_container {
+  /* CSS for mobile search bar */
+
+  .search_bar_container_mobile--visible {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+  }
+
+  .search_bar_container_mobile--hidden {
     display: none;
+  }
+
+  .search_bar_mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
 }
 
+/* --- */
+/* --- */
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
   .header {
     width: 100%;
-    height: 42px;
+    height: 45px;
     position: fixed;
     top: 0px;
     left: 0;
     background-color: #ee5700;
     margin: 0;
     z-index: 9999;
+    box-shadow: 0px 3px 6px -3px rgba(0, 0, 0, 0.5);
   }
 
   .container {
@@ -247,78 +258,11 @@
     height: 100%;
   }
 
-  .cat_menu_container--hidden,
-  .cat_menu_container--visible {
-    display: none;
-  }
-
-  .navbar_menu_list,
-  .sell_with_us_button_group,
-  .navbar_search_btn_container {
-    display: none;
-  }
-
-  .navbar_utilities_list {
-    display: flex;
-    list-style-type: none;
-    font-size: 1.2rem;
-    margin-right: 4px;
-    padding: 0;
-    color: #ffffff;
-    align-items: center;
-  }
-
-  .navbar_utilities_list li {
-    margin-left: 16px;
-  }
-
-  .navbar_utilities_list li:active {
-    transform: scale(0.9);
-  }
-
-  .navbar_cart_icon {
-    font-size: 1.5rem;
-    position: relative;
-  }
-
-  .navbar_notification_badge {
-    height: 9px;
-    width: 9px;
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #ff0000;
-  }
-
-  .signed_in_component {
-  }
-
-  .signed_out_component {
-  }
-
-  .navbar_lang_icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .navbar_lang_icon img {
-    height: 25px;
-    width: 25px;
-  }
-
   .website_icon {
     height: 25px;
     margin-top: 5px;
     margin-left: 10px;
     margin-right: 10px;
-  }
-
-  .website_icon_link {
-    pointer-events: none;
-    cursor: default;
   }
 
   .hamburger_icon {
@@ -330,6 +274,34 @@
 
   .hamburger_icon:active {
     transform: scale(0.9);
+  }
+
+  .cat_menu_container--hidden,
+  .cat_menu_container--visible {
+    display: none;
+  }
+
+  .navbar_menu_list,
+  .sell_with_us_button_group {
+    display: none;
+  }
+
+  .navbar_utilities_list {
+    display: flex;
+    list-style-type: none;
+    font-size: 1.2rem;
+    margin-right: 0;
+    padding: 0;
+    color: #ffffff;
+    align-items: center;
+  }
+
+  .navbar_utilities_list li {
+    height: 40px;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .spacer_mid {
@@ -344,8 +316,63 @@
     margin-right: 10px;
   }
 
+  .navbar_lang_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    width: 26px;
+    background: #ffffff;
+    color: #ee5700;
+    border-radius: 50%;
+    font-size: 1rem;
+    box-shadow: 1px 1px 2px -1px #333333;
+    z-index: 999;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .navbar_lang_icon:active {
+    background: #cccccc;
+    color: #000000;
+  }
+
+  .navbar_search_btn_group {
+    height: 40px;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .navbar_search_btn {
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #ee5700;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    box-shadow: 1px 1px 2px #5c5c5c;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .navbar_search_btn:active {
+    background: #cccccc;
+    color: #000000;
+  }
+
   /* CSS for search bar to be used only for mobile devices*/
-  .search_bar_container {
+  .search_bar_container_mobile--visible {
     width: 100%;
     margin: -1px 0 0 0;
     height: 39px;
@@ -354,9 +381,17 @@
     background-color: #ee5700;
     box-shadow: 0px 3px 6px -3px rgba(0, 0, 0, 0.5);
     padding: 0 8px 8px 8px;
+    transition: all ease-in 0.15s;
   }
 
-  .search_bar {
+  .search_bar_container_mobile--hidden {
+    transform: translateY(-300%);
+    opacity: 0;
+    z-index: -9999;
+    transition: all ease-in 0.15s;
+  }
+
+  .search_bar_mobile {
     display: flex;
     align-items: center;
     justify-content: center;

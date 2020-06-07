@@ -2,6 +2,8 @@ import React from "react";
 import "./Home.css";
 import CategoryScroll from "./homeComponents/categoryScroll/CategoryScroll";
 
+import { Helmet } from "react-helmet";
+
 // import SingleInfoBanner from "./homeComponents/infoBanner/SingleInfoBanner";
 import DoubleInfoBannerTypeOne from "./homeComponents/infoBanner/DoubleInfoBanner";
 import TrippleInfoBanner from "../layouts/trippleInfoBanner/TrippleInfoBanner";
@@ -46,6 +48,10 @@ function Home() {
   }
   return (
     <div className="main_home_div">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Happyfarm</title>
+      </Helmet>
       <div className="category_scroll_container_mobile">
         <CategoryScroll categoryList={Categories} />
       </div>

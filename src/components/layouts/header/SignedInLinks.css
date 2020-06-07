@@ -16,12 +16,23 @@
   }
 
   .signed_in_profile_image {
-    height: 26px;
-    width: 26px;
+    height: 32px;
+    width: 32px;
     border-radius: 50%;
-    box-shadow: 1px 1px 2px #333333;
+    box-shadow: 1px 1px 2px -1px #333333;
     object-fit: cover;
     -o-object-fit: cover;
+  }
+
+  .signed_in_notification_badge {
+    height: 8px;
+    width: 8px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 15%;
+    align-self: center;
+    background: #ff0000;
   }
 
   .signed_in_dropdown_component {
@@ -89,7 +100,7 @@
   }
 
   .signed_in_my_profile,
-  .signed_in_orders,
+  .signed_in_messages,
   .signed_in_dashboard,
   .signed_in_favourites,
   .signed_in_rewards,
@@ -140,6 +151,8 @@
   }
 
   .signed_in_profile_btn {
+    height: 40px;
+    width: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,6 +170,16 @@
     -o-object-fit: cover;
   }
 
+  .signed_in_notification_badge {
+    height: 5px;
+    width: 5px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20%;
+    background: #ff0000;
+  }
+
   .signed_in_dropdown_component {
     position: relative;
     display: flex;
@@ -169,10 +192,10 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 9px;
+    top: 10px;
     padding: 0 12px 12px 12px;
     margin: 0;
-    width: 176px;
+    width: 178px;
     border-radius: 2px;
     list-style-type: none;
     background: #ffffff;
@@ -223,7 +246,7 @@
   }
 
   .signed_in_my_profile,
-  .signed_in_orders,
+  .signed_in_messages,
   .signed_in_dashboard,
   .signed_in_favourites,
   .signed_in_rewards,

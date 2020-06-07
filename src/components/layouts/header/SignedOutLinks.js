@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./SignedOutLinks.css";
 
-import { LoginOutlined } from "@ant-design/icons";
-import UserPlaceholder from "../../../res/header/user_placeholder.svg";
+import { LoginOutlined, UserOutlined } from "@ant-design/icons";
 
 import Popup from "reactjs-popup";
 import SignInUpReset from "../../auth/SignInUpReset";
@@ -63,11 +62,9 @@ function SignedOutLinks() {
         onClick={userBtnClickHandler}
         onMouseOver={userBtnClickHandler}
       >
-        <img
-          className="signed_out_profile_image"
-          src={UserPlaceholder}
-          alt="user-profile"
-        />
+        <div className="signed_out_profile_image">
+          <UserOutlined />
+        </div>
       </div>
       <div
         className="signed_out_dropdown_component"
@@ -99,8 +96,10 @@ function SignedOutLinks() {
             borderRadius: "8px",
           }}
         >
-          <SignInUpReset onClose={closeForm} />
-          {renderCloseOnDocumentClick()}
+          <div>
+            <SignInUpReset onClose={closeForm} />
+            {renderCloseOnDocumentClick()}
+          </div>
         </Popup>
       </div>
     </div>

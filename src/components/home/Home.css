@@ -130,6 +130,8 @@
   }
 }
 
+/* ---- */
+/* ---- */
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
   .main_home_div {

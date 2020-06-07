@@ -152,7 +152,7 @@ function PlacesAutocompleteComponent(props) {
           <div className="autocomplete_places_main_outer_div">
             <input
               {...getInputProps({
-                placeholder: "Select location...",
+                placeholder: "Select location",
                 className: "location_search_input",
                 autoFocus: false,
                 required: true,

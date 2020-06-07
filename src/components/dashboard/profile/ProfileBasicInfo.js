@@ -3,8 +3,10 @@ import "./ProfileBasicInfo.css";
 
 import {
   AimOutlined,
-  EditFilled,
+  LockOutlined,
+  UnlockOutlined,
   CheckCircleOutlined,
+  CloseCircleOutlined,
 } from "@ant-design/icons";
 
 import axios from "axios";
@@ -30,17 +32,7 @@ function ProfileBasicInfo(props) {
     pin: props.profileData.pin,
   });
 
-  const {
-    fullName,
-    email,
-    mobileCode,
-    mobileNumber,
-    state,
-    dist,
-    block,
-    address,
-    pin,
-  } = formState;
+  const { fullName, email, mobileCode, mobileNumber, address } = formState;
 
   const handleChange = (inputField) => (e) => {
     setFormState({
@@ -49,20 +41,53 @@ function ProfileBasicInfo(props) {
     });
   };
 
-  // editable state management
+  // input editable state management
   const [isNameDisabled, setIsNameDisabled] = useState(fullName ? true : false);
   const [isEmailDisabled, setIsEmailDisabled] = useState(email ? true : false);
   const [isMobileDisabled, setIsMobileDisabled] = useState(
     mobileNumber ? true : false
   );
-  const [isStateDisabled, setIsStateDisabled] = useState(state ? true : false);
-  const [isDistDisabled, setIsDistDisabled] = useState(dist ? true : false);
-  const [isBlockDisabled, setIsBlockDisabled] = useState(block ? true : false);
   const [isAddressDisabled, setIsAddressDisabled] = useState(
     address ? true : false
   );
-  const [isPinDisabled, setIsPinDisabled] = useState(pin ? true : false);
 
+  // returning lock/unlock icon on basis of state
+  const getNameBtnSymbol = () => {
+    if (isNameDisabled) {
+      return <LockOutlined />;
+    } else {
+      return <UnlockOutlined />;
+    }
+  };
+  const getEmailBtnSymbol = () => {
+    if (isEmailDisabled) {
+      return <LockOutlined />;
+    } else {
+      return <UnlockOutlined />;
+    }
+  };
+  const getMobileBtnSymbol = () => {
+    if (isMobileDisabled) {
+      return <LockOutlined />;
+    } else {
+      return <UnlockOutlined />;
+    }
+  };
+
+  // lock/unlock class for edit btn
+  let nameBtnLock = isNameDisabled
+    ? "profile_edit_btn--lock"
+    : "profile_edit_btn--unlock";
+
+  let emailBtnLock = isEmailDisabled
+    ? "profile_edit_btn--lock"
+    : "profile_edit_btn--unlock";
+
+  let mobileBtnLock = isMobileDisabled
+    ? "profile_edit_btn--lock"
+    : "profile_edit_btn--unlock";
+
+  // setState function for - input(s)
   const toggleNameEditable = () => {
     setIsNameDisabled(!isNameDisabled);
   };
@@ -72,20 +97,8 @@ function ProfileBasicInfo(props) {
   const toggleMobileEditable = () => {
     setIsMobileDisabled(!isMobileDisabled);
   };
-  const toggleStateEditable = () => {
-    setIsStateDisabled(!isStateDisabled);
-  };
-  const toggleDistEditable = () => {
-    setIsDistDisabled(!isDistDisabled);
-  };
-  const toggleBlockEditable = () => {
-    setIsBlockDisabled(!isBlockDisabled);
-  };
   const toggleAddressEditable = () => {
     setIsAddressDisabled(!isAddressDisabled);
-  };
-  const togglePinEditable = () => {
-    setIsPinDisabled(!isPinDisabled);
   };
   // ----------------------------------------
 
@@ -207,11 +220,8 @@ function ProfileBasicInfo(props) {
             placeholder="Enter full name"
             disabled={isNameDisabled}
           />
-          <button
-            onClick={toggleNameEditable}
-            className="profile_full_name_edit_btn"
-          >
-            <EditFilled />
+          <button onClick={toggleNameEditable} className={nameBtnLock}>
+            {getNameBtnSymbol()}
           </button>
         </div>
         <div className="profile_basic_info_label">Email:</div>
@@ -224,12 +234,13 @@ function ProfileBasicInfo(props) {
             placeholder="Enter email-ID"
             disabled={isEmailDisabled}
           />
-          <div className="profile_email_verified_info">Not verified</div>
-          <button
-            onClick={toggleEmailEditable}
-            className="profile_email_edit_btn"
-          >
-            <EditFilled />
+          <div className="profile_email_verified_info">
+            <span style={{ marginRight: "8px", fontSize: "1rem" }}>
+              <CloseCircleOutlined />
+            </span>
+          </div>
+          <button onClick={toggleEmailEditable} className={emailBtnLock}>
+            {getEmailBtnSymbol()}
           </button>
         </div>
         <div className="profile_basic_info_label">Mobile number:</div>
@@ -244,16 +255,12 @@ function ProfileBasicInfo(props) {
             disabled={isMobileDisabled}
           />
           <div className="profile_mob_verified_info">
-            <span style={{ marginRight: "8px", fontSize: "0.8rem" }}>
+            <span style={{ marginRight: "8px", fontSize: "1rem" }}>
               <CheckCircleOutlined />
             </span>
-            Verified
           </div>
-          <button
-            onClick={toggleMobileEditable}
-            className="profile_mob_edit_btn"
-          >
-            <EditFilled />
+          <button onClick={toggleMobileEditable} className={mobileBtnLock}>
+            {getMobileBtnSymbol()}
           </button>
         </div>
         <div className="profile_basic_info_label">Password:</div>
@@ -272,7 +279,7 @@ function ProfileBasicInfo(props) {
           <input
             type="text"
             className="profile_full_name_input"
-            value={address}
+            // value={address}
             defaultValue={address}
             onChange={handleChange("address")}
             placeholder="Enter address..."
@@ -284,9 +291,9 @@ function ProfileBasicInfo(props) {
           </div>
           <button
             onClick={toggleAddressEditable}
-            className="profile_full_name_edit_btn"
+            className="profile_edit_btn profile_full_name_edit_btn"
           >
-            <EditFilled />
+            <LockOutlined />
           </button>
         </div>
         <div className="profile_add_selector_component">
