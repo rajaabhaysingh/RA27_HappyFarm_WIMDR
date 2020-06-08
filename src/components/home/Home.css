@@ -135,9 +135,9 @@
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
   .main_home_div {
-    margin-top: 75px;
     display: flex;
     flex-direction: column;
+    transition: all 0.1s;
   }
 
   .category_scroll_container_pc {

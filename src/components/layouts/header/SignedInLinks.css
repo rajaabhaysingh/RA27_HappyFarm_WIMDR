@@ -192,10 +192,10 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 10px;
+    top: 4px;
     padding: 0 12px 12px 12px;
     margin: 0;
-    width: 178px;
+    width: 198px;
     border-radius: 2px;
     list-style-type: none;
     background: #ffffff;

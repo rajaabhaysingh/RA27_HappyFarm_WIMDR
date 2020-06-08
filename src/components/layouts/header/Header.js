@@ -53,28 +53,29 @@ export const Header = (props) => {
 
   // ------HEADER SEARCH BTN FUNCTIONS--------
 
-  // toggle mobile searchbar visiblity
-  const [isSearchBarVisible, setIsSearchBarVisible] = useState(true);
-
   let searchBarClass = "search_bar_container_mobile--visible";
 
-  if (!isSearchBarVisible) {
+  if (!props.isSearchBarOpen) {
     searchBarClass = "search_bar_container_mobile--hidden";
   }
 
-  // pc search btn functions
-  const scrollToSearchBar = () => {
-    if (
-      document.body.scrollTop !== 0 ||
-      document.documentElement.scrollTop !== 0
-    ) {
-      window.scrollBy(0, -250);
-      requestAnimationFrame(scrollToSearchBar);
+  // detect click outside for searchBar PC-mode
+  const detectClickOutside = () => {
+    if (window.innerWidth >= 1024 && props.isSearchBarOpen) {
+      const searchBar = document.getElementById("signed_in_main_div");
     }
   };
 
+  // handle toggle search bar condition
   const handleSearchBtnClick = () => {
-    setIsSearchBarVisible(!isSearchBarVisible);
+    props.setIsSearchBarOpen(!props.isSearchBarOpen);
+    if (window.innerWidth < 1024) {
+      if (!props.isSearchBarOpen) {
+        props.setMarginTop("91px");
+      } else {
+        props.setMarginTop("45px");
+      }
+    }
   };
 
   // --------------------------------------------------
@@ -173,6 +174,7 @@ export const Header = (props) => {
           <button
             onClick={handleSearchBtnClick}
             className="navbar_search_btn_group"
+            id="navbar_search_btn_group"
           >
             <div className="navbar_search_btn">
               <SearchOutlined />

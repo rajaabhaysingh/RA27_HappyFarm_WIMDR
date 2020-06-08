@@ -4,7 +4,7 @@ const ProfileData = {
   plan: "free",
   prefLang: "en",
   dpUrl: null,
-  fullName: null,
+  fullName: "Ram Rahim",
   email: null,
   mobileCode: "+91",
   mobileNumber: "8879034671",

@@ -37,10 +37,12 @@
   }
 
   .body_main {
+    /* margin-top: 91px; */
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 0;
+    transition: all ease-in 0.1s;
   }
 
   .side_drawer_components {

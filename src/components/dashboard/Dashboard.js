@@ -6,7 +6,14 @@ import CentralContent from "./CentralContent";
 
 import ProfileData from "./profile/ProfileData";
 
-export const Dashboard = () => {
+export const Dashboard = (props) => {
+  // close search bar by default in dashboard
+  const searchBarBtn = document.getElementById("navbar_search_btn_group");
+
+  if (searchBarBtn && props.isSearchBarOpen && window.innerWidth < 1024) {
+    searchBarBtn.click();
+  }
+
   // ----------tab state mgmt-----------
   const [currentTabNo, setCurrentTabNo] = useState(1);
 

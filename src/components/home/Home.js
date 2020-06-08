@@ -38,13 +38,20 @@ const getWidth = () => {
   return window.innerWidth;
 };
 
-function Home() {
+function Home(props) {
+  // ------search should be open by default------
+  const searchBarBtn = document.getElementById("navbar_search_btn_group");
+
+  if (searchBarBtn && !props.isSearchBarOpen && window.innerWidth < 1024) {
+    searchBarBtn.click();
+  }
+
+  // --------------------------------------
+
   // calculation border radius based on device width ad passing as props
   let borderRadiusWrapperOne = { borderRadius: "0 0 0 0" };
-  // let borderRadiusWrapperTwo = { borderRadius: "0 0 0 0" };
   if (getWidth() >= 1024) {
     borderRadiusWrapperOne = { borderRadius: "0 0 25px 25px" };
-    // borderRadiusWrapperTwo = { borderRadius: "25px 25px 25px 25px" };
   }
   return (
     <div className="main_home_div">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SideDrawer.css";
 import {
   ArrowLeftOutlined,
@@ -17,7 +17,11 @@ import {
   AppstoreOutlined,
   AndroidFilled,
   AppleFilled,
+  AreaChartOutlined,
+  UsergroupAddOutlined,
 } from "@ant-design/icons";
+
+import { NavLink } from "react-router-dom";
 
 const SideDrawer = (props) => {
   let drawerClasses = ["side_drawer"];
@@ -26,17 +30,11 @@ const SideDrawer = (props) => {
     drawerClasses = ["side_drawer", "drawer_open"];
   }
 
-  // const closeDrawer = () => {
-  //   console.log("closed");
-  // };
-
-  // sideDrawer style wrapper
-  // const sideDrawerStyle = {
-  //   transform: `translateX(${props.translatePercent})`,
-  // };
+  const handleOnClick = () => {
+    props.setIsDrawerOpen(false);
+  };
 
   return (
-    // <nav className={drawerClasses}>    ~optional
     <nav
       // style={sideDrawerStyle}
       className={drawerClasses.join(" ")}
@@ -69,47 +67,77 @@ const SideDrawer = (props) => {
       {/* sidebar menu list 1*/}
       <div className="side_drawer_menu_list">
         <ul>
-          <li className="side_drawer_menu_item">
-            <div className="side_drawer_menu_items_logo">
-              <HomeOutlined />
-            </div>
-            Home
+          <li className="side_drawer_menu_item" onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <HomeOutlined />
+              </div>
+              Home
+            </NavLink>
           </li>
-          <li>
-            <div className="side_drawer_menu_items_logo">
-              <AppstoreOutlined />
-            </div>
-            Categories
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <AppstoreOutlined />
+              </div>
+              Products
+            </NavLink>
           </li>
-          <li>
-            <div className="side_drawer_menu_items_logo">
-              <MessageOutlined />
-            </div>
-            Messages
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/dashboard/">
+              <div className="side_drawer_menu_items_logo">
+                <AreaChartOutlined />
+              </div>
+              Dashboard
+            </NavLink>
           </li>
-          <li>
-            <div className="side_drawer_menu_items_logo">
-              <UserOutlined />
-            </div>
-            Account
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <MessageOutlined />
+              </div>
+              Messages
+            </NavLink>
           </li>
-          <li>
-            <div className="side_drawer_menu_items_logo">
-              <PercentageOutlined />
-            </div>
-            Offers
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <UsergroupAddOutlined />
+              </div>
+              Farmers
+            </NavLink>
           </li>
-          <li>
-            <div className="side_drawer_menu_items_logo">
-              <StarOutlined />
-            </div>
-            Premium
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <UserOutlined />
+              </div>
+              Agro Solution
+            </NavLink>
           </li>
-          <li>
-            <div className="side_drawer_menu_items_logo">
-              <QuestionCircleOutlined />
-            </div>
-            Farmer's Solution
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <PercentageOutlined />
+              </div>
+              Offers
+            </NavLink>
+          </li>
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <StarOutlined />
+              </div>
+              Premium
+            </NavLink>
+          </li>
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <QuestionCircleOutlined />
+              </div>
+              FAQs {"&"} Help
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -118,29 +146,37 @@ const SideDrawer = (props) => {
       {/* sidebar menu list 2 */}
       <div className="side_drawer_menu_list">
         <ul>
-          <li>
-            <div className="side_drawer_menu_items_logo">
-              <PhoneOutlined />
-            </div>
-            Contact
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <PhoneOutlined rotate={90} />
+              </div>
+              Contact
+            </NavLink>
           </li>
-          <li>
-            <div className="side_drawer_menu_items_logo">
-              <InfoCircleOutlined />
-            </div>
-            About Us
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <InfoCircleOutlined />
+              </div>
+              About Us
+            </NavLink>
           </li>
-          <li>
-            <div className="side_drawer_menu_items_logo">
-              <BellOutlined />
-            </div>
-            Notification
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <BellOutlined />
+              </div>
+              Notification
+            </NavLink>
           </li>
-          <li>
-            <div className="side_drawer_menu_items_logo">
-              <AuditOutlined />
-            </div>
-            Legal
+          <li onClick={handleOnClick}>
+            <NavLink className="side_drawer_item_link" to="/">
+              <div className="side_drawer_menu_items_logo">
+                <AuditOutlined />
+              </div>
+              Legal
+            </NavLink>
           </li>
         </ul>
       </div>

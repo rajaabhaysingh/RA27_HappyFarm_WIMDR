@@ -58,29 +58,31 @@ const App = (props) => {
   const handleTouchMove = (e) => {
     const backdrop = document.getElementById("backdrop");
 
-    // DEFINING touch parameters
-    let touch = e.touches[0];
-    let change = startingX - touch.clientX;
+    if (backdrop) {
+      // DEFINING touch parameters
+      let touch = e.touches[0];
+      let change = startingX - touch.clientX;
 
-    // handling backdrop TRANSPARENCY parameters
-    let getScreenWidth = window.innerWidth;
-    if (getScreenWidth > 428) {
-      // calculate on 300px
-      let swipeRange = getScreenWidth / 2;
-      alpha = (touch.clientX / swipeRange) * 0.5;
-    } else {
-      // calculate on 70% of screen width
-      let swipeRange = 0.5 * getScreenWidth;
-      alpha = (touch.clientX / swipeRange) * 0.5;
-    }
+      // handling backdrop TRANSPARENCY parameters
+      let getScreenWidth = window.innerWidth;
+      if (getScreenWidth > 428) {
+        // calculate on 300px
+        let swipeRange = getScreenWidth / 2;
+        alpha = (touch.clientX / swipeRange) * 0.5;
+      } else {
+        // calculate on 70% of screen width
+        let swipeRange = 0.5 * getScreenWidth;
+        alpha = (touch.clientX / swipeRange) * 0.5;
+      }
 
-    // if swipes right in home screen - do nothing
-    if (change < 0) {
-      return;
-    } else {
-      backdrop.style.background = `rgba(0, 0, 0, ${alpha})`;
-      sideDrawer.style.left = "-" + change + "px";
-      sideDrawer.style.transition = "all 0s";
+      // if swipes right in home screen - do nothing
+      if (change < 0) {
+        return;
+      } else {
+        backdrop.style.background = `rgba(0, 0, 0, ${alpha})`;
+        sideDrawer.style.left = "-" + change + "px";
+        sideDrawer.style.transition = "all 0s";
+      }
     }
   };
 
@@ -90,13 +92,13 @@ const App = (props) => {
     var threshold = window.innerWidth / 5;
     if (change < threshold) {
       sideDrawer.style.left = 0;
-      sideDrawer.style.transition = "all ease-in 0.4s";
+      sideDrawer.style.transition = "all ease-in 0.15s";
     } else {
       // perform backdrop click
       backdropClickHandler();
       // set left to 0 - dafault value
       sideDrawer.style.left = "0";
-      sideDrawer.style.transition = "all ease-in 0.4s";
+      sideDrawer.style.transition = "all ease-in 0.15s";
     }
   };
 
@@ -106,6 +108,16 @@ const App = (props) => {
     backDropDark = <BackdropDark alpha={alpha} click={backdropClickHandler} />;
   }
 
+  // ------set margin and isSearchBarOpen-------
+  const [isSearchBarOpen, setIsSearchBarOpen] = useState(
+    window.innerWidth < 1024 ? true : false
+  );
+
+  const [marginTop, setMarginTop] = useState(
+    window.innerWidth < 1024 ? "91px" : "0px"
+  );
+  // -------------------------------------------
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -113,7 +125,12 @@ const App = (props) => {
         <header className="header_main">
           <TopMessage />
           {/* Passing drawerToggleClickHandler prop uner the name drawerClickHandler */}
-          <Header drawerClickHandler={drawerToggleClickHandler} />
+          <Header
+            isSearchBarOpen={isSearchBarOpen}
+            setIsSearchBarOpen={setIsSearchBarOpen}
+            setMarginTop={setMarginTop}
+            drawerClickHandler={drawerToggleClickHandler}
+          />
 
           <div
             className="side_drawer_components"
@@ -122,22 +139,95 @@ const App = (props) => {
             onTouchEnd={handleTouchEnd}
             id="side_drawer_components"
           >
-            <SideDrawer showDrawer={isDrawerOpen} translatePercent={"-100%"} />
+            <SideDrawer
+              setIsDrawerOpen={setIsDrawerOpen}
+              showDrawer={isDrawerOpen}
+              translatePercent={"-100%"}
+            />
             {backDropDark}
           </div>
           <BreadCrumbs />
         </header>
 
         {/* Body comp */}
-        <main className="body_main">
+        <main className="body_main" style={{ marginTop: `${marginTop}` }}>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/dashboard/" component={Dashboard} />
-            <Route exact path="/farmersolution/" component={FarmersSolution} />
-            <Route exact path="/offers/" component={Offers} />
-            <Route exact path="/premium/" component={Premium} />
-            <Route exact path="/contact/" component={Contact} />
-            <Route exact path="/category/" component={Category} />
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <Home
+                  {...props}
+                  isSearchBarOpen={isSearchBarOpen}
+                  setIsSearchBarOpen={setIsSearchBarOpen}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/dashboard/"
+              render={() => (
+                <Dashboard
+                  isSearchBarOpen={isSearchBarOpen}
+                  setIsSearchBarOpen={setIsSearchBarOpen}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/farmersolution/"
+              render={(props) => (
+                <FarmersSolution
+                  {...props}
+                  isSearchBarOpen={isSearchBarOpen}
+                  setIsSearchBarOpen={setIsSearchBarOpen}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/offers/"
+              render={(props) => (
+                <Offers
+                  {...props}
+                  isSearchBarOpen={isSearchBarOpen}
+                  setIsSearchBarOpen={setIsSearchBarOpen}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/premium/"
+              render={(props) => (
+                <Premium
+                  {...props}
+                  isSearchBarOpen={isSearchBarOpen}
+                  setIsSearchBarOpen={setIsSearchBarOpen}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/contact/"
+              render={(props) => (
+                <Contact
+                  {...props}
+                  isSearchBarOpen={isSearchBarOpen}
+                  setIsSearchBarOpen={setIsSearchBarOpen}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/category/"
+              render={(props) => (
+                <Category
+                  {...props}
+                  isSearchBarOpen={isSearchBarOpen}
+                  setIsSearchBarOpen={setIsSearchBarOpen}
+                />
+              )}
+            />
           </Switch>
         </main>
       </div>

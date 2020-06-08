@@ -5,7 +5,7 @@
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
   .contact_main_div {
-    margin-top: 88px;
+    /* margin-top: 88px; */
     background: #cccccc;
   }
 }

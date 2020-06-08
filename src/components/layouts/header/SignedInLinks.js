@@ -3,10 +3,10 @@ import "./SignedInLinks.css";
 import { NavLink } from "react-router-dom";
 import {
   LogoutOutlined,
-  UserOutlined,
   MessageOutlined,
   HeartOutlined,
   StarOutlined,
+  AreaChartOutlined,
 } from "@ant-design/icons";
 import UserPlaceholder from "../../../res/header/user_placeholder.svg";
 
@@ -84,10 +84,10 @@ function SignedInLinks() {
           <li className="signed_in_item" onClick={handleOptionClick}>
             <NavLink className="signed_in_my_profile" to="/dashboard/">
               <div className="signed_in_icon signed_in_my_profile_icon">
-                <UserOutlined />
+                <AreaChartOutlined />
               </div>
               <div className="signed_in_text signed_in_my_profile_text">
-                My Account
+                Dashboard
               </div>
             </NavLink>
           </li>
