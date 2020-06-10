@@ -1,7 +1,7 @@
 import React, { useState, memo, lazy, Suspense } from "react";
 import "./SignInUpReset.css";
 
-import { CloseOutlined } from "@ant-design/icons";
+import CloseOutlined from "@ant-design/icons/CloseOutlined";
 
 import LoginGraphics from "../../res/login/login_graphic.svg";
 

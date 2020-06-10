@@ -1,7 +1,8 @@
 import React, { lazy, Suspense, memo } from "react";
 import "./ProductSlider.css";
 
-import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
+import DoubleLeftOutlined from "@ant-design/icons/DoubleLeftOutlined";
+import DoubleRightOutlined from "@ant-design/icons/DoubleRightOutlined";
 
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";

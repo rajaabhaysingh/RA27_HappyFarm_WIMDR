@@ -27,6 +27,9 @@ const TrippleInfoBanner = lazy(() =>
   import("../layouts/trippleInfoBanner/TrippleInfoBanner")
 );
 const FarmerSlider = lazy(() => import("../layouts/farmerSlider/FarmerSlider"));
+const FarmerSlider_copy = lazy(() =>
+  import("../layouts/farmerSlider/FarmerSlider_copy")
+);
 const ProductSlider = lazy(() =>
   import("../layouts/productSlider/ProductSlider")
 );
@@ -124,7 +127,7 @@ function Home({ isSearchBarOpen }) {
       <div className="farmer_slider_component">
         <ErrorBoundary>
           <Suspense fallback={<FallbackLazy />}>
-            <FarmerSlider
+            <FarmerSlider_copy
               farmersList={FarmersList}
               boldHeading="Active farmers"
               normalHeading="in your area"

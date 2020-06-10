@@ -3,11 +3,9 @@ import "./PlacesAutocompleteComponent.css";
 
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
-import {
-  Loading3QuartersOutlined,
-  ArrowLeftOutlined,
-  AimOutlined,
-} from "@ant-design/icons";
+import Loading3QuartersOutlined from "@ant-design/icons/Loading3QuartersOutlined";
+import ArrowLeftOutlined from "@ant-design/icons/ArrowLeftOutlined";
+import AimOutlined from "@ant-design/icons/AimOutlined";
 
 import axios from "axios";
 import { toast } from "react-toastify";

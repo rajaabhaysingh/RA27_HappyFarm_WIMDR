@@ -3,13 +3,11 @@ import "./SignedInLinks.css";
 
 import { NavLink } from "react-router-dom";
 
-import {
-  LogoutOutlined,
-  MessageOutlined,
-  HeartOutlined,
-  StarOutlined,
-  AreaChartOutlined,
-} from "@ant-design/icons";
+import LogoutOutlined from "@ant-design/icons/LogoutOutlined";
+import MessageOutlined from "@ant-design/icons/MessageOutlined";
+import HeartOutlined from "@ant-design/icons/HeartOutlined";
+import StarOutlined from "@ant-design/icons/StarOutlined";
+import AreaChartOutlined from "@ant-design/icons/AreaChartOutlined";
 
 import UserPlaceholder from "../../../res/header/user_placeholder.svg";
 

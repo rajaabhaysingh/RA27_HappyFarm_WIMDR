@@ -3,7 +3,8 @@ import "./SignInResetPwd.css";
 
 import Popup from "reactjs-popup";
 
-import { ArrowLeftOutlined, InfoCircleOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined } from "@ant-design/icons/ArrowLeftOutlined";
+import { InfoCircleOutlined } from "@ant-design/icons/InfoCircleOutlined";
 
 function SignInResetPwd({ formValues, handleChange, prevStep }) {
   // ---local form state mgmt-----

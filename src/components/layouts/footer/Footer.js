@@ -1,17 +1,16 @@
 import React, { memo } from "react";
 import "./Footer.css";
-import {
-  FacebookOutlined as Facebook,
-  InstagramOutlined as Instagram,
-  TwitterOutlined as Twitter,
-  LinkedinOutlined as LinkedIn,
-  YoutubeOutlined as Youtube,
-  UpCircleFilled,
-  DollarCircleOutlined,
-  ShopOutlined,
-  AuditOutlined,
-  SoundOutlined,
-} from "@ant-design/icons";
+
+import FacebookOutlined from "@ant-design/icons/FacebookOutlined";
+import InstagramOutlined from "@ant-design/icons/InstagramOutlined";
+import TwitterOutlined from "@ant-design/icons/TwitterOutlined";
+import LinkedinOutlined from "@ant-design/icons/LinkedinOutlined";
+import YoutubeOutlined from "@ant-design/icons/YoutubeOutlined";
+import UpCircleFilled from "@ant-design/icons/UpCircleFilled";
+import DollarCircleOutlined from "@ant-design/icons/DollarCircleOutlined";
+import ShopOutlined from "@ant-design/icons/ShopOutlined";
+import AuditOutlined from "@ant-design/icons/AuditOutlined";
+import SoundOutlined from "@ant-design/icons/SoundOutlined";
 
 import FooterCert from "../../../res/footer/footer_cert.svg";
 
@@ -50,19 +49,19 @@ function Footer({ details }) {
             <div className="footer_contact_social_heading">FOLLOW US</div>
             <div className="footer_contact_social_icons">
               <div className="footer_social_icon facebook">
-                <Facebook />
+                <FacebookOutlined />
               </div>
               <div className="footer_social_icon instagram">
-                <Instagram />
+                <InstagramOutlined />
               </div>
               <div className="footer_social_icon twitter">
-                <Twitter />
+                <TwitterOutlined />
               </div>
               <div className="footer_social_icon linkedIn">
-                <LinkedIn />
+                <LinkedinOutlined />
               </div>
               <div className="footer_social_icon youtube">
-                <Youtube />
+                <YoutubeOutlined />
               </div>
             </div>
           </div>

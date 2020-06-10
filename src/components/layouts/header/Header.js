@@ -1,13 +1,11 @@
 import React, { useCallback, useState, memo, lazy, Suspense } from "react";
 import "./Header.css";
 
-import {
-  CaretDownFilled,
-  PlusOutlined,
-  GlobalOutlined,
-  SearchOutlined,
-  MinusOutlined,
-} from "@ant-design/icons";
+import CaretDownFilled from "@ant-design/icons/CaretDownFilled";
+import PlusOutlined from "@ant-design/icons/PlusOutlined";
+import GlobalOutlined from "@ant-design/icons/GlobalOutlined";
+import SearchOutlined from "@ant-design/icons/SearchOutlined";
+import MinusOutlined from "@ant-design/icons/MinusOutlined";
 
 import { NavLink } from "react-router-dom";
 

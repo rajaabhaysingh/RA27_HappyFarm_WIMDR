@@ -11,7 +11,7 @@ const ProductSliderList = [
     category: "Vegetable",
     basePrice: "17.00",
     pricePerUnit: "Kg",
-    addedDigit: "36",
+    addedDigit: "37",
     addedUnit: "minutes",
     location: "Aliganj, Bhagalpur",
     isNegotiable: true,

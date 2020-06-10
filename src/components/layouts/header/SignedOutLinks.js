@@ -1,7 +1,8 @@
 import React, { useState, memo, lazy, Suspense, useCallback } from "react";
 import "./SignedOutLinks.css";
 
-import { LoginOutlined, UserOutlined } from "@ant-design/icons";
+import LoginOutlined from "@ant-design/icons/LoginOutlined";
+import UserOutlined from "@ant-design/icons/UserOutlined";
 
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";

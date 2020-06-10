@@ -1,17 +1,15 @@
 import React, { memo } from "react";
 import "./Sidebar.css";
 
-import {
-  PlusOutlined,
-  HistoryOutlined,
-  UserOutlined,
-  ShoppingCartOutlined,
-  BankOutlined,
-  UserSwitchOutlined,
-  PoweroffOutlined,
-  PhoneFilled,
-  CameraFilled,
-} from "@ant-design/icons";
+import PlusOutlined from "@ant-design/icons/PlusOutlined";
+import HistoryOutlined from "@ant-design/icons/HistoryOutlined";
+import UserOutlined from "@ant-design/icons/UserOutlined";
+import ShoppingCartOutlined from "@ant-design/icons/ShoppingCartOutlined";
+import BankOutlined from "@ant-design/icons/BankOutlined";
+import UserSwitchOutlined from "@ant-design/icons/UserSwitchOutlined";
+import PoweroffOutlined from "@ant-design/icons/PoweroffOutlined";
+import PhoneFilled from "@ant-design/icons/PhoneFilled";
+import CameraFilled from "@ant-design/icons/CameraFilled";
 
 function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
   // ------active option (css) state------

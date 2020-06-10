@@ -1,11 +1,9 @@
 import React, { useCallback, useState, memo, lazy, Suspense } from "react";
 import "./SearchBarPc.css";
 
-import {
-  EnvironmentFilled,
-  SearchOutlined,
-  ArrowLeftOutlined,
-} from "@ant-design/icons";
+import EnvironmentFilled from "@ant-design/icons/EnvironmentFilled";
+import SearchOutlined from "@ant-design/icons/SearchOutlined";
+import ArrowLeftOutlined from "@ant-design/icons/ArrowLeftOutlined";
 
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";

@@ -1,13 +1,11 @@
 import React, { useCallback, memo, useState } from "react";
 import "./ProfileBasicInfo.css";
 
-import {
-  AimOutlined,
-  LockOutlined,
-  UnlockOutlined,
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-} from "@ant-design/icons";
+import AimOutlined from "@ant-design/icons/AimOutlined";
+import LockOutlined from "@ant-design/icons/LockOutlined";
+import UnlockOutlined from "@ant-design/icons/UnlockOutlined";
+import CheckCircleOutlined from "@ant-design/icons/CheckCircleOutlined";
+import CloseCircleOutlined from "@ant-design/icons/CloseCircleOutlined";
 
 import axios from "axios";
 import { toast } from "react-toastify";

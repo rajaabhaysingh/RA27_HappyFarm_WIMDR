@@ -1,7 +1,7 @@
 import React, { memo, lazy, Suspense } from "react";
 import "./Profile.css";
 
-import { InfoCircleFilled } from "@ant-design/icons";
+import InfoCircleFilled from "@ant-design/icons/InfoCircleFilled";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 

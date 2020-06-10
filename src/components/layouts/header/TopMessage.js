@@ -1,7 +1,9 @@
 import React, { memo } from "react";
 import "./TopMessage.css";
 
-import { CrownOutlined, FireOutlined, BugOutlined } from "@ant-design/icons";
+import CrownOutlined from "@ant-design/icons/CrownOutlined";
+import FireOutlined from "@ant-design/icons/FireOutlined";
+import BugOutlined from "@ant-design/icons/BugOutlined";
 
 function TopMessage() {
   return (

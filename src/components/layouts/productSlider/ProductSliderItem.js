@@ -1,13 +1,11 @@
 import React, { memo } from "react";
 import "./ProductSliderItem.css";
 
-import {
-  ClockCircleOutlined,
-  EnvironmentOutlined,
-  HeartFilled,
-  MessageFilled,
-  PhoneFilled,
-} from "@ant-design/icons";
+import ClockCircleOutlined from "@ant-design/icons/ClockCircleOutlined";
+import EnvironmentOutlined from "@ant-design/icons/EnvironmentOutlined";
+import HeartFilled from "@ant-design/icons/HeartFilled";
+import MessageFilled from "@ant-design/icons/MessageFilled";
+import PhoneFilled from "@ant-design/icons/PhoneFilled";
 
 function ProductSliderItem({
   isFresh,

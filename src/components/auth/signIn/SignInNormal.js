@@ -1,11 +1,9 @@
 import React, { memo } from "react";
 import "./SignInNormal.css";
 
-import {
-  GoogleOutlined,
-  FacebookOutlined,
-  TwitterOutlined,
-} from "@ant-design/icons";
+import { GoogleOutlined } from "@ant-design/icons/GoogleOutlined";
+import { FacebookOutlined } from "@ant-design/icons/FacebookOutlined";
+import { TwitterOutlined } from "@ant-design/icons/TwitterOutlined";
 
 function SignInNormal({ formValues, handleChange, nextStep }) {
   // ---local form state mgmt-----
@@ -56,19 +54,19 @@ function SignInNormal({ formValues, handleChange, nextStep }) {
               type="button"
               className="sign_in_using_google sign_in_using_btn"
             >
-              <GoogleOutlined /> Google
+              {/* <GoogleOutlined /> Google */}
             </button>
             <button
               type="button"
               className="sign_in_using_fb sign_in_using_btn"
             >
-              <FacebookOutlined /> Facebook
+              {/* <FacebookOutlined /> Facebook */}
             </button>
             <button
               type="button"
               className="sign_in_using_twitter sign_in_using_btn"
             >
-              <TwitterOutlined /> Twitter
+              {/* <TwitterOutlined /> Twitter */}
             </button>
           </div>
         </div>

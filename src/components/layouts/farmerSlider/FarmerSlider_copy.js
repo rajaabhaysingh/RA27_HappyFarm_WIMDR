@@ -1,8 +1,7 @@
 import React, { memo, lazy, Suspense } from "react";
 import "./FarmerSlider.css";
 
-import DoubleLeftOutlined from "@ant-design/icons/DoubleLeftOutlined";
-import DoubleRightOutlined from "@ant-design/icons/DoubleRightOutlined";
+import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";

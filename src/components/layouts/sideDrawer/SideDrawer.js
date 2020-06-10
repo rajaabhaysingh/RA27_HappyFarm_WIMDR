@@ -1,26 +1,24 @@
-import React, { useState, memo } from "react";
+import React, { memo } from "react";
 import "./SideDrawer.css";
 
-import {
-  ArrowLeftOutlined,
-  GlobalOutlined,
-  PlusOutlined,
-  HomeOutlined,
-  AuditOutlined,
-  BellOutlined,
-  InfoCircleOutlined,
-  PhoneOutlined,
-  QuestionCircleOutlined,
-  StarOutlined,
-  PercentageOutlined,
-  UserOutlined,
-  MessageOutlined,
-  AppstoreOutlined,
-  AndroidFilled,
-  AppleFilled,
-  AreaChartOutlined,
-  UsergroupAddOutlined,
-} from "@ant-design/icons";
+import ArrowLeftOutlined from "@ant-design/icons/ArrowLeftOutlined";
+import GlobalOutlined from "@ant-design/icons/GlobalOutlined";
+import PlusOutlined from "@ant-design/icons/PlusOutlined";
+import HomeOutlined from "@ant-design/icons/HomeOutlined";
+import AuditOutlined from "@ant-design/icons/AuditOutlined";
+import BellOutlined from "@ant-design/icons/BellOutlined";
+import InfoCircleOutlined from "@ant-design/icons/InfoCircleOutlined";
+import PhoneOutlined from "@ant-design/icons/PhoneOutlined";
+import QuestionCircleOutlined from "@ant-design/icons/QuestionCircleOutlined";
+import StarOutlined from "@ant-design/icons/StarOutlined";
+import PercentageOutlined from "@ant-design/icons/PercentageOutlined";
+import UserOutlined from "@ant-design/icons/UserOutlined";
+import MessageOutlined from "@ant-design/icons/MessageOutlined";
+import AppstoreOutlined from "@ant-design/icons/AppstoreOutlined";
+import AndroidFilled from "@ant-design/icons/AndroidFilled";
+import AppleFilled from "@ant-design/icons/AppleFilled";
+import AreaChartOutlined from "@ant-design/icons/AreaChartOutlined";
+import UsergroupAddOutlined from "@ant-design/icons/UsergroupAddOutlined";
 
 import { NavLink } from "react-router-dom";
 
