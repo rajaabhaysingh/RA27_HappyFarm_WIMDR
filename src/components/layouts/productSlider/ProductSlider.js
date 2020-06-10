@@ -1,9 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense, memo } from "react";
 import "./ProductSlider.css";
-import ProductSliderItem from "./ProductSliderItem";
+
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 
-function ProductSlider(props) {
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const ProductSliderItem = lazy(() => import("./ProductSliderItem"));
+
+function ProductSlider({ boldHeading, normalHeading, productsList }) {
   return (
     <div className="product_slider_main_div">
       <div className="product_slider_inner_main_div">
@@ -11,9 +16,9 @@ function ProductSlider(props) {
           <div className="product_slider_header_content">
             <div className="product_slider_header_heading">
               <span>
-                <strong>{props.boldHeading}</strong>
+                <strong>{boldHeading}</strong>
               </span>
-              <span> {props.normalHeading} </span>
+              <span> {normalHeading} </span>
             </div>
             <div className="product_slider_header_view_all">
               <button>View all</button>
@@ -25,24 +30,28 @@ function ProductSlider(props) {
             <DoubleLeftOutlined />
           </div>
           <div className="product_slider_container">
-            {props.productsList.map((product) => (
-              <ProductSliderItem
-                key={product.id}
-                id={product.id}
-                isFresh={product.isFresh}
-                imageURL={product.imageURL}
-                name={product.name}
-                otherSellers={product.otherSellers}
-                type={product.type}
-                category={product.category}
-                basePrice={product.basePrice}
-                pricePerUnit={product.pricePerUnit}
-                addedDigit={product.addedDigit}
-                addedUnit={product.addedUnit}
-                location={product.location}
-                isNegotiable={product.isNegotiable}
-                sellerId={product.sellerId}
-              />
+            {productsList.map((product) => (
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <ProductSliderItem
+                    key={product.id}
+                    id={product.id}
+                    isFresh={product.isFresh}
+                    imageURL={product.imageURL}
+                    name={product.name}
+                    otherSellers={product.otherSellers}
+                    type={product.type}
+                    category={product.category}
+                    basePrice={product.basePrice}
+                    pricePerUnit={product.pricePerUnit}
+                    addedDigit={product.addedDigit}
+                    addedUnit={product.addedUnit}
+                    location={product.location}
+                    isNegotiable={product.isNegotiable}
+                    sellerId={product.sellerId}
+                  />
+                </Suspense>
+              </ErrorBoundary>
             ))}
           </div>
           <div className="product_slider_right_arrow">
@@ -54,4 +63,4 @@ function ProductSlider(props) {
   );
 }
 
-export default ProductSlider;
+export default memo(ProductSlider);

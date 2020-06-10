@@ -42,7 +42,6 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    border-radius: 0 0 0 0;
   }
 
   .carousel_slide_container {
@@ -54,7 +53,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 0 0 0 0;
   }
 
   .carousel_image {
@@ -62,7 +60,5 @@
     width: 100%;
     box-sizing: border-box;
     object-fit: cover;
-    object-fit: cover;
-    cursor: pointer;
   }
 }

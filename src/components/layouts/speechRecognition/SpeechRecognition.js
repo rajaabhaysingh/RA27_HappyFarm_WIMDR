@@ -1,8 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
+import "./SpeechRecognition.css";
+
 import PropTypes from "prop-types";
 import SpeechRecognition from "react-speech-recognition";
 import { AudioOutlined } from "@ant-design/icons";
-import "./SpeechRecognition.css";
 
 const propTypes = {
   // Props injected by SpeechRecognition
@@ -61,4 +62,4 @@ let options = {
   continuous: false,
 };
 
-export default SpeechRecognition(options)(Dictaphone);
+export default memo(SpeechRecognition(options)(Dictaphone));

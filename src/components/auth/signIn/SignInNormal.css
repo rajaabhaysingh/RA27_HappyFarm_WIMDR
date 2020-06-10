@@ -11,7 +11,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
   }
 
   .sign_in_email_mob,
@@ -26,11 +25,6 @@
     padding: 0 8px;
     font-size: 1rem;
     color: #333333;
-    /* font-weight: bold; */
-  }
-
-  .sign_in_email_mob {
-    /* margin-top: 16px; */
   }
 
   .sign_in_pwd {
@@ -60,7 +54,6 @@
     font-size: 0.9rem;
     color: #ee5700;
     cursor: pointer;
-    /* font-weight: bold; */
   }
 
   .sign_in_forgot_pwd:hover {
@@ -80,7 +73,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* flex: 1; */
     width: 100%;
     font-size: 1rem;
     font-weight: bold;
@@ -150,7 +142,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
   }
 
   .sign_in_email_mob,
@@ -168,17 +159,12 @@
     font-weight: bold;
   }
 
-  .sign_in_email_mob {
-    /* margin-top: 16px; */
-  }
-
   .sign_in_pwd {
     margin-top: 8px;
   }
 
   .sign_in_login_btn {
     margin-top: 16px;
-    /* width: 80px; */
     padding: 0 32px;
     height: 35px;
     border-radius: 4px;

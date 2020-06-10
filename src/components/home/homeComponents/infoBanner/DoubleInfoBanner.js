@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./DoubleInfoBanner.css";
 
 function DoubleInfoBanner() {
@@ -14,4 +14,4 @@ function DoubleInfoBanner() {
   );
 }
 
-export default DoubleInfoBanner;
+export default memo(DoubleInfoBanner);

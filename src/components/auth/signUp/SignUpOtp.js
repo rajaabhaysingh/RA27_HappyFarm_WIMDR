@@ -1,17 +1,19 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, memo } from "react";
 import "./SignUpOtp.css";
 
-function SignUpOtp(props) {
+function SignUpOtp({ formValues, handleChange, nextStep, prevStep }) {
   // ---local form state mgmt-----
-  const { formValues, handleChange, nextStep, prevStep } = props;
-
   const handleConfirm = (e) => {
-    // verify otp
-    // if successful
-    nextStep();
-    // else
-    // error popup
-    e.preventDefault();
+    try {
+      // verify otp
+      // if successful
+      nextStep();
+      e.preventDefault();
+      // else
+      // error popup
+    } catch (error) {
+      console.log(error);
+    }
   };
   // -----------------------------
 
@@ -118,4 +120,4 @@ function SignUpOtp(props) {
   );
 }
 
-export default SignUpOtp;
+export default memo(SignUpOtp);

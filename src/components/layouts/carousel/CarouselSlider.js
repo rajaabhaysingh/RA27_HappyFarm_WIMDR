@@ -1,12 +1,12 @@
-import React from "react";
+import React, { memo } from "react";
 import "./CarouselSlider.css";
 
 import "react-responsive-carousel/lib/styles/carousel.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
-function CarouselSlider(props) {
+function CarouselSlider({ slides, borderRadius }) {
   return (
-    <div style={props.borderRadius} className="carousel_main_div">
+    <div style={borderRadius} className="carousel_main_div">
       <Carousel
         autoPlay
         showThumbs={false}
@@ -17,7 +17,7 @@ function CarouselSlider(props) {
         showStatus={false}
         showIndicators
       >
-        {props.slides.map((slide) => (
+        {slides.map((slide) => (
           <div
             className="carousel_slide_container"
             key={slide.name}
@@ -31,4 +31,4 @@ function CarouselSlider(props) {
   );
 }
 
-export default CarouselSlider;
+export default memo(CarouselSlider);

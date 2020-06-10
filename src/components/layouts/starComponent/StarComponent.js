@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./StarComponent.css";
 
 import FullStar from "../../../res/farmerSlider/star_full.svg";
@@ -124,4 +124,4 @@ function StarComponent(props) {
   return <div>{renderRating()}</div>;
 }
 
-export default StarComponent;
+export default memo(StarComponent);

@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useCallback, useState, memo, lazy, Suspense } from "react";
+import "./SearchBarPc.css";
+
 import {
   EnvironmentFilled,
   SearchOutlined,
   ArrowLeftOutlined,
 } from "@ant-design/icons";
-import "./SearchBarPc.css";
-import SpeechRecognition from "../speechRecognition/SpeechRecognition";
-import PlacesAutocompleteComponent from "../placesAutocomplete/PlacesAutocompleteComponent";
 
-function SearchBarPc(props) {
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const SpeechRecognition = lazy(() =>
+  import("../speechRecognition/SpeechRecognition")
+);
+const PlacesAutocompleteComponent = lazy(() =>
+  import("../placesAutocomplete/PlacesAutocompleteComponent")
+);
+
+function SearchBarPc({ productItems }) {
   // useState hook to define initial Product search result state
   const [productSuggestionStatePC, setProductSuggestionStatePC] = useState({
     productSuggestionPC: [],
@@ -19,46 +28,42 @@ function SearchBarPc(props) {
   const { productQueryPC } = productSuggestionStatePC;
 
   // onProduct change state
-  const onProductTextChangePC = (e) => {
-    // setProductSuggestionStatePC
+  const onProductTextChangePC = useCallback(
+    (e) => {
+      const enteredProduct = e.target.value;
+      let productSuggestionPC = [];
 
-    // Destructuring props
-    const { productItems } = props;
-    const enteredProduct = e.target.value;
-    let productSuggestionPC = [];
+      // Product list filtering and list population
+      if (enteredProduct.length > 0) {
+        const prod_regex = new RegExp(`^${enteredProduct}`, "i");
+        productSuggestionPC = productItems
+          .sort()
+          .filter((v) => prod_regex.test(v));
+      }
 
-    // Product list filtering and list population
-    if (enteredProduct.length > 0) {
-      const prod_regex = new RegExp(`^${enteredProduct}`, "i");
-      productSuggestionPC = productItems
-        .sort()
-        .filter((v) => prod_regex.test(v));
-    }
+      setProductSuggestionStatePC({
+        ...productSuggestionStatePC,
+        productSuggestionPC,
+        productQueryPC: enteredProduct,
+      });
+    },
+    [productSuggestionStatePC, productItems]
+  );
 
-    setProductSuggestionStatePC({
-      ...productSuggestionStatePC,
-      productSuggestionPC,
-      productQueryPC: enteredProduct,
-    });
-  };
-
-  // // close product list
-  // const closeProductListPC = (enteredProduct) => {
-  //   // capturing click outside the list and closing list
-  //   const list = document.getElementById("searchbar_main_div");
-  //   document.body.addEventListener("click", function (event) {
-  //     if (!list.contains(event.target)) {
-  //       setProductSuggestionStatePC({
-  //         ...productSuggestionStatePC,
-  //         productQueryPC: enteredProduct,
-  //         productSuggestionPC: [],
-  //       });
-  //     }
-  //   });
-  // };
+  // Handling on-select suggestions item - for Products
+  const productSuggestionSelectedPC = useCallback(
+    (value) => {
+      setProductSuggestionStatePC({
+        ...productSuggestionStatePC,
+        productSuggestionPC: [],
+        productQueryPC: value,
+      });
+    },
+    [productSuggestionStatePC]
+  );
 
   // Rendering product suggestion list
-  const renderProductSuggestionPC = () => {
+  const renderProductSuggestionPC = useCallback(() => {
     const { productSuggestionPC } = productSuggestionStatePC;
     if (productSuggestionPC.length === 0) {
       return null;
@@ -76,31 +81,30 @@ function SearchBarPc(props) {
         ))}
       </ul>
     );
-  };
-
-  // Handling on-select suggestions item - for Products
-  const productSuggestionSelectedPC = (value) => {
-    setProductSuggestionStatePC({
-      ...productSuggestionStatePC,
-      productSuggestionPC: [],
-      productQueryPC: value,
-    });
-  };
+  }, [productSuggestionStatePC, productSuggestionSelectedPC]);
 
   // handle form submit
   const handleSubmit = (e) => {
-    e.preventDefault();
+    try {
+      //search
+      e.preventDefault();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // --------------------------------------------------
   // -------SPEECH RECOGNITION BLOCK STARTS HERE-------
-  const searchFromSpeech = (query) => {
-    setProductSuggestionStatePC({
-      ...productSuggestionStatePC,
-      productSuggestionPC: [],
-      productQueryPC: query,
-    });
-  };
+  const searchFromSpeech = useCallback(
+    (query) => {
+      setProductSuggestionStatePC({
+        ...productSuggestionStatePC,
+        productSuggestionPC: [],
+        productQueryPC: query,
+      });
+    },
+    [productSuggestionStatePC]
+  );
   // --------SPEECH RECOGNITION BLOCK ENDS HERE--------
   // --------------------------------------------------
 
@@ -125,7 +129,11 @@ function SearchBarPc(props) {
                 onChange={onProductTextChangePC}
               />
               {/* speech recognition button */}
-              <SpeechRecognition searchFromSpeech={searchFromSpeech} />
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <SpeechRecognition searchFromSpeech={searchFromSpeech} />
+                </Suspense>
+              </ErrorBoundary>
             </div>
             {/* <div> for location icon */}
             <div className="location_icon">
@@ -134,7 +142,11 @@ function SearchBarPc(props) {
             <div className="loc_search_fields">
               {/* Input field for location search */}
               <div className="places_autocomplete_component">
-                <PlacesAutocompleteComponent />
+                <ErrorBoundary>
+                  <Suspense fallback={<FallbackLazy />}>
+                    <PlacesAutocompleteComponent />
+                  </Suspense>
+                </ErrorBoundary>
               </div>
               {/* search btn */}
               <button type="submit" className="search_button">
@@ -149,4 +161,4 @@ function SearchBarPc(props) {
   );
 }
 
-export default SearchBarPc;
+export default memo(SearchBarPc);

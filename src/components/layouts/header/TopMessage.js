@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./TopMessage.css";
 
 import { CrownOutlined, FireOutlined, BugOutlined } from "@ant-design/icons";
@@ -38,4 +38,4 @@ function TopMessage() {
   );
 }
 
-export default TopMessage;
+export default memo(TopMessage);

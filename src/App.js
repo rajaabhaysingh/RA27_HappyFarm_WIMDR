@@ -1,20 +1,34 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  memo,
+  lazy,
+  Suspense,
+  useCallback,
+} from "react";
 import "./App.css";
 
-import { Header } from "./components/layouts/header/Header";
-import Home from "./components/home/Home";
-import { Dashboard } from "./components/dashboard/Dashboard";
-import { FarmersSolution } from "./components/farmersSolution/FarmersSolution";
-import Category from "./components/category/Category";
-import Contact from "./components/contact/Contact";
-import Offers from "./components/offers/Offers";
-import Premium from "./components/premium/Premium";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import TopMessage from "./components/layouts/header/TopMessage";
+import FallbackLazy from "./components/FallbackLazy";
+import ErrorBoundary from "./components/errorBoundary/ErrorBoundary";
+
 import SideDrawer from "./components/layouts/sideDrawer/SideDrawer";
 import BackdropDark from "./components/backdrop/BackdropDark";
-import BreadCrumbs from "./components/layouts/breadCrumbs/BreadCrumbs";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import { FarmersSolution } from "./components/farmersSolution/FarmersSolution";
+const Header = lazy(() => import("./components/layouts/header/Header"));
+const Home = lazy(() => import("./components/home/Home"));
+const Dashboard = lazy(() => import("./components/dashboard/Dashboard"));
+const Category = lazy(() => import("./components/category/Category"));
+const Contact = lazy(() => import("./components/contact/Contact"));
+const Offers = lazy(() => import("./components/offers/Offers"));
+const Premium = lazy(() => import("./components/premium/Premium"));
+const TopMessage = lazy(() => import("./components/layouts/header/TopMessage"));
+const BreadCrumbs = lazy(() =>
+  import("./components/layouts/breadCrumbs/BreadCrumbs")
+);
 
 const App = (props) => {
   // default backdrop TRANSARENCY
@@ -32,11 +46,11 @@ const App = (props) => {
   let prevDrawerOpen = prevDrawerStateRef.current;
 
   // toggles isDrawerOpen state of component
-  let drawerToggleClickHandler = () => {
+  let drawerToggleClickHandler = useCallback(() => {
     setIsDrawerOpen(() => {
       return { isDrawerOpen: !prevDrawerOpen };
     });
-  };
+  }, [prevDrawerOpen]);
 
   //backdrop click handler
   const backdropClickHandler = () => {
@@ -123,14 +137,22 @@ const App = (props) => {
       <div className="App">
         {/* Main header components */}
         <header className="header_main">
-          <TopMessage />
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <TopMessage />
+            </Suspense>
+          </ErrorBoundary>
           {/* Passing drawerToggleClickHandler prop uner the name drawerClickHandler */}
-          <Header
-            isSearchBarOpen={isSearchBarOpen}
-            setIsSearchBarOpen={setIsSearchBarOpen}
-            setMarginTop={setMarginTop}
-            drawerClickHandler={drawerToggleClickHandler}
-          />
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <Header
+                isSearchBarOpen={isSearchBarOpen}
+                setIsSearchBarOpen={setIsSearchBarOpen}
+                setMarginTop={setMarginTop}
+                drawerClickHandler={drawerToggleClickHandler}
+              />
+            </Suspense>
+          </ErrorBoundary>
 
           <div
             className="side_drawer_components"
@@ -139,100 +161,112 @@ const App = (props) => {
             onTouchEnd={handleTouchEnd}
             id="side_drawer_components"
           >
-            <SideDrawer
-              setIsDrawerOpen={setIsDrawerOpen}
-              showDrawer={isDrawerOpen}
-              translatePercent={"-100%"}
-            />
+            <ErrorBoundary>
+              <Suspense fallback={<FallbackLazy />}>
+                <SideDrawer
+                  setIsDrawerOpen={setIsDrawerOpen}
+                  showDrawer={isDrawerOpen}
+                  translatePercent={"-100%"}
+                />
+              </Suspense>
+            </ErrorBoundary>
             {backDropDark}
           </div>
-          <BreadCrumbs />
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <BreadCrumbs />
+            </Suspense>
+          </ErrorBoundary>
         </header>
 
         {/* Body comp */}
         <main className="body_main" style={{ marginTop: `${marginTop}` }}>
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={(props) => (
-                <Home
-                  {...props}
-                  isSearchBarOpen={isSearchBarOpen}
-                  setIsSearchBarOpen={setIsSearchBarOpen}
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <Switch>
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => (
+                    <Home
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              exact
-              path="/dashboard/"
-              render={() => (
-                <Dashboard
-                  isSearchBarOpen={isSearchBarOpen}
-                  setIsSearchBarOpen={setIsSearchBarOpen}
+                <Route
+                  exact
+                  path="/dashboard/"
+                  render={() => (
+                    <Dashboard
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              exact
-              path="/farmersolution/"
-              render={(props) => (
-                <FarmersSolution
-                  {...props}
-                  isSearchBarOpen={isSearchBarOpen}
-                  setIsSearchBarOpen={setIsSearchBarOpen}
+                <Route
+                  exact
+                  path="/farmersolution/"
+                  render={(props) => (
+                    <FarmersSolution
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              exact
-              path="/offers/"
-              render={(props) => (
-                <Offers
-                  {...props}
-                  isSearchBarOpen={isSearchBarOpen}
-                  setIsSearchBarOpen={setIsSearchBarOpen}
+                <Route
+                  exact
+                  path="/offers/"
+                  render={(props) => (
+                    <Offers
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              exact
-              path="/premium/"
-              render={(props) => (
-                <Premium
-                  {...props}
-                  isSearchBarOpen={isSearchBarOpen}
-                  setIsSearchBarOpen={setIsSearchBarOpen}
+                <Route
+                  exact
+                  path="/premium/"
+                  render={(props) => (
+                    <Premium
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              exact
-              path="/contact/"
-              render={(props) => (
-                <Contact
-                  {...props}
-                  isSearchBarOpen={isSearchBarOpen}
-                  setIsSearchBarOpen={setIsSearchBarOpen}
+                <Route
+                  exact
+                  path="/contact/"
+                  render={(props) => (
+                    <Contact
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route
-              exact
-              path="/category/"
-              render={(props) => (
-                <Category
-                  {...props}
-                  isSearchBarOpen={isSearchBarOpen}
-                  setIsSearchBarOpen={setIsSearchBarOpen}
+                <Route
+                  exact
+                  path="/category/"
+                  render={(props) => (
+                    <Category
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
                 />
-              )}
-            />
-          </Switch>
+              </Switch>
+            </Suspense>
+          </ErrorBoundary>
         </main>
       </div>
     </BrowserRouter>
   );
 };
 
-export default App;
+export default memo(App);

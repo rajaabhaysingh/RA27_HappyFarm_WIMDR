@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./SingleInfoBanner.css";
 
 function SingleInfoBanner() {
@@ -9,4 +9,4 @@ function SingleInfoBanner() {
   );
 }
 
-export default SingleInfoBanner;
+export default memo(SingleInfoBanner);

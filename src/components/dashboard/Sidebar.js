@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Sidebar.css";
 
 import {
@@ -13,10 +13,10 @@ import {
   CameraFilled,
 } from "@ant-design/icons";
 
-export const Sidebar = (props) => {
+function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
   // ------active option (css) state------
   const setBtnClass = (tab) => {
-    if (tab === props.currentTabNo) {
+    if (tab === currentTabNo) {
       return "sidebar_menu_item--active";
     } else {
       return "sidebar_menu_item";
@@ -24,7 +24,7 @@ export const Sidebar = (props) => {
   };
 
   const setIconClass = (tab) => {
-    if (tab === props.currentTabNo) {
+    if (tab === currentTabNo) {
       return "sidebar_menu_item_icon--active";
     } else {
       return "sidebar_menu_item_icon";
@@ -32,7 +32,7 @@ export const Sidebar = (props) => {
   };
   // -------------------------------------
 
-  let { fullName, plan, mobileCode, mobileNumber } = props.profileData;
+  let { fullName, plan, mobileCode, mobileNumber } = profileData;
   if (!fullName) {
     fullName = "User";
   }
@@ -72,7 +72,7 @@ export const Sidebar = (props) => {
           <li
             className={setBtnClass(1)}
             onClick={() => {
-              props.setCurrentTabNo(1);
+              setCurrentTabNo(1);
             }}
           >
             <span className={setIconClass(1)}>
@@ -83,7 +83,7 @@ export const Sidebar = (props) => {
           <li
             className={setBtnClass(2)}
             onClick={() => {
-              props.setCurrentTabNo(2);
+              setCurrentTabNo(2);
             }}
           >
             <span className={setIconClass(2)}>
@@ -94,7 +94,7 @@ export const Sidebar = (props) => {
           <li
             className={setBtnClass(3)}
             onClick={() => {
-              props.setCurrentTabNo(3);
+              setCurrentTabNo(3);
             }}
           >
             <span className={setIconClass(3)}>
@@ -105,7 +105,7 @@ export const Sidebar = (props) => {
           <li
             className={setBtnClass(4)}
             onClick={() => {
-              props.setCurrentTabNo(4);
+              setCurrentTabNo(4);
             }}
           >
             <span className={setIconClass(4)}>
@@ -116,7 +116,7 @@ export const Sidebar = (props) => {
           <li
             className={setBtnClass(5)}
             onClick={() => {
-              props.setCurrentTabNo(5);
+              setCurrentTabNo(5);
             }}
           >
             <span className={setIconClass(5)}>
@@ -134,4 +134,6 @@ export const Sidebar = (props) => {
       </div>
     </div>
   );
-};
+}
+
+export default memo(Sidebar);

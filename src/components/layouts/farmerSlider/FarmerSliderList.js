@@ -1,4 +1,4 @@
-import Placeholder from "../../../res/farmerSlider/placeholder.png";
+import Placeholder from "../../../res/categoryScroll/placeholder.svg";
 
 const FarmerSliderList = [
   {

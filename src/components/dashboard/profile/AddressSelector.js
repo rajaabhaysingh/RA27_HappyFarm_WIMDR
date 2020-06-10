@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import Async, { makeAsyncSelect } from "react-select/async";
 
@@ -10,4 +10,4 @@ function AddressSelector() {
   );
 }
 
-export default AddressSelector;
+export default memo(AddressSelector);

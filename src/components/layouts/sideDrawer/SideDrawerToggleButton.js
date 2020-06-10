@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import "./SideDrawerToggleButton.css";
 
-function SideDrawerToggleButton(props) {
+function SideDrawerToggleButton({ click }) {
   return (
-    <div className="toggle_button" onClick={props.click}>
+    <div className="toggle_button" onClick={click}>
       <div className="toggle_button_lines"></div>
       <div className="toggle_button_lines"></div>
       <div className="toggle_button_lines"></div>
@@ -11,4 +11,4 @@ function SideDrawerToggleButton(props) {
   );
 }
 
-export default SideDrawerToggleButton;
+export default memo(SideDrawerToggleButton);

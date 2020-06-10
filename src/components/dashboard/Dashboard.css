@@ -64,7 +64,4 @@
 /* --- */
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
-  .dashboard_main_div {
-    /* margin-top: 88px; */
-  }
 }

@@ -3,11 +3,11 @@
   .farmer_slider_item_main_div {
     margin: 4px;
     min-width: 150px;
-    border: 1px solid #e9cab8;
+    border: 1px solid #dddddd;
     border-radius: 4px;
     background: #ffffff;
     box-sizing: border-box;
-    box-shadow: 1px 1px 5px -1px #b1b1b1;
+    /* box-shadow: 0 0 4px #b1b1b1; */
   }
 
   .farmer_slider_item {
@@ -37,7 +37,6 @@
 
   .farmer_slider_item_profile:hover > .farmer_slider_item_image img {
     transition: all 0.1s;
-    box-shadow: 1px 1px 4px #494949;
     transform: scale(1.05);
   }
 
@@ -45,7 +44,6 @@
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    box-shadow: 1px 1px 4px #5c5c5c;
     object-fit: cover;
     -o-object-fit: cover;
   }
@@ -59,8 +57,7 @@
 
   .farmer_slider_name {
     width: 100%;
-    margin-top: 2px;
-    font-family: "Arial", Helvetica, sans-serif;
+    margin-top: 4px;
     font-size: 0.8rem;
     color: #000000;
     font-weight: bold;
@@ -105,7 +102,6 @@
   }
 
   .farmer_slider_show_product_link {
-    font-family: "Arial", Helvetica, sans-serif;
     font-size: 0.8rem;
     cursor: pointer;
     text-align: center;
@@ -135,7 +131,6 @@
     background: #fffbef;
     border-radius: 2px;
     color: #000000;
-    font-family: "Arial", Helvetica, sans-serif;
     font-weight: bold;
     font-size: 0.8rem;
     cursor: pointer;
@@ -153,6 +148,8 @@
   }
 }
 
+/* --- */
+/* --- */
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
   .farmer_slider_item_main_div {
@@ -162,7 +159,6 @@
     border-radius: 6px;
     background: #ffffff;
     box-sizing: border-box;
-    box-shadow: 0 0 5px -1px #b1b1b1;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -185,15 +181,10 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  .farmer_slider_item_profile:active > .farmer_slider_item_image img {
-    box-shadow: 1px 1px 4px #5c5c5c;
-  }
-
   .farmer_slider_item_image img {
     height: 55px;
     width: 55px;
     border-radius: 50%;
-    box-shadow: 1px 1px 4px #5c5c5c;
     object-fit: cover;
     -o-object-fit: cover;
   }
@@ -206,9 +197,7 @@
   }
 
   .farmer_slider_name {
-    /* width: 100%; */
     margin-top: 4px;
-    font-family: "Arial", Helvetica, sans-serif;
     font-size: 0.8rem;
     color: #000000;
     font-weight: bold;
@@ -220,8 +209,6 @@
   }
 
   .farmer_slider_place {
-    /* width: 100%; */
-    font-family: "Arial", Helvetica, sans-serif;
     font-size: 0.7rem;
     color: #5c5c5c;
     text-align: center;
@@ -253,7 +240,6 @@
 
   .farmer_slider_show_product_link {
     margin-top: 2px;
-    font-family: "Arial", Helvetica, sans-serif;
     font-size: 0.75rem;
     color: #ee5700;
     font-weight: bold;
@@ -294,7 +280,6 @@
     background: #ee5700;
     border-radius: 3px;
     color: #fff;
-    font-family: "Arial", Helvetica, sans-serif;
     font-weight: bold;
     -webkit-tap-highlight-color: transparent;
   }

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import "./MenuTab.css";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
-function MenuTab(props) {
+function MenuTab({ catList }) {
   return (
     <div className="menu_tab_main_div">
       <Tabs
@@ -15,14 +15,14 @@ function MenuTab(props) {
         selectedTabPanelClassName="category_panel--selected"
       >
         <TabList className="category_tab_list">
-          {props.catList.map((subCat) => (
+          {catList.map((subCat) => (
             <Tab key={subCat.id} className="category_tab">
               {subCat.heading}
             </Tab>
           ))}
         </TabList>
 
-        {props.catList.map((subCat) => (
+        {catList.map((subCat) => (
           <TabPanel key={subCat.id} className="category_panel">
             <div className="category_panel_data">
               {subCat.items.map((item) => (
@@ -38,4 +38,4 @@ function MenuTab(props) {
   );
 }
 
-export default MenuTab;
+export default memo(MenuTab);

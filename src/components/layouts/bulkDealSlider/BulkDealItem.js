@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, memo, lazy, Suspense } from "react";
 import "./BulkDealItem.css";
+
 import {
   ClockCircleOutlined,
   EnvironmentOutlined,
@@ -7,10 +8,27 @@ import {
   PhoneFilled,
   MessageFilled,
 } from "@ant-design/icons";
-import StarComponent from "../starComponent/StarComponent";
-import ProgressBar from "../progressBar/ProgressBar";
 
-function BulkDealItem(props) {
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const StarComponent = lazy(() => import("../starComponent/StarComponent"));
+const ProgressBar = lazy(() => import("../progressBar/ProgressBar"));
+
+function BulkDealItem({
+  imageURL,
+  name,
+  breed,
+  category,
+  location,
+  lotSizeDigit,
+  lotSizeUnit,
+  basePrice,
+  pricePerUnit,
+  sellerRating,
+  delTime,
+  soldPercent,
+}) {
   const [bookQtyUnit, setBookQtyUnit] = useState("kg");
 
   const handleChange = (event) => {
@@ -18,8 +36,12 @@ function BulkDealItem(props) {
   };
 
   const handleSubmit = (event) => {
-    alert("Option selected is: " + bookQtyUnit);
-    event.preventDefault();
+    try {
+      alert("Option selected is: " + bookQtyUnit);
+      event.preventDefault();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -30,36 +52,32 @@ function BulkDealItem(props) {
             <div className="bulk_info_top_left">
               <div className="bulk_details_pri">
                 <div className="bulk_image">
-                  <img src={props.imageURL} alt="product" />
+                  <img src={imageURL} alt="product" />
                 </div>
                 <div className="bulk_primary_details">
-                  <div className="bulk_name">{props.name}</div>
+                  <div className="bulk_name">{name}</div>
                   <div className="bulk_desc">
-                    <div className="bulk_breed">{props.breed},</div>
-                    <div className="bulk_type">{props.category}</div>
+                    <div className="bulk_breed">{breed},</div>
+                    <div className="bulk_type">{category}</div>
                   </div>
                   <div className="bulk_location">
                     <div className="bulk_loc_icon">
                       <EnvironmentOutlined />
                     </div>
-                    <div className="bulk_loc_text">{props.location}</div>
+                    <div className="bulk_loc_text">{location}</div>
                   </div>
                 </div>
               </div>
               <div className="bulk_details_sec">
                 <div className="bulk_lot_size">
                   <div className="bulk_lot_size_text">Stock size:</div>
-                  <div className="bulk_lot_size_digit">
-                    {props.lotSizeDigit}
-                  </div>
-                  <div className="bulk_lot_size_unit">{props.lotSizeUnit}</div>
+                  <div className="bulk_lot_size_digit">{lotSizeDigit}</div>
+                  <div className="bulk_lot_size_unit">{lotSizeUnit}</div>
                 </div>
                 <div className="bulk_price">
                   <div className="bulk_price_text">Base price:</div>
-                  <div className="bulk_price_amount">₹ {props.basePrice}</div>
-                  <div className="bulk_price_per_unit">
-                    / {props.pricePerUnit}
-                  </div>
+                  <div className="bulk_price_amount">₹ {basePrice}</div>
+                  <div className="bulk_price_per_unit">/ {pricePerUnit}</div>
                 </div>
               </div>
             </div>
@@ -75,7 +93,11 @@ function BulkDealItem(props) {
               <div className="bulk_profile_link">SELLER PROFILE</div>
               <div className="bulk_rating">
                 <div className="bulk_rating_star">
-                  <StarComponent rating={props.sellerRating} />
+                  <ErrorBoundary>
+                    <Suspense fallback={<FallbackLazy />}>
+                      <StarComponent rating={sellerRating} />
+                    </Suspense>
+                  </ErrorBoundary>
                 </div>
                 <div className="bulk_rating_text">SELLER RATING</div>
               </div>
@@ -94,7 +116,7 @@ function BulkDealItem(props) {
               <ClockCircleOutlined />
             </div>
             <div className="bulk_expected_del_text">Next delivery in:</div>
-            <div className="bulk_expected_del_time">{props.delTime}*</div>
+            <div className="bulk_expected_del_time">{delTime}*</div>
           </div>
           <div className="bulk_info_bottom">
             <form onSubmit={handleSubmit}>
@@ -143,11 +165,15 @@ function BulkDealItem(props) {
         </div>
         <div className="bulk_status">
           <div className="bulk_status_bar">
-            <ProgressBar
-              done={props.soldPercent}
-              textInfo="sold"
-              refreshTime="3000"
-            />
+            <ErrorBoundary>
+              <Suspense className={<FallbackLazy />}>
+                <ProgressBar
+                  done={soldPercent}
+                  textInfo="sold"
+                  refreshTime="3000"
+                />
+              </Suspense>
+            </ErrorBoundary>
           </div>
         </div>
       </div>
@@ -155,4 +181,4 @@ function BulkDealItem(props) {
   );
 }
 
-export default BulkDealItem;
+export default memo(BulkDealItem);

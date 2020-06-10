@@ -27,7 +27,6 @@
   .adCat_heading_right {
     display: flex;
     align-items: baseline;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: bold;
   }
@@ -47,16 +46,14 @@
     padding: 4px 8px;
     outline: none;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     background: transparent;
-    border-radius: 4px;
     font-weight: bold;
     font-size: 0.9rem;
   }
 
   .adCat_heading_right_2:hover {
-    transform: scale(0.95);
+    color: #ee5700;
   }
 
   .adCat_body {
@@ -83,10 +80,8 @@
     background-image: linear-gradient(#ffffff, #ffffff);
     box-sizing: border-box;
     border-radius: 4px;
-    box-shadow: 1px 1px 4px #6e6e6e;
-    /* cursor: pointer; */
+    /* box-shadow: 1px 1px 4px #6e6e6e; */
     overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
   }
 
   .adCat_box_top_info {
@@ -98,7 +93,6 @@
     height: 20px;
     font-size: 0.75rem;
     color: #ffffff;
-    text-shadow: 1px 1px 1px #000000;
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -177,6 +171,8 @@
   }
 }
 
+/* ---- */
+/* ---- */
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
   .adCat_outer_div {
@@ -205,7 +201,6 @@
   .adCat_heading_right {
     display: flex;
     align-items: baseline;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.85rem;
     font-weight: bold;
   }
@@ -226,14 +221,13 @@
     outline: none;
     border: none;
     background: transparent;
-    border-radius: 4px;
     font-weight: bold;
     font-size: 0.9rem;
     color: #000000;
   }
 
   .adCat_heading_right_2:active {
-    transform: scale(0.95);
+    color: #ee5700;
   }
 
   .adCat_body {
@@ -260,9 +254,7 @@
     background-image: linear-gradient(#fffaef, #ffffff);
     box-sizing: border-box;
     border-radius: 2px;
-    box-shadow: 1px 1px 4px #cccccc;
     overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -275,7 +267,6 @@
     height: 18px;
     font-size: 0.65rem;
     color: #ffffff;
-    text-shadow: 0.5px 0.5px 1px #000000;
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -290,8 +281,8 @@
     );
   }
 
-  .adCat_box:active > img {
-    transform: scale(1.05);
+  .adCat_box:active {
+    background: #dddddd;
   }
 
   .adCat_box img {
@@ -338,7 +329,7 @@
   .adCat_view_more_btn {
     margin-top: 8px;
     width: 80%;
-    height: 22px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;

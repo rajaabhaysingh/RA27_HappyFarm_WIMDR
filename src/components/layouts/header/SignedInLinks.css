@@ -19,7 +19,6 @@
     height: 32px;
     width: 32px;
     border-radius: 50%;
-    box-shadow: 1px 1px 2px -1px #333333;
     object-fit: cover;
     -o-object-fit: cover;
   }
@@ -54,7 +53,6 @@
     border-radius: 4px;
     list-style-type: none;
     background: #ffffff;
-    box-shadow: 2px 4px 8px #333333;
   }
 
   .signed_in_list--hidden {
@@ -128,11 +126,9 @@
 
   .signed_in_text {
     margin-left: -20px;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     color: #5c5c5c;
     font-weight: bold;
-    /* text-transform: uppercase; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,7 +195,7 @@
     border-radius: 2px;
     list-style-type: none;
     background: #ffffff;
-    box-shadow: 2px 2px 8px #000000;
+    box-shadow: 0 0 4px #5c5c5c;
   }
 
   .signed_in_list--hidden {
@@ -274,7 +270,6 @@
 
   .signed_in_text {
     margin-left: -20px;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.85rem;
     color: #333333;
     font-weight: bold;

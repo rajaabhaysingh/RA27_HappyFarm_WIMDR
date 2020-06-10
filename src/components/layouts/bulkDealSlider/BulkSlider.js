@@ -1,9 +1,13 @@
-import React from "react";
+import React, { memo, lazy, Suspense } from "react";
 import "./BulkSlider.css";
-import BulkDealItem from "./BulkDealItem";
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 
-function BulkSlider(props) {
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const BulkDealItem = lazy(() => import("./BulkDealItem"));
+
+function BulkSlider({ productsList, boldHeading, normalHeading }) {
   return (
     <div className="bulk_slider_main_div">
       <div className="bulk_slider_inner_main_div">
@@ -11,9 +15,9 @@ function BulkSlider(props) {
           <div className="bulk_slider_header_content">
             <div className="bulk_slider_header_heading">
               <span>
-                <strong>{props.boldHeading} </strong>
+                <strong>{boldHeading} </strong>
               </span>
-              <span>{props.normalHeading}</span>
+              <span>{normalHeading}</span>
             </div>
             <div className="bulk_slider_header_view_all">
               <button>View all</button>
@@ -25,28 +29,32 @@ function BulkSlider(props) {
             <DoubleLeftOutlined />
           </div>
           <div className="bulk_slider_container">
-            {props.productsList.map((product) => (
-              <BulkDealItem
-                id={product.id}
-                imageURL={product.imageURL}
-                name={product.name}
-                breed={product.breed}
-                location={product.location}
-                category={product.category}
-                lotSizeDigit={product.lotSizeDigit}
-                lotSizeUnit={product.lotSizeUnit}
-                basePrice={product.basePrice}
-                pricePerUnit={product.pricePerUnit}
-                sellerId={product.sellerId}
-                sellerRating={product.sellerRating}
-                isNegotiable={product.isNegotiable}
-                delTime={product.delTime}
-                minBookVal={product.minBookVal}
-                minBookValUnit={product.minBookValUnit}
-                maxBookVal={product.maxBookVal}
-                maxBookValUnit={product.maxBookValUnit}
-                soldPercent={product.soldPercent}
-              />
+            {productsList.map((product) => (
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <BulkDealItem
+                    id={product.id}
+                    imageURL={product.imageURL}
+                    name={product.name}
+                    breed={product.breed}
+                    location={product.location}
+                    category={product.category}
+                    lotSizeDigit={product.lotSizeDigit}
+                    lotSizeUnit={product.lotSizeUnit}
+                    basePrice={product.basePrice}
+                    pricePerUnit={product.pricePerUnit}
+                    sellerId={product.sellerId}
+                    sellerRating={product.sellerRating}
+                    isNegotiable={product.isNegotiable}
+                    delTime={product.delTime}
+                    minBookVal={product.minBookVal}
+                    minBookValUnit={product.minBookValUnit}
+                    maxBookVal={product.maxBookVal}
+                    maxBookValUnit={product.maxBookValUnit}
+                    soldPercent={product.soldPercent}
+                  />
+                </Suspense>
+              </ErrorBoundary>
             ))}
           </div>
           <div className="bulk_slider_right_arrow">
@@ -58,4 +66,4 @@ function BulkSlider(props) {
   );
 }
 
-export default BulkSlider;
+export default memo(BulkSlider);

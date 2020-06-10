@@ -1,7 +1,4 @@
-import catImg1 from "../../../res/adCategory/ad_1.png";
-import catImg2 from "../../../res/adCategory/ad_2.png";
-import catImg3 from "../../../res/adCategory/ad_3.png";
-import catImg4 from "../../../res/adCategory/ad_4.png";
+import Placeholder from "../../../res/categoryScroll/placeholder.svg";
 
 const AdCategoryData1 = {
   id: "rc8r3",
@@ -22,7 +19,7 @@ const AdCategoryData1 = {
     {
       adId: "4376f",
       offerVal: "Upto 30% off",
-      adImgUrl: catImg1,
+      adImgUrl: Placeholder,
       adTitle: "Grapefruit",
       adDesc: "Tropica juicy fruit",
       adSubDesc: "from ₹ 59.00 / kg",
@@ -31,7 +28,7 @@ const AdCategoryData1 = {
     {
       adId: "3ff3",
       offerVal: "Upto 30% off",
-      adImgUrl: catImg2,
+      adImgUrl: Placeholder,
       adTitle: "Banana",
       adDesc: "Hign calorie from babanana ",
       adSubDesc: "from ₹ 59.00 / kg",
@@ -40,7 +37,7 @@ const AdCategoryData1 = {
     {
       adId: "46g4g",
       offerVal: "Upto 30% off",
-      adImgUrl: catImg3,
+      adImgUrl: Placeholder,
       adTitle: "Mango",
       adDesc: "Seasonal juicy",
       adSubDesc: "from ₹ 59.00 / kg",
@@ -49,7 +46,7 @@ const AdCategoryData1 = {
     {
       adId: "gf435g",
       offerVal: "Upto 30% off",
-      adImgUrl: catImg4,
+      adImgUrl: Placeholder,
       adTitle: "Apple",
       adDesc: "Himalyan freshness",
       adSubDesc: "from ₹ 59.00 / kg",
@@ -58,7 +55,7 @@ const AdCategoryData1 = {
     {
       adId: "f334",
       offerVal: "Upto 30% off",
-      adImgUrl: catImg3,
+      adImgUrl: Placeholder,
       adTitle: "Mango",
       adDesc: "Seasonal juicy",
       adSubDesc: "from ₹ 59.00 / kg",
@@ -67,7 +64,7 @@ const AdCategoryData1 = {
     {
       adId: "g45frd3rf",
       offerVal: "Upto 30% off",
-      adImgUrl: catImg4,
+      adImgUrl: Placeholder,
       adTitle: "Apple",
       adDesc: "Himalyan freshness",
       adSubDesc: "from ₹ 59.00 / kg",

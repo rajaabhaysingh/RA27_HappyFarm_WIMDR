@@ -31,7 +31,6 @@
   }
 
   .farmer_slider_header_heading {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     color: #000000;
   }
@@ -42,7 +41,6 @@
     border: none;
     background: none;
     color: #ee5700;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
@@ -50,7 +48,6 @@
 
   .farmer_slider_header_view_all button:hover {
     text-decoration: underline;
-    transition: all 0.1s;
   }
 
   .farmer_slider_contents {
@@ -74,7 +71,6 @@
   .farmer_slider_left_arrow:hover,
   .farmer_slider_right_arrow:hover {
     color: #000000;
-    transform: scale(1.1);
   }
 
   .farmer_slider_container {
@@ -86,8 +82,6 @@
     overflow: scroll;
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none;
-    /* box-shadow: inset 25px 0px 25px -25px rgb(255, 255, 255),
-      inset -25px 0px 25px -25px rgba(0, 0, 0, 0.45); */
   }
 
   .farmer_slider_container::-webkit-scrollbar {
@@ -95,11 +89,13 @@
   }
 }
 
+/* ---- */
+/* ---- */
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
   .farmer_slider_main_div {
     width: 100%;
-    box-shadow: 0 0px 8px -1px #cfcfcf;
+    box-shadow: 0 0px 4px #cfcfcf;
   }
 
   .farmer_slider_inner_main_div {
@@ -124,7 +120,6 @@
   }
 
   .farmer_slider_header_heading {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.85rem;
     color: #000000;
     padding-left: 4px;
@@ -143,7 +138,6 @@
     border: none;
     background: none;
     color: #ee5700;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
@@ -152,7 +146,6 @@
   }
 
   .farmer_slider_header_view_all button:active {
-    transform: scale(0.95);
     color: #000000;
   }
 
@@ -163,10 +156,10 @@
     overflow: scroll;
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none;
-    /* padding-right: 16px; */
   }
 
-  .farmer_slider_left_arrow {
+  .farmer_slider_left_arrow,
+  .farmer_slider_right_arrow {
     display: none;
   }
 
@@ -174,14 +167,9 @@
     display: flex;
     align-items: center;
     padding: 0 4px;
-    /* box-sizing: border-box; */
   }
 
   .farmer_slider_contents::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
-  }
-
-  .farmer_slider_right_arrow {
-    display: none;
   }
 }

@@ -15,7 +15,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* padding-bottom: 8px; */
   }
 
   .product_slider_header {
@@ -32,7 +31,6 @@
   }
 
   .product_slider_header_heading {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     color: #000000;
   }
@@ -43,7 +41,6 @@
     border: none;
     background: none;
     color: #ee5700;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
@@ -74,8 +71,6 @@
   .product_slider_left_arrow:hover,
   .product_slider_right_arrow:hover {
     color: #000000;
-    transform: scale(1.1);
-    transition: all ease-in 0.1s;
   }
 
   .product_slider_container {
@@ -86,8 +81,6 @@
     overflow: scroll;
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none;
-    /* box-shadow: inset 25px 0px 25px -25px rgb(255, 255, 255),
-      inset -25px 0px 25px -25px rgba(0, 0, 0, 0.45); */
   }
 
   .product_slider_container::-webkit-scrollbar {
@@ -124,7 +117,6 @@
   }
 
   .product_slider_header_heading {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.85rem;
     color: #000000;
     padding-left: 4px;
@@ -143,7 +135,6 @@
     border: none;
     background: none;
     color: #ee5700;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
@@ -153,7 +144,6 @@
 
   .product_slider_header_view_all button:active {
     color: #000000;
-    transform: scale(0.95);
   }
 
   .product_slider_contents {

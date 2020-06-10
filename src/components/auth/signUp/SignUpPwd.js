@@ -1,17 +1,18 @@
-import React from "react";
+import React, { memo } from "react";
 import "./SignUpPwd.css";
 
-function SignUpPwd(props) {
+function SignUpPwd({ handleChange }) {
   // ---local form state mgmt-----
-  const { handleChange } = props;
-
   const handleSignUp = (e) => {
-    // verify and sign-up
-    // if wrong pwd
-    // e.preventDefault();
-    // else
-    // redirdect to login-page
-    return;
+    try {
+      // verify and sign-up
+      // if wrong pwd
+      // e.preventDefault();
+      // else
+      // redirdect to login-page
+    } catch (error) {
+      console.log(error);
+    }
   };
   // -----------------------------
 
@@ -56,4 +57,4 @@ function SignUpPwd(props) {
   );
 }
 
-export default SignUpPwd;
+export default memo(SignUpPwd);

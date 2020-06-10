@@ -13,8 +13,7 @@
     display: flex;
     flex: 1;
     border-radius: 6px;
-    background-image: linear-gradient(#fff6d8, #d6d6d6);
-    box-shadow: 1px 1px 4px 0 #ccc;
+    background: #d6d6d6;
     overflow: hidden;
   }
 
@@ -25,8 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(#fac412, #fa8c16);
-    box-shadow: 1px 1px 4px -1px #fa8c16;
+    background: #fa8c16;
   }
 
   .progress_percent {
@@ -34,7 +32,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
     font-weight: bold;
     color: black;
@@ -56,8 +53,7 @@
     display: flex;
     flex: 1;
     border-radius: 5px;
-    background-image: linear-gradient(#fffaeb, #d6d6d6);
-    box-shadow: 1px 1px 4px -1px #ccc;
+    background: #d6d6d6;
     overflow: hidden;
   }
 
@@ -68,8 +64,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(#fac412, #fa8c16);
-    box-shadow: 1px 1px 4px -1px #fa8c16;
+    background: #fa8c16;
   }
 
   .progress_percent {
@@ -77,7 +72,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
     font-weight: bold;
     color: black;

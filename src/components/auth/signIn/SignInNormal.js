@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./SignInNormal.css";
 
 import {
@@ -7,15 +7,19 @@ import {
   TwitterOutlined,
 } from "@ant-design/icons";
 
-function SignInNormal(props) {
+function SignInNormal({ formValues, handleChange, nextStep }) {
   // ---local form state mgmt-----
-  const { formValues, handleChange, nextStep } = props;
+  // const { formValues, handleChange, nextStep } = props;
 
   const handleResetPwd = (e) => {
-    // if wrong mobile
-    // e.preventDefault() and re-ask
-    // else
-    nextStep();
+    try {
+      // if wrong mobile
+      // e.preventDefault() and re-ask
+      // else
+      nextStep();
+    } catch (error) {
+      console.log(error);
+    }
   };
   // -----------------------------
 
@@ -73,4 +77,8 @@ function SignInNormal(props) {
   );
 }
 
-export default SignInNormal;
+// function arePropsEqual(prevProps, nextProps) {
+//   return prevProps.formValues === nextProps.formValues;
+// }
+
+export default memo(SignInNormal);

@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, memo, Suspense, lazy, useCallback } from "react";
 import "./SignIn.css";
 
-import SignInNormal from "./SignInNormal";
-import SignInResetPwd from "./SignInResetPwd";
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const SignInNormal = lazy(() => import("./SignInNormal"));
+const SignInResetPwd = lazy(() => import("./SignInResetPwd"));
 
 function SignIn(props) {
   // --------managing sign-in states-----------
@@ -29,57 +32,72 @@ function SignIn(props) {
   // ------------------------------------------
 
   // -----next/previous step mgmt--------
-  const nextStep = () => {
+  const nextStep = useCallback(() => {
     const { step } = signInFormState;
     setSignInFormState({
       ...signInFormState,
       step: step + 1,
     });
-  };
+  }, [signInFormState]);
 
-  const prevStep = () => {
+  const prevStep = useCallback(() => {
     const { step } = signInFormState;
     setSignInFormState({
       ...signInFormState,
       step: step - 1,
     });
-  };
+  }, [signInFormState]);
 
-  const handleChange = (inputField) => (e) => {
-    setSignInFormState({
-      ...signInFormState,
-      [inputField]: e.target.value,
-    });
-  };
+  const handleChange = useCallback(
+    (inputField) => (e) => {
+      setSignInFormState({
+        ...signInFormState,
+        [inputField]: e.target.value,
+      });
+    },
+    [signInFormState]
+  );
   // ------------------------------------
 
   switch (step) {
     case 1:
       return (
         <div className="sign_in_main_div">
-          <SignInNormal
-            nextStep={nextStep}
-            handleChange={handleChange}
-            formValues={formValues}
-          />
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <SignInNormal
+                nextStep={nextStep}
+                handleChange={handleChange}
+                formValues={formValues}
+              />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       );
 
     case 2:
       return (
         <div className="sign_in_main_div">
-          <SignInResetPwd
-            prevStep={prevStep}
-            handleChange={handleChange}
-            formValues={formValues}
-          />
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <SignInResetPwd
+                prevStep={prevStep}
+                handleChange={handleChange}
+                formValues={formValues}
+              />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       );
 
     default:
-      alert("Oops! something went wrong on yout end. Please try again later.");
+      alert("Oops! something went wrong on your end. Please try again later.");
       break;
   }
 }
 
-export default SignIn;
+// function arePropsEqual(prevProps, nextProps) {
+//   return prevProps.props === nextProps.props;
+// }
+
+export default memo(SignIn);

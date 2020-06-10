@@ -1,12 +1,16 @@
-import React from "react";
+import React, { memo, lazy, Suspense } from "react";
 import "./Profile.css";
 
 import { InfoCircleFilled } from "@ant-design/icons";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import ProfileBasicInfo from "./ProfileBasicInfo";
 
-function Profile(props) {
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const ProfileBasicInfo = lazy(() => import("./ProfileBasicInfo"));
+
+function Profile({ profileData }) {
   return (
     <div className="profile_main_div">
       <div className="profile_inner_div">
@@ -36,7 +40,11 @@ function Profile(props) {
 
             {/* profile panel -- basic info */}
             <TabPanel className="profile_panel">
-              <ProfileBasicInfo profileData={props.profileData} />
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <ProfileBasicInfo profileData={profileData} />
+                </Suspense>
+              </ErrorBoundary>
             </TabPanel>
             <TabPanel className="profile_panel">Preferences</TabPanel>
             <TabPanel className="profile_panel">Payments</TabPanel>
@@ -47,4 +55,4 @@ function Profile(props) {
   );
 }
 
-export default Profile;
+export default memo(Profile);

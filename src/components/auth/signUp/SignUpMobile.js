@@ -1,18 +1,20 @@
-import React from "react";
+import React, { memo } from "react";
 import "./SignUpMobile.css";
 
 import { NavLink } from "react-router-dom";
 
-function SignUpMobile(props) {
+function SignUpMobile({ formValues, handleChange, nextStep }) {
   // ---local form state mgmt-----
-  const { formValues, handleChange, nextStep } = props;
-
   const handleContinue = (e) => {
-    // if wrong mobile
-    // do sth
-    // else
-    nextStep();
-    e.preventDefault();
+    try {
+      e.preventDefault();
+      // if wrong mobile
+      // do sth
+      // else
+      nextStep();
+    } catch (error) {
+      console.log(error);
+    }
   };
   // -----------------------------
 
@@ -51,4 +53,4 @@ function SignUpMobile(props) {
   );
 }
 
-export default SignUpMobile;
+export default memo(SignUpMobile);

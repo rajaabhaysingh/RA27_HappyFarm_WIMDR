@@ -1,24 +1,32 @@
-import React from "react";
+import React, { memo } from "react";
 import "./SignInResetPwd.css";
 
 import Popup from "reactjs-popup";
 
 import { ArrowLeftOutlined, InfoCircleOutlined } from "@ant-design/icons";
 
-function SignInResetPwd(props) {
+function SignInResetPwd({ formValues, handleChange, prevStep }) {
   // ---local form state mgmt-----
-  const { formValues, handleChange, prevStep } = props;
+  // const { formValues, handleChange, prevStep } = props;
 
   const handleReturnBack = (e) => {
-    // if wrong mobile
-    // e.preventDefault() and re-ask
-    // else
-    prevStep();
+    try {
+      // if wrong mobile
+      // e.preventDefault() and re-ask
+      // else
+      prevStep();
+    } catch (error) {
+      console.log(error);
+    }
   };
   // -----------------------------
 
   const handleRequestOtp = () => {
-    return;
+    try {
+      // do sth
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -120,4 +128,8 @@ function SignInResetPwd(props) {
   );
 }
 
-export default SignInResetPwd;
+// function arePropsEqual(prevProps, nextProps) {
+//   return prevProps.formValues === nextProps.formValues;
+// }
+
+export default memo(SignInResetPwd);

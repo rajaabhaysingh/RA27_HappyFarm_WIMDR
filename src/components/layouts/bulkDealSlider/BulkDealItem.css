@@ -7,8 +7,6 @@
     flex-direction: column;
     border: 1px solid #ffdfcd;
     border-radius: 8px;
-    box-shadow: 1px 1px 6px -1px #b3b3b3;
-    font-family: Arial, Helvetica, sans-serif;
     white-space: nowrap;
     background: #ffffff;
   }
@@ -45,7 +43,6 @@
     align-items: center;
     overflow: hidden;
     border-radius: 4px;
-    box-shadow: 1px 1px 8px #dddddd;
   }
 
   .bulk_image:hover > img {
@@ -55,7 +52,7 @@
 
   .bulk_image img {
     height: 75px;
-    width: 75px;
+    width: 100px;
     border-radius: 4px;
     cursor: pointer;
     object-fit: cover;
@@ -137,7 +134,6 @@
   .bulk_lot_size_text {
     display: flex;
     align-items: center;
-    /* font-weight: bold; */
   }
 
   .bulk_lot_size_digit {
@@ -205,12 +201,11 @@
     font-weight: bold;
     border-radius: 16px;
     border: 1px solid #fac412;
-    box-shadow: 1px 1px 5px -1px #929292;
     cursor: pointer;
     background: #ffffff;
   }
 
-  .bulk_product_contact_utility button:active {
+  .bulk_product_contact_utility button:hover {
     background: #fffbef;
     border: 1px solid #ee5700;
   }
@@ -227,7 +222,7 @@
   .bulk_button_text {
     flex: 1;
     text-align: center;
-    color: black;
+    color: #5c5c5c;
   }
 
   .bulk_profile_link {
@@ -276,11 +271,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 1px 1px 5px -1px #929292;
     cursor: pointer;
   }
 
-  .bulk_utility_nego:active {
+  .bulk_utility_nego:hover {
     background: #fffbef;
     border: 1px solid #ee5700;
   }
@@ -295,11 +289,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 1px 1px 5px -1px #929292;
     cursor: pointer;
   }
 
-  .bulk_utility_fav:active {
+  .bulk_utility_fav:hover {
     background: #fffbef;
     border: 1px solid #ee5700;
   }
@@ -400,19 +393,21 @@
   .bulk_book_now_btn {
     margin-left: 4px;
     height: 26px;
-    width: 92px;
+    width: 100px;
     border-radius: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 1px 1px 4px #b3b3b3;
     border: none;
     outline: none;
-    font-weight: bold;
+    font-size: 0.8rem;
     color: #ffffff;
-    background-image: linear-gradient(#fac412, #fa8c16);
+    background: #fa8d19;
     cursor: pointer;
-    text-shadow: 1px 1px 4px black;
+  }
+
+  .bulk_book_now_btn:hover {
+    background: #ee5700;
   }
 
   .bulk_status {
@@ -427,17 +422,17 @@
   }
 }
 
+/* --- */
+/* --- */
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
   .bulk_outer_main_div {
-    min-width: 350px;
-    margin: 4px;
+    min-width: 360px;
+    margin: 4px 2px;
     display: flex;
     flex-direction: column;
     border: 1px solid #ffdfcd;
     border-radius: 8px;
-    box-shadow: 1px 1px 8px -2px #b3b3b3;
-    font-family: Arial, Helvetica, sans-serif;
     white-space: nowrap;
     text-align: center;
     background: #ffffff;
@@ -474,19 +469,12 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    border-radius: 4px;
-  }
-
-  .bulk_image:active > img {
-    transform: scale(1.1);
-    transition: all ease-in 0.1s;
   }
 
   .bulk_image img {
     height: 75px;
-    width: 75px;
+    width: 100px;
     border-radius: 4px;
-    box-shadow: 1px 1px 4px #dddddd;
     object-fit: cover;
     -o-object-fit: cover;
   }
@@ -565,7 +553,6 @@
   .bulk_lot_size_text {
     display: flex;
     align-items: center;
-    /* font-weight: bold; */
   }
 
   .bulk_lot_size_digit {
@@ -611,7 +598,6 @@
   }
 
   .bulk_info_top_right {
-    /* margin-left: 80px; */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -633,8 +619,6 @@
     font-weight: bold;
     border-radius: 16px;
     border: 1px solid #fac412;
-    box-shadow: 1px 1px 5px -1px #929292;
-    cursor: pointer;
     background: #ffffff;
     -webkit-tap-highlight-color: transparent;
   }
@@ -712,7 +696,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 1px 1px 5px -1px #929292;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
@@ -732,7 +715,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 1px 1px 5px -1px #929292;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
@@ -844,20 +826,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 1px 1px 4px #b3b3b3;
     border: none;
     outline: none;
     font-weight: bold;
     color: #ffffff;
-    background-image: linear-gradient(#fac412, #fa8c16);
+    background: #fa8d19;
     cursor: pointer;
     font-size: 0.75rem;
-    text-shadow: 1px 1px 4px black;
     -webkit-tap-highlight-color: transparent;
   }
 
   .bulk_book_now_btn:active {
-    background-image: linear-gradient(#fa8c16, #fac412);
+    background: #ee5700;
   }
 
   .bulk_status {

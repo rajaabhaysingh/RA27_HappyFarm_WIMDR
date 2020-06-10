@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import DrawerToggleButton from "../sideDrawer/SideDrawerToggleButton";
+import React, { useCallback, useState, memo, lazy, Suspense } from "react";
 import "./Header.css";
+
 import {
   CaretDownFilled,
   PlusOutlined,
@@ -8,17 +8,31 @@ import {
   SearchOutlined,
   MinusOutlined,
 } from "@ant-design/icons";
-import Logo from "../../../res/header/logo.png";
-import ProductOptions from "../ProductOptions";
-import SearchBarPc from "../searchBarPC/SearchBarPc";
-import CatMenuData from "../menuTab/CatMenuData";
-import MenuTab from "../menuTab/MenuTab";
 
 import { NavLink } from "react-router-dom";
+
+import Logo from "../../../res/header/logo.png";
+
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+import CatMenuData from "../menuTab/CatMenuData";
+import ProductOptions from "../ProductOptions";
+
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 
-export const Header = (props) => {
+import DrawerToggleButton from "../sideDrawer/SideDrawerToggleButton";
+
+const SearchBarPc = lazy(() => import("../searchBarPC/SearchBarPc"));
+const MenuTab = lazy(() => import("../menuTab/MenuTab"));
+
+const Header = ({
+  isSearchBarOpen,
+  setIsSearchBarOpen,
+  setMarginTop,
+  drawerClickHandler,
+}) => {
   // -------CATEGORY LIST F(n)----------------
   let [isCatListOpen, setIsCatListOpen] = useState(false);
 
@@ -32,9 +46,9 @@ export const Header = (props) => {
     catListClass = "cat_menu_container--visible";
   }
 
-  const handleCatListClose = () => {
+  const handleCatListClose = useCallback(() => {
     setIsCatListOpen(false);
-  };
+  }, []);
 
   // used (!isCatListOpen) as hack because correct state isn't updated
   // in runtime of following code
@@ -55,28 +69,28 @@ export const Header = (props) => {
 
   let searchBarClass = "search_bar_container_mobile--visible";
 
-  if (!props.isSearchBarOpen) {
+  if (!isSearchBarOpen) {
     searchBarClass = "search_bar_container_mobile--hidden";
   }
 
   // detect click outside for searchBar PC-mode
   const detectClickOutside = () => {
-    if (window.innerWidth >= 1024 && props.isSearchBarOpen) {
+    if (window.innerWidth >= 1024 && isSearchBarOpen) {
       const searchBar = document.getElementById("signed_in_main_div");
     }
   };
 
   // handle toggle search bar condition
-  const handleSearchBtnClick = () => {
-    props.setIsSearchBarOpen(!props.isSearchBarOpen);
+  const handleSearchBtnClick = useCallback(() => {
+    setIsSearchBarOpen(!isSearchBarOpen);
     if (window.innerWidth < 1024) {
-      if (!props.isSearchBarOpen) {
-        props.setMarginTop("91px");
+      if (!isSearchBarOpen) {
+        setMarginTop("91px");
       } else {
-        props.setMarginTop("45px");
+        setMarginTop("45px");
       }
     }
-  };
+  }, [isSearchBarOpen, setMarginTop, setIsSearchBarOpen]);
 
   // --------------------------------------------------
 
@@ -86,7 +100,7 @@ export const Header = (props) => {
         {/* Initial spacer div */}
         <div className="spacer_start"></div>
         {/* Hamburger icon */}
-        <button className="hamburger_icon" onClick={props.drawerClickHandler}>
+        <button className="hamburger_icon" onClick={drawerClickHandler}>
           {/* passing the drawerClickHandler received in props to DrawerToggleButton */}
           <DrawerToggleButton />
         </button>
@@ -192,7 +206,11 @@ export const Header = (props) => {
         className={catListClass}
         onMouseLeave={handleCatListClose}
       >
-        <MenuTab catList={CatMenuData} />
+        <ErrorBoundary>
+          <Suspense fallback={<FallbackLazy />}>
+            <MenuTab catList={CatMenuData} />
+          </Suspense>
+        </ErrorBoundary>
       </div>
       {/* ------------ */}
 
@@ -200,7 +218,11 @@ export const Header = (props) => {
       <div className={searchBarClass}>
         <div className="search_bar_mobile">
           {/* <SearchBarAutoComplete */}
-          <SearchBarPc productItems={ProductOptions} />
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <SearchBarPc productItems={ProductOptions} />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </div>
 
@@ -208,3 +230,5 @@ export const Header = (props) => {
     </header>
   );
 };
+
+export default memo(Header);

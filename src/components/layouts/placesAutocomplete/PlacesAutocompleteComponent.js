@@ -1,28 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, memo, useCallback, lazy, Suspense } from "react";
 import "./PlacesAutocompleteComponent.css";
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from "react-places-autocomplete";
+
+import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
+
 import {
   Loading3QuartersOutlined,
   ArrowLeftOutlined,
   AimOutlined,
 } from "@ant-design/icons";
+
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import API_KEY from "../../auth/GoogleAPI";
+
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const PlacesAutocomplete = lazy(() => import("react-places-autocomplete"));
 
 // configuring toast
 toast.configure();
 
 function PlacesAutocompleteComponent(props) {
   // Log error status and clear dropdown when Google Maps API returns an error.
-  const onError = (status, clearSuggestions) => {
+  const onError = useCallback((status, clearSuggestions) => {
     console.log("Google Maps API returned error with status: ", status);
     clearSuggestions();
-  };
+  }, []);
 
   // limit the results to below constraints only
   const searchOptions = {
@@ -34,17 +40,17 @@ function PlacesAutocompleteComponent(props) {
 
   const [address, setAddress] = useState("");
 
-  const handleChange = (address) => {
+  const handleChange = useCallback((address) => {
     setAddress(address);
-  };
+  }, []);
 
-  const handleSelect = (address) => {
+  const handleSelect = useCallback((address) => {
     setAddress(address);
     geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => console.log("Success", latLng))
       .catch((error) => console.error("Error", error));
-  };
+  }, []);
 
   // --------------------------------------------------
   // ---------LOCATION SEARCH BLOCK STARTS HERE--------
@@ -140,56 +146,60 @@ function PlacesAutocompleteComponent(props) {
 
   return (
     <div className="places_component">
-      <PlacesAutocomplete
-        value={address}
-        onChange={handleChange}
-        onSelect={handleSelect}
-        onError={onError}
-        searchOptions={searchOptions}
-        // googleCallbackName="PlacesAutocompleteComponent"
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div className="autocomplete_places_main_outer_div">
-            <input
-              {...getInputProps({
-                placeholder: "Select location",
-                className: "location_search_input",
-                autoFocus: false,
-                required: true,
-              })}
-            />
-            <div className="autocomplete_dropdown_container">
-              {loading && (
-                <div className="loading_location_div">
-                  Loading... <Loading3QuartersOutlined spin />
+      <ErrorBoundary>
+        <Suspense fallback={<FallbackLazy />}>
+          <PlacesAutocomplete
+            value={address}
+            onChange={handleChange}
+            onSelect={handleSelect}
+            onError={onError}
+            searchOptions={searchOptions}
+          >
+            {({
+              getInputProps,
+              suggestions,
+              getSuggestionItemProps,
+              loading,
+            }) => (
+              <div className="autocomplete_places_main_outer_div">
+                <input
+                  {...getInputProps({
+                    placeholder: "Select location",
+                    className: "location_search_input",
+                    autoFocus: false,
+                    required: true,
+                  })}
+                />
+                <div className="autocomplete_dropdown_container">
+                  {loading && (
+                    <div className="loading_location_div">
+                      Loading... <Loading3QuartersOutlined spin />
+                    </div>
+                  )}
+                  {suggestions.map((suggestion) => {
+                    const className = "suggestion_item";
+                    return (
+                      <div
+                        {...getSuggestionItemProps(suggestion, {
+                          className,
+                        })}
+                      >
+                        <div className="suggestion_desc">
+                          {suggestion.description}
+                        </div>
+                        <div className="up_left_arrow">
+                          <ArrowLeftOutlined rotate="45" />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              )}
-              {suggestions.map((suggestion) => {
-                const className = "suggestion_item";
-                // inline style for demonstration purpose
-                // const style = suggestion.active
-                //   ? { backgroundColor: "#fafafa", cursor: "pointer" }
-                //   : { backgroundColor: "#ffffff", cursor: "pointer" };
-                return (
-                  <div
-                    {...getSuggestionItemProps(suggestion, {
-                      className,
-                      // style,
-                    })}
-                  >
-                    <div className="suggestion_desc">
-                      {suggestion.description}
-                    </div>
-                    <div className="up_left_arrow">
-                      <ArrowLeftOutlined rotate="45" />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
+              </div>
+            )}
+          </PlacesAutocomplete>
+        </Suspense>
+      </ErrorBoundary>
+
       {/* location utility btn */}
       <div className="searchbar_utility_btn_location" onClick={getLocation}>
         <AimOutlined />
@@ -199,4 +209,4 @@ function PlacesAutocompleteComponent(props) {
   );
 }
 
-export default PlacesAutocompleteComponent;
+export default memo(PlacesAutocompleteComponent);

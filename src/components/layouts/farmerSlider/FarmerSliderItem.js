@@ -1,12 +1,17 @@
-import React from "react";
+import React, { lazy, memo, Suspense } from "react";
 import "./FarmerSliderItem.css";
-import { UserAddOutlined } from "@ant-design/icons";
-import StarComponent from "../starComponent/StarComponent";
 
-function FarmerSliderItem(props) {
+import { UserAddOutlined } from "@ant-design/icons";
+
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const StarComponent = lazy(() => import("../starComponent/StarComponent"));
+
+function FarmerSliderItem({ dpUrl, name, place, rating, productUrl }) {
   // handleFarmerProfileClick
   const handleFarmerProfileClick = () => {
-    console.log(props.name);
+    console.log(name);
   };
 
   // handleFollowBtnClick
@@ -27,19 +32,23 @@ function FarmerSliderItem(props) {
           onClick={() => handleFarmerProfileClick()}
         >
           <div className="farmer_slider_item_image">
-            <img src={props.dpUrl} alt="farmer" />
+            <img src={dpUrl} alt="farmer" />
           </div>
           <div className="farmer_slider_item_details">
-            <div className="farmer_slider_name">{props.name}</div>
-            <div className="farmer_slider_place">{props.place}</div>
+            <div className="farmer_slider_name">{name}</div>
+            <div className="farmer_slider_place">{place}</div>
             <div className="farmer_slider_star_rating">
-              <StarComponent rating={props.rating} />
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <StarComponent rating={rating} />
+                </Suspense>
+              </ErrorBoundary>
             </div>
           </div>
         </div>
         <div className="farmer_slider_item_utility">
           <div className="farmer_slider_show_product_link">
-            <a href={props.productUrl} onClick={() => handleShowProductLink}>
+            <a href={productUrl} onClick={() => handleShowProductLink}>
               Show products
             </a>
           </div>
@@ -62,4 +71,4 @@ function FarmerSliderItem(props) {
   );
 }
 
-export default FarmerSliderItem;
+export default memo(FarmerSliderItem);

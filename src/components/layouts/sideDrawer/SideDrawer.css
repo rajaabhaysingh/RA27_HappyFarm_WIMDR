@@ -38,7 +38,6 @@
   position: sticky;
   top: 0;
   background-color: #ee5700;
-  box-shadow: 0 3px 5px rgba(85, 85, 85, 0.603);
 }
 
 .side_drawer_header_spacer {
@@ -67,7 +66,6 @@
 .side_drawer_change_language_text {
   color: #ffffff;
   font-size: 0.75rem;
-  font-family: "Arial", Helvetica, sans-serif;
 }
 
 .side_drawer_back_text {
@@ -79,13 +77,11 @@
   width: calc(100% - 20px);
   height: 35px;
   background: #ffffff;
-  font-family: "Arial", Helvetica, sans-serif;
   font-size: 0.85rem;
   border: 1px solid #ee5700;
   font-weight: bold;
   color: #5c5c5c;
   border-radius: 5px;
-  box-shadow: 0 2px 3px -1px rgba(85, 85, 85, 0.603);
 }
 
 .side_drawer_sell_with_us_btn:active {
@@ -177,7 +173,6 @@
   padding: 5px;
   background-color: #ee5700;
   color: #ffffff;
-  font-family: "Arial", Helvetica, sans-serif;
   justify-content: space-between;
   align-items: center;
   outline: none;

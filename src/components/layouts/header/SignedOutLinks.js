@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, memo, lazy, Suspense, useCallback } from "react";
 import "./SignedOutLinks.css";
 
 import { LoginOutlined, UserOutlined } from "@ant-design/icons";
 
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
 import Popup from "reactjs-popup";
-import SignInUpReset from "../../auth/SignInUpReset";
+
+const SignInUpReset = lazy(() => import("../../auth/SignInUpReset"));
 
 function SignedOutLinks() {
   // -------Toggle user btn click F(n)----------------
@@ -24,7 +28,7 @@ function SignedOutLinks() {
 
   // close popup
 
-  const renderCloseOnDocumentClick = () => {
+  const renderCloseOnDocumentClick = useCallback(() => {
     const signedOutListDiv = document.getElementById("signed_out_main_div");
 
     if (signedOutListDiv && isSignedOutLinkOpen) {
@@ -39,20 +43,20 @@ function SignedOutLinks() {
         }
       });
     }
-  };
+  }, [isSignedOutLinkOpen]);
   // -----------------------------------------
 
   // ------handling form open/close----------
   const [isFormOpen, setIsFormOpen] = useState(false);
 
-  const openForm = () => {
+  const openForm = useCallback(() => {
     setIsFormOpen(true);
     setIsSignedOutLinkOpen(false);
-  };
+  }, []);
 
-  const closeForm = () => {
+  const closeForm = useCallback(() => {
     setIsFormOpen(false);
-  };
+  }, []);
   // ----------------------------------------
 
   return (
@@ -97,7 +101,11 @@ function SignedOutLinks() {
           }}
         >
           <div>
-            <SignInUpReset onClose={closeForm} />
+            <ErrorBoundary>
+              <Suspense fallback={<FallbackLazy />}>
+                <SignInUpReset onClose={closeForm} />
+              </Suspense>
+            </ErrorBoundary>
             {renderCloseOnDocumentClick()}
           </div>
         </Popup>
@@ -106,4 +114,4 @@ function SignedOutLinks() {
   );
 }
 
-export default SignedOutLinks;
+export default memo(SignedOutLinks);

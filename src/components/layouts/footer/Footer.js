@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Footer.css";
 import {
   FacebookOutlined as Facebook,
@@ -15,9 +15,7 @@ import {
 
 import FooterCert from "../../../res/footer/footer_cert.svg";
 
-function Footer(props) {
-  const details = props.details;
-
+function Footer({ details }) {
   const handleScrollToTop = () => {
     if (
       document.body.scrollTop !== 0 ||
@@ -138,4 +136,4 @@ function Footer(props) {
   );
 }
 
-export default Footer;
+export default memo(Footer);

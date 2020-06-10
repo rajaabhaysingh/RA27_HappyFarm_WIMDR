@@ -1,18 +1,16 @@
-import React from "react";
+import React, { memo } from "react";
 import "./AdCategoryGrid.css";
 
-function AdCategoryGrid(props) {
-  const data = props.dataList;
-
+function AdCategoryGrid({ dataList }) {
   let fontColorWrapper = {
-    color: `${data.fontColor}`,
+    color: `${dataList.fontColor}`,
   };
 
-  let bgImageWrapper = { backgroundImage: `${data.bgImage}` };
+  let bgImageWrapper = { backgroundImage: `${dataList.bgImage}` };
 
   if (window.innerWidth > 1024) {
-    bgImageWrapper = { backgroundImage: `${data.bgImagePC}` };
-    fontColorWrapper = { color: `${data.fontColorPC}` };
+    bgImageWrapper = { backgroundImage: `${dataList.bgImagePC}` };
+    fontColorWrapper = { color: `${dataList.fontColorPC}` };
   }
 
   return (
@@ -20,19 +18,19 @@ function AdCategoryGrid(props) {
       <div className="adCat_inner_div" style={bgImageWrapper}>
         <div className="adCat_header">
           <div className="adCat_heading_left" style={fontColorWrapper}>
-            <div className="adCat_heading_left_1">{data.titleLeft1}</div>
-            <div className="adCat_heading_left_2">{data.titleLeft2}</div>
+            <div className="adCat_heading_left_1">{dataList.titleLeft1}</div>
+            <div className="adCat_heading_left_2">{dataList.titleLeft2}</div>
           </div>
           <div className="adCat_heading_right" style={fontColorWrapper}>
-            <div className="adCat_heading_right_1">{data.titleRight1}</div>
+            <div className="adCat_heading_right_1">{dataList.titleRight1}</div>
             <button className="adCat_heading_right_2">
-              {data.titleRight2}
+              {dataList.titleRight2}
             </button>
           </div>
         </div>
         <div className="adCat_body">
           <div className="adCat_grid">
-            {data.adList.map((adElement) => (
+            {dataList.adList.map((adElement) => (
               <div key={adElement.adId} className="adCat_box">
                 <div className="adCat_box_top_info">{adElement.offerVal}</div>
                 <img src={adElement.adImgUrl} alt={adElement.adTitle} />
@@ -49,4 +47,4 @@ function AdCategoryGrid(props) {
   );
 }
 
-export default AdCategoryGrid;
+export default memo(AdCategoryGrid);

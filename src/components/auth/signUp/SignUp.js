@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, memo, useCallback, lazy, Suspense } from "react";
 import "./SignUp.css";
 
-import SignUpMobile from "./SignUpMobile";
-import SignUpOtp from "./SignUpOtp";
-import SignUpPwd from "./SignUpPwd";
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const SignUpMobile = lazy(() => import("./SignUpMobile"));
+const SignUpOtp = lazy(() => import("./SignUpOtp"));
+const SignUpPwd = lazy(() => import("./SignUpPwd"));
 
 function SignUp(props) {
   // -------local state mgmt---------
@@ -18,28 +21,31 @@ function SignUp(props) {
   // --------------------------------
 
   // -----next/previous step mgmt--------
-  const nextStep = () => {
+  const nextStep = useCallback(() => {
     const { step } = signUpFormState;
     setSignUpFormState({
       ...signUpFormState,
       step: step + 1,
     });
-  };
+  }, [signUpFormState]);
 
-  const prevStep = () => {
+  const prevStep = useCallback(() => {
     const { step } = signUpFormState;
     setSignUpFormState({
       ...signUpFormState,
       step: step - 1,
     });
-  };
+  }, [signUpFormState]);
 
-  const handleChange = (inputField) => (e) => {
-    setSignUpFormState({
-      ...signUpFormState,
-      [inputField]: e.target.value,
-    });
-  };
+  const handleChange = useCallback(
+    (inputField) => (e) => {
+      setSignUpFormState({
+        ...signUpFormState,
+        [inputField]: e.target.value,
+      });
+    },
+    [signUpFormState]
+  );
   // ------------------------------------
 
   const { step, phone, otp, password, cnf_password } = signUpFormState;
@@ -49,34 +55,42 @@ function SignUp(props) {
     case 1:
       return (
         <div className="sign_up_main_div">
-          <SignUpMobile
-            nextStep={nextStep}
-            handleChange={handleChange}
-            formValues={formValues}
-          />
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <SignUpMobile
+                nextStep={nextStep}
+                handleChange={handleChange}
+                formValues={formValues}
+              />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       );
 
     case 2:
       return (
         <div className="sign_up_main_div">
-          <SignUpOtp
-            prevStep={prevStep}
-            nextStep={nextStep}
-            handleChange={handleChange}
-            formValues={formValues}
-          />
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <SignUpOtp
+                prevStep={prevStep}
+                nextStep={nextStep}
+                handleChange={handleChange}
+                formValues={formValues}
+              />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       );
 
     case 3:
       return (
         <div className="sign_up_main_div">
-          <SignUpPwd
-            // nextStep={nextStep}
-            handleChange={handleChange}
-            formValues={formValues}
-          />
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <SignUpPwd handleChange={handleChange} formValues={formValues} />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       );
 
@@ -86,4 +100,4 @@ function SignUp(props) {
   }
 }
 
-export default SignUp;
+export default memo(SignUp);

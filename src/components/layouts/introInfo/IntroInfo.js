@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./IntroInfo.css";
 
 function IntroInfo() {
@@ -46,4 +46,4 @@ function IntroInfo() {
   );
 }
 
-export default IntroInfo;
+export default memo(IntroInfo);

@@ -3,7 +3,11 @@ import "./CategoryScrollItem.css";
 
 function CategoryScrollItem(props) {
   const handleItemClick = () => {
-    console.log(props.categoryName);
+    try {
+      console.log(props.categoryName);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

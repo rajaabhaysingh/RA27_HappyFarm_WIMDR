@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, memo, useState } from "react";
 import "./ProfileBasicInfo.css";
 
 import {
@@ -13,33 +13,37 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import API_KEY from "../../auth/GoogleAPI";
+
 import AddressSelector from "./AddressSelector";
 
 // configuring toast
 toast.configure();
 
-function ProfileBasicInfo(props) {
+function ProfileBasicInfo({ profileData }) {
   // ---------form state management----------
   const [formState, setFormState] = useState({
-    fullName: props.profileData.fullName,
-    email: props.profileData.email,
-    mobileCode: props.profileData.mobileCode,
-    mobileNumber: props.profileData.mobileNumber,
-    state: props.profileData.state,
-    dist: props.profileData.dist,
-    block: props.profileData.block,
-    address: props.profileData.address,
-    pin: props.profileData.pin,
+    fullName: profileData.fullName,
+    email: profileData.email,
+    mobileCode: profileData.mobileCode,
+    mobileNumber: profileData.mobileNumber,
+    state: profileData.state,
+    dist: profileData.dist,
+    block: profileData.block,
+    address: profileData.address,
+    pin: profileData.pin,
   });
 
   const { fullName, email, mobileCode, mobileNumber, address } = formState;
 
-  const handleChange = (inputField) => (e) => {
-    setFormState({
-      ...formState,
-      [inputField]: e.target.value,
-    });
-  };
+  const handleChange = useCallback(
+    (inputField) => (e) => {
+      setFormState({
+        ...formState,
+        [inputField]: e.target.value,
+      });
+    },
+    [formState]
+  );
 
   // input editable state management
   const [isNameDisabled, setIsNameDisabled] = useState(fullName ? true : false);
@@ -52,27 +56,29 @@ function ProfileBasicInfo(props) {
   );
 
   // returning lock/unlock icon on basis of state
-  const getNameBtnSymbol = () => {
+  const getNameBtnSymbol = useCallback(() => {
     if (isNameDisabled) {
       return <LockOutlined />;
     } else {
       return <UnlockOutlined />;
     }
-  };
-  const getEmailBtnSymbol = () => {
+  }, [isNameDisabled]);
+
+  const getEmailBtnSymbol = useCallback(() => {
     if (isEmailDisabled) {
       return <LockOutlined />;
     } else {
       return <UnlockOutlined />;
     }
-  };
-  const getMobileBtnSymbol = () => {
+  }, [isEmailDisabled]);
+
+  const getMobileBtnSymbol = useCallback(() => {
     if (isMobileDisabled) {
       return <LockOutlined />;
     } else {
       return <UnlockOutlined />;
     }
-  };
+  }, [isMobileDisabled]);
 
   // lock/unlock class for edit btn
   let nameBtnLock = isNameDisabled
@@ -304,4 +310,4 @@ function ProfileBasicInfo(props) {
   );
 }
 
-export default ProfileBasicInfo;
+export default memo(ProfileBasicInfo);

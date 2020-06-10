@@ -3,7 +3,6 @@
   .profile_main_div {
     height: 100%;
     width: 100%;
-    font-family: "Arial", Helvetica, sans-serif;
   }
 
   .profile_inner_div {
@@ -37,7 +36,6 @@
 
   .profile_tabs {
     width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
     -webkit-tap-highlight-color: transparent;
   }
@@ -76,23 +74,6 @@
     border-bottom: 2px solid #ee5700;
   }
 
-  /* .profile_tab:focus {
-    box-shadow: 0 0 5px #ee5700;
-    border-color: #ee5700;
-    border-bottom: 3px solid #ee5700;
-    outline: none;
-  } */
-
-  /* .profile_tab:focus::after {
-    content: "";
-    position: absolute;
-    height: 5px;
-    left: -4px;
-    right: -4px;
-    bottom: -5px;
-    background: #fff;
-  } */
-
   .profile_tab--selected {
     color: #333333;
     border-bottom: 2px solid #ee5700;
@@ -100,7 +81,7 @@
   }
 
   .profile_tab--disabled {
-    color: GrayText;
+    color: #8a8a8a;
     cursor: default;
   }
 
@@ -126,6 +107,5 @@
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
   .menu_tab_main_div {
-    display: none;
   }
 }

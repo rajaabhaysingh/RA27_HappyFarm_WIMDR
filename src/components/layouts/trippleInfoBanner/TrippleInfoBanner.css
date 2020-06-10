@@ -90,14 +90,6 @@
     background: #0f4153;
     border-radius: 8px;
     box-sizing: border-box;
-    box-shadow: 0 0px 6px -1px #cfcfcf;
-  }
-
-  .tripple_info_details_one:active,
-  .tripple_info_details_two:active,
-  .tripple_info_details_three:active {
-    transform: scale(0.98);
-    transition: all 0.1s;
   }
 
   .tripple_info_details_one {

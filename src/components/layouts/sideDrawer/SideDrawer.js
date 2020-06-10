@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import "./SideDrawer.css";
+
 import {
   ArrowLeftOutlined,
   GlobalOutlined,
@@ -23,15 +24,15 @@ import {
 
 import { NavLink } from "react-router-dom";
 
-const SideDrawer = (props) => {
+const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
   let drawerClasses = ["side_drawer"];
 
-  if (props.showDrawer) {
+  if (showDrawer) {
     drawerClasses = ["side_drawer", "drawer_open"];
   }
 
   const handleOnClick = () => {
-    props.setIsDrawerOpen(false);
+    setIsDrawerOpen(false);
   };
 
   return (
@@ -198,4 +199,4 @@ const SideDrawer = (props) => {
   );
 };
 
-export default SideDrawer;
+export default memo(SideDrawer);

@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, memo, lazy, Suspense } from "react";
 import "./SignInUpReset.css";
-import SignIn from "./signIn/SignIn";
-import SignUp from "./signUp/SignUp";
 
 import { CloseOutlined } from "@ant-design/icons";
 
 import LoginGraphics from "../../res/login/login_graphic.svg";
 
-function SignInUp(props) {
+import FallbackLazy from "../FallbackLazy";
+import ErrorBoundary from "../errorBoundary/ErrorBoundary";
+
+const SignIn = lazy(() => import("./signIn/SignIn"));
+const SignUp = lazy(() => import("./signUp/SignUp"));
+
+function SignInUp({ onClose }) {
   // ----------sign-up / sign-in state mgmt---------
 
   // form toggle (between sign-in and sign-up) logic
@@ -52,19 +56,19 @@ function SignInUp(props) {
   const renderFormUI = (shouldDisplaySignIn) => {
     if (shouldDisplaySignIn) {
       return (
-        <SignIn
-          formState={formState}
-          setFormState={setFormState}
-          // onClose={props.onClose}
-        />
+        <ErrorBoundary>
+          <Suspense fallback={<FallbackLazy />}>
+            <SignIn formState={formState} setFormState={setFormState} />
+          </Suspense>
+        </ErrorBoundary>
       );
     } else {
       return (
-        <SignUp
-          formState={formState}
-          setFormState={setFormState}
-          // onClose={props.onClose}
-        />
+        <ErrorBoundary>
+          <Suspense fallback={<FallbackLazy />}>
+            <SignUp formState={formState} setFormState={setFormState} />
+          </Suspense>
+        </ErrorBoundary>
       );
     }
   };
@@ -83,7 +87,7 @@ function SignInUp(props) {
           </div>
         </div>
         <div className="sign_in_up_form_container">
-          <div className="sign_in_up_close_btn" onClick={props.onClose}>
+          <div className="sign_in_up_close_btn" onClick={onClose}>
             <CloseOutlined />
           </div>
 
@@ -105,4 +109,4 @@ function SignInUp(props) {
   );
 }
 
-export default SignInUp;
+export default memo(SignInUp);

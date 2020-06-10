@@ -11,16 +11,14 @@
   .category_image img {
     height: 60px;
     width: 60px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 6px -1px #5c5c5c;
+    border-radius: 5px;
     border: 1px solid #ee5700;
     object-fit: cover;
     -o-object-fit: cover;
   }
 
-  .category_item:hover > .category_image img {
-    transform: scale(1.02);
-    transition: transform ease-out 0.1s;
+  .category_item:hover {
+    font-weight: bold;
   }
 
   .category_item:hover {
@@ -54,7 +52,8 @@
   }
 
   .category_item:active {
-    transform: scale(1.02);
+    font-weight: bold;
+    color: #ee5700;
   }
 
   .category_item:first-child {

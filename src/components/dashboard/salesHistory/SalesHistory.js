@@ -1,5 +1,5 @@
 import React from "react";
-import "./SellHistory.css";
+import "./SalesHistory.css";
 
 function SellHistory() {
   return <div>Sell history</div>;

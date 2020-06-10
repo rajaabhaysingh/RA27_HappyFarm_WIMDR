@@ -1,17 +1,19 @@
-import React from "react";
+import React, { memo } from "react";
 import "./BackdropDark.css";
 
-export default function BackdropDark(props) {
+function BackdropDark({ alpha, click }) {
   // backdrop style wrapper
   const backdropWrapper = {
-    background: `rgba(0, 0, 0, ${props.alpha})`,
+    background: `rgba(0, 0, 0, ${alpha})`,
   };
   return (
     <div
       style={backdropWrapper}
       id="backdrop"
       className="backdrop"
-      onClick={props.click}
+      onClick={click}
     ></div>
   );
 }
+
+export default memo(BackdropDark);

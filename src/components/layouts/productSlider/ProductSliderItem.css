@@ -24,18 +24,15 @@
     align-self: center;
     justify-content: center;
     border-radius: 0 8px 0 4px;
-    background-image: linear-gradient(#fa8c16, #fac412);
+    background: #ee5700;
     z-index: 10;
     color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.7rem;
-    text-shadow: 1px 1px 2px #5c5c5c;
   }
 
   .product_detail_group {
     display: flex;
     flex-direction: column;
-    font-family: "Arial", Helvetica, sans-serif;
     cursor: pointer;
   }
 
@@ -51,7 +48,6 @@
     align-items: center;
     overflow: hidden;
     border-radius: 4px;
-    box-shadow: 1px 1px 8px #dddddd;
   }
 
   .product_image img {
@@ -189,7 +185,6 @@
     font-weight: bold;
     border-radius: 16px;
     border: 1px solid #fac412;
-    box-shadow: 1px 1px 5px -1px #929292;
     cursor: pointer;
     background: #ffffff;
   }
@@ -227,7 +222,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 1px 1px 5px -1px #929292;
     cursor: pointer;
   }
 
@@ -246,7 +240,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 1px 1px 5px -1px #929292;
     cursor: pointer;
   }
 
@@ -282,25 +275,17 @@
     align-self: center;
     justify-content: center;
     border-radius: 0 8px 0 4px;
-    background-image: linear-gradient(#fa8c16, #fac412);
+    background: #ee5700;
     z-index: 10;
     color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.7rem;
-    text-shadow: 1px 1px 2px #5c5c5c;
   }
 
   .product_detail_group {
     display: flex;
     flex-direction: column;
-    font-family: "Arial", Helvetica, sans-serif;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-  }
-
-  .product_detail_group:active > .product_image img {
-    transform: scale(1.05);
-    transition: all ease-in 0.1s;
   }
 
   .product_image {
@@ -448,7 +433,6 @@
     font-weight: bold;
     border-radius: 17.5px;
     border: 0.5px solid #fac412;
-    box-shadow: 1px 1px 2px -1px #929292;
     cursor: pointer;
     background: #ffffff;
     -webkit-tap-highlight-color: transparent;
@@ -488,7 +472,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 1px 1px 2px -1px #929292;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
@@ -507,7 +490,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 1px 1px 2px -1px #929292;
     cursor: pointer;
     font-size: 1.2rem;
     -webkit-tap-highlight-color: transparent;

@@ -1,21 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import "./ProgressBar.css";
 
 function ProgressBar({ done, textInfo }) {
-  //   const [progress, setProgress] = useState({
-  //     width: `${done === "0" ? 1 : done}%`,
-  //   });
-
-  // setting progress refreshTime
-  //   setTimeout(() => {
-  //     const progressDoneWrapper = {
-  //       width: `${done === "0" ? 1 : done}%`,
-  //     };
-
-  //     setProgress(progressDoneWrapper);
-  //     console.log("refreshed");
-  //   }, parseFloat(refreshTime).toFixed(2));
-
   const progressDoneWrapper = {
     width: `${done}%`,
   };
@@ -32,4 +18,4 @@ function ProgressBar({ done, textInfo }) {
   );
 }
 
-export default ProgressBar;
+export default memo(ProgressBar);

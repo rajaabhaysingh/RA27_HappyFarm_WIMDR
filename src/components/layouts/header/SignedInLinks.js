@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import "./SignedInLinks.css";
+
 import { NavLink } from "react-router-dom";
+
 import {
   LogoutOutlined,
   MessageOutlined,
@@ -8,6 +10,7 @@ import {
   StarOutlined,
   AreaChartOutlined,
 } from "@ant-design/icons";
+
 import UserPlaceholder from "../../../res/header/user_placeholder.svg";
 
 function SignedInLinks() {
@@ -138,4 +141,4 @@ function SignedInLinks() {
   );
 }
 
-export default SignedInLinks;
+export default memo(SignedInLinks);
