@@ -1,16 +1,6 @@
 import React, { memo } from "react";
 import "./Sidebar.css";
 
-import PlusOutlined from "@ant-design/icons/PlusOutlined";
-import HistoryOutlined from "@ant-design/icons/HistoryOutlined";
-import UserOutlined from "@ant-design/icons/UserOutlined";
-import ShoppingCartOutlined from "@ant-design/icons/ShoppingCartOutlined";
-import BankOutlined from "@ant-design/icons/BankOutlined";
-import UserSwitchOutlined from "@ant-design/icons/UserSwitchOutlined";
-import PoweroffOutlined from "@ant-design/icons/PoweroffOutlined";
-import PhoneFilled from "@ant-design/icons/PhoneFilled";
-import CameraFilled from "@ant-design/icons/CameraFilled";
-
 function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
   // ------active option (css) state------
   const setBtnClass = (tab) => {
@@ -42,7 +32,7 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
           <img src="" alt="" />
         </div>
         <button className="sidebar_profile_image_change_btn">
-          <CameraFilled />
+          <i className="fas fa-camera"></i>
         </button>
         <div className="sidebar_username">Hello, {fullName}</div>
         <div className="sidebar_plan">
@@ -50,7 +40,7 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
           <div className="sidebar_plan_value">{plan}</div>
         </div>
         <div className="sidebar_contact">
-          <PhoneFilled rotate={90} /> {mobileCode} {mobileNumber}
+          <i className="fas fa-phone-alt"></i> {mobileCode} {mobileNumber}
         </div>
       </div>
       <div
@@ -60,7 +50,7 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
         <button className="sell_new_product_button">
           <span className="sell_new_product_text">Sell new product</span>
           <span style={{ marginLeft: "8px" }} className="sell_new_product_icon">
-            <PlusOutlined />
+            <i className="fas fa-plus"></i>
           </span>
         </button>
       </div>
@@ -74,7 +64,7 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
             }}
           >
             <span className={setIconClass(1)}>
-              <UserOutlined />
+              <i className="fas fa-user"></i>
             </span>
             <span className="sidebar_menu_profile">Profile</span>
           </li>
@@ -85,7 +75,7 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
             }}
           >
             <span className={setIconClass(2)}>
-              <UserSwitchOutlined />
+              <i className="fas fa-users"></i>
             </span>
             <span className="sidebar_menu_following">Following</span>
           </li>
@@ -96,7 +86,7 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
             }}
           >
             <span className={setIconClass(3)}>
-              <ShoppingCartOutlined />
+              <i className="fas fa-shopping-basket"></i>
             </span>
             <span className="sidebar_menu_selling_now">My orders</span>
           </li>
@@ -107,7 +97,7 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
             }}
           >
             <span className={setIconClass(4)}>
-              <HistoryOutlined />
+              <i className="fas fa-history"></i>
             </span>
             <span className="sidebar_menu_history">Sales {"&"} History</span>
           </li>
@@ -118,7 +108,7 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
             }}
           >
             <span className={setIconClass(5)}>
-              <BankOutlined />
+              <i className="fas fa-rupee-sign"></i>
             </span>
             <span className="sidebar_menu_transactions">Transactions</span>
           </li>
@@ -126,7 +116,7 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
       </div>
       <div className="sidebar_logout" data-testid="sidebar_logout">
         <span>
-          <PoweroffOutlined />
+          <i className="fas fa-power-off"></i>
         </span>
         <span style={{ marginLeft: "8px" }}>Logout</span>
       </div>

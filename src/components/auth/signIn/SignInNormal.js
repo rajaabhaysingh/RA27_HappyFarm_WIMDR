@@ -1,14 +1,7 @@
 import React, { memo } from "react";
 import "./SignInNormal.css";
 
-import { GoogleOutlined } from "@ant-design/icons/GoogleOutlined";
-import { FacebookOutlined } from "@ant-design/icons/FacebookOutlined";
-import { TwitterOutlined } from "@ant-design/icons/TwitterOutlined";
-
 function SignInNormal({ formValues, handleChange, nextStep }) {
-  // ---local form state mgmt-----
-  // const { formValues, handleChange, nextStep } = props;
-
   const handleResetPwd = (e) => {
     try {
       // if wrong mobile
@@ -54,19 +47,19 @@ function SignInNormal({ formValues, handleChange, nextStep }) {
               type="button"
               className="sign_in_using_google sign_in_using_btn"
             >
-              {/* <GoogleOutlined /> Google */}
+              <i className="fab fa-google"></i> Google
             </button>
             <button
               type="button"
               className="sign_in_using_fb sign_in_using_btn"
             >
-              {/* <FacebookOutlined /> Facebook */}
+              <i className="fab fa-facebook-f"></i> Facebook
             </button>
             <button
               type="button"
               className="sign_in_using_twitter sign_in_using_btn"
             >
-              {/* <TwitterOutlined /> Twitter */}
+              <i className="fab fa-twitter"></i> Twitter
             </button>
           </div>
         </div>

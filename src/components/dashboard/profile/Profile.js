@@ -1,8 +1,6 @@
 import React, { memo, lazy, Suspense } from "react";
 import "./Profile.css";
 
-import InfoCircleFilled from "@ant-design/icons/InfoCircleFilled";
-
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 import FallbackLazy from "../../FallbackLazy";
@@ -19,9 +17,7 @@ function Profile({ profileData }) {
           <div className="profile_description_text">
             Edit/update your personal information and preferences here.
           </div>
-          <div className="profile_description_info_icon">
-            <InfoCircleFilled />
-          </div>
+          <i className="fas fa-info-circle profile_description_info_icon"></i>
         </div>
         <div className="profile_tab_container">
           <Tabs

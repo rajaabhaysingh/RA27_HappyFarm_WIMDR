@@ -1,15 +1,11 @@
 import React, { memo } from "react";
 import "./TopMessage.css";
 
-import CrownOutlined from "@ant-design/icons/CrownOutlined";
-import FireOutlined from "@ant-design/icons/FireOutlined";
-import BugOutlined from "@ant-design/icons/BugOutlined";
-
 function TopMessage() {
   return (
     <div className="top_message_main_div">
       <div className="top_message_left">
-        <FireOutlined />
+        <i className="fas fa-fire-alt"></i>
         <span>
           <a href="/" style={{ marginLeft: "4px", color: "inherit" }}>
             Upcoming events
@@ -18,7 +14,7 @@ function TopMessage() {
         </span>
       </div>
       <div className="top_message_center">
-        <CrownOutlined />
+        <i className="fas fa-crown"></i>
         <span style={{ marginLeft: "4px" }}>
           <strong>Flat 40% off</strong> on subscribing Premium membership
         </span>
@@ -29,7 +25,7 @@ function TopMessage() {
         </span>
       </div>
       <div className="top_message_right">
-        <BugOutlined />
+        <i className="fas fa-tractor"></i>
         <span>
           <a href="/" style={{ color: "inherit", marginLeft: "4px" }}>
             Farmer's page

@@ -9,7 +9,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    box-shadow: 0 0 4px #333333;
+    box-shadow: 0 0 2px #333333;
     z-index: 10000;
     justify-content: space-between;
     color: #ffffff;

@@ -91,13 +91,9 @@ function SignIn(props) {
       );
 
     default:
-      alert("Oops! something went wrong on your end. Please try again later.");
+      alert("Oops! something went wrong on your end. Please try again.");
       break;
   }
 }
-
-// function arePropsEqual(prevProps, nextProps) {
-//   return prevProps.props === nextProps.props;
-// }
 
 export default memo(SignIn);

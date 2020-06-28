@@ -1,9 +1,6 @@
 import React, { useState, memo, lazy, Suspense, useCallback } from "react";
 import "./SignedOutLinks.css";
 
-import LoginOutlined from "@ant-design/icons/LoginOutlined";
-import UserOutlined from "@ant-design/icons/UserOutlined";
-
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
@@ -68,7 +65,7 @@ function SignedOutLinks() {
         onMouseOver={userBtnClickHandler}
       >
         <div className="signed_out_profile_image">
-          <UserOutlined />
+          <i className="fas fa-user-circle"></i>
         </div>
       </div>
       <div
@@ -83,7 +80,7 @@ function SignedOutLinks() {
           <li className="signed_out_item" onClick={openForm}>
             <div className="signed_out_sign_in">
               <div className="signed_out_icon signed_out_sign_in_icon">
-                <LoginOutlined />
+                <i className="fas fa-sign-in-alt"></i>
               </div>
               <div className="signed_out_text signed_out_sign_in_text">
                 Login / Sign-up

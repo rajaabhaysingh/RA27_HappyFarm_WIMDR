@@ -1,17 +1,11 @@
 import React, { useCallback, useState, memo, lazy, Suspense } from "react";
 import "./Header.css";
 
-import CaretDownFilled from "@ant-design/icons/CaretDownFilled";
-import PlusOutlined from "@ant-design/icons/PlusOutlined";
-import GlobalOutlined from "@ant-design/icons/GlobalOutlined";
-import SearchOutlined from "@ant-design/icons/SearchOutlined";
-import MinusOutlined from "@ant-design/icons/MinusOutlined";
-
 import { NavLink } from "react-router-dom";
 
-import Logo from "../../../res/header/logo.png";
+import LogoLightBg from "../../../res/header/logo_light_bg.png";
+import LogoDarkBg from "../../../res/header/logo_dark_bg.png";
 
-import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
 import CatMenuData from "../menuTab/CatMenuData";
@@ -105,7 +99,11 @@ const Header = ({
         {/* Homepage icon */}
         <div className="website_icon_container">
           <NavLink to="/" className="website_icon_link">
-            <img src={Logo} alt="website-icon" className="website_icon" />
+            <img
+              src={window.innerWidth >= 1024 ? LogoLightBg : LogoDarkBg}
+              alt="website-icon"
+              className="website_icon"
+            />
           </NavLink>
         </div>
         {/* Navbar menu options */}
@@ -119,30 +117,30 @@ const Header = ({
               >
                 <span>Products</span>
                 <span className="navbar_categories_down_icon">
-                  <CaretDownFilled />
+                  <i className="fas fa-caret-down"></i>
                 </span>
               </div>
             </li>
             <li className="navbar_menu_items_separator">
-              <MinusOutlined rotate="90" />
+              <i className="fas fa-grip-lines-vertical"></i>
             </li>
             <li className="navbar_menu_item">
               <span className="navbar_offers">Farmers</span>
             </li>
             <li className="navbar_menu_items_separator">
-              <MinusOutlined rotate="90" />
+              <i className="fas fa-grip-lines-vertical"></i>
             </li>
             <li className="navbar_menu_item">
               <span className="navbar_premium">Solution</span>
             </li>
             <li className="navbar_menu_items_separator">
-              <MinusOutlined rotate="90" />
+              <i className="fas fa-grip-lines-vertical"></i>
             </li>
             <li className="navbar_menu_item">
               <span className="navbar_farmers_solution">Offers</span>
             </li>
             <li className="navbar_menu_items_separator">
-              <MinusOutlined rotate="90" />
+              <i className="fas fa-grip-lines-vertical"></i>
             </li>
             <li className="navbar_menu_item">
               <span className="navbar_contact_help">Contact</span>
@@ -154,10 +152,8 @@ const Header = ({
         {/* Sell with us button */}
         <div className="sell_with_us_button_group">
           <button className="sell_with_us_button">
-            <div className="sell_with_us_text">Sell with us</div>
-            <div className="sell_with_us_plus">
-              <PlusOutlined />
-            </div>
+            Sell with us
+            <i className="fas fa-plus"></i>
           </button>
         </div>
         {/* Profile dropdown div */}
@@ -173,7 +169,7 @@ const Header = ({
           <ul className="navbar_utilities_list">
             <li className="navbar_utilities_item">
               <div className="navbar_lang_icon">
-                <GlobalOutlined />
+                <i className="fas fa-globe"></i>
               </div>
             </li>
           </ul>
@@ -189,7 +185,7 @@ const Header = ({
             id="navbar_search_btn_group"
           >
             <div className="navbar_search_btn">
-              <SearchOutlined />
+              <i className="fas fa-search"></i>
             </div>
           </button>
         </div>
@@ -199,31 +195,26 @@ const Header = ({
 
       {/* ---cat menu--- */}
       {/* providing id as cat_menu_container--visible because of closeCatList */}
-      <div
-        id="cat_menu_container--visible"
-        className={catListClass}
-        onMouseLeave={handleCatListClose}
-      >
-        <ErrorBoundary>
-          <Suspense fallback={<FallbackLazy />}>
+      <ErrorBoundary>
+        <Suspense fallback={<div></div>}>
+          <div
+            id="cat_menu_container--visible"
+            className={catListClass}
+            onMouseLeave={handleCatListClose}
+          >
             <MenuTab catList={CatMenuData} />
-          </Suspense>
-        </ErrorBoundary>
-      </div>
-      {/* ------------ */}
+          </div>
+          {/* ------------ */}
 
-      {/* ---Searcbar div for mobile device--- */}
-      <div className={searchBarClass}>
-        <div className="search_bar_mobile">
-          {/* <SearchBarAutoComplete */}
-          <ErrorBoundary>
-            <Suspense fallback={<FallbackLazy />}>
+          {/* ---Searcbar div for mobile device--- */}
+          <div className={searchBarClass}>
+            <div className="search_bar_mobile">
+              {/* SearchBarAutoComplete */}
               <SearchBarPc productItems={ProductOptions} />
-            </Suspense>
-          </ErrorBoundary>
-        </div>
-      </div>
-
+            </div>
+          </div>
+        </Suspense>
+      </ErrorBoundary>
       {/* ------------------------------ */}
     </header>
   );

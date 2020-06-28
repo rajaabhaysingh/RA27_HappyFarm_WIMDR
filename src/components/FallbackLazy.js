@@ -1,7 +1,5 @@
 import React from "react";
 
-import LoadingOutlined from "@ant-design/icons/LoadingOutlined";
-
 function FallbackLazy() {
   return (
     <div
@@ -22,7 +20,7 @@ function FallbackLazy() {
           padding: "2px",
         }}
       >
-        <LoadingOutlined />
+        <i className="fas fa-spin fa-spinner"></i>
       </div>
     </div>
   );

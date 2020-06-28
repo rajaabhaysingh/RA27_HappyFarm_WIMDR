@@ -1,17 +1,6 @@
 import React, { memo } from "react";
 import "./Footer.css";
 
-import FacebookOutlined from "@ant-design/icons/FacebookOutlined";
-import InstagramOutlined from "@ant-design/icons/InstagramOutlined";
-import TwitterOutlined from "@ant-design/icons/TwitterOutlined";
-import LinkedinOutlined from "@ant-design/icons/LinkedinOutlined";
-import YoutubeOutlined from "@ant-design/icons/YoutubeOutlined";
-import UpCircleFilled from "@ant-design/icons/UpCircleFilled";
-import DollarCircleOutlined from "@ant-design/icons/DollarCircleOutlined";
-import ShopOutlined from "@ant-design/icons/ShopOutlined";
-import AuditOutlined from "@ant-design/icons/AuditOutlined";
-import SoundOutlined from "@ant-design/icons/SoundOutlined";
-
 import FooterCert from "../../../res/footer/footer_cert.svg";
 
 function Footer({ details }) {
@@ -30,7 +19,7 @@ function Footer({ details }) {
       <div className="footer_back_to_top" onClick={handleScrollToTop}>
         Back to top
         <div className="footer_arrow_top">
-          <UpCircleFilled />
+          <i className="fas fa-arrow-circle-up"></i>
         </div>
       </div>
       <div className="footer_inner_div">
@@ -49,19 +38,19 @@ function Footer({ details }) {
             <div className="footer_contact_social_heading">FOLLOW US</div>
             <div className="footer_contact_social_icons">
               <div className="footer_social_icon facebook">
-                <FacebookOutlined />
+                <i className="fab fa-facebook"></i>
               </div>
               <div className="footer_social_icon instagram">
-                <InstagramOutlined />
+                <i className="fab fa-instagram"></i>
               </div>
               <div className="footer_social_icon twitter">
-                <TwitterOutlined />
+                <i className="fab fa-twitter"></i>
               </div>
               <div className="footer_social_icon linkedIn">
-                <LinkedinOutlined />
+                <i className="fab fa-linkedin-in"></i>
               </div>
               <div className="footer_social_icon youtube">
-                <YoutubeOutlined />
+                <i className="fab fa-youtube"></i>
               </div>
             </div>
           </div>
@@ -113,16 +102,16 @@ function Footer({ details }) {
         <div className="footer_bottom_cert">
           <div className="footer_bottom_cert_info">
             <div className="footer_bottom_cert_item">
-              <DollarCircleOutlined /> &nbsp; Sell with us
+              <i className="fas fa-coins"></i> &nbsp; Sell with us
             </div>
             <div className="footer_bottom_cert_item">
-              <ShopOutlined /> &nbsp; Advertise
+              <i className="fas fa-ad"></i> &nbsp; Advertise
             </div>
             <div className="footer_bottom_cert_item">
-              <AuditOutlined /> &nbsp; Legal
+              <i className="fas fa-stamp"></i> &nbsp; Legal
             </div>
             <div className="footer_bottom_cert_item">
-              <SoundOutlined /> &nbsp; Feedback
+              <i className="fas fa-comment-alt"></i> &nbsp; Feedback
             </div>
           </div>
           <div className="footer_bottom_copyright">

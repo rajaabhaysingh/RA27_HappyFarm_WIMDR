@@ -1,281 +1,206 @@
+.signed_in_main_div,
+.signed_in_profile_btn,
+.signed_in_dropdown_component,
+.signed_in_item,
+.signed_in_icon,
+.signed_in_text {
+  display: flex;
+  align-items: center;
+}
+
+.signed_in_main_div,
+.signed_in_dropdown_component,
+.signed_in_list--visible {
+  flex-direction: column;
+}
+
+.signed_in_profile_btn {
+  justify-content: center;
+  cursor: pointer;
+  /* transparent border overlaps the btn. so, z-index required */
+  z-index: 10;
+}
+
+.signed_in_profile_image {
+  border-radius: 50%;
+  object-fit: cover;
+  -o-object-fit: cover;
+}
+
+.signed_in_notification_badge {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  align-self: center;
+  background: #ff0000;
+}
+
+.signed_in_dropdown_component {
+  position: relative;
+}
+
+.signed_in_list--visible {
+  display: flex;
+  position: absolute;
+  margin: 0;
+  list-style-type: none;
+  background: #ffffff;
+}
+
+.signed_in_list--hidden {
+  display: none;
+}
+
+.signed_in_top_arrow_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.signed_in_top_arrow {
+  width: 0;
+  height: 0;
+  content: "";
+  border-style: solid;
+}
+
+.signed_in_item {
+  width: calc(100% - 2px);
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: #ffecb5;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.signed_in_item:last-child {
+  margin-bottom: 0;
+}
+
+.signed_in_item:hover {
+  border: 1px solid #ee5700;
+}
+
+.signed_in_my_profile,
+.signed_in_messages,
+.signed_in_dashboard,
+.signed_in_favourites,
+.signed_in_rewards,
+.signed_in_sign_out {
+  width: 100%;
+  text-decoration: none;
+  color: #333333;
+  display: flex;
+}
+
+.signed_in_icon {
+  position: relative;
+  top: 0;
+  left: -1px;
+  border-radius: 2px;
+  color: #ffffff;
+  background: #ee5700;
+  justify-content: center;
+}
+
+.signed_in_text {
+  color: #333333;
+  margin-left: -20px;
+  font-weight: bold;
+  justify-content: center;
+  flex: 1;
+}
+
 /*for screen size larger or equal to 1024px px*/
 @media screen and (min-width: 1024px) {
-  .signed_in_main_div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .signed_in_profile_btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    /* transparent border overlaps the btn. so, z-index required */
-    z-index: 1;
-  }
-
   .signed_in_profile_image {
     height: 32px;
     width: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    -o-object-fit: cover;
   }
-
   .signed_in_notification_badge {
     height: 8px;
     width: 8px;
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    position: absolute;
     bottom: 15%;
-    align-self: center;
-    background: #ff0000;
   }
-
-  .signed_in_dropdown_component {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .signed_in_list--visible {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
     top: 26px;
     padding: 0 16px 16px 16px;
-    margin: 0;
     width: 220px;
     border: 1px solid #ee5700bd;
     border-radius: 4px;
-    list-style-type: none;
-    background: #ffffff;
   }
-
-  .signed_in_list--hidden {
-    display: none;
-  }
-
   .signed_in_top_arrow_container {
     margin-bottom: 16px;
     margin-top: -50px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
   }
-
   .signed_in_top_arrow {
-    width: 0;
-    height: 0;
-    content: "";
     border-width: 25px;
-    border-style: solid;
     border-color: transparent transparent #ee5700bd transparent;
   }
-
   .signed_in_item {
-    width: calc(100% - 2px);
     height: 40px;
-    margin-bottom: 8px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    background: #ffecb5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
   }
-
-  .signed_in_item:last-child {
-    margin-bottom: 0;
-  }
-
   .signed_in_item:hover {
     border: 1px solid #ee5700;
   }
-
-  .signed_in_my_profile,
-  .signed_in_messages,
-  .signed_in_dashboard,
-  .signed_in_favourites,
-  .signed_in_rewards,
-  .signed_in_sign_out {
-    width: 100%;
-    text-decoration: none;
-    color: #333333;
-    display: flex;
-  }
-
   .signed_in_icon {
-    position: relative;
-    top: 0;
-    left: -1px;
     height: 42px;
     width: 42px;
-    border-radius: 2px;
-    color: #ffffff;
     font-size: 1.2rem;
-    background: #ee5700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
-
   .signed_in_text {
-    margin-left: -20px;
     font-size: 0.9rem;
-    color: #5c5c5c;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
   }
 }
 
-/* ------------------- */
-/* ------------------- */
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
-  .signed_in_main_div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .signed_in_profile_btn {
     height: 40px;
     width: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    /* transparent border overlaps the btn. so, z-index required */
-    z-index: 10;
     -webkit-tap-highlight-color: transparent;
   }
-
   .signed_in_profile_image {
     height: 26px;
     width: 26px;
-    border-radius: 50%;
-    object-fit: cover;
-    -o-object-fit: cover;
   }
-
   .signed_in_notification_badge {
     height: 5px;
     width: 5px;
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    position: absolute;
     bottom: 20%;
-    background: #ff0000;
   }
-
   .signed_in_dropdown_component {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     z-index: 500;
   }
-
   .signed_in_list--visible {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
     top: 4px;
     padding: 0 12px 12px 12px;
-    margin: 0;
     width: 198px;
     border-radius: 2px;
-    list-style-type: none;
-    background: #ffffff;
     box-shadow: 0 0 4px #5c5c5c;
   }
-
-  .signed_in_list--hidden {
-    display: none;
-  }
-
   .signed_in_top_arrow_container {
     margin-bottom: 12px;
     margin-top: -16px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
   }
-
   .signed_in_top_arrow {
-    width: 0;
-    height: 0;
-    content: "";
     border-width: 8px;
-    border-style: solid;
     border-color: transparent transparent #ffffff transparent;
   }
-
   .signed_in_item {
-    width: calc(100% - 2px);
     height: 35px;
-    margin-bottom: 8px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    background: #ffecb5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
-
-  .signed_in_item:last-child {
-    margin-bottom: 0;
-  }
-
   .signed_in_item:active {
     border: 1px solid #ee5700;
   }
-
-  .signed_in_my_profile,
-  .signed_in_messages,
-  .signed_in_dashboard,
-  .signed_in_favourites,
-  .signed_in_rewards,
-  .signed_in_sign_out {
-    width: 100%;
-    text-decoration: none;
-    color: #333333;
-    display: flex;
-  }
-
   .signed_in_icon {
-    position: relative;
-    top: 0;
-    left: -1px;
     height: 37px;
     width: 37px;
-    border-radius: 2px;
-    color: #ffffff;
     font-size: 1rem;
-    background: #ee5700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
-
   .signed_in_text {
-    margin-left: -20px;
     font-size: 0.85rem;
-    color: #333333;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
   }
 }

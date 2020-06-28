@@ -34,7 +34,7 @@
 .side_drawer_header {
   display: flex;
   align-items: center;
-  padding: 27.5px 16px;
+  padding: 27px 16px;
   position: sticky;
   top: 0;
   background-color: #ee5700;
@@ -117,13 +117,12 @@
 
 .side_drawer_menu_list ul li {
   height: 40px;
-  /* padding: 10px 0 10px 16px; */
   display: flex;
   align-items: center;
-  padding-left: 16px;
 }
 
 .side_drawer_item_link {
+  padding-left: 16px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -138,17 +137,18 @@
   background: #f0f0f0;
 }
 
-.side_drawer_menu_list ul li:active,
-.side_drawer_menu_list ul li:hover {
+.side_drawer_link_active {
   color: #ee5700;
-  font-weight: 500;
+  font-weight: bold;
   background-color: #fae4d8;
 }
 
 .side_drawer_menu_items_logo {
   margin-right: 16px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
   font-size: 1rem;
-  /* color: #000; */
 }
 
 .side_drawer_menu_items_logo:hover,

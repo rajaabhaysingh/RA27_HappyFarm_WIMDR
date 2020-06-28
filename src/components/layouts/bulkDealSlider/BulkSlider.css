@@ -31,7 +31,6 @@
   }
 
   .bulk_slider_header_heading {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     color: #000000;
   }
@@ -95,7 +94,7 @@
 @media screen and (max-width: 1023px) {
   .bulk_slider_main_div {
     width: 100%;
-    box-shadow: 0 0px 8px -1px #cfcfcf;
+    box-shadow: 0 0px 8px #cfcfcf;
   }
 
   .bulk_slider_inner_main_div {

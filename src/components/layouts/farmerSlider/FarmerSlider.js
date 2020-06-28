@@ -22,9 +22,9 @@ function FarmerSlider({ boldHeading, normalHeading, farmersList }) {
   const child = () => {
     return (
       <div>
-        {farmersList.map((farmer) => (
-          <ErrorBoundary>
-            <Suspense fallback={<FallbackLazy />}>
+        <ErrorBoundary>
+          <Suspense fallback={<FallbackLazy />}>
+            {farmersList.map((farmer) => (
               <FarmerSliderItem
                 key={farmer.id}
                 name={farmer.name}
@@ -35,9 +35,9 @@ function FarmerSlider({ boldHeading, normalHeading, farmersList }) {
                 productUrl={farmer.productUrl}
                 isAd={farmer.isAd}
               />
-            </Suspense>
-          </ErrorBoundary>
-        ))}
+            ))}
+          </Suspense>
+        </ErrorBoundary>
       </div>
     );
   };
@@ -63,9 +63,9 @@ function FarmerSlider({ boldHeading, normalHeading, farmersList }) {
             <DoubleLeftOutlined />
           </div>
           <div className="farmer_slider_container">
-            {farmersList.map((farmer) => (
-              <ErrorBoundary>
-                <Suspense fallback={<FallbackLazy />}>
+            <ErrorBoundary>
+              <Suspense fallback={<FallbackLazy />}>
+                {farmersList.map((farmer) => (
                   <FarmerSliderItem
                     key={farmer.id}
                     name={farmer.name}
@@ -76,10 +76,11 @@ function FarmerSlider({ boldHeading, normalHeading, farmersList }) {
                     productUrl={farmer.productUrl}
                     isAd={farmer.isAd}
                   />
-                </Suspense>
-              </ErrorBoundary>
-            ))}
+                ))}
+              </Suspense>
+            </ErrorBoundary>
           </div>
+
           <div className="farmer_slider_right_arrow">
             <DoubleRightOutlined />
           </div>

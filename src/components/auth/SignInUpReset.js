@@ -1,8 +1,6 @@
 import React, { useState, memo, lazy, Suspense } from "react";
 import "./SignInUpReset.css";
 
-import CloseOutlined from "@ant-design/icons/CloseOutlined";
-
 import LoginGraphics from "../../res/login/login_graphic.svg";
 
 import FallbackLazy from "../FallbackLazy";
@@ -88,7 +86,7 @@ function SignInUp({ onClose }) {
         </div>
         <div className="sign_in_up_form_container">
           <div className="sign_in_up_close_btn" onClick={onClose}>
-            <CloseOutlined />
+            <i className="fas fa-times"></i>
           </div>
 
           {renderFormUI(isSignInOpen)}

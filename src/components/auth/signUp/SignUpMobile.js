@@ -44,7 +44,11 @@ function SignUpMobile({ formValues, handleChange, nextStep }) {
           </NavLink>
           .
         </div>
-        <input className="sign_up_login_btn" type="submit" value="CONTINUE" />
+        <input
+          className="sign_up_continue_btn"
+          type="submit"
+          value="CONTINUE"
+        />
         <NavLink className="sign_up_need_help" to="/">
           Need help creating account?
         </NavLink>

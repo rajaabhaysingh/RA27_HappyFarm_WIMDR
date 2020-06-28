@@ -31,10 +31,11 @@ function BulkSlider({ productsList, boldHeading, normalHeading }) {
             <DoubleLeftOutlined />
           </div>
           <div className="bulk_slider_container">
-            {productsList.map((product) => (
-              <ErrorBoundary>
-                <Suspense fallback={<FallbackLazy />}>
+            <ErrorBoundary>
+              <Suspense fallback={<FallbackLazy />}>
+                {productsList.map((product) => (
                   <BulkDealItem
+                    key={product.id}
                     id={product.id}
                     imageURL={product.imageURL}
                     name={product.name}
@@ -55,9 +56,9 @@ function BulkSlider({ productsList, boldHeading, normalHeading }) {
                     maxBookValUnit={product.maxBookValUnit}
                     soldPercent={product.soldPercent}
                   />
-                </Suspense>
-              </ErrorBoundary>
-            ))}
+                ))}
+              </Suspense>
+            </ErrorBoundary>
           </div>
           <div className="bulk_slider_right_arrow">
             <DoubleRightOutlined />

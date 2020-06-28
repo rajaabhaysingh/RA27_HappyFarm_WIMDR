@@ -1,346 +1,249 @@
+.adCat_outer_div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adCat_inner_div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adCat_header {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.adCat_heading_left,
+.adCat_heading_right {
+  display: flex;
+  align-items: baseline;
+  font-weight: bold;
+}
+
+.adCat_heading_left {
+  margin-left: 8px;
+}
+
+.adCat_heading_left_2 {
+  margin-left: 4px;
+  font-size: 0.8rem;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.adCat_heading_right_2 {
+  padding: 4px 8px;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.adCat_body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.adCat_grid {
+  width: 100%;
+  display: grid;
+  align-items: center;
+}
+
+.adCat_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(#ffffff, #ffffff);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.adCat_box_top_info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  background-image: linear-gradient(
+    to right,
+    #ffffff,
+    #fa8c16,
+    #fa8c16,
+    #fa8c16,
+    #ffffff
+  );
+}
+
+.adCat_adTitle {
+  margin-top: 8px;
+  width: 100%;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+}
+
+.adCat_adDesc {
+  width: 100%;
+  font-size: 0.75rem;
+  color: #5c5c5c;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+}
+
+.adCat_adSubDesc {
+  margin-top: 4px;
+  width: 100%;
+  font-weight: bold;
+  color: #009900;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+}
+
+.adCat_view_more_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-image: linear-gradient(#18607a, #0c3b4d);
+  border: none;
+}
+
 /*for screen size larger or equal to 1024px px*/
 @media screen and (min-width: 1024px) {
   .adCat_outer_div {
-    width: 100%;
     max-width: 1500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
-
   .adCat_inner_div {
-    width: 100%;
     padding: 16px 48px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
-
-  .adCat_header {
-    width: 100%;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-  }
-
   .adCat_heading_left,
   .adCat_heading_right {
-    display: flex;
-    align-items: baseline;
     font-size: 1rem;
-    font-weight: bold;
   }
-
-  .adCat_heading_left {
-    margin-left: 8px;
-  }
-
-  .adCat_heading_left_2 {
-    margin-left: 4px;
-    font-size: 0.8rem;
-    font-weight: lighter;
-    font-style: italic;
-  }
-
   .adCat_heading_right_2 {
-    padding: 4px 8px;
-    outline: none;
-    border: none;
     cursor: pointer;
-    background: transparent;
-    font-weight: bold;
-    font-size: 0.9rem;
   }
-
   .adCat_heading_right_2:hover {
     color: #ee5700;
   }
-
   .adCat_body {
-    width: 100%;
-    display: flex;
-    align-items: center;
     padding: 8px 16px;
   }
-
   .adCat_grid {
-    width: 100%;
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 6px;
-    align-items: center;
   }
-
   .adCat_box {
     padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(#ffffff, #ffffff);
-    box-sizing: border-box;
     border-radius: 4px;
-    /* box-shadow: 1px 1px 4px #6e6e6e; */
-    overflow: hidden;
   }
-
   .adCat_box_top_info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
-    width: 100%;
-    height: 20px;
     font-size: 0.75rem;
-    color: #ffffff;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    background-image: linear-gradient(
-      to right,
-      #ffffff,
-      #fa8c16,
-      #fa8c16,
-      #fa8c16,
-      #ffffff
-    );
+    height: 20px;
   }
-
   .adCat_box img:hover {
     transform: scale(1.05);
     transition: all ease-in 0.1s;
     cursor: pointer;
   }
-
   .adCat_box img {
     height: 100px;
   }
-
   .adCat_adTitle {
-    margin-top: 8px;
-    width: 100%;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: block;
-    white-space: nowrap;
     font-size: 0.95rem;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
   }
-
   .adCat_adDesc {
     margin-top: 2px;
-    width: 100%;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: block;
-    white-space: nowrap;
-    font-size: 0.75rem;
-    color: #5c5c5c;
   }
-
   .adCat_adSubDesc {
-    margin-top: 4px;
-    width: 100%;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: block;
-    white-space: nowrap;
     font-size: 0.8rem;
-    font-weight: bold;
-    color: #009900;
   }
-
   .adCat_view_more_btn {
     margin-top: 16px;
     width: 100%;
     height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 0.75rem;
-    color: #ffffff;
-    border: none;
     border-radius: 4px;
-    background-image: linear-gradient(#18607a, #0c3b4d);
     cursor: pointer;
   }
 }
 
-/* ---- */
-/* ---- */
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
-  .adCat_outer_div {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .adCat_inner_div {
-    width: 100%;
     padding: 8px 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
-
-  .adCat_header {
-    width: 100%;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-  }
-
   .adCat_heading_left,
   .adCat_heading_right {
-    display: flex;
-    align-items: baseline;
     font-size: 0.85rem;
-    font-weight: bold;
   }
-
-  .adCat_heading_left {
-    margin-left: 8px;
-  }
-
-  .adCat_heading_left_2 {
-    margin-left: 4px;
-    font-size: 0.8rem;
-    font-weight: lighter;
-    font-style: italic;
-  }
-
   .adCat_heading_right_2 {
-    padding: 4px 8px;
-    outline: none;
-    border: none;
-    background: transparent;
-    font-weight: bold;
-    font-size: 0.9rem;
     color: #000000;
   }
-
   .adCat_heading_right_2:active {
     color: #ee5700;
   }
-
   .adCat_body {
-    width: 100%;
-    display: flex;
-    align-items: center;
     padding: 8px 0;
   }
-
   .adCat_grid {
-    width: 100%;
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 4px;
-    align-items: center;
+    grid-gap: 4px;
   }
-
   .adCat_box {
     padding: 8px 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(#fffaef, #ffffff);
-    box-sizing: border-box;
     border-radius: 2px;
-    overflow: hidden;
     -webkit-tap-highlight-color: transparent;
   }
-
   .adCat_box_top_info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
-    width: 100%;
-    height: 18px;
     font-size: 0.65rem;
-    color: #ffffff;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    background-image: linear-gradient(
-      to right,
-      #ffffff,
-      #fa8c16,
-      #fa8c16,
-      #fa8c16,
-      #ffffff
-    );
+    height: 18px;
   }
-
   .adCat_box:active {
     background: #dddddd;
   }
-
   .adCat_box img {
     height: 60px;
   }
-
   .adCat_adTitle {
-    margin-top: 8px;
-    width: 100%;
     font-size: 0.9rem;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: block;
-    white-space: nowrap;
   }
-
-  .adCat_adDesc {
-    width: 100%;
-    font-size: 0.75rem;
-    color: #5c5c5c;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: block;
-    white-space: nowrap;
-  }
-
   .adCat_adSubDesc {
-    margin-top: 4px;
-    width: 100%;
     font-size: 0.7rem;
-    font-weight: bold;
-    color: #009900;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: block;
-    white-space: nowrap;
   }
-
   .adCat_view_more_btn {
     margin-top: 8px;
     width: 80%;
     height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 0.6rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #ffffff;
-    border: none;
     outline: none;
     border-radius: 20px;
-    background-image: linear-gradient(#18607a, #0c3b4d);
-    cursor: pointer;
   }
 }

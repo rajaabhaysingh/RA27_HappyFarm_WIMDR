@@ -55,39 +55,29 @@ function BulkDealItem({
                 <div className="bulk_primary_details">
                   <div className="bulk_name">{name}</div>
                   <div className="bulk_desc">
-                    <div className="bulk_breed">{breed},</div>
-                    <div className="bulk_type">{category}</div>
+                    {breed}, {category}
                   </div>
                   <div className="bulk_location">
-                    <div className="bulk_loc_icon">
-                      <EnvironmentOutlined />
-                    </div>
-                    <div className="bulk_loc_text">{location}</div>
+                    <i className="fas fa-map-marker-alt"></i> &nbsp;{location}
                   </div>
                 </div>
               </div>
               <div className="bulk_details_sec">
                 <div className="bulk_lot_size">
-                  <div className="bulk_lot_size_text">Stock size:</div>
-                  <div className="bulk_lot_size_digit">{lotSizeDigit}</div>
-                  <div className="bulk_lot_size_unit">{lotSizeUnit}</div>
+                  Stock size: {lotSizeDigit} {lotSizeUnit}
                 </div>
                 <div className="bulk_price">
-                  <div className="bulk_price_text">Base price:</div>
-                  <div className="bulk_price_amount">₹ {basePrice}</div>
-                  <div className="bulk_price_per_unit">/ {pricePerUnit}</div>
+                  <span style={{ color: "#5c5c5c" }}>Base price:</span>&nbsp;
+                  <span style={{ fontWeight: "bold" }}>
+                    {basePrice} / {pricePerUnit}
+                  </span>
                 </div>
               </div>
             </div>
             <div className="bulk_info_top_right">
-              <div className="bulk_product_contact_utility">
-                <button>
-                  <div className="bulk_contact_symbol">
-                    <PhoneFilled rotate="90" />
-                  </div>
-                  <div className="bulk_button_text">CONTACT</div>
-                </button>
-              </div>
+              <button className="bulk_product_contact_btn">
+                <i className="fas fa-phone-alt"></i> CONTACT
+              </button>
               <div className="bulk_profile_link">SELLER PROFILE</div>
               <div className="bulk_rating">
                 <div className="bulk_rating_star">
@@ -101,17 +91,17 @@ function BulkDealItem({
               </div>
               <div className="bulk_utility">
                 <div className="bulk_utility_nego">
-                  <MessageFilled />
+                  <i className="fas fa-comments"></i>
                 </div>
                 <div className="bulk_utility_fav">
-                  <HeartFilled />
+                  <i className="fas fa-heart"></i>
                 </div>
               </div>
             </div>
           </div>
           <div className="bulk_info_mid">
             <div className="bulk_expected_del_icon">
-              <ClockCircleOutlined />
+              <i className="fas fa-clock"></i>
             </div>
             <div className="bulk_expected_del_text">Next delivery in:</div>
             <div className="bulk_expected_del_time">{delTime}*</div>
@@ -161,18 +151,16 @@ function BulkDealItem({
             </form>
           </div>
         </div>
-        <div className="bulk_status">
-          <div className="bulk_status_bar">
-            <ErrorBoundary>
-              <Suspense className={<FallbackLazy />}>
-                <ProgressBar
-                  done={soldPercent}
-                  textInfo="sold"
-                  refreshTime="3000"
-                />
-              </Suspense>
-            </ErrorBoundary>
-          </div>
+        <div className="bulk_status_bar">
+          <ErrorBoundary>
+            <Suspense className={<FallbackLazy />}>
+              <ProgressBar
+                done={soldPercent}
+                textInfo="sold"
+                refreshTime="3000"
+              />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </div>
     </div>

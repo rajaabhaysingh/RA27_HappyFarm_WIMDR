@@ -10,17 +10,17 @@ function CategoryScroll({ categoryList }) {
   return (
     <div className="category_scroll_main_div">
       <div className="category_scroll_inner_div">
-        {categoryList.map((category) => (
-          <ErrorBoundary>
-            <Suspense fallback={<FallbackLazy />}>
+        <ErrorBoundary>
+          <Suspense fallback={<FallbackLazy />}>
+            {categoryList.map((category) => (
               <CategoryScrollItem
                 key={category.name}
                 categoryName={category.name}
                 iconURL={category.catIconUrl}
               />
-            </Suspense>
-          </ErrorBoundary>
-        ))}
+            ))}
+          </Suspense>
+        </ErrorBoundary>
       </div>
     </div>
   );

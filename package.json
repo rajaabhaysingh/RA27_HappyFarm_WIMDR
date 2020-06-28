@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "@emotion/core": "^10.0.28",
     "@google-cloud/translate": "^5.3.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -15,6 +16,7 @@
     "react-google-autocomplete": "^1.2.4",
     "react-helmet": "^6.0.0",
     "react-helmet-async": "^1.0.6",
+    "react-icons": "^3.10.0",
     "react-onclickoutside": "^6.9.0",
     "react-places-autocomplete": "^7.2.1",
     "react-redux": "^7.2.0",

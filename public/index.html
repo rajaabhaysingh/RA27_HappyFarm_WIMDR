@@ -2,17 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="./logo/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1" shrink-to-fit="no"/>
     <meta name="theme-color" content="#ee5700" />
+    <meta name="apple-mobile-web-app-status-bar" content="#ee5700"/>
     <meta
       name="description"
-      content="One stop solution for all farmer's problems."
+      content="Hub of producers and consumers."
     />
-    <title>Happyfarm</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="./logo/logo_144x144.png">
+    <link rel="apple-touch-icon" href="./logo/logo_192x192.png">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <title>Farmted</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register("./serviceworker.js")
+          .then((reg) => console.log("SW registered", reg))
+          .catch((err) => console.log("SW registration failed", err));
+        })
+      }
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEoiDfpQW73648IFxcQUNIupKCOJKf6IQ&libraries=places"></script>
   </body>
 </html>

@@ -222,9 +222,9 @@
     color: #ffffff;
     background: #ee5700;
     font-size: 1.2rem;
-    border-radius: 3px;
-    margin-left: 8px;
-    margin-right: 3px;
+    border-radius: 2px;
+    margin-left: 4px;
+    margin-right: 2.5px;
     -webkit-tap-highlight-color: transparent;
     display: flex;
     align-items: center;

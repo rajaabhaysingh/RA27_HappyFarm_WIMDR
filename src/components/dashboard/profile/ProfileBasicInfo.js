@@ -1,12 +1,6 @@
 import React, { useCallback, memo, useState } from "react";
 import "./ProfileBasicInfo.css";
 
-import AimOutlined from "@ant-design/icons/AimOutlined";
-import LockOutlined from "@ant-design/icons/LockOutlined";
-import UnlockOutlined from "@ant-design/icons/UnlockOutlined";
-import CheckCircleOutlined from "@ant-design/icons/CheckCircleOutlined";
-import CloseCircleOutlined from "@ant-design/icons/CloseCircleOutlined";
-
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -56,25 +50,25 @@ function ProfileBasicInfo({ profileData }) {
   // returning lock/unlock icon on basis of state
   const getNameBtnSymbol = useCallback(() => {
     if (isNameDisabled) {
-      return <LockOutlined />;
+      return <i className="fas fa-lock"></i>;
     } else {
-      return <UnlockOutlined />;
+      return <i className="fas fa-lock-open"></i>;
     }
   }, [isNameDisabled]);
 
   const getEmailBtnSymbol = useCallback(() => {
     if (isEmailDisabled) {
-      return <LockOutlined />;
+      return <i className="fas fa-lock"></i>;
     } else {
-      return <UnlockOutlined />;
+      return <i className="fas fa-lock-open"></i>;
     }
   }, [isEmailDisabled]);
 
   const getMobileBtnSymbol = useCallback(() => {
     if (isMobileDisabled) {
-      return <LockOutlined />;
+      return <i className="fas fa-lock"></i>;
     } else {
-      return <UnlockOutlined />;
+      return <i className="fas fa-lock-open"></i>;
     }
   }, [isMobileDisabled]);
 
@@ -240,7 +234,7 @@ function ProfileBasicInfo({ profileData }) {
           />
           <div className="profile_email_verified_info">
             <span style={{ marginRight: "8px", fontSize: "1rem" }}>
-              <CloseCircleOutlined />
+              <i className="fas fa-lock-times-circle"></i>
             </span>
           </div>
           <button onClick={toggleEmailEditable} className={emailBtnLock}>
@@ -260,7 +254,7 @@ function ProfileBasicInfo({ profileData }) {
           />
           <div className="profile_mob_verified_info">
             <span style={{ marginRight: "8px", fontSize: "1rem" }}>
-              <CheckCircleOutlined />
+              <i className="fas fa-lock-check-circle"></i>
             </span>
           </div>
           <button onClick={toggleMobileEditable} className={mobileBtnLock}>
@@ -291,13 +285,13 @@ function ProfileBasicInfo({ profileData }) {
           />
           {/* location utility btn */}
           <div className="profile_auto_detect_loc_btn" onClick={getLocation}>
-            <AimOutlined />
+            <i className="fas fa-crosshairs"></i>
           </div>
           <button
             onClick={toggleAddressEditable}
             className="profile_edit_btn profile_full_name_edit_btn"
           >
-            <LockOutlined />
+            <i className="fas fa-lock"></i>
           </button>
         </div>
         <div className="profile_add_selector_component">

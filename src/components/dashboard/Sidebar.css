@@ -153,16 +153,22 @@
   .sidebar_menu_item_icon {
     margin-right: 8px;
     font-size: 1rem;
+    width: 20px;
+    display: flex;
+    justify-content: center;
   }
 
   .sidebar_menu_item_icon--active {
     margin-right: 8px;
     font-size: 1rem;
     color: #ee5700;
+    width: 20px;
+    display: flex;
+    justify-content: center;
   }
 
   .sidebar_logout {
-    margin-top: 120px;
+    margin-top: 64px;
     margin-bottom: 16px;
     width: 200px;
     height: 35px;

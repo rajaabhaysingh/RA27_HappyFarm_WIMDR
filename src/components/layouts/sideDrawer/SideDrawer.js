@@ -1,25 +1,6 @@
 import React, { memo } from "react";
 import "./SideDrawer.css";
 
-import ArrowLeftOutlined from "@ant-design/icons/ArrowLeftOutlined";
-import GlobalOutlined from "@ant-design/icons/GlobalOutlined";
-import PlusOutlined from "@ant-design/icons/PlusOutlined";
-import HomeOutlined from "@ant-design/icons/HomeOutlined";
-import AuditOutlined from "@ant-design/icons/AuditOutlined";
-import BellOutlined from "@ant-design/icons/BellOutlined";
-import InfoCircleOutlined from "@ant-design/icons/InfoCircleOutlined";
-import PhoneOutlined from "@ant-design/icons/PhoneOutlined";
-import QuestionCircleOutlined from "@ant-design/icons/QuestionCircleOutlined";
-import StarOutlined from "@ant-design/icons/StarOutlined";
-import PercentageOutlined from "@ant-design/icons/PercentageOutlined";
-import UserOutlined from "@ant-design/icons/UserOutlined";
-import MessageOutlined from "@ant-design/icons/MessageOutlined";
-import AppstoreOutlined from "@ant-design/icons/AppstoreOutlined";
-import AndroidFilled from "@ant-design/icons/AndroidFilled";
-import AppleFilled from "@ant-design/icons/AppleFilled";
-import AreaChartOutlined from "@ant-design/icons/AreaChartOutlined";
-import UsergroupAddOutlined from "@ant-design/icons/UsergroupAddOutlined";
-
 import { NavLink } from "react-router-dom";
 
 const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
@@ -43,97 +24,139 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
       <div className="side_drawer_header">
         <div className="side_drawer_back_button">
           <div className="side_drawer_back_icon">
-            <ArrowLeftOutlined />
+            <i className="fas fa-seedling"></i>
           </div>
           <div className="side_drawer_back_text">Logo here</div>
         </div>
         <div className="side_drawer_header_spacer"></div>
         <div className="side_drawer_change_language">
           <div className="side_drawer_change_language_icon">
-            <GlobalOutlined />
+            <i className="fas fa-cog"></i>
           </div>
-          <div className="side_drawer_change_language_text">English</div>
+          <div className="side_drawer_change_language_text">Settings</div>
         </div>
       </div>
       {/* sidebar sell with us button */}
       <div className="side_drawer_sell_with_us_btn_container">
         <button className="side_drawer_sell_with_us_btn">
-          Sell with us <PlusOutlined />
+          Sell with us <i className="fas fa-plus"></i>
         </button>
       </div>
-      {/* divider div */}
-      {/* <div className="side_drawer_divider"></div> */}
-      {/* sidebar menu list 1*/}
       <div className="side_drawer_menu_list">
         <ul>
           <li className="side_drawer_menu_item" onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <HomeOutlined />
+                <i className="fas fa-home"></i>
               </div>
               Home
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <AppstoreOutlined />
+                <i className="fas fa-th"></i>
               </div>
               Products
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/dashboard/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/dashboard/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <AreaChartOutlined />
+                <i className="fas fa-chart-area"></i>
               </div>
               Dashboard
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <MessageOutlined />
+                <i className="fas fa-envelope-open-text"></i>
               </div>
               Messages
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <UsergroupAddOutlined />
+                <i className="fas fa-users"></i>
               </div>
               Farmers
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <UserOutlined />
+                <i className="fas fa-tractor"></i>
               </div>
               Agro Solution
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <PercentageOutlined />
+                <i className="fas fa-tags"></i>
               </div>
               Offers
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <StarOutlined />
+                <i className="fas fa-award"></i>
               </div>
               Premium
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <QuestionCircleOutlined />
+                <i className="fas fa-question-circle"></i>
               </div>
               FAQs {"&"} Help
             </NavLink>
@@ -146,33 +169,53 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
       <div className="side_drawer_menu_list">
         <ul>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <PhoneOutlined rotate={90} />
+                <i className="fas fa-headset"></i>
               </div>
               Contact
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <InfoCircleOutlined />
+                <i className="fas fa-info-circle"></i>
               </div>
               About Us
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <BellOutlined />
+                <i className="fas fa-bell"></i>
               </div>
               Notification
             </NavLink>
           </li>
           <li onClick={handleOnClick}>
-            <NavLink className="side_drawer_item_link" to="/">
+            <NavLink
+              className="side_drawer_item_link"
+              to="/"
+              activeClassName="side_drawer_link_active"
+              exact
+            >
               <div className="side_drawer_menu_items_logo">
-                <AuditOutlined />
+                <i className="fas fa-stamp"></i>
               </div>
               Legal
             </NavLink>
@@ -185,11 +228,11 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
       <div className="footer">
         <button>
           <div className="side_drawer_footer_icon_android">
-            <AndroidFilled />
+            <i className="fab fa-google-play"></i>
           </div>
           <div className="footer_text">Download App</div>
           <div className="side_drawer_footer_icon_ios">
-            <AppleFilled />
+            <i className="fab fa-app-store"></i>
           </div>
         </button>
       </div>

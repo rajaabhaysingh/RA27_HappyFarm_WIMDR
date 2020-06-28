@@ -3,13 +3,7 @@ import "./SignInResetPwd.css";
 
 import Popup from "reactjs-popup";
 
-import { ArrowLeftOutlined } from "@ant-design/icons/ArrowLeftOutlined";
-import { InfoCircleOutlined } from "@ant-design/icons/InfoCircleOutlined";
-
 function SignInResetPwd({ formValues, handleChange, prevStep }) {
-  // ---local form state mgmt-----
-  // const { formValues, handleChange, prevStep } = props;
-
   const handleReturnBack = (e) => {
     try {
       // if wrong mobile
@@ -65,7 +59,7 @@ function SignInResetPwd({ formValues, handleChange, prevStep }) {
           <Popup
             trigger={
               <span style={{ marginLeft: "8px", color: "#5c5c5c" }}>
-                <InfoCircleOutlined />
+                <i class="fas fa-info-circle"></i>
               </span>
             }
             on="hover"
@@ -114,7 +108,7 @@ function SignInResetPwd({ formValues, handleChange, prevStep }) {
             className="sign_in_reset_pwd_back"
             onClick={handleReturnBack}
           >
-            <ArrowLeftOutlined />
+            <i className="fas fa-arrow-left"></i>
             <span style={{ marginLeft: "8px" }}>GO BACK</span>
           </button>
 
@@ -128,9 +122,5 @@ function SignInResetPwd({ formValues, handleChange, prevStep }) {
     </div>
   );
 }
-
-// function arePropsEqual(prevProps, nextProps) {
-//   return prevProps.formValues === nextProps.formValues;
-// }
 
 export default memo(SignInResetPwd);

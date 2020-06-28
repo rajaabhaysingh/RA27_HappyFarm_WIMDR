@@ -31,9 +31,9 @@ function ProductSlider({ boldHeading, normalHeading, productsList }) {
             <DoubleLeftOutlined />
           </div>
           <div className="product_slider_container">
-            {productsList.map((product) => (
-              <ErrorBoundary>
-                <Suspense fallback={<FallbackLazy />}>
+            <ErrorBoundary>
+              <Suspense fallback={<FallbackLazy />}>
+                {productsList.map((product) => (
                   <ProductSliderItem
                     key={product.id}
                     id={product.id}
@@ -51,9 +51,9 @@ function ProductSlider({ boldHeading, normalHeading, productsList }) {
                     isNegotiable={product.isNegotiable}
                     sellerId={product.sellerId}
                   />
-                </Suspense>
-              </ErrorBoundary>
-            ))}
+                ))}
+              </Suspense>
+            </ErrorBoundary>
           </div>
           <div className="product_slider_right_arrow">
             <DoubleRightOutlined />

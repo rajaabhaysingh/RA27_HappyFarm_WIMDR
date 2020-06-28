@@ -52,18 +52,12 @@ function FarmerSliderItem({ dpUrl, name, place, rating, productUrl }) {
               Show products
             </a>
           </div>
-          <div className="farmer_slider_follow_toggle_button_container">
-            {/* trigger follow function on click of follow button */}
-            <button
-              className="farmer_slider_follow_toggle_button"
-              onClick={() => handleFollowBtnClick}
-            >
-              <div className="farmer_slider_plus_symbol">
-                <UserAddOutlined />
-              </div>
-              <div className="farmer_slider_follow_text">Follow</div>
-            </button>
-          </div>
+          <button
+            className="farmer_slider_follow_toggle_button"
+            onClick={() => handleFollowBtnClick}
+          >
+            <i className="fas fa-user-plus"></i> &nbsp;&nbsp;Follow
+          </button>
         </div>
       </div>
       <div className="ad_label"></div>

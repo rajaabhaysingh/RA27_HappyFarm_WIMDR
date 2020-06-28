@@ -3,12 +3,6 @@ import "./SignedInLinks.css";
 
 import { NavLink } from "react-router-dom";
 
-import LogoutOutlined from "@ant-design/icons/LogoutOutlined";
-import MessageOutlined from "@ant-design/icons/MessageOutlined";
-import HeartOutlined from "@ant-design/icons/HeartOutlined";
-import StarOutlined from "@ant-design/icons/StarOutlined";
-import AreaChartOutlined from "@ant-design/icons/AreaChartOutlined";
-
 import UserPlaceholder from "../../../res/header/user_placeholder.svg";
 
 function SignedInLinks() {
@@ -85,7 +79,7 @@ function SignedInLinks() {
           <li className="signed_in_item" onClick={handleOptionClick}>
             <NavLink className="signed_in_my_profile" to="/dashboard/">
               <div className="signed_in_icon signed_in_my_profile_icon">
-                <AreaChartOutlined />
+                <i className="fas fa-chart-area"></i>
               </div>
               <div className="signed_in_text signed_in_my_profile_text">
                 Dashboard
@@ -95,7 +89,7 @@ function SignedInLinks() {
           <li className="signed_in_item" onClick={handleOptionClick}>
             <NavLink className="signed_in_messages" to="/">
               <div className="signed_in_icon signed_in_message_icon">
-                <MessageOutlined />
+                <i className="fas fa-envelope-open-text"></i>
               </div>
               <div className="signed_in_text signed_in_message_text">
                 Messages
@@ -105,7 +99,7 @@ function SignedInLinks() {
           <li className="signed_in_item" onClick={handleOptionClick}>
             <NavLink className="signed_in_favourites" to="/">
               <div className="signed_in_icon signed_in_favourites_icon">
-                <HeartOutlined />
+                <i className="fas fa-heart"></i>
               </div>
               <div className="signed_in_text signed_in_favourites_text">
                 Favourites
@@ -115,7 +109,7 @@ function SignedInLinks() {
           <li className="signed_in_item" onClick={handleOptionClick}>
             <NavLink className="signed_in_rewards" to="/">
               <div className="signed_in_icon signed_in_rewards_icon">
-                <StarOutlined />
+                <i className="fas fa-star"></i>
               </div>
               <div className="signed_in_text signed_in_rewards_text">
                 Rewards
@@ -125,7 +119,7 @@ function SignedInLinks() {
           <li className="signed_in_item" onClick={handleOptionClick}>
             <NavLink className="signed_in_sign_out" to="/">
               <div className="signed_in_icon signed_in_sign_out_icon">
-                <LogoutOutlined />
+                <i className="fas fa-sign-out-alt"></i>
               </div>
               <div className="signed_in_text signed_in_sign_out_text">
                 Sign-Out
