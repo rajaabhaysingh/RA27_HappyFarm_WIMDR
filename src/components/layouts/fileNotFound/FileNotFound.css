@@ -1,0 +1,73 @@
+.file_not_found_main_div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.file_not_found_info {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.file_not_found_info_text {
+  margin-top: 16px;
+}
+
+.file_not_found_header {
+  font-weight: bold;
+  text-align: center;
+  margin: 0 8px;
+}
+
+.file_not_found_path {
+  color: #ee5700;
+  text-align: center;
+}
+.file_not_found_desc {
+  color: #5e5e5e;
+  text-align: center;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .file_not_found_main_div {
+    margin-top: 20%;
+  }
+  .file_not_found_main_div img {
+    width: 20%;
+  }
+  .file_not_found_header {
+    font-size: 1.2rem;
+  }
+  .file_not_found_path {
+    font-size: 1rem;
+  }
+  .file_not_found_desc {
+    font-size: 1rem;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .file_not_found_main_div {
+    margin-top: 40%;
+  }
+  .file_not_found_main_div img {
+    width: 40%;
+  }
+  .file_not_found_header {
+    font-size: 0.9rem;
+  }
+  .file_not_found_path {
+    font-size: 0.8rem;
+  }
+  .file_not_found_desc {
+    font-size: 0.8rem;
+  }
+}

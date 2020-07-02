@@ -43,8 +43,8 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
         </button>
       </div>
       <div className="side_drawer_menu_list">
-        <ul>
-          <li className="side_drawer_menu_item" onClick={handleOnClick}>
+        <ul onClick={handleOnClick}>
+          <li className="side_drawer_menu_item">
             <NavLink
               className="side_drawer_item_link"
               to="/"
@@ -57,10 +57,10 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               Home
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/products/"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -70,7 +70,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               Products
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
               to="/dashboard/"
@@ -83,10 +83,10 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               Dashboard
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/messages/"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -96,10 +96,10 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               Messages
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/farmers/"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -109,10 +109,10 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               Farmers
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/farmersolution/"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -122,10 +122,10 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               Agro Solution
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/offers/"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -135,10 +135,10 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               Offers
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/premium/"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -148,10 +148,10 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               Premium
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/faqs_help/"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -163,15 +163,13 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           </li>
         </ul>
       </div>
-      {/* divider div */}
-      {/* <div className="side_drawer_divider"></div> */}
       {/* sidebar menu list 2 */}
       <div className="side_drawer_menu_list">
-        <ul>
-          <li onClick={handleOnClick}>
+        <ul onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/contact/"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -181,10 +179,10 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               Contact
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/about_us/"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -194,10 +192,10 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               About Us
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/notifications/"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -207,10 +205,10 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               Notification
             </NavLink>
           </li>
-          <li onClick={handleOnClick}>
+          <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/"
+              to="/legal/"
               activeClassName="side_drawer_link_active"
               exact
             >

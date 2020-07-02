@@ -5,7 +5,7 @@ import EnvironmentFilled from "@ant-design/icons/EnvironmentFilled";
 import SearchOutlined from "@ant-design/icons/SearchOutlined";
 import ArrowLeftOutlined from "@ant-design/icons/ArrowLeftOutlined";
 
-import FallbackLazy from "../../FallbackLazy";
+import FallbackLazySecondary from "../../FallbackLazySecondary";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
 const SpeechRecognition = lazy(() =>
@@ -119,7 +119,6 @@ function SearchBarPc({ productItems }) {
               {/* Input field for product search */}
               <input
                 required
-                autoFocus
                 value={productQueryPC}
                 className="input_field"
                 type="text"
@@ -128,7 +127,7 @@ function SearchBarPc({ productItems }) {
               />
               {/* speech recognition button */}
               <ErrorBoundary>
-                <Suspense fallback={<FallbackLazy />}>
+                <Suspense fallback={""}>
                   <SpeechRecognition searchFromSpeech={searchFromSpeech} />
                 </Suspense>
               </ErrorBoundary>
@@ -141,7 +140,7 @@ function SearchBarPc({ productItems }) {
               {/* Input field for location search */}
               <div className="places_autocomplete_component">
                 <ErrorBoundary>
-                  <Suspense fallback={<FallbackLazy />}>
+                  <Suspense fallback={<FallbackLazySecondary />}>
                     <PlacesAutocompleteComponent />
                   </Suspense>
                 </ErrorBoundary>

@@ -1,31 +1,35 @@
-import React, { useCallback, memo, useState } from "react";
+import React, { useCallback, memo, useState, lazy, Suspense } from "react";
 import "./ProfileBasicInfo.css";
-
-import axios from "axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import API_KEY from "../../auth/GoogleAPI";
 
 import AddressSelector from "./AddressSelector";
 
-// configuring toast
-toast.configure();
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const Select = lazy(() => import("react-select"));
 
 function ProfileBasicInfo({ profileData }) {
+  // defining custom theme for select component
+  const customTheme = (theme) => {
+    return {
+      ...theme,
+      border: "1px solid",
+      colors: {
+        ...theme.colors,
+        primary25: "#ffe1c0",
+        primary: "#ee5700",
+      },
+    };
+  };
   // ---------form state management----------
   const [formState, setFormState] = useState({
     fullName: profileData.fullName,
     email: profileData.email,
     mobileCode: profileData.mobileCode,
     mobileNumber: profileData.mobileNumber,
-    state: profileData.state,
-    dist: profileData.dist,
-    block: profileData.block,
-    address: profileData.address,
-    pin: profileData.pin,
   });
 
-  const { fullName, email, mobileCode, mobileNumber, address } = formState;
+  const { fullName, email, mobileCode, mobileNumber } = formState;
 
   const handleChange = useCallback(
     (inputField) => (e) => {
@@ -42,9 +46,6 @@ function ProfileBasicInfo({ profileData }) {
   const [isEmailDisabled, setIsEmailDisabled] = useState(email ? true : false);
   const [isMobileDisabled, setIsMobileDisabled] = useState(
     mobileNumber ? true : false
-  );
-  const [isAddressDisabled, setIsAddressDisabled] = useState(
-    address ? true : false
   );
 
   // returning lock/unlock icon on basis of state
@@ -95,112 +96,105 @@ function ProfileBasicInfo({ profileData }) {
   const toggleMobileEditable = () => {
     setIsMobileDisabled(!isMobileDisabled);
   };
-  const toggleAddressEditable = () => {
-    setIsAddressDisabled(!isAddressDisabled);
-  };
   // ----------------------------------------
 
-  // ---------LOCATION SEARCH BLOCK STARTS HERE--------
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      setFormState({
-        ...formState,
-        address: "Locating...",
-      });
-      //   setAddress("Locating...");
-      navigator.geolocation.getCurrentPosition(showPosition, handleError, {
-        enableHighAccuracy: true,
-        timeout: 15000,
-        maximumAge: 0,
-      });
+  // ----address selector state management----
+  const [newName, setNewName] = useState("");
+  const [newContact, setNewContact] = useState("");
+  const [newAddressLine, setNewAddressLine] = useState("");
+  const [newCountry, setNewCountry] = useState({});
+  const [newDiv1, setNewDiv1] = useState({});
+  const [newDiv2, setNewDiv2] = useState({});
+  const [newDiv3, setNewDiv3] = useState({});
+  const [newDiv4, setNewDiv4] = useState({});
+  const [newZip, setNewZip] = useState("");
+
+  // -----------------------------------------
+
+  // ------render saved address-------
+  const renderSavedAddress = () => {
+    if (profileData.address) {
+      return profileData.address.map((individualAddress) => (
+        <div
+          key={individualAddress.id}
+          className="profile_basic_info_saved_address"
+        >
+          <div className="profile_saved_add_group">
+            <div className="profile_saved_add_name">
+              <strong>{individualAddress.name}</strong>
+            </div>
+            <div className="profile_saved_add_address">
+              {individualAddress.address}
+            </div>
+            <div className="profile_saved_add_sub_dist_dist">
+              {individualAddress.villageCity}, {individualAddress.subDist},{" "}
+              {individualAddress.dist}
+            </div>
+            <div className="profile_saved_add_state_country_pin">
+              {individualAddress.state}, {individualAddress.country},{" "}
+              {individualAddress.pin}
+            </div>
+            <div className="profile_saved_add_contact">
+              <i className="fas fa-phone-square-alt"></i>{" "}
+              <strong>{individualAddress.contact}</strong>
+            </div>
+          </div>
+          <div style={{ display: "flex", flex: 1 }}></div>
+          <div className="profile_saved_add_utility">
+            <button className="saved_add_delete">
+              <i className="fas fa-trash-alt"></i> DELETE
+            </button>
+            <button className="saved_add_edit">
+              <i className="fas fa-edit"></i> EDIT
+            </button>
+          </div>
+        </div>
+      ));
     } else {
-      alert(
-        "This feature isn't supported. Try manually searching the address..."
+      return (
+        <div className="profile_basic_info_saved_address">
+          No saved address found. Please add a new address...
+        </div>
       );
     }
   };
+  // ---------------------------------
 
-  const showPosition = (position) => {
-    let posX = position.coords.latitude;
-    let posY = position.coords.longitude;
+  // -----add new address state management-----
+  const [isAddNewAddressVisible, setIsAddNewAddressVisible] = useState(false);
+  const [isAddNewAddBtnVisible, setIsAddNewAddBtnVisible] = useState(true);
 
-    let currentLocation = "";
+  let addNewAddressVisibleClass = isAddNewAddressVisible
+    ? "profile_address_content--visible"
+    : "profile_address_content--hidden";
 
-    let locAPI =
-      "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-      posX +
-      "," +
-      posY +
-      "&key=" +
-      API_KEY;
+  let addNewAddressBtnClass = isAddNewAddBtnVisible
+    ? "profile_add_new_add_btn--visible"
+    : "profile_add_new_add_btn--hidden";
 
-    axios
-      .get(locAPI)
-      .then((response) => {
-        currentLocation = response.data.results[0].formatted_address;
-        // setting location box status to locating
-        setFormState({
-          ...formState,
-          address: currentLocation,
-        });
-        // setAddress(currentLocation);
-        handleToast(currentLocation, "dark");
-        // console.log(currentLocation);
-      })
-      .catch((error) => {
-        handleToast(error, "error");
-        // console.log(error);
-      })
-      .finally();
+  const handleAddNewAddressVisiblity = () => {
+    setIsAddNewAddressVisible(true);
+    setIsAddNewAddBtnVisible(false);
   };
 
-  const handleError = (error) => {
-    let errMsg = "";
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        errMsg =
-          "PERMISSION_DENIED. Allow website to use location in site settings...";
-        break;
-      case error.POSITION_UNAVAILABLE:
-        errMsg =
-          "POSITION_UNAVAILABLE. Your current position is unavailable, please enter your location manually...";
-        break;
-      case error.TIMEOUT:
-        errMsg = "Server timed out. Make sure Location service is turned on...";
-        break;
-      case error.UNKNOWN_ERROR:
-        errMsg = "UNKNOWN_ERROR. Error code: 0";
-        break;
-
-      default:
-        errMsg =
-          "Something unexpected happened. We couldn't process your request...";
-        break;
-    }
-    // setting location box status to locating
-    setFormState({
-      ...formState,
-      address: "Couldn't locate...",
-    });
-    // setAddress("Couldn't locate...");
-    handleToast(errMsg, "error");
+  const handleAddNewAddressCancel = () => {
+    setIsAddNewAddressVisible(false);
+    setIsAddNewAddBtnVisible(true);
   };
 
-  const handleToast = (message, toastType) => {
-    if (toastType === "dark") {
-      toast.dark(message, {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
-    } else if (toastType === "error") {
-      toast.error(message, {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
-    } else {
-      toast(message);
+  const handleSaveNewAddress = () => {
+    try {
+      // validate and save address
+      if (!isAddNewAddBtnVisible) {
+        setIsAddNewAddBtnVisible(true);
+        setIsAddNewAddressVisible(false);
+      }
+      alert("saved address");
+    } catch (error) {
+      alert("address not saved", error);
     }
   };
-
-  // ----------LOCATION SEARCH BLOCK ENDS HERE---------
+  // ------------------------------------------
 
   return (
     <div className="profile_basic_info_main_div">
@@ -234,7 +228,7 @@ function ProfileBasicInfo({ profileData }) {
           />
           <div className="profile_email_verified_info">
             <span style={{ marginRight: "8px", fontSize: "1rem" }}>
-              <i className="fas fa-lock-times-circle"></i>
+              <i className="fas fa-times-circle"></i>
             </span>
           </div>
           <button onClick={toggleEmailEditable} className={emailBtnLock}>
@@ -254,7 +248,7 @@ function ProfileBasicInfo({ profileData }) {
           />
           <div className="profile_mob_verified_info">
             <span style={{ marginRight: "8px", fontSize: "1rem" }}>
-              <i className="fas fa-lock-check-circle"></i>
+              <i className="fas fa-check-circle"></i>
             </span>
           </div>
           <button onClick={toggleMobileEditable} className={mobileBtnLock}>
@@ -270,33 +264,79 @@ function ProfileBasicInfo({ profileData }) {
 
       <div className="profile_address_heading">ADDRESS</div>
 
-      <div className="profile_address_content">
-        <div className="profile_basic_info_label">Address line 1:</div>
+      {renderSavedAddress()}
 
-        <div className="profile_basic_info_item profile_add_1">
-          <input
-            type="text"
-            className="profile_full_name_input"
-            // value={address}
-            defaultValue={address}
-            onChange={handleChange("address")}
-            placeholder="Enter address..."
-            disabled={isAddressDisabled}
+      <div
+        className={addNewAddressBtnClass}
+        onClick={handleAddNewAddressVisiblity}
+      >
+        <span>Add new address</span> <i className="fas fa-map-marked-alt"></i>
+      </div>
+
+      <div className={addNewAddressVisibleClass}>
+        <div className="profile_add_selector_component">
+          <div className="profile_add_new_add_heading">Add new address:</div>
+          <AddressSelector
+            customTheme={customTheme}
+            setNewName={setNewName}
+            setNewContact={setNewContact}
+            setNewAddressLine={setNewAddressLine}
+            setNewCountry={setNewCountry}
+            setNewDiv1={setNewDiv1}
+            setNewDiv2={setNewDiv2}
+            setNewDiv3={setNewDiv3}
+            setNewDiv4={setNewDiv4}
+            setNewZip={setNewZip}
+            newName={newName}
+            newContact={newContact}
+            newAddressLine={newAddressLine}
+            newCountry={newCountry}
+            newDiv1={newDiv1}
+            newDiv2={newDiv2}
+            newDiv3={newDiv3}
+            newDiv4={newDiv4}
+            newZip={newZip}
           />
-          {/* location utility btn */}
-          <div className="profile_auto_detect_loc_btn" onClick={getLocation}>
-            <i className="fas fa-crosshairs"></i>
-          </div>
+        </div>
+        <div className="profile_new_add_utility">
           <button
-            onClick={toggleAddressEditable}
-            className="profile_edit_btn profile_full_name_edit_btn"
+            className="profile_new_add_cancel"
+            onClick={handleAddNewAddressCancel}
           >
-            <i className="fas fa-lock"></i>
+            CANCEL
+          </button>
+          <button
+            className="profile_new_add_save"
+            onClick={handleSaveNewAddress}
+          >
+            SAVE
           </button>
         </div>
-        <div className="profile_add_selector_component">
-          <AddressSelector handleChange={handleChange} formState={formState} />
+      </div>
+      <div className="profile_id_proof">
+        <div className="profile_id_proof_heading">
+          IDENTITY PROOF (KYC Details)
         </div>
+        <div className="profile_id_proof_desc">
+          Important for government schemes and incentives.{" "}
+          <i className="fas fa-info-circle"></i>
+        </div>
+        <div className="profile_basic_info_label">Select document:</div>
+        <ErrorBoundary>
+          <Suspense fallback={<FallbackLazy />}>
+            <Select
+              theme={customTheme}
+              options={[
+                { value: "IN", label: "India" },
+                { value: "PK", label: "Pakistan" },
+              ]}
+              className="add_sel_select_half add_sel_select_state"
+              placeholder="Select country..."
+              isSearchable
+              onChange={setNewCountry}
+            />
+          </Suspense>
+        </ErrorBoundary>
       </div>
     </div>
   );

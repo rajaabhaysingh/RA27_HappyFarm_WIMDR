@@ -1,0 +1,94 @@
+.add_selector_main_div {
+  height: 100%;
+  width: 100%;
+}
+.add_sel_info_label {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  color: #000000;
+}
+.add_sel_info_item {
+  display: flex;
+  align-items: center;
+}
+.add_sel_input {
+  padding: 0 10px;
+  font-size: 0.9rem;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  outline-color: #ee5700;
+}
+.add_sel_input:hover {
+  border: 1px solid #bbbbbb;
+}
+.add_sel_input_full {
+  width: 460px;
+}
+.add_sel_loc_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  background: #eeeeee;
+  border-radius: 2px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  right: 34px;
+}
+.add_sel_loc_btn:hover {
+  background: #dddddd;
+}
+.add_sel_dual_fields {
+  width: 482px;
+  display: flex;
+  justify-content: space-between;
+}
+.add_sel_dual_group {
+  display: flex;
+  flex-direction: column;
+}
+.add_sel_select_half {
+  font-size: 0.9rem;
+  width: 235px;
+}
+.add_sel_input_half {
+  width: 213px;
+}
+.add_sel_select {
+  font-size: 0.9rem;
+  width: 482px;
+}
+.add_sel_phone_group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.add_sel_mob_code {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 34px;
+  width: 36px;
+  background: #fffbf0;
+  border: 1px solid #ee5700;
+  color: #5c5c5c;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.add_sel_contact {
+  padding-left: 48px;
+  width: 175px;
+}
+.add_sel_verified {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

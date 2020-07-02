@@ -23,6 +23,10 @@
   color: #333333;
 }
 
+.sign_in_email_mob_error {
+  border: 1px solid #cc0000;
+}
+
 .sign_in_pwd {
   margin-top: 8px;
 }

@@ -1,9 +1,12 @@
 import React from "react";
+import "./FarmersSolution.css";
 
-export const FarmersSolution = () => {
+const FarmersSolution = () => {
   return (
-    <div>
-      <div>This is Farmer's Solution</div>
+    <div className="farmersSolution_main_div">
+      <div>This is Agro solution</div>
     </div>
   );
 };
+
+export default FarmersSolution;

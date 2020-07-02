@@ -1,7 +1,7 @@
 import React, { useCallback, useState, memo, lazy, Suspense } from "react";
 import "./Header.css";
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import LogoLightBg from "../../../res/header/logo_light_bg.png";
 import LogoDarkBg from "../../../res/header/logo_dark_bg.png";
@@ -98,13 +98,13 @@ const Header = ({
         </button>
         {/* Homepage icon */}
         <div className="website_icon_container">
-          <NavLink to="/" className="website_icon_link">
+          <Link to="/" className="website_icon_link">
             <img
               src={window.innerWidth >= 1024 ? LogoLightBg : LogoDarkBg}
               alt="website-icon"
               className="website_icon"
             />
-          </NavLink>
+          </Link>
         </div>
         {/* Navbar menu options */}
         <div className="navbar_menu">

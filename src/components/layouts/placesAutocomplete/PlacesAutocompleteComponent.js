@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import API_KEY from "../../auth/GoogleAPI";
 
-import FallbackLazy from "../../FallbackLazy";
+import FallbackLazySecondary from "../../FallbackLazySecondary";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
 const PlacesAutocomplete = lazy(() => import("react-places-autocomplete"));
@@ -145,7 +145,7 @@ function PlacesAutocompleteComponent(props) {
   return (
     <div className="places_component">
       <ErrorBoundary>
-        <Suspense fallback={<FallbackLazy />}>
+        <Suspense fallback={<FallbackLazySecondary />}>
           <PlacesAutocomplete
             value={address}
             onChange={handleChange}

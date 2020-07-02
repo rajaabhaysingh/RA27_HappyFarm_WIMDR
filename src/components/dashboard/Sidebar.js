@@ -58,6 +58,17 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
       <div className="sidebar_menu" data-testid="sidebar_menu">
         <ul className="sidebar_menu_list">
           <li
+            className={setBtnClass(0)}
+            onClick={() => {
+              setCurrentTabNo(0);
+            }}
+          >
+            <span className={setIconClass(0)}>
+              <i className="fas fa-chart-area"></i>
+            </span>
+            <span className="sidebar_menu_overview">Overview</span>
+          </li>
+          <li
             className={setBtnClass(1)}
             onClick={() => {
               setCurrentTabNo(1);
@@ -66,7 +77,7 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
             <span className={setIconClass(1)}>
               <i className="fas fa-user"></i>
             </span>
-            <span className="sidebar_menu_profile">Profile</span>
+            <span className="sidebar_menu_profile">Profile {"&"} Info</span>
           </li>
           <li
             className={setBtnClass(2)}

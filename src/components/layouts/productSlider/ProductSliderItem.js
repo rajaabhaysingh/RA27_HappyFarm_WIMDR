@@ -1,12 +1,6 @@
 import React, { memo } from "react";
 import "./ProductSliderItem.css";
 
-import ClockCircleOutlined from "@ant-design/icons/ClockCircleOutlined";
-import EnvironmentOutlined from "@ant-design/icons/EnvironmentOutlined";
-import HeartFilled from "@ant-design/icons/HeartFilled";
-import MessageFilled from "@ant-design/icons/MessageFilled";
-import PhoneFilled from "@ant-design/icons/PhoneFilled";
-
 function ProductSliderItem({
   isFresh,
   isNegotiable,
@@ -62,7 +56,7 @@ function ProductSliderItem({
         </div>
         <div className="product_posted">
           <div className="product_posted_icon">
-            <ClockCircleOutlined />
+            <i className="fas fa-clock"></i>
           </div>
           <div className="product_posted_text">Added:</div>
           <div className="product_posted_digit">{addedDigit}</div>
@@ -70,7 +64,7 @@ function ProductSliderItem({
         </div>
         <div className="product_location">
           <div className="product_location_icon">
-            <EnvironmentOutlined />
+            <i className="fas fa-map-marker-alt"></i>
           </div>
           <div className="product_location_place">{location}</div>
         </div>
@@ -80,17 +74,17 @@ function ProductSliderItem({
           <div className="product_contact_utility">
             <button>
               <div className="contact_symbol">
-                <PhoneFilled rotate="90" />
+                <i className="fas fa-phone-alt"></i>
               </div>
               <div className="button_text">{ContactSeller}</div>
             </button>
           </div>
           <div className="product_other_utility">
             <div style={negotiableWrapper} className="product_is_negotiable">
-              <MessageFilled />
+              <i className="fas fa-comments"></i>
             </div>
             <div className="product_add_to_fav">
-              <HeartFilled />
+              <i className="fas fa-heart"></i>
             </div>
           </div>
         </div>

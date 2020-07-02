@@ -1,0 +1,38 @@
+.splash_main_div {
+  height: 100%;
+  width: 100%;
+}
+.splash_component--visible {
+  height: 100vh;
+  width: 100vw;
+  display: block;
+  z-index: 99999;
+  background: #fff7e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.splash_component--hidden {
+  display: none;
+}
+.splash-spinner {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: #ee5700;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .splash_component--visible img {
+    height: 75px;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .splash_component--visible img {
+    margin-top: 48px;
+    height: 50px;
+  }
+}

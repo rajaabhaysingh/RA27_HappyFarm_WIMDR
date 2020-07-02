@@ -14,11 +14,11 @@ function Dashboard({ isSearchBarOpen }) {
   const searchBarBtn = document.getElementById("navbar_search_btn_group");
 
   if (searchBarBtn && isSearchBarOpen && window.innerWidth < 1024) {
-    searchBarBtn.click();
+    // searchBarBtn.click();
   }
 
   // ----------tab state mgmt-----------
-  const [currentTabNo, setCurrentTabNo] = useState(1);
+  const [currentTabNo, setCurrentTabNo] = useState(0);
 
   // -----------------------------------
 

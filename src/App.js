@@ -17,7 +17,12 @@ import ErrorBoundary from "./components/errorBoundary/ErrorBoundary";
 import SideDrawer from "./components/layouts/sideDrawer/SideDrawer";
 import BackdropDark from "./components/backdrop/BackdropDark";
 
-import { FarmersSolution } from "./components/farmersSolution/FarmersSolution";
+const FileNotFound = lazy(() =>
+  import("./components/layouts/fileNotFound/FileNotFound")
+);
+const FarmersSolution = lazy(() =>
+  import("./components/farmersSolution/FarmersSolution")
+);
 const Header = lazy(() => import("./components/layouts/header/Header"));
 const Home = lazy(() => import("./components/home/Home"));
 const Dashboard = lazy(() => import("./components/dashboard/Dashboard"));
@@ -200,6 +205,7 @@ const App = (props) => {
                   path="/dashboard/"
                   render={() => (
                     <Dashboard
+                      {...props}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -254,6 +260,15 @@ const App = (props) => {
                   path="/category/"
                   render={(props) => (
                     <Category
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
+                />
+                <Route
+                  render={(props) => (
+                    <FileNotFound
                       {...props}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}

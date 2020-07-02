@@ -1,7 +1,6 @@
 import React, { memo, lazy, Suspense } from "react";
 import "./CategoryScroll.css";
 
-import FallbackLazy from "../../../FallbackLazy";
 import ErrorBoundary from "../../../errorBoundary/ErrorBoundary";
 
 const CategoryScrollItem = lazy(() => import("./CategoryScrollItem"));
@@ -11,7 +10,7 @@ function CategoryScroll({ categoryList }) {
     <div className="category_scroll_main_div">
       <div className="category_scroll_inner_div">
         <ErrorBoundary>
-          <Suspense fallback={<FallbackLazy />}>
+          <Suspense fallback={""}>
             {categoryList.map((category) => (
               <CategoryScrollItem
                 key={category.name}

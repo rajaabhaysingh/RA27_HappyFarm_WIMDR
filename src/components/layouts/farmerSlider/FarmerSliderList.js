@@ -3,7 +3,7 @@ import Placeholder from "../../../res/categoryScroll/placeholder.svg";
 const FarmerSliderList = [
   {
     id: "123456",
-    name: "Manjeet Kumar",
+    name: "Sakshi Murgi",
     place: "Aliganj, Bhagalpur",
     dpUrl: Placeholder,
     rating: "3.6",

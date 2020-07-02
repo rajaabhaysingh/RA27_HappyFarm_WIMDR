@@ -4,13 +4,13 @@ function FallbackLazy() {
   return (
     <i
       style={{
-        color: "#ee5700",
-        fontSize: "0.7rem",
+        color: "#dddddd",
+        fontSize: "0.8rem",
         display: "flex",
         alignSelf: "center",
-        margin: "4px",
+        margin: "2px",
       }}
-      className="fas fa-spin fa-spinner"
+      className="fas fa-spin fa-circle-notch"
     ></i>
   );
 }

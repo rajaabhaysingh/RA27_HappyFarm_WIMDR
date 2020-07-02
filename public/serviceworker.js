@@ -1,58 +1,74 @@
-const CACHE_NAME = "static-ver-1";
-const urlsToCache = [
+const staticCacheName = "site-static-v1";
+const dynamicCacheName = "site-dynamic-v1";
+const assets = [
   "/",
-  "./index.html",
+  "/index.html",
   "./offline.html",
-  "./logo/",
-  "/logo/logo_72x72.png",
-  "/logo/logo_96x96.png",
-  "/logo/logo_128x128.png",
-  "/logo/logo_144x144.png",
-  "/logo/logo_192x192.png",
-  "/logo/logo_384x384.png",
-  "/logo/logo_512x512.png",
   "https://use.fontawesome.com/releases/v5.12.1/css/all.css",
 ];
 
 const self = this;
 
-// install SW
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache);
-    })
-  );
-});
-
-// listen for requests
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then(async () => {
-      try {
-        return fetch(event.request);
-      } catch (e) {
-        return await caches.match("offline.html");
+// cache size limit function
+const limitCacheSize = (name, size) => {
+  caches.open(name).then((cache) => {
+    cache.keys().then((keys) => {
+      if (keys.length > size) {
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
       }
+    });
+  });
+};
+
+// install event
+self.addEventListener("install", (evt) => {
+  //console.log('service worker installed');
+  evt.waitUntil(
+    caches.open(staticCacheName).then((cache) => {
+      console.log("caching shell assets");
+      cache.addAll(assets);
     })
   );
 });
 
-// activate SW
-self.addEventListener("activate", (event) => {
-  const whiteList = [];
+// activate event
+self.addEventListener("activate", (evt) => {
+  //console.log('service worker activated');
+  evt.waitUntil(
+    caches.keys().then((keys) => {
+      //console.log(keys);
+      return Promise.all(
+        keys
+          .filter((key) => key !== staticCacheName && key !== dynamicCacheName)
+          .map((key) => caches.delete(key))
+      );
+    })
+  );
+});
 
-  whiteList.push(CACHE_NAME);
-
-  event.waitUntil(
-    caches.keys().then((cacheNames) =>
-      Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!whiteList.includes(cacheName)) {
-            return caches.delete(cacheName);
-          }
-        })
-      )
-    )
+// fetch event
+self.addEventListener("fetch", (evt) => {
+  //console.log('fetch event', evt);
+  evt.respondWith(
+    caches
+      .match(evt.request)
+      .then((cacheRes) => {
+        return (
+          cacheRes ||
+          fetch(evt.request).then((fetchRes) => {
+            return caches.open(dynamicCacheName).then((cache) => {
+              cache.put(evt.request.url, fetchRes.clone());
+              // check cached items size
+              limitCacheSize(dynamicCacheName, 10);
+              return fetchRes;
+            });
+          })
+        );
+      })
+      .catch(() => {
+        if (evt.request.url.indexOf(".html") > -1) {
+          return caches.match("/offline.html");
+        }
+      })
   );
 });

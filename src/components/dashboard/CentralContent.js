@@ -4,6 +4,9 @@ import "./CentralContent.css";
 import FallbackLazy from "../FallbackLazy";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
+import TransactionData from "./transactions/TransactionData";
+
+const Overview = lazy(() => import("./overview/Overview"));
 const Profile = lazy(() => import("./profile/Profile"));
 const SalesHistory = lazy(() => import("./salesHistory/SalesHistory"));
 const Following = lazy(() => import("./following/Following"));
@@ -14,6 +17,14 @@ function CentralContent({ profileData, currentTabNo }) {
   // -----central part rendering logic-----
   const renderTab = (tab_no) => {
     switch (tab_no) {
+      case 0:
+        return (
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <Overview profileData={profileData} />
+            </Suspense>
+          </ErrorBoundary>
+        );
       case 1:
         return (
           <ErrorBoundary>
@@ -54,13 +65,16 @@ function CentralContent({ profileData, currentTabNo }) {
         return (
           <ErrorBoundary>
             <Suspense fallback={<FallbackLazy />}>
-              <Transactions profileData={profileData} />
+              <Transactions
+                profileData={profileData}
+                transactionData={TransactionData}
+              />
             </Suspense>
           </ErrorBoundary>
         );
 
       default:
-        return <div style={{ color: "#990000" }}>Unexpected error...</div>;
+        return <div style={{ color: "#CC0000" }}>Unexpected error...</div>;
     }
   };
   // --------------------------------------

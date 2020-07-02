@@ -5,9 +5,12 @@ function FallbackUI() {
     <div
       style={{
         fontSize: "0.7rem",
-        color: "#AA0000",
-        width: "100%",
-        marginLeft: "8px",
+        color: "#bb0000",
+        display: "flex",
+        height: "100%",
+        alignSelf: "center",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <i className="fas fa-exclamation-triangle"></i> Error
