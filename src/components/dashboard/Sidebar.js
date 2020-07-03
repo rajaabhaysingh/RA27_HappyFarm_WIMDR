@@ -1,18 +1,22 @@
 import React, { memo } from "react";
 import "./Sidebar.css";
 
-function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
-  // ------active option (css) state------
-  const setBtnClass = (tab) => {
-    if (tab === currentTabNo) {
-      return "sidebar_menu_item--active";
-    } else {
-      return "sidebar_menu_item";
-    }
-  };
+import { useLocation, NavLink, useRouteMatch } from "react-router-dom";
 
-  const setIconClass = (tab) => {
-    if (tab === currentTabNo) {
+function Sidebar({ profileData }) {
+  // -----link nested routing of dashboard----
+
+  // The `path` lets us build <Route> paths that are
+  // relative to the parent route, while the `url` lets
+  // us build relative links.
+  let { url } = useRouteMatch();
+  // -----------------------------------------
+
+  // ------active option (css) state------
+  let location = useLocation();
+
+  const setIconClass = (tabName) => {
+    if (location.pathname === tabName) {
       return "sidebar_menu_item_icon--active";
     } else {
       return "sidebar_menu_item_icon";
@@ -57,71 +61,79 @@ function Sidebar({ currentTabNo, profileData, setCurrentTabNo }) {
       <div className="menu_text_display">MENU</div>
       <div className="sidebar_menu" data-testid="sidebar_menu">
         <ul className="sidebar_menu_list">
-          <li
-            className={setBtnClass(0)}
-            onClick={() => {
-              setCurrentTabNo(0);
-            }}
-          >
-            <span className={setIconClass(0)}>
-              <i className="fas fa-chart-area"></i>
-            </span>
-            <span className="sidebar_menu_overview">Overview</span>
+          <li>
+            <NavLink
+              to={`${url}`}
+              strict
+              exact
+              className="sidebar_menu_item"
+              activeClassName="sidebar_menu_item--active"
+            >
+              <span className={setIconClass("/dashboard")}>
+                <i className="fas fa-chart-area"></i>
+              </span>
+              <span className="sidebar_menu_overview">Overview</span>
+            </NavLink>
           </li>
-          <li
-            className={setBtnClass(1)}
-            onClick={() => {
-              setCurrentTabNo(1);
-            }}
-          >
-            <span className={setIconClass(1)}>
-              <i className="fas fa-user"></i>
-            </span>
-            <span className="sidebar_menu_profile">Profile {"&"} Info</span>
+          <li>
+            <NavLink
+              to={`${url}/profile`}
+              className="sidebar_menu_item"
+              activeClassName="sidebar_menu_item--active"
+            >
+              <span className={setIconClass("/dashboard/profile")}>
+                <i className="fas fa-user"></i>
+              </span>
+              <span className="sidebar_menu_profile">Profile {"&"} Info</span>
+            </NavLink>
           </li>
-          <li
-            className={setBtnClass(2)}
-            onClick={() => {
-              setCurrentTabNo(2);
-            }}
-          >
-            <span className={setIconClass(2)}>
-              <i className="fas fa-users"></i>
-            </span>
-            <span className="sidebar_menu_following">Following</span>
+          <li>
+            <NavLink
+              to={`${url}/following`}
+              className="sidebar_menu_item"
+              activeClassName="sidebar_menu_item--active"
+            >
+              <span className={setIconClass("/dashboard/following")}>
+                <i className="fas fa-users"></i>
+              </span>
+              <span className="sidebar_menu_following">Following</span>
+            </NavLink>
           </li>
-          <li
-            className={setBtnClass(3)}
-            onClick={() => {
-              setCurrentTabNo(3);
-            }}
-          >
-            <span className={setIconClass(3)}>
-              <i className="fas fa-shopping-basket"></i>
-            </span>
-            <span className="sidebar_menu_selling_now">My orders</span>
+          <li>
+            <NavLink
+              to={`${url}/my-orders`}
+              className="sidebar_menu_item"
+              activeClassName="sidebar_menu_item--active"
+            >
+              <span className={setIconClass("/dashboard/my-orders")}>
+                <i className="fas fa-shopping-basket"></i>
+              </span>
+              <span className="sidebar_menu_selling_now">My orders</span>
+            </NavLink>
           </li>
-          <li
-            className={setBtnClass(4)}
-            onClick={() => {
-              setCurrentTabNo(4);
-            }}
-          >
-            <span className={setIconClass(4)}>
-              <i className="fas fa-history"></i>
-            </span>
-            <span className="sidebar_menu_history">Sales {"&"} History</span>
+          <li>
+            <NavLink
+              to={`${url}/sales-history`}
+              className="sidebar_menu_item"
+              activeClassName="sidebar_menu_item--active"
+            >
+              <span className={setIconClass("/dashboard/sales-history")}>
+                <i className="fas fa-history"></i>
+              </span>
+              <span className="sidebar_menu_history">Sales {"&"} History</span>
+            </NavLink>
           </li>
-          <li
-            className={setBtnClass(5)}
-            onClick={() => {
-              setCurrentTabNo(5);
-            }}
-          >
-            <span className={setIconClass(5)}>
-              <i className="fas fa-rupee-sign"></i>
-            </span>
-            <span className="sidebar_menu_transactions">Transactions</span>
+          <li>
+            <NavLink
+              to={`${url}/transactions`}
+              className="sidebar_menu_item"
+              activeClassName="sidebar_menu_item--active"
+            >
+              <span className={setIconClass("/dashboard/transactions")}>
+                <i className="fas fa-rupee-sign"></i>
+              </span>
+              <span className="sidebar_menu_transactions">Transactions</span>
+            </NavLink>
           </li>
         </ul>
       </div>

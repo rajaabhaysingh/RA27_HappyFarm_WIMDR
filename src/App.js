@@ -201,8 +201,8 @@ const App = (props) => {
                   )}
                 />
                 <Route
-                  exact
-                  path="/dashboard/"
+                  strict
+                  path="/dashboard"
                   render={() => (
                     <Dashboard
                       {...props}
@@ -213,7 +213,7 @@ const App = (props) => {
                 />
                 <Route
                   exact
-                  path="/farmersolution/"
+                  path="/farmersolution"
                   render={(props) => (
                     <FarmersSolution
                       {...props}
@@ -224,7 +224,7 @@ const App = (props) => {
                 />
                 <Route
                   exact
-                  path="/offers/"
+                  path="/offers"
                   render={(props) => (
                     <Offers
                       {...props}
@@ -235,7 +235,7 @@ const App = (props) => {
                 />
                 <Route
                   exact
-                  path="/premium/"
+                  path="/premium"
                   render={(props) => (
                     <Premium
                       {...props}
@@ -246,7 +246,7 @@ const App = (props) => {
                 />
                 <Route
                   exact
-                  path="/contact/"
+                  path="/contact"
                   render={(props) => (
                     <Contact
                       {...props}
@@ -257,7 +257,7 @@ const App = (props) => {
                 />
                 <Route
                   exact
-                  path="/category/"
+                  path="/category"
                   render={(props) => (
                     <Category
                       {...props}

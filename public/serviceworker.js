@@ -3,7 +3,7 @@ const dynamicCacheName = "site-dynamic-v1";
 const assets = [
   "/",
   "/index.html",
-  "./offline.html",
+  "/offline.html",
   "https://use.fontawesome.com/releases/v5.12.1/css/all.css",
 ];
 
@@ -55,13 +55,12 @@ self.addEventListener("fetch", (evt) => {
       .then((cacheRes) => {
         return (
           cacheRes ||
-          fetch(evt.request).then((fetchRes) => {
-            return caches.open(dynamicCacheName).then((cache) => {
-              cache.put(evt.request.url, fetchRes.clone());
-              // check cached items size
-              limitCacheSize(dynamicCacheName, 10);
-              return fetchRes;
-            });
+          fetch(evt.request).then(async (fetchRes) => {
+            const cache = await caches.open(dynamicCacheName);
+            cache.put(evt.request.url, fetchRes.clone());
+            // check cached items size
+            limitCacheSize(dynamicCacheName, 10);
+            return fetchRes;
           })
         );
       })

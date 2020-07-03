@@ -60,7 +60,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/products/"
+              to="/products"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -73,7 +73,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/dashboard/"
+              to="/dashboard"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -86,7 +86,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/messages/"
+              to="/messages"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -99,7 +99,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/farmers/"
+              to="/farmers"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -112,7 +112,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/farmersolution/"
+              to="/farmersolution"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -125,7 +125,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/offers/"
+              to="/offers"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -138,7 +138,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/premium/"
+              to="/premium"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -151,7 +151,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/faqs_help/"
+              to="/faqs_help"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -169,7 +169,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/contact/"
+              to="/contact"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -182,7 +182,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/about_us/"
+              to="/about_us"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -195,7 +195,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/notifications/"
+              to="/notifications"
               activeClassName="side_drawer_link_active"
               exact
             >
@@ -208,7 +208,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/legal/"
+              to="/legal"
               activeClassName="side_drawer_link_active"
               exact
             >

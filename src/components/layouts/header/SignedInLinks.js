@@ -77,7 +77,7 @@ function SignedInLinks() {
             <div className="signed_in_top_arrow"></div>
           </li>
           <li className="signed_in_item" onClick={handleOptionClick}>
-            <NavLink className="signed_in_my_profile" to="/dashboard/">
+            <NavLink className="signed_in_my_profile" to="/dashboard">
               <div className="signed_in_icon signed_in_my_profile_icon">
                 <i className="fas fa-chart-area"></i>
               </div>
@@ -87,7 +87,7 @@ function SignedInLinks() {
             </NavLink>
           </li>
           <li className="signed_in_item" onClick={handleOptionClick}>
-            <NavLink className="signed_in_messages" to="/">
+            <NavLink className="signed_in_messages" to="/messages">
               <div className="signed_in_icon signed_in_message_icon">
                 <i className="fas fa-envelope-open-text"></i>
               </div>
@@ -97,7 +97,7 @@ function SignedInLinks() {
             </NavLink>
           </li>
           <li className="signed_in_item" onClick={handleOptionClick}>
-            <NavLink className="signed_in_favourites" to="/">
+            <NavLink className="signed_in_favourites" to="/favourites">
               <div className="signed_in_icon signed_in_favourites_icon">
                 <i className="fas fa-heart"></i>
               </div>
@@ -107,7 +107,7 @@ function SignedInLinks() {
             </NavLink>
           </li>
           <li className="signed_in_item" onClick={handleOptionClick}>
-            <NavLink className="signed_in_rewards" to="/">
+            <NavLink className="signed_in_rewards" to="/rewards">
               <div className="signed_in_icon signed_in_rewards_icon">
                 <i className="fas fa-star"></i>
               </div>

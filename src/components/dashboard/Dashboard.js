@@ -17,11 +17,6 @@ function Dashboard({ isSearchBarOpen }) {
     // searchBarBtn.click();
   }
 
-  // ----------tab state mgmt-----------
-  const [currentTabNo, setCurrentTabNo] = useState(0);
-
-  // -----------------------------------
-
   return (
     <div className="dashboard_main_div">
       <ErrorBoundary>
@@ -29,19 +24,12 @@ function Dashboard({ isSearchBarOpen }) {
           <div className="dashboard_inner_div">
             <div className="dashboard_sidebar">
               <div className="dashboard_sidebar_main_div">
-                <Sidebar
-                  profileData={ProfileData}
-                  currentTabNo={currentTabNo}
-                  setCurrentTabNo={setCurrentTabNo}
-                />
+                <Sidebar profileData={ProfileData} />
               </div>
             </div>
             <div className="dashboard_center">
               <div className="dashboard_center_main_div">
-                <CentralContent
-                  profileData={ProfileData}
-                  currentTabNo={currentTabNo}
-                />
+                <CentralContent profileData={ProfileData} />
               </div>
             </div>
             <div className="dashboard_ad">

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="apple-touch-icon" href="./logo/logo_144x144.png">
     <link rel="apple-touch-icon" href="./logo/logo_192x192.png">
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <title>Farmted</title>
   </head>
   <body>
@@ -23,7 +23,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register("./serviceworker.js")
+          navigator.serviceWorker.register("/serviceworker.js")
           .then((reg) => console.log("SW registered", reg))
           .catch((err) => console.log("SW registration failed", err));
         })

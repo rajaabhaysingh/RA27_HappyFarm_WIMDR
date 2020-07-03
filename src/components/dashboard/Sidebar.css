@@ -120,7 +120,7 @@
   }
 
   .sidebar_menu_item--active {
-    padding-left: 24px;
+    padding-left: 32px;
     width: 176px;
     height: 35px;
     border-radius: 20px;
@@ -131,10 +131,12 @@
     box-shadow: 0 2px 4px #cccccc;
     font-size: 0.8rem;
     color: #333333;
+    text-decoration: none;
+    font-weight: bold;
   }
 
   .sidebar_menu_item {
-    padding-left: 24px;
+    padding-left: 32px;
     width: 176px;
     height: 35px;
     display: flex;
@@ -142,6 +144,7 @@
     margin: 2px 0;
     font-size: 0.8rem;
     color: #5c5c5c;
+    text-decoration: none;
     cursor: pointer;
   }
 
