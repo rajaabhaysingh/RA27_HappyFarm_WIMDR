@@ -1,4 +1,11 @@
-import React, { useCallback, useState, memo, lazy, Suspense } from "react";
+import React, {
+  useCallback,
+  useState,
+  memo,
+  lazy,
+  Suspense,
+  useEffect,
+} from "react";
 import "./Header.css";
 
 import { Link } from "react-router-dom";
@@ -57,8 +64,20 @@ const Header = ({
   }
   // -----------------------------------------
 
-  // ------HEADER SEARCH BTN FUNCTIONS--------
+  // ---handle header visiblity problem on screen resize---
+  useEffect(() => {
+    const windowSize = window.addEventListener("resize", () => {
+      if (isCatListOpen) {
+        setIsCatListOpen(false);
+      }
+    });
+    return () => {
+      window.removeEventListener("resize", windowSize);
+    };
+  }, [isCatListOpen]);
+  // ------------------------------------------------------
 
+  // ------HEADER SEARCH BTN FUNCTIONS--------
   let searchBarClass = "search_bar_container_mobile--visible";
 
   if (!isSearchBarOpen) {

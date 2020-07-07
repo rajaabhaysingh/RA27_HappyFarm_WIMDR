@@ -1,13 +1,17 @@
+import Placeholder from "../../../res/categoryScroll/placeholder.svg";
+
 const ProfileData = {
   activeSessionId: "vgh2vc3_njUC5Ub87bt6_Bu-Urtv_B7V574c_c376v6r76",
   id: "b37463",
   plan: "free",
   prefLang: "en",
   dpUrl: null,
-  fullName: "Ram Rahim",
+  fullName: null,
   email: null,
+  emailVerified: false,
   mobileCode: "+91",
   mobileNumber: "8879034671",
+  mobileVerified: true,
   address: [
     {
       addId: "3J3ENF9RE",
@@ -34,6 +38,16 @@ const ProfileData = {
       contact: "+91 6394862390",
     },
   ],
+  // for new account/no id proof available
+  idProof: null,
+
+  // if id proof available
+  // idProof: {
+  //   // idProofStatus = {0: failed, 1: verified, -1: pending}
+  //   idProofStatus: 0,
+  //   idFileName: "DSHASGD873D_3NBQ76",
+  //   idFileUrl: Placeholder,
+  // },
 };
 
 export default ProfileData;

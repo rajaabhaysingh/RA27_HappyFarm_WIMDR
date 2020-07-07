@@ -39,19 +39,6 @@ function AddressSelector({
   newDiv4,
   newZip,
 }) {
-  // // defining custom theme for select component
-  // const customTheme = (theme) => {
-  //   return {
-  //     ...theme,
-  //     border: "1px solid",
-  //     colors: {
-  //       ...theme.colors,
-  //       primary25: "#ffe1c0",
-  //       primary: "#ee5700",
-  //     },
-  //   };
-  // };
-
   // ----async creatable handlers----
   const filterData = (inputValue) => {
     return addressData.filter((i) =>
@@ -103,9 +90,7 @@ function AddressSelector({
         currentLocation = response.data.results[0].formatted_address;
         // setting location box status to locating
         setNewAddressLine(currentLocation);
-        // setAddress(currentLocation);
         handleToast(currentLocation, "dark");
-        // console.log(currentLocation);
       })
       .catch((error) => {
         handleToast(error, "error");
@@ -139,7 +124,6 @@ function AddressSelector({
     }
     // setting location box status to locating
     setNewAddressLine("Couldn't locate...");
-    // setAddress("Couldn't locate...");
     handleToast(errMsg, "error");
   };
 
