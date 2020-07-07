@@ -49,7 +49,7 @@ function CentralContent({ profileData }) {
                 transactionData={TransactionData}
               />
             </Route>
-            <Route exact path={`${path}/*`}>
+            <Route path={`${path}/*`}>
               <FileNotFound />
             </Route>
           </Switch>
