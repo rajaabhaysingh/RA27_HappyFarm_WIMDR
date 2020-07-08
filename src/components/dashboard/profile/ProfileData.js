@@ -8,10 +8,14 @@ const ProfileData = {
   dpUrl: null,
   fullName: null,
   email: null,
-  emailVerified: false,
+  emailVerified: 0,
+  // emailVerified: 1,   verified
+  // emailVerified: -1,  not verified
+  // emailVerified: 0/null,  no email provided
   mobileCode: "+91",
   mobileNumber: "8879034671",
-  mobileVerified: true,
+  // same as email for mobile
+  mobileVerified: 1,
   address: [
     {
       addId: "3J3ENF9RE",

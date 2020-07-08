@@ -23,7 +23,8 @@
   align-items: center;
 }
 .profile_name_input_field_and_lock,
-.profile_email_input_field_and_lock {
+.profile_email_input_field_and_lock,
+.profile_mobile_input_field_and_lock {
   display: flex;
   align-items: center;
   position: relative;
@@ -31,7 +32,8 @@
 .profile_name_input_field_and_lock {
   width: 100%;
 }
-.profile_email_input_field_and_lock {
+.profile_email_input_field_and_lock,
+.profile_mobile_input_field_and_lock {
   width: 350px;
 }
 .profile_input {
@@ -45,9 +47,10 @@
   outline-color: #ee5700;
 }
 .profile_name_input {
-  padding: 0 8px;
-  width: 100%;
-  height: 36px;
+  padding-left: 8px;
+  padding-right: 40px;
+  width: calc(100% - 48px);
+  height: 34px;
 }
 .profile_email_input {
   padding-left: 8px;
@@ -55,10 +58,18 @@
   width: 100%;
   height: 34px;
 }
-.profile_email_otp {
+.profile_email_otp,
+.profile_mobile_otp {
   height: 36px;
+  width: 100%;
   display: flex;
-  flex: 1;
+  padding: 0 40px 0 8px;
+}
+.profile_mobile_input {
+  padding-left: 44px;
+  padding-right: 40px;
+  width: 100%;
+  height: 34px;
 }
 .profile_edit_btn--lock {
   height: 30px;
@@ -97,7 +108,10 @@
 .profile_email_otp--visible,
 .profile_mobile_otp--visible {
   display: flex;
+  flex: 1;
   align-items: center;
+  margin-left: 12px;
+  position: relative;
 }
 .profile_email_otp--hidden,
 .profile_mobile_otp--hidden {
@@ -116,8 +130,45 @@
   align-self: center;
   justify-content: center;
   align-items: center;
-  position: relative;
-  left: -34px;
+  position: absolute;
+  right: 4px;
+}
+.profile_resend_email_otp--active,
+.profile_resend_mobile_otp--active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  background: #dddddd;
+  color: #ee5700;
+  position: absolute;
+  right: -46px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.profile_resend_email_otp--active:hover,
+.profile_resend_mobile_otp--active:hover {
+  background: #cccccc;
+  color: #ee5700;
+}
+.profile_resend_email_otp--inactive,
+.profile_resend_mobile_otp--inactive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: #eeeeee;
+  color: #ee5700;
+  position: absolute;
+  right: -46px;
+  outline: none;
+  border: 1px solid #ee5700;
+  pointer-events: none;
 }
 .profile_otp_input_with_verify {
   display: flex;
@@ -143,20 +194,24 @@
 .profile_mobile_otp_btn--hidden {
   margin-left: 12px;
   height: 38px;
-  padding: 0 16px;
+  width: 100%;
   background: transparent;
-  color: #ee5700;
   font-weight: bold;
   pointer-events: none;
   outline: none;
-  border: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+.profile_email_otp_btn--gone,
+.profile_mobile_otp_btn--gone {
+  display: none;
 }
 .profile_mob_code {
-  position: relative;
-  left: -1px;
-  top: -1px;
-  height: 36px;
-  width: 36px;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  height: 34px;
+  width: 34px;
   background: #fffbf0;
   border: 1px solid #fa8c16;
   color: #5c5c5c;
@@ -164,7 +219,7 @@
   align-items: center;
   justify-content: center;
   font-size: 0.9rem;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 .profile_mob_verified_info {
   height: 100%;
@@ -183,6 +238,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.profile_pwd {
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  height: 36px;
+  width: 478px;
+  display: flex;
 }
 .profile_pwd_item {
   height: 100%;

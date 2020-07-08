@@ -202,7 +202,6 @@ function PlacesAutocompleteComponent(props) {
       <div className="searchbar_utility_btn_location" onClick={getLocation}>
         <AimOutlined />
       </div>
-      {console.log("places_autocomplete_component re-rendered")}
     </div>
   );
 }

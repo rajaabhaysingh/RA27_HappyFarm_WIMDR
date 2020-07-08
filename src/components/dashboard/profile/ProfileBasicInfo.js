@@ -1,4 +1,11 @@
-import React, { useCallback, memo, useState, lazy, Suspense } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  memo,
+  useState,
+  lazy,
+  Suspense,
+} from "react";
 import "./ProfileBasicInfo.css";
 
 import { Link } from "react-router-dom";
@@ -85,7 +92,6 @@ export function DocumentComponent({
             <div className="profile_file_input_filename">{fileNameState}</div>
             <label
               className="profile_file_input_label"
-              for="user-verification-document"
               htmlFor="user-verification-document"
             >
               <i className="fas fa-upload"></i>
@@ -121,25 +127,31 @@ function ProfileBasicInfo({ profileData }) {
       },
     };
   }, []);
+
   // ---------form state management----------
   const [formState, setFormState] = useState({
-    fullName: profileData.fullName,
-    email: profileData.email,
-    mobileCode: profileData.mobileCode,
-    mobileNumber: profileData.mobileNumber,
+    fullName: profileData.fullName ? profileData.fullName : "",
+    email: profileData.email ? profileData.email : "",
+    mobileCode: profileData.mobileCode ? profileData.mobileCode : "",
+    mobileNumber: profileData.mobileNumber ? profileData.mobileNumber : "",
     emailOtp: "",
     mobileOtp: "",
+    emailVerified: profileData.emailVerified,
+    mobileVerified: profileData.mobileVerified,
   });
 
-  const {
+  let {
     fullName,
     email,
     mobileCode,
     mobileNumber,
     emailOtp,
     mobileOtp,
+    emailVerified,
+    mobileVerified,
   } = formState;
 
+  // handle change for form input fields
   const handleChange = useCallback(
     (inputField) => (e) => {
       setFormState({
@@ -150,6 +162,43 @@ function ProfileBasicInfo({ profileData }) {
     [formState]
   );
 
+  // comparing if already submitted email and current email are same
+  const isEqual = (first, second) => {
+    return first === second;
+  };
+
+  useEffect(() => {
+    if (isEqual(email, profileData.email)) {
+      console.log("email same");
+      setFormState({
+        ...formState,
+        emailVerified: profileData.emailVerified,
+      });
+    } else {
+      console.log("email diff");
+      setFormState({
+        ...formState,
+        emailVerified: 0,
+      });
+    }
+  }, [email, emailVerified]);
+
+  useEffect(() => {
+    if (isEqual(mobileNumber, profileData.mobileNumber)) {
+      console.log("mobile same");
+      setFormState({
+        ...formState,
+        mobileVerified: profileData.mobileVerified,
+      });
+    } else {
+      console.log("mobile diff");
+      setFormState({
+        ...formState,
+        mobileVerified: 0,
+      });
+    }
+  }, [mobileNumber, mobileVerified]);
+
   // input editable state management
   const [isNameDisabled, setIsNameDisabled] = useState(fullName ? true : false);
   const [isEmailDisabled, setIsEmailDisabled] = useState(email ? true : false);
@@ -159,8 +208,11 @@ function ProfileBasicInfo({ profileData }) {
 
   const [isEmailOtpVisible, setIsEmailOtpVisible] = useState(false);
   const [isMobileOtpVisible, setIsMobileOtpVisible] = useState(false);
-  const [emailOtpBtnActive, setEmailOtpBtnActive] = useState(true);
-  const [mobileOtpBtnActive, setmobileOtpBtnActive] = useState(true);
+  const [emailOtpBtnGone, setEmailOtpBtnGone] = useState(false);
+  const [mobileOtpBtnGone, setMobileOtpBtnGone] = useState(false);
+
+  const [emailResendOtpBtnActive, setEmailOtpBtnActive] = useState(true);
+  const [mobileResendOtpBtnActive, setMobileOtpBtnActive] = useState(true);
 
   let emailOtpClass = isEmailOtpVisible
     ? "profile_email_otp--visible"
@@ -170,13 +222,153 @@ function ProfileBasicInfo({ profileData }) {
     ? "profile_mobile_otp--visible"
     : "profile_mobile_otp--hidden";
 
-  let emailOtpBtnClass = emailOtpBtnActive
-    ? "profile_email_otp_btn--visible"
-    : "profile_email_otp_btn--hidden";
+  // timer for otp
+  let timeLeft = 15;
+  const startTimer = useCallback(() => {
+    let elem = document.getElementById("profile_email_otp_timer");
+    console.log("sad");
 
-  let mobileOtpBtnClass = mobileOtpBtnActive
-    ? "profile_mobile_otp_btn--visible"
-    : "profile_mobile_otp_btn--hidden";
+    if (elem) {
+      let countDownTimer = setInterval(countdown, 1000);
+
+      function countdown() {
+        if (timeLeft === -1) {
+          clearTimeout(countDownTimer);
+          nextSteps();
+        } else {
+          elem.innerHTML = (timeLeft < 10 ? "0" : "") + timeLeft;
+          timeLeft--;
+        }
+      }
+    }
+
+    function nextSteps() {
+      setEmailOtpBtnActive(true);
+      // setIsTimerVisible(false);
+      return;
+    }
+  }, [timeLeft]);
+
+  // // render email otp btn
+  // const renderEmailOtpBtn = () => {
+  //   if (emailResendOtpBtnActive) {
+  //     return (
+  //       <button
+  //         type="button"
+  //         onClick={resendEmailOtp}
+  //         className="profile_resend_email_otp--active"
+  //       >
+  //         <i className="fas fa-redo-alt"></i>
+  //       </button>
+  //     );
+  //   } else {
+  //     return (
+  //       <button type="button" className="profile_resend_email_otp--inactive">
+  //         <div id="profile_email_otp_timer">
+  //           <strong>{timeLeft}</strong>
+  //         </div>
+  //       </button>
+  //     );
+  //   }
+  // };
+
+  // handleEmailOtpBtnContent
+  const handleEmailOtpBtnContent = () => {
+    if (!emailOtpBtnGone) {
+      if (!emailVerified) {
+        return (
+          <button
+            onClick={handleEmailVerify}
+            className="profile_email_otp_btn--visible"
+          >
+            VERIFY
+          </button>
+        );
+      } else {
+        if (emailVerified === 1) {
+          return (
+            <button
+              style={{ color: "#009900" }}
+              className="profile_email_otp_btn--hidden"
+            >
+              <i className="fas fa-check-circle"></i> Verified
+            </button>
+          );
+        } else if (emailVerified === -1) {
+          return (
+            <button
+              style={{ color: "#cc0000" }}
+              className="profile_email_otp_btn--hidden"
+            >
+              <i className="fas fa-times-circle"></i> Not verified
+            </button>
+          );
+        } else {
+          return (
+            <button
+              style={{ color: "#ee5700" }}
+              className="profile_email_otp_btn--hidden"
+            >
+              Unknown status
+            </button>
+          );
+        }
+      }
+    }
+  };
+
+  // handleEmailOtpBtnContent
+  const handleMobileOtpBtnContent = () => {
+    if (!mobileOtpBtnGone) {
+      if (!mobileVerified) {
+        return (
+          <button
+            onClick={handleMobileVerify}
+            className="profile_mobile_otp_btn--visible"
+          >
+            VERIFY
+          </button>
+        );
+      } else {
+        if (mobileVerified === 1) {
+          return (
+            <button
+              style={{ color: "#009900" }}
+              className="profile_mobile_otp_btn--hidden"
+            >
+              <i className="fas fa-check-circle"></i> Verified
+            </button>
+          );
+        } else if (mobileVerified === -1) {
+          return (
+            <button
+              style={{ color: "#cc0000" }}
+              className="profile_mobile_otp_btn--hidden"
+            >
+              <i className="fas fa-times-circle"></i> Not verified
+            </button>
+          );
+        } else {
+          return (
+            <button
+              style={{ color: "#ee5700" }}
+              className="profile_mobile_otp_btn--hidden"
+            >
+              Unknown status
+            </button>
+          );
+        }
+      }
+    }
+  };
+
+  // handleEmailVerify
+  const handleEmailVerify = (e) => {
+    e.preventDefault();
+    setIsEmailOtpVisible(true);
+    setEmailOtpBtnGone(true);
+    setIsEmailDisabled(true);
+  };
 
   // handle email-otp verify
   const handleEmailOtpVerify = (e) => {
@@ -184,10 +376,36 @@ function ProfileBasicInfo({ profileData }) {
     alert("Email verified!");
   };
 
+  // handleMobileVerify
+  const handleMobileVerify = (e) => {
+    e.preventDefault();
+    setIsMobileOtpVisible(true);
+    setMobileOtpBtnGone(true);
+    setIsMobileDisabled(true);
+  };
+
+  // handle mobile-otp verify
+  const handleMobileOtpVerify = (e) => {
+    e.preventDefault();
+    alert("Mobile verified!");
+  };
+
+  const resendEmailOtp = () => {
+    alert("OTP sent");
+    setEmailOtpBtnActive(false);
+    // startTimer();
+  };
+
+  const resendMobileOtp = () => {
+    alert("OTP sent");
+    setMobileOtpBtnActive(false);
+    // startTimer();
+  };
+
   // returning lock/unlock icon on basis of state
   const getNameBtnSymbol = useCallback(() => {
     if (isNameDisabled) {
-      return <i className="fas fa-lock"></i>;
+      return <i className="fas fa-pen"></i>;
     } else {
       return <i className="fas fa-lock-open"></i>;
     }
@@ -195,7 +413,7 @@ function ProfileBasicInfo({ profileData }) {
 
   const getEmailBtnSymbol = useCallback(() => {
     if (isEmailDisabled) {
-      return <i className="fas fa-lock"></i>;
+      return <i className="fas fa-pen"></i>;
     } else {
       return <i className="fas fa-lock-open"></i>;
     }
@@ -203,7 +421,7 @@ function ProfileBasicInfo({ profileData }) {
 
   const getMobileBtnSymbol = useCallback(() => {
     if (isMobileDisabled) {
-      return <i className="fas fa-lock"></i>;
+      return <i className="fas fa-pen"></i>;
     } else {
       return <i className="fas fa-lock-open"></i>;
     }
@@ -226,11 +444,29 @@ function ProfileBasicInfo({ profileData }) {
   const toggleNameEditable = () => {
     setIsNameDisabled(!isNameDisabled);
   };
+
   const toggleEmailEditable = () => {
     setIsEmailDisabled(!isEmailDisabled);
+    if (isEmailDisabled) {
+      setFormState({
+        ...formState,
+        emailOtp: "",
+      });
+      setIsEmailOtpVisible(false);
+      setEmailOtpBtnGone(false);
+    }
   };
+
   const toggleMobileEditable = () => {
     setIsMobileDisabled(!isMobileDisabled);
+    if (isMobileDisabled) {
+      setFormState({
+        ...formState,
+        mobileOtp: "",
+      });
+      setIsMobileOtpVisible(false);
+      setMobileOtpBtnGone(false);
+    }
   };
   // ----------------------------------------
 
@@ -337,8 +573,6 @@ function ProfileBasicInfo({ profileData }) {
     [shouldSaveEnable]
   );
 
-  console.log(selectedDocument);
-
   let errorVisibleClass = isFileErrorVisible
     ? "profile_document_error--visible"
     : "profile_document_error--hidden";
@@ -349,7 +583,7 @@ function ProfileBasicInfo({ profileData }) {
     if (profileData.address) {
       return profileData.address.map((individualAddress) => (
         <div
-          key={individualAddress.id}
+          key={individualAddress.addId}
           className="profile_basic_info_saved_address"
         >
           <div className="profile_saved_add_group">
@@ -492,7 +726,12 @@ function ProfileBasicInfo({ profileData }) {
                   borderRadius: "8px",
                 }}
               >
-                <div style={{ display: "flex", flexDirection: "column" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
                   <div className="profile_update_doc_warning">
                     <strong>Alert!</strong> You're not recommended to update
                     already verified. Updating it may immediately disqualify you
@@ -520,7 +759,9 @@ function ProfileBasicInfo({ profileData }) {
                     handleSaveChanges={handleSaveChanges}
                     saveBtnClass={saveBtnClass}
                     buttonText={"UPDATE"}
-                    styleWrapper={{ padding: "16px" }}
+                    styleWrapper={{
+                      padding: "16px",
+                    }}
                   />
                 </div>
               </Popup>
@@ -616,7 +857,6 @@ function ProfileBasicInfo({ profileData }) {
             <input
               autoFocus
               onChange={handleChange("fullName")}
-              defaultValue={fullName}
               value={fullName}
               type="text"
               className="profile_input profile_name_input"
@@ -634,7 +874,6 @@ function ProfileBasicInfo({ profileData }) {
           <div className="profile_email_input_field_and_lock">
             <input
               onChange={handleChange("email")}
-              defaultValue={email}
               value={email}
               type="text"
               className="profile_input profile_email_input"
@@ -657,49 +896,48 @@ function ProfileBasicInfo({ profileData }) {
               <button className="profile_verify_otp_go" type="submit">
                 <i className="fas fa-arrow-right"></i>
               </button>
+              {/* {renderEmailOtpBtn()}
+              {startTimer()} */}
             </form>
-            <button className={emailOtpBtnClass}>
-              {isEmailOtpVisible ? (
-                "VERIFY"
-              ) : profileData.emailVerified ? (
-                <div>
-                  <i className="fas fa-check-circle"></i> Verified
-                </div>
-              ) : (
-                <div>
-                  <i className="fas fa-times-circle"></i> Not verified
-                </div>
-              )}
-            </button>
+            {handleEmailOtpBtnContent()}
           </div>
         </div>
         <div className="profile_basic_info_label">Mobile number:</div>
-        <div className="profile_basic_info_item profile_mob">
-          <div className="profile_mob_code">{mobileCode}</div>
-          <input
-            onChange={handleChange("mobileNumber")}
-            defaultValue={mobileNumber}
-            type="text"
-            className="profile_mob_input"
-            placeholder="Enter mobile number"
-            disabled={isMobileDisabled}
-          />
-          <div className="profile_mob_verified_info">
-            <span
-              style={{
-                marginRight: "8px",
-                fontSize: "1rem",
-              }}
-            >
-              <i className="fas fa-check-circle"></i>
-            </span>
+        <div className="profile_basic_info_item profile_mobile">
+          <div className="profile_mobile_input_field_and_lock">
+            <div className="profile_mob_code">{mobileCode}</div>
+            <input
+              onChange={handleChange("mobileNumber")}
+              value={mobileNumber}
+              type="text"
+              className="profile_input profile_mobile_input"
+              placeholder="Enter Mobile no."
+              disabled={isMobileDisabled}
+            />
+            <button onClick={toggleMobileEditable} className={mobileBtnLock}>
+              {getMobileBtnSymbol()}
+            </button>
           </div>
-          <button onClick={toggleMobileEditable} className={mobileBtnLock}>
-            {getMobileBtnSymbol()}
-          </button>
+          <div className="profile_otp_input_with_verify">
+            <form className={mobileOtpClass} onSubmit={handleMobileOtpVerify}>
+              <input
+                onChange={handleChange("mobileOtp")}
+                type="text"
+                value={mobileOtp}
+                placeholder="Enter OTP"
+                className="profile_input profile_mobile_otp"
+              />
+              <button className="profile_verify_otp_go" type="submit">
+                <i className="fas fa-arrow-right"></i>
+              </button>
+              {/* {renderMobileOtpBtn()}
+              {startTimer()} */}
+            </form>
+            {handleMobileOtpBtnContent()}
+          </div>
         </div>
         <div className="profile_basic_info_label">Password:</div>
-        <div className="profile_basic_info_item profile_pwd">
+        <div className="profile_pwd">
           <div className="profile_pwd_item">●●●●●●●●●●</div>
           <div className="profile_pwd_edit_btn">Change password</div>
         </div>
