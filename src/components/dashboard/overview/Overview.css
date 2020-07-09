@@ -1,0 +1,35 @@
+.overview_main_div {
+  height: 100%;
+  width: 100%;
+}
+.overview_inner_div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.overview_heading {
+  font-size: 1.5rem;
+  color: #333333;
+}
+
+.overview_description {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  color: #5c5c5c;
+  font-size: 0.8rem;
+}
+
+.overview_info_icon {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+}

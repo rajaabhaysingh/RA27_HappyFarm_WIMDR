@@ -1,111 +1,109 @@
-/*for screen size larger or equal to 1024px px*/
-@media screen and (min-width: 1024px) {
-  .profile_main_div {
-    height: 100%;
-    width: 100%;
-  }
-
-  .profile_inner_div {
-    height: 100%;
-    width: 100%;
-  }
-
-  .profile_heading {
-    font-size: 1.5rem;
-    color: #333333;
-  }
-
-  .profile_description {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    color: #5c5c5c;
-    font-size: 0.8rem;
-  }
-
-  .profile_description_info_icon {
-    margin-left: 8px;
-    cursor: pointer;
-  }
-
-  .profile_tab_container {
-    margin-top: 32px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .profile_tabs {
-    width: 100%;
-    font-size: 0.8rem;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .profile_tab_list {
-    border-bottom: 1px solid #ee570023;
-    width: 100%;
-    display: flex;
-    padding: 0;
-    overflow-x: scroll;
-    overflow-y: visible;
-    scrollbar-width: none;
-  }
-
-  .profile_tab {
-    margin-right: 32px;
-    padding: 8px 0 4px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid transparent;
-    border-bottom: none;
-    list-style: none;
-    cursor: pointer;
-    color: #8a8a8a;
-    white-space: nowrap;
-    font-size: 0.9rem;
-    border-bottom: 2px solid transparent;
-  }
-
-  .profile_tab:focus {
-    outline: none;
-  }
-
-  .profile_tab:hover {
-    border-bottom: 2px solid #ee5700;
-  }
-
-  .profile_tab--selected {
-    color: #333333;
-    border-bottom: 2px solid #ee5700;
-    font-size: 0.9rem;
-  }
-
-  .profile_tab--disabled {
-    color: #8a8a8a;
-    cursor: default;
-  }
-
-  .profile_panel {
-    display: none;
-    margin-top: 32px;
-  }
-
-  .profile_panel--selected {
-    display: block;
-  }
-
-  .profile_panel_data {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    column-gap: 4px;
-    row-gap: 4px;
-    overflow: scroll;
-    max-height: 360px;
-  }
+.profile_main_div {
+  height: 100%;
+  width: 100%;
 }
 
+.profile_inner_div {
+  height: 100%;
+  width: 100%;
+}
+
+.profile_heading {
+  font-size: 1.5rem;
+  color: #333333;
+}
+
+.profile_description {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  color: #5c5c5c;
+  font-size: 0.8rem;
+}
+
+.profile_description_info_icon {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.profile_tab_container {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile_tabs {
+  width: 100%;
+  font-size: 0.8rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.profile_tab_list {
+  border-bottom: 1px solid #ee570023;
+  width: 100%;
+  display: flex;
+  padding: 0;
+  overflow-x: scroll;
+  overflow-y: visible;
+  scrollbar-width: none;
+}
+
+.profile_tab {
+  margin-right: 32px;
+  padding: 8px 0 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-bottom: none;
+  list-style: none;
+  cursor: pointer;
+  color: #8a8a8a;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  border-bottom: 2px solid transparent;
+}
+
+.profile_tab:focus {
+  outline: none;
+}
+
+.profile_tab:hover {
+  border-bottom: 2px solid #ee5700;
+}
+
+.profile_tab--selected {
+  color: #333333;
+  border-bottom: 2px solid #ee5700;
+  font-size: 0.9rem;
+}
+
+.profile_tab--disabled {
+  color: #8a8a8a;
+  cursor: default;
+}
+
+.profile_panel {
+  display: none;
+  margin-top: 32px;
+}
+
+.profile_panel--selected {
+  display: block;
+}
+
+.profile_panel_data {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  column-gap: 4px;
+  row-gap: 4px;
+  overflow: scroll;
+  max-height: 360px;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+}
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
-  .menu_tab_main_div {
-  }
 }

@@ -149,6 +149,7 @@ function AddressSelector({
           <div className="add_sel_info_label">Enter name:</div>
           <div className="add_sel_info_item">
             <input
+              required
               type="text"
               className="add_sel_input add_sel_input_full"
               onChange={(e) => {
@@ -161,6 +162,7 @@ function AddressSelector({
           <div className="add_sel_info_label">Address line 1:</div>
           <div className="add_sel_info_item">
             <input
+              required
               type="text"
               className="add_sel_input add_sel_input_full"
               onChange={(e) => {
@@ -178,6 +180,7 @@ function AddressSelector({
             <div className="add_sel_dual_group">
               <div className="add_sel_info_label">Select country:</div>
               <Select
+                required
                 theme={customTheme}
                 options={[
                   { value: "IN", label: "India" },
@@ -192,6 +195,7 @@ function AddressSelector({
             <div className="add_sel_dual_group">
               <div className="add_sel_info_label">Select your State/UT:</div>
               <AsyncSelect
+                required
                 theme={customTheme}
                 loadOptions={promiseOptions}
                 cacheOptions
@@ -251,6 +255,7 @@ function AddressSelector({
             Select your City/Village/Colony/Mohalla:
           </div>
           <AsyncCreatableSelect
+            required
             theme={customTheme}
             className="add_sel_select add_sel_select_state"
             placeholder="Select or Type Village/City/Colony/Mohalla"
@@ -265,6 +270,7 @@ function AddressSelector({
               <div className="add_sel_info_label">Zip Code:</div>
               <div className="add_sel_info_item">
                 <input
+                  required
                   type="text"
                   className="add_sel_input add_sel_input_half"
                   onChange={(e) => {
@@ -283,6 +289,7 @@ function AddressSelector({
                     {newCountry.value === "PK" ? "+92" : "+91"}
                   </div>
                   <input
+                    required
                     onChange={(e) => {
                       setNewContact(e.target.value);
                     }}

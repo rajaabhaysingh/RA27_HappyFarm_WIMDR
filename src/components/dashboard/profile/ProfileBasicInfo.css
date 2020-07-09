@@ -240,6 +240,7 @@
   justify-content: center;
 }
 .profile_pwd {
+  margin-top: 8px;
   border: 1px solid #cccccc;
   border-radius: 4px;
   height: 36px;
@@ -280,6 +281,59 @@
   margin-top: 64px;
   margin-bottom: 32px;
   font-weight: bold;
+}
+.profile_reset_pwd_popup {
+  display: flex;
+  flex-direction: column;
+  margin: 32px;
+}
+.profile_reset_pwd_header {
+  font-weight: bold;
+}
+.profile_pwd_input {
+  margin-top: 8px;
+  width: 360px;
+  height: 36px;
+  padding: 0 12px;
+}
+.profile_pwd_error {
+  margin-top: 8px;
+  color: #cc0000;
+  font-size: 0.8rem;
+}
+.profile_pwd_guideline {
+  margin-top: 16px;
+  padding: 8px;
+  border: 1px solid #ee5700;
+  background: #fff4e7;
+  border-radius: 4px;
+  width: 368px;
+}
+.profile_pwd_params {
+  font-weight: bold;
+}
+.profile_pwd_params_list {
+  margin-top: 8px;
+  list-style-type: none;
+  padding: 8px 0 0 8px;
+  margin: 0;
+}
+.profile_reset_pwd_btn {
+  height: 36px;
+  width: 100%;
+  margin-top: 16px;
+  border: none;
+  outline: none;
+  background: #fa8c16;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.profile_reset_pwd_btn:hover {
+  background-color: #ee5700;
 }
 .profile_add_new_add_btn--visible {
   margin-top: 40px;

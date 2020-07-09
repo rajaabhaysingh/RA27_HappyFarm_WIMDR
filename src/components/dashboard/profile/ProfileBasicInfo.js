@@ -63,6 +63,7 @@ export function DocumentComponent({
         <div className="profile_basic_info_label">Enter document ID:</div>
         <input
           value={documentNumber}
+          required
           type="text"
           className="profile_document_number"
           placeholder="Enter document number..."
@@ -84,6 +85,7 @@ export function DocumentComponent({
           <div className="profile_file_container">
             <input
               className="profile_file_input"
+              required
               type="file"
               name={profileData.id + "-" + documentNumber}
               id="user-verification-document"
@@ -127,6 +129,35 @@ function ProfileBasicInfo({ profileData }) {
       },
     };
   }, []);
+
+  // -----reset password mgmt-----
+  const [resetPwdState, setResetPwdState] = useState({
+    prevPwd: "",
+    currPwd1: "",
+    currPwd2: "",
+    pwdErrorState: "",
+  });
+
+  let { prevPwd, currPwd1, currPwd2, pwdErrorState } = resetPwdState;
+
+  // handlePasswordChanged
+  const handlePasswordChanged = (e) => {
+    e.preventDefault();
+
+    if (currPwd1 === currPwd2) {
+      // check prevPwd
+      // if successful
+      // alert ("saved and redirect to login")
+      // else
+      // alert ("prev password incorrect")
+      alert("changed");
+    } else {
+      setResetPwdState({
+        ...resetPwdState,
+        pwdErrorState: "Password didn't match",
+      });
+    }
+  };
 
   // ---------form state management----------
   const [formState, setFormState] = useState({
@@ -939,7 +970,123 @@ function ProfileBasicInfo({ profileData }) {
         <div className="profile_basic_info_label">Password:</div>
         <div className="profile_pwd">
           <div className="profile_pwd_item">●●●●●●●●●●</div>
-          <div className="profile_pwd_edit_btn">Change password</div>
+
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <Popup
+                    trigger={
+                      <div
+                        // onClick={handleChangePassword}
+                        className="profile_pwd_edit_btn"
+                      >
+                        Change password
+                      </div>
+                    }
+                    modal
+                    closeOnDocumentClick
+                    lockScroll
+                    // onClose={
+                    //   // if successfully changed
+                    //   //  redirect to login
+                    //   // else
+                    //   // do nothing
+                    // }
+                    contentStyle={{
+                      borderRadius: "8px",
+                    }}
+                  >
+                    <div className="profile_reset_pwd_popup">
+                      <div className="profile_reset_pwd_header">
+                        CHANGE PASSWORD
+                      </div>
+                      <form onSubmit={handlePasswordChanged}>
+                        <div className="profile_basic_info_label">
+                          Old password:
+                        </div>
+                        <input
+                          className="profile_input profile_pwd_input"
+                          autoFocus
+                          value={prevPwd}
+                          required
+                          onChange={(e) => {
+                            setResetPwdState({
+                              ...resetPwdState,
+                              prevPwd: e.target.value,
+                            });
+                          }}
+                          placeholder="Old password"
+                          type="password"
+                          name="old-pwd"
+                          id="old-pwd"
+                        />
+                        <div className="profile_basic_info_label">
+                          New password:
+                        </div>
+                        <input
+                          className="profile_input profile_pwd_input"
+                          value={currPwd1}
+                          required
+                          onChange={(e) => {
+                            setResetPwdState({
+                              ...resetPwdState,
+                              currPwd1: e.target.value,
+                            });
+                          }}
+                          placeholder="New password"
+                          type="password"
+                          name="old-pwd"
+                          id="old-pwd"
+                        />
+                        <input
+                          className="profile_input profile_pwd_input"
+                          value={currPwd2}
+                          required
+                          onChange={(e) => {
+                            setResetPwdState({
+                              ...resetPwdState,
+                              currPwd2: e.target.value,
+                            });
+                          }}
+                          placeholder="Confirm new password"
+                          type="password"
+                          name="old-pwd"
+                          id="old-pwd"
+                        />
+                        <div className="profile_pwd_error">{pwdErrorState}</div>
+
+                        <div className="profile_pwd_guideline">
+                          <div className="profile_pwd_params">
+                            Guidelines for password:
+                          </div>
+
+                          <ul className="profile_pwd_params_list">
+                            <li className="profile_pwd_params_item">
+                              Password must be at least 8 characters long.
+                            </li>
+                            <li className="profile_pwd_params_item">
+                              It must include uppercase or lowercase characters
+                              ([A-Z], [a-z])
+                            </li>
+                            <li className="profile_pwd_params_item">
+                              It must include numbers ([0-9])
+                            </li>
+                          </ul>
+                        </div>
+
+                        <input
+                          type="submit"
+                          value="RESET PASSWORD"
+                          className="profile_reset_pwd_btn"
+                        />
+                      </form>
+                    </div>
+                  </Popup>
+                </Suspense>
+              </ErrorBoundary>
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </div>
 
