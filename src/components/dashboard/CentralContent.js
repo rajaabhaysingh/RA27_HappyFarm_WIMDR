@@ -7,6 +7,7 @@ import FallbackLazy from "../FallbackLazy";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
 import TransactionData from "./transactions/TransactionData";
+import OverviewData from "./overview/OverviewData";
 
 const FileNotFound = lazy(() => import("../layouts/fileNotFound/FileNotFound"));
 const Overview = lazy(() => import("./overview/Overview"));
@@ -29,7 +30,7 @@ function CentralContent({ profileData }) {
         <Suspense fallback={<FallbackLazy />}>
           <Switch>
             <Route exact strict path={path}>
-              <Overview profileData={profileData} />
+              <Overview OverviewData={OverviewData} profileData={profileData} />
             </Route>
             <Route exact path={`${path}/profile`}>
               <Profile profileData={profileData} />

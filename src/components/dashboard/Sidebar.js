@@ -47,10 +47,7 @@ function Sidebar({ profileData }) {
           <i className="fas fa-phone-alt"></i> {mobileCode} {mobileNumber}
         </div>
       </div>
-      <div
-        className="sell_new_product_button_group"
-        data-testid="sell_new_product_button_group"
-      >
+      <div className="sell_new_product_button_group">
         <button className="sell_new_product_button">
           <span className="sell_new_product_text">Sell new product</span>
           <span style={{ marginLeft: "8px" }} className="sell_new_product_icon">

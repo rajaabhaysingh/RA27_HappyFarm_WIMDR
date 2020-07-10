@@ -19,7 +19,7 @@ function Splash() {
 
   setTimeout(() => {
     setIsFlashVisible(false);
-  }, 5000);
+  }, 1000);
 
   return (
     <div className="splash_main_div">

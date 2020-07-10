@@ -1,31 +1,30 @@
 /*for screen size larger or equal to 1024px px*/
 @media screen and (min-width: 1024px) {
+  .sidebar,
+  .sidebar_profile_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .sidebar {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
-
   .sidebar_profile_info {
     margin-top: 32px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
-  .sidebar_profile_image {
+  .sidebar_profile_image,
+  .sidebar_profile_image img,
+  .sell_new_product_button_group,
+  .sidebar_logout {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .sidebar_profile_image img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 65px;
     height: 65px;
     border-radius: 50%;
@@ -81,9 +80,6 @@
 
   .sell_new_product_button_group {
     margin-top: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .sell_new_product_button {
@@ -119,22 +115,7 @@
     flex-direction: column;
   }
 
-  .sidebar_menu_item--active {
-    padding-left: 32px;
-    width: 176px;
-    height: 35px;
-    border-radius: 20px;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    margin: 2px 0;
-    box-shadow: 0 2px 4px #cccccc;
-    font-size: 0.8rem;
-    color: #333333;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
+  .sidebar_menu_item--active,
   .sidebar_menu_item {
     padding-left: 32px;
     width: 176px;
@@ -143,8 +124,18 @@
     align-items: center;
     margin: 2px 0;
     font-size: 0.8rem;
-    color: #5c5c5c;
     text-decoration: none;
+  }
+  .sidebar_menu_item--active {
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px #cccccc;
+    color: #333333;
+    font-weight: bold;
+  }
+
+  .sidebar_menu_item {
+    color: #5c5c5c;
     cursor: pointer;
   }
 
@@ -153,21 +144,16 @@
     border-radius: 20px;
   }
 
-  .sidebar_menu_item_icon {
+  .sidebar_menu_item_icon,
+  .sidebar_menu_item_icon--active {
     margin-right: 8px;
     font-size: 1rem;
     width: 20px;
     display: flex;
     justify-content: center;
   }
-
   .sidebar_menu_item_icon--active {
-    margin-right: 8px;
-    font-size: 1rem;
     color: #ee5700;
-    width: 20px;
-    display: flex;
-    justify-content: center;
   }
 
   .sidebar_logout {
@@ -178,9 +164,6 @@
     border-radius: 20px;
     box-shadow: 0 2px 4px #cccccc;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 0.85rem;
     font-weight: bold;
     color: #5c5c5c;
@@ -195,4 +178,175 @@
 
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: 100%;
+  }
+  .sidebar_profile_info {
+    margin-top: 32px;
+    width: 100%;
+  }
+
+  .sidebar_profile_image,
+  .sidebar_profile_image img,
+  .sell_new_product_button_group,
+  .sidebar_logout,
+  .sidebar_menu_item--active,
+  .sidebar_menu_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar_profile_image img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: #ee5700;
+  }
+
+  .sidebar_profile_image_change_btn {
+    font-size: 1.2rem;
+    position: relative;
+    top: -12px;
+    padding: 0px 4px 0 4px;
+    border-radius: 4px;
+    background-color: #ffffffb6;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #5c5c5c;
+  }
+
+  .sidebar_profile_image_change_btn:hover {
+    color: black;
+  }
+
+  .sidebar_username {
+    margin-top: -4px;
+    font-size: 0.95rem;
+    color: #5c5c5c;
+    text-transform: capitalize;
+  }
+
+  .sidebar_plan {
+    margin-top: 2px;
+    display: flex;
+    font-size: 0.75rem;
+  }
+
+  .sidebar_plan_text {
+    color: #5c5c5c;
+  }
+
+  .sidebar_plan_value {
+    margin-left: 4px;
+    color: #009900;
+    text-transform: capitalize;
+  }
+
+  .sidebar_contact {
+    margin-top: 8px;
+    color: #ee5700;
+    font-size: 0.8rem;
+  }
+
+  .sell_new_product_button_group {
+    margin-top: 32px;
+  }
+
+  .sell_new_product_button {
+    width: 200px;
+    height: 35px;
+    border-radius: 8px;
+    background: #fa8c16;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+
+  .sell_new_product_button:hover {
+    background: #ff6207;
+  }
+
+  .menu_text_display {
+    margin-top: 48px;
+    font-size: 0.75rem;
+  }
+
+  .sidebar_menu {
+    margin-top: 24px;
+    overflow: scroll;
+  }
+
+  .sidebar_menu_list {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    overflow: scroll;
+    /* flex-direction: column; */
+  }
+
+  .sidebar_menu_item--active,
+  .sidebar_menu_item {
+    padding: 0 16px;
+    height: 35px;
+    margin: 4px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .sidebar_menu_item--active {
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px #cccccc;
+    color: #000000;
+    font-weight: bold;
+  }
+  .sidebar_menu_item {
+    color: #333333;
+    cursor: pointer;
+    box-shadow: 0 2px 4px #cccccc;
+    border-radius: 20px;
+  }
+
+  .sidebar_menu_item_icon,
+  .sidebar_menu_item_icon--active {
+    margin-right: 8px;
+    font-size: 1rem;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .sidebar_menu_item_icon--active {
+    color: #ee5700;
+  }
+
+  .sidebar_logout {
+    margin-top: 64px;
+    margin-bottom: 16px;
+    width: 200px;
+    height: 35px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px #cccccc;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #5c5c5c;
+  }
+
+  .sidebar_logout:hover {
+    background: #ffffff;
+    color: #333333;
+    box-shadow: 0 2px 4px #cccccc;
+  }
 }

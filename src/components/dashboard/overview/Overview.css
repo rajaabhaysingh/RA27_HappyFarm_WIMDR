@@ -2,17 +2,19 @@
   height: 100%;
   width: 100%;
 }
+.overview_inner_div,
+.overview_stats_box {
+  display: flex;
+  flex-direction: column;
+}
 .overview_inner_div {
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 .overview_heading {
   font-size: 1.5rem;
   color: #333333;
 }
-
 .overview_description {
   margin-top: 8px;
   display: flex;
@@ -20,16 +22,50 @@
   color: #5c5c5c;
   font-size: 0.8rem;
 }
-
 .overview_info_icon {
   margin-left: 8px;
   cursor: pointer;
 }
+.overview_stats_heading {
+  margin-top: 64px;
+  font-weight: bold;
+  color: #000000;
+  font-size: 0.8rem;
+}
+.overview_stats {
+  margin-top: 16px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.overview_stats_box {
+  padding: 16px 0;
+  align-items: center;
+  border-radius: 8px;
+}
+.overview_stat_box_heading {
+  margin-bottom: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.overview_stat_data {
+  margin-top: 8px;
+  font-size: 0.8rem;
+}
 
 /*for screen size larger or equal to 1024px px*/
 @media screen and (min-width: 1024px) {
+  .overview_charts {
+    display: flex;
+    width: 50%;
+  }
 }
 
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
+  .overview_charts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 }
