@@ -6,8 +6,6 @@ function FallbackLazy() {
       style={{
         color: "#ee5700",
         fontSize: "0.7rem",
-        display: "flex",
-        alignSelf: "center",
         margin: "4px",
       }}
       className="fas fa-spin fa-spinner"

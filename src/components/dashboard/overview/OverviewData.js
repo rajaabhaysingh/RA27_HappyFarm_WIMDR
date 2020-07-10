@@ -23,8 +23,19 @@ const OverviewData = {
     following: 34,
   },
   //   first label will be month of joining
-  dataSales: {
-    labels: ["", "", ""],
+  doj: "Dec'19",
+  labels: [
+    "Jan'20",
+    "Feb'20",
+    "Mar'20",
+    "Apr'20",
+    "May'20",
+    "Jun'20",
+    "Jul'20",
+  ],
+  dataSet: {
+    dataSales: [0, 0, 33, 45, 76, 66, 32, 12],
+    dataBuy: [0, 65, 59, 80, 81, 56, 55, 40],
   },
 };
 

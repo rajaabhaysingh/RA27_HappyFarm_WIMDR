@@ -1,7 +1,7 @@
-import React, { memo } from "react";
+import React, { memo, useState, useEffect } from "react";
 import "./Overview.css";
 
-import { Bar, Line, Pie, Area } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 export function OverviewStatBox({
   heading,
@@ -32,46 +32,85 @@ export function OverviewStatBox({
 }
 
 function Overview({ OverviewData }) {
-  const data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-        {
-          label: "Total sales",
-          fill: true,
-          lineTension: 0.1,
-          backgroundColor: "rgba(75,192,192,0.4)",
-          borderColor: "rgba(75,192,192,1)",
-          borderCapStyle: "butt",
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(75,192,192,1)",
-          pointBackgroundColor: "#fff",
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
-          pointHoverBorderWidth: 2,
-          pointRadius: 1,
-          pointHitRadius: 10,
-          data: [65, 59, 80, 81, 56, 55, 40],
-        },
-      ],
-    },
-    optionsLeft = {
-      layout: {
-        padding: {
-          right: 8,
-        },
+  // charts data state management
+  const [dataSales, setDataSales] = useState([]);
+  const [dataBuy, setDataBuy] = useState([]);
+  const [dataLabels, setDataLabels] = useState([]);
+
+  let tempSalesDataSet = [];
+  let tempBuyDataSet = [];
+  let labels = [OverviewData.doj];
+
+  useEffect(() => {
+    OverviewData.dataSet.dataSales.map((data) => tempSalesDataSet.push(data));
+    OverviewData.dataSet.dataBuy.map((data) => tempBuyDataSet.push(data));
+    OverviewData.labels.map((label) => labels.push(label));
+
+    setDataSales(tempSalesDataSet);
+    setDataBuy(tempBuyDataSet);
+    setDataLabels(labels);
+
+    console.log(tempSalesDataSet);
+    console.log(tempBuyDataSet);
+    console.log(labels);
+    // return () => {
+    //   cleanup
+    // }
+  }, [OverviewData]);
+
+  const dataSell = {
+    labels: dataLabels,
+    datasets: [
+      {
+        label: "Total sales",
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: "rgba(75,192,192,0.4)",
+        borderColor: "rgba(75,192,192,1)",
+        borderCapStyle: "butt",
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: "miter",
+        pointBorderColor: "rgba(75,192,192,1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: dataSales,
       },
-    },
-    optionsRight = {
-      layout: {
-        padding: {
-          left: 8,
-        },
+    ],
+  };
+
+  const dataPurchase = {
+    labels: dataLabels,
+    datasets: [
+      {
+        label: "Total Purchase",
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: "rgba(108, 0, 170, 0.4)",
+        borderColor: "rgba(108, 0, 170, 1)",
+        borderCapStyle: "butt",
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: "miter",
+        pointBorderColor: "rgba(108, 0, 170, 1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(108, 0, 170, 1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: dataBuy,
       },
-    };
+    ],
+  };
 
   return (
     <div className="overview_main_div">
@@ -83,11 +122,16 @@ function Overview({ OverviewData }) {
           </div>
           <i className="fas fa-info-circle overview_info_icon"></i>
         </div>
-        <div className="overview_stats_heading">STATISTICS</div>
+        <div className="overview_stats_heading">ACTIVITY ANALYSIS</div>
         <div className="overview_charts">
-          <Line options={optionsLeft} data={data} />
-          <Bar options={optionsRight} data={data} />
+          <div className="overview_chart_sell">
+            <Line data={dataSell} />
+          </div>
+          <div className="overview_chart_buy">
+            <Line data={dataPurchase} />
+          </div>
         </div>
+        <div className="overview_stats_heading">STATISTICS</div>
         <div className="overview_stats">
           <OverviewStatBox
             heading={"Transactions"}
@@ -109,7 +153,7 @@ function Overview({ OverviewData }) {
             subTop2={"Purchased"}
             data2={OverviewData.transLastMonth.buy}
             styleWrapper={{
-              border: "1px solid #FFFBEF",
+              border: "1px solid #0F4153",
               background: "#ee5700",
               color: "#ffffff",
             }}

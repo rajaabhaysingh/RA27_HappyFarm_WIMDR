@@ -1,7 +1,10 @@
 /*for screen size larger or equal to 1024px px*/
 @media screen and (min-width: 1024px) {
   .sidebar,
-  .sidebar_profile_info {
+  .sidebar_image_container,
+  .sidebar_profile_info,
+  .sidebar_user_details,
+  .sidebar_top_info_group {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,18 +83,34 @@
 
   .sell_new_product_button_group {
     margin-top: 32px;
+    /* height: 64px; */
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
   }
 
-  .sell_new_product_button {
-    width: 200px;
+  .sell_new_product_button,
+  .buy_new_product_button {
     height: 35px;
-    border-radius: 8px;
-    background: #fa8c16;
-    border: none;
+    padding: 0 16px;
+    border-radius: 4px;
     outline: none;
-    color: #ffffff;
     font-size: 0.8rem;
+    font-weight: bold;
     cursor: pointer;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sell_new_product_button {
+    background: #fa8c16;
+    border: 1px solid #ee5700;
+    color: #ffffff;
+  }
+  .buy_new_product_button {
+    margin-left: 8px;
+    background: #ffffff;
+    border: 1px solid #ee5700;
+    color: #ee5700;
   }
 
   .sell_new_product_button:hover {
@@ -178,42 +197,59 @@
 
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
-  .sidebar {
+  .sidebar,
+  .sidebar_user_details,
+  .sidebar_image_container {
     display: flex;
     flex-direction: column;
+  }
+  .sidebar_top_info_group {
+    width: calc(100% - 24px);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px #cccccc;
   }
   .sidebar {
     width: 100%;
     height: 100%;
   }
   .sidebar_profile_info {
-    margin-top: 32px;
+    display: flex;
+    align-items: center;
     width: 100%;
   }
-
-  .sidebar_profile_image,
+  .sidebar_image_container {
+    align-items: center;
+    position: relative;
+  }
+  .sidebar_user_details {
+    margin-left: 12px;
+  }
   .sidebar_profile_image img,
   .sell_new_product_button_group,
   .sidebar_logout,
   .sidebar_menu_item--active,
-  .sidebar_menu_item {
+  .sidebar_menu_item,
+  .sell_new_product_button,
+  .buy_new_product_button {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .sidebar_profile_image img {
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 1px solid black;
     background-color: #ee5700;
   }
 
   .sidebar_profile_image_change_btn {
     font-size: 1.2rem;
-    position: relative;
-    top: -12px;
+    position: absolute;
+    bottom: -8px;
     padding: 0px 4px 0 4px;
     border-radius: 4px;
     background-color: #ffffffb6;
@@ -223,21 +259,20 @@
     color: #5c5c5c;
   }
 
-  .sidebar_profile_image_change_btn:hover {
+  .sidebar_profile_image_change_btn:active {
     color: black;
   }
 
   .sidebar_username {
-    margin-top: -4px;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     color: #5c5c5c;
+    font-weight: bold;
     text-transform: capitalize;
   }
 
   .sidebar_plan {
-    margin-top: 2px;
     display: flex;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .sidebar_plan_text {
@@ -251,39 +286,54 @@
   }
 
   .sidebar_contact {
-    margin-top: 8px;
+    margin-top: 4px;
     color: #ee5700;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: bold;
   }
 
   .sell_new_product_button_group {
-    margin-top: 32px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .sell_new_product_button {
-    width: 200px;
-    height: 35px;
-    border-radius: 8px;
-    background: #fa8c16;
-    border: none;
+  .sell_new_product_button,
+  .buy_new_product_button {
+    height: 30px;
+    padding: 0 16px;
+    border-radius: 4px;
     outline: none;
-    color: #ffffff;
     font-size: 0.8rem;
+    font-weight: bold;
     cursor: pointer;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
   }
-
-  .sell_new_product_button:hover {
+  .sell_new_product_button {
+    background: #fa8c16;
+    border: 1px solid #ee5700;
+    color: #ffffff;
+  }
+  .buy_new_product_button {
+    background: #ffffff;
+    border: 1px solid #fa8c16;
+    color: #fa8c16;
+  }
+  .sell_new_product_button:active {
     background: #ff6207;
   }
 
   .menu_text_display {
-    margin-top: 48px;
-    font-size: 0.75rem;
+    display: none;
   }
 
   .sidebar_menu {
     margin-top: 24px;
+    margin-bottom: 8px;
     overflow: scroll;
+    padding: 4px;
   }
 
   .sidebar_menu_list {
@@ -292,33 +342,34 @@
     padding: 0;
     margin: 0;
     display: flex;
-    overflow: scroll;
-    /* flex-direction: column; */
   }
 
   .sidebar_menu_item--active,
   .sidebar_menu_item {
     padding: 0 16px;
     height: 35px;
-    margin: 4px;
+    margin: 4px 4px 8px 4px;
     font-size: 0.8rem;
     text-decoration: none;
     white-space: nowrap;
+    color: #333333;
+    -webkit-tap-highlight-color: transparent;
   }
   .sidebar_menu_item--active {
     border-radius: 20px;
-    background-color: #ffffff;
+    background-color: #ee5700;
     box-shadow: 0 2px 4px #cccccc;
-    color: #000000;
+    color: #ffffff;
     font-weight: bold;
   }
   .sidebar_menu_item {
-    color: #333333;
     cursor: pointer;
     box-shadow: 0 2px 4px #cccccc;
     border-radius: 20px;
   }
-
+  .sidebar_menu_item:active {
+    background: #fffbef;
+  }
   .sidebar_menu_item_icon,
   .sidebar_menu_item_icon--active {
     margin-right: 8px;
@@ -328,25 +379,10 @@
     justify-content: center;
   }
   .sidebar_menu_item_icon--active {
-    color: #ee5700;
+    color: #ffffff;
   }
 
   .sidebar_logout {
-    margin-top: 64px;
-    margin-bottom: 16px;
-    width: 200px;
-    height: 35px;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px #cccccc;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: #5c5c5c;
-  }
-
-  .sidebar_logout:hover {
-    background: #ffffff;
-    color: #333333;
-    box-shadow: 0 2px 4px #cccccc;
+    display: none;
   }
 }

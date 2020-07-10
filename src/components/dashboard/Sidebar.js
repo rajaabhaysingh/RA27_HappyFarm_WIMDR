@@ -31,29 +31,50 @@ function Sidebar({ profileData }) {
 
   return (
     <div className="sidebar" data-testid="sidebar">
-      <div className="sidebar_profile_info" data-testid="sidebar_profile_info">
-        <div className="sidebar_profile_image">
-          <img src="" alt="" />
+      <div className="sidebar_top_info_group">
+        <div
+          className="sidebar_profile_info"
+          data-testid="sidebar_profile_info"
+        >
+          <div className="sidebar_image_container">
+            <div className="sidebar_profile_image">
+              <img src="" alt="" />
+            </div>
+            <button className="sidebar_profile_image_change_btn">
+              <i className="fas fa-camera"></i>
+            </button>
+          </div>
+          <div className="sidebar_user_details">
+            <div className="sidebar_username">Hello, {fullName}</div>
+            <div className="sidebar_plan">
+              <div className="sidebar_plan_text">Plan:</div>
+              <div className="sidebar_plan_value">{plan}</div>
+            </div>
+            <div className="sidebar_contact">
+              <i className="fas fa-phone-alt"></i> {mobileCode} {mobileNumber}
+            </div>
+          </div>
         </div>
-        <button className="sidebar_profile_image_change_btn">
-          <i className="fas fa-camera"></i>
-        </button>
-        <div className="sidebar_username">Hello, {fullName}</div>
-        <div className="sidebar_plan">
-          <div className="sidebar_plan_text">Plan:</div>
-          <div className="sidebar_plan_value">{plan}</div>
+        <div className="sell_new_product_button_group">
+          <button className="sell_new_product_button">
+            <span className="sell_new_product_text">Sell now</span>
+            <span
+              style={{ marginLeft: "8px" }}
+              className="sell_new_product_icon"
+            >
+              <i className="fas fa-store"></i>
+            </span>
+          </button>
+          <button className="buy_new_product_button">
+            <span className="sell_new_product_text">Buy now</span>
+            <span
+              style={{ marginLeft: "8px" }}
+              className="sell_new_product_icon"
+            >
+              <i className="fas fa-shopping-cart"></i>
+            </span>
+          </button>
         </div>
-        <div className="sidebar_contact">
-          <i className="fas fa-phone-alt"></i> {mobileCode} {mobileNumber}
-        </div>
-      </div>
-      <div className="sell_new_product_button_group">
-        <button className="sell_new_product_button">
-          <span className="sell_new_product_text">Sell new product</span>
-          <span style={{ marginLeft: "8px" }} className="sell_new_product_icon">
-            <i className="fas fa-plus"></i>
-          </span>
-        </button>
       </div>
       <div className="menu_text_display">MENU</div>
       <div className="sidebar_menu" data-testid="sidebar_menu">
