@@ -36,7 +36,40 @@ export function OverviewStatBox({
   );
 }
 
-function Overview({ OverviewData, SellingNowData }) {
+function Overview({ OverviewData, SellingNowData, MyOrdersData }) {
+  // utility function
+  // tstampToTime
+  const tstampToTime = (ts) => {
+    const tsDate = new Date(ts * 1000);
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    return (
+      tsDate.getDate() +
+      " " +
+      months[tsDate.getMonth()] +
+      " " +
+      tsDate.getFullYear() +
+      ",  " +
+      tsDate.getHours() +
+      ":" +
+      tsDate.getMinutes() +
+      ":" +
+      tsDate.getSeconds()
+    );
+  };
+
   // charts data state management
   const [dataSales, setDataSales] = useState([]);
   const [dataBuy, setDataBuy] = useState([]);
@@ -53,7 +86,11 @@ function Overview({ OverviewData, SellingNowData }) {
         <ErrorBoundary>
           <Suspense fallback={<FallbackLazy />}>
             {prodList.map((item) => (
-              <SellingNowItem key={item.id} item={item} />
+              <SellingNowItem
+                tstampToTime={tstampToTime}
+                key={item.id}
+                item={item}
+              />
             ))}
           </Suspense>
         </ErrorBoundary>
@@ -63,6 +100,69 @@ function Overview({ OverviewData, SellingNowData }) {
         <div className="overview_no_prod_found">
           {" "}
           No products found under this category.
+        </div>
+      );
+    }
+  };
+
+  // renderOrderStatus
+  const renderOrderStatus = (order) => {
+    if (order.st === 1) {
+      return (
+        <span style={{ color: "#009900" }}>
+          <i className="fas fa-check-circle"></i> {order.desc}
+        </span>
+      );
+    } else if (order.st === 2) {
+      return (
+        <span style={{ color: "#ee5700" }}>
+          <i className="fas fa-exclamation-triangle"></i> {order.desc}
+        </span>
+      );
+    } else if (order.st === 0) {
+      return (
+        <span style={{ color: "#cc0000" }}>
+          <i className="fas fa-times-circle"></i> {order.desc}
+        </span>
+      );
+    } else {
+      return (
+        <span style={{ color: "#5c5c5c" }}>
+          <i className="fas fa-info-circle"></i> {order.desc}
+        </span>
+      );
+    }
+  };
+
+  // renderOrders
+  const renderOrders = () => {
+    if (MyOrdersData.orH) {
+      return (
+        <>
+          {MyOrdersData.orH.map((order) => (
+            <div key={order.oid} className="overview_order_container">
+              <img src={order.img} alt="" />
+              <div className="overview_order_name_desc">
+                <div className="overview_order_name">
+                  {order.pn}, {order.qty} {order.qtU}
+                </div>
+                <div className="overview_order_desc">
+                  {renderOrderStatus(order)}
+                </div>
+              </div>
+              <div className="overview_spacer"></div>
+              <div className="overview_order_time">
+                {tstampToTime(order.ts)}
+              </div>
+            </div>
+          ))}
+        </>
+      );
+    } else {
+      return (
+        <div className="overview_no_prod_found">
+          {" "}
+          No order history available.
         </div>
       );
     }
@@ -158,7 +258,7 @@ function Overview({ OverviewData, SellingNowData }) {
             <Line data={dataPurchase} />
           </div>
         </div>
-        <div className="overview_stats_heading">PRODUCTS</div>
+        <div className="overview_stats_heading">MY SALES</div>
         <div className="overview_products_sold">
           <div className="overview_sub_heading">Retail products on sale</div>
           <div className="overview_retail_products">
@@ -169,7 +269,9 @@ function Overview({ OverviewData, SellingNowData }) {
             {renderProdOnSale(SellingNowData.bulk)}
           </div>
         </div>
-        <div className="overview_products_purchased"></div>
+        <div className="overview_stats_heading">MY ORDERS</div>
+        <div className="overview_description">Your recent orders.</div>
+        <div className="overview_products_purchased">{renderOrders()}</div>
         <div className="overview_stats_heading">STATISTICS</div>
         <div className="overview_stats">
           <OverviewStatBox

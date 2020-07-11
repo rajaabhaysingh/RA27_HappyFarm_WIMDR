@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import "./SellingNowItem.css";
 import ProgressBar from "../../layouts/progressBar/ProgressBar";
 
-const SellingNowItem = ({ item }) => {
+const SellingNowItem = ({ item, tstampToTime }) => {
   const calculatePercentage = () => {
     return (item.bQ / item.qty) * 100;
   };
@@ -22,37 +22,6 @@ const SellingNowItem = ({ item }) => {
         </button>
       );
     }
-  };
-
-  const tstampToTime = (ts) => {
-    const tsDate = new Date(ts * 1000);
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    return (
-      tsDate.getDate() +
-      " " +
-      months[tsDate.getMonth()] +
-      " " +
-      tsDate.getFullYear() +
-      ",  " +
-      tsDate.getHours() +
-      ":" +
-      tsDate.getMinutes() +
-      ":" +
-      tsDate.getSeconds()
-    );
   };
 
   // renderProgressBar
@@ -118,14 +87,19 @@ const SellingNowItem = ({ item }) => {
             <div className="sell_now_progress_bar">{renderProgressBar()}</div>
           </div>
         </div>
-        <div className="sell_now_spacer"></div>
+        {/* <div className="sell_now_spacer"></div> */}
         <div className="sell_now_utilities">
-          <button className="sell_now_update_details">Update details</button>
+          <button className="sell_now_update_details">View details</button>
           <div className="sell_now_spacer"></div>
           {renderButton()}
-          <button className="sell_now_btn sell_now_remove">
-            <i className="fas fa-trash-alt"></i> DELETE
-          </button>
+          <div className="sell_now_edit_delete_group">
+            <button className="sell_now_btn sell_now_edit">
+              <i className="fas fa-pen"></i>
+            </button>
+            <button className="sell_now_btn sell_now_remove">
+              <i className="fas fa-trash-alt"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>

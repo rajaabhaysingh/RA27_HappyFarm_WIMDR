@@ -1,5 +1,6 @@
 .overview_inner_div,
-.overview_stats_box {
+.overview_stats_box,
+.overview_order_name_desc {
   display: flex;
   flex-direction: column;
 }
@@ -19,14 +20,17 @@
   cursor: pointer;
 }
 .overview_stats_heading {
+  margin: 32px 0 16px 0;
   font-weight: bold;
   color: #000000;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 .overview_sub_heading {
-  margin-top: 32px;
+  margin-top: 24px;
+  margin-bottom: 16px;
   font-size: 0.8rem;
-  color: #5c5c5c;
+  color: #333333;
+  font-weight: bold;
 }
 
 .overview_stats_box {
@@ -50,6 +54,50 @@
   color: #000000;
   border-radius: 4px;
   background: #fffbef;
+}
+.overview_order_container {
+  margin: 16px 0;
+  width: calc(100% - 34px);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px #bbbbbb;
+  cursor: pointer;
+}
+
+.overview_order_container img {
+  height: 55px;
+  width: 55px;
+  border-radius: 3px;
+}
+.overview_order_name_desc,
+.overview_order_qty {
+  margin-left: 8px;
+}
+.overview_order_desc {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+.overview_order_name,
+.overview_order_qty {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.overview_order_name {
+  color: #333333;
+}
+.overview_order_qty {
+  color: #5c5c5c;
+}
+.overview_spacer {
+  flex: 1;
+}
+.overview_order_time {
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-style: italic;
+  color: #ee5700;
+  margin-right: 16px;
 }
 
 /*for screen size larger or equal to 560px px*/

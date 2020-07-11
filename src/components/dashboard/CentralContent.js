@@ -9,6 +9,7 @@ import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import TransactionData from "./transactions/TransactionData";
 import OverviewData from "./overview/OverviewData";
 import SellingNowData from "./overview/SellingNowData";
+import MyOrdersData from "./overview/MyOrdersData";
 
 const FileNotFound = lazy(() => import("../layouts/fileNotFound/FileNotFound"));
 const Overview = lazy(() => import("./overview/Overview"));
@@ -33,6 +34,7 @@ function CentralContent({ profileData }) {
             <Route exact strict path={path}>
               <Overview
                 SellingNowData={SellingNowData}
+                MyOrdersData={MyOrdersData}
                 OverviewData={OverviewData}
                 profileData={profileData}
               />

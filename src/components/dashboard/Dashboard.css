@@ -57,6 +57,7 @@
   .dashboard_ad_main_div {
     margin-bottom: 109px;
     width: 100%;
+    height: calc(100% - 109px);
   }
 }
 

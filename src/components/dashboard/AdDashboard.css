@@ -1,0 +1,89 @@
+.ad_dash_main_div,
+.ad_dash_top,
+.ad_dash_bottom,
+.ad_dash_feature_list,
+.ad_dash_upgrade_btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ad_dash_top {
+  width: 100%;
+}
+.ad_dash_main_bnr {
+  position: relative;
+  padding-top: 50%;
+  width: 100%;
+}
+.ad_dash_str_bnr {
+  position: relative;
+  margin-top: 32px;
+  padding-top: 15%;
+  width: 100%;
+}
+.ad_dash_top img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px #5c5c5c;
+}
+.ad_dash_bottom {
+  margin-top: 32px;
+}
+.ad_dash_upgrade_img {
+  height: 80px;
+}
+.ad_dash_upgrade_text {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+.ad_dash_feature_list {
+  list-style-type: none;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  color: #5c5c5c;
+}
+.ad_dash_feature_list li {
+  text-align: center;
+}
+.ad_dash_upgrade_btn {
+  width: 90%;
+  min-width: 120px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: #fa8c16;
+  border-radius: 4px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .ad_dash_main_div {
+    padding: 32px;
+    width: calc(100% - 64px);
+    height: calc(100% - 64px);
+  }
+  .ad_dash_spacer {
+    display: flex;
+    flex: 1;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .ad_dash_main_div {
+    padding: 32px 8px;
+    width: calc(100% - 16px);
+  }
+}

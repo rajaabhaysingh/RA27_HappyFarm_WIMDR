@@ -8,6 +8,7 @@ import FallbackLazy from "../FallbackLazy";
 
 const Sidebar = lazy(() => import("./Sidebar"));
 const CentralContent = lazy(() => import("./CentralContent"));
+const AdDashboard = lazy(() => import("./AdDashboard"));
 
 function Dashboard({ isSearchBarOpen }) {
   // close search bar by default in dashboard
@@ -33,7 +34,9 @@ function Dashboard({ isSearchBarOpen }) {
               </div>
             </div>
             <div className="dashboard_ad">
-              <div className="dashboard_ad_main_div"></div>
+              <div className="dashboard_ad_main_div">
+                <AdDashboard />
+              </div>
             </div>
           </div>
         </Suspense>
