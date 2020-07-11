@@ -1,0 +1,193 @@
+.sell_now_main_div {
+  padding: 8px;
+  margin-top: 12px;
+  border: 1px solid #fa8c166e;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px #cccccc;
+}
+.sell_now_image,
+.sell_now_image img,
+.sell_now_update_details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sell_now_image img {
+  height: 120px;
+  width: 120px;
+  border-radius: 4px;
+}
+.sell_now_details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.sell_now_name_group {
+  display: flex;
+  align-items: center;
+}
+.sell_now_desc {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #5c5c5c;
+}
+.sell_now_qty,
+.sell_now_shelf_life {
+  font-size: 0.75rem;
+  color: #5c5c5c;
+}
+.sell_now_shelf_life {
+  margin-top: 4px;
+}
+.sell_now_del_time {
+  margin-top: 8px;
+  color: #ee5700;
+  font-size: 0.8rem;
+}
+.sell_now_price {
+  margin-top: 4px;
+  color: black;
+  font-size: 0.9rem;
+}
+.sell_now_timeStamp {
+  margin-top: 8px;
+  color: #000000;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+.sell_now_item_unknown {
+  margin-top: 8px;
+  color: #cc0000;
+  font-size: 0.75rem;
+}
+.sell_now_item_progress {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 0.75rem;
+}
+.sell_now_spacer {
+  display: flex;
+  flex: 1;
+}
+.sell_now_update_details {
+  border: 1px solid transparent;
+  height: 28px;
+  outline: none;
+  background: transparent;
+  color: #ee5700;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px #cccccc;
+  -webkit-tap-highlight-color: transparent;
+}
+.sell_now_btn {
+  height: 28px;
+  border: 1px solid;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  color: #000000;
+  background: #ffffff;
+  font-weight: bold;
+  font-size: 0.7rem;
+  -webkit-tap-highlight-color: transparent;
+}
+.sell_now_resume {
+  width: 120px;
+  color: #008800;
+  border-color: #008800;
+  box-shadow: 0 2px 4px #0088005d;
+}
+.sell_now_pause {
+  width: 120px;
+  color: #fa8c16;
+  border-color: #fa8c16;
+  box-shadow: 0 2px 4px #fa8c165d;
+}
+.sell_now_remove {
+  width: 90px;
+  color: #ffffff;
+  background: #cc0000;
+  border-color: #cc0000;
+  box-shadow: 0 2px 4px #6600005d;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .sell_now_main_div {
+    min-width: 520px;
+  }
+  .sell_now_details {
+    margin-left: 16px;
+  }
+  .sell_now_inner_div,
+  .sell_now_img_and_desc {
+    display: flex;
+  }
+
+  .sell_now_name {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .sell_now_utilities {
+    display: flex;
+    flex-direction: column;
+  }
+  .sell_now_update_details:hover {
+    border-radius: 20px;
+    border: 1px solid #ee5700;
+  }
+  .sell_now_remove {
+    margin-top: 8px;
+  }
+  .sell_now_resume {
+    width: 120px;
+  }
+  .sell_now_pause {
+    width: 120px;
+  }
+  .sell_now_remove {
+    width: 120px;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .sell_now_inner_div {
+    display: flex;
+    flex-direction: column;
+  }
+  .sell_now_details {
+    margin-left: 8px;
+  }
+  .sell_now_img_and_desc {
+    display: flex;
+  }
+  .sell_now_name {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .sell_now_utilities {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+  }
+  .sell_now_update_details:active {
+    border-radius: 20px;
+    border: 1px solid #ee5700;
+  }
+  .sell_now_remove {
+    margin-left: 8px;
+  }
+  .sell_now_resume {
+    width: 115px;
+  }
+  .sell_now_pause {
+    width: 115px;
+  }
+  .sell_now_remove {
+    width: 85px;
+  }
+}

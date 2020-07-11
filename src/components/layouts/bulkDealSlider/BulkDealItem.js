@@ -154,11 +154,7 @@ function BulkDealItem({
         <div className="bulk_status_bar">
           <ErrorBoundary>
             <Suspense className={<FallbackLazy />}>
-              <ProgressBar
-                done={soldPercent}
-                textInfo="sold"
-                refreshTime="3000"
-              />
+              <ProgressBar done={soldPercent} textInfo="sold" symbol={"%"} />
             </Suspense>
           </ErrorBoundary>
         </div>

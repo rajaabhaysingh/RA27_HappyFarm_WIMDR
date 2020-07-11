@@ -1,7 +1,12 @@
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState, useEffect, lazy, Suspense } from "react";
 import "./Overview.css";
 
 import { Line } from "react-chartjs-2";
+
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const SellingNowItem = lazy(() => import("./SellingNowItem"));
 
 export function OverviewStatBox({
   heading,
@@ -31,7 +36,7 @@ export function OverviewStatBox({
   );
 }
 
-function Overview({ OverviewData }) {
+function Overview({ OverviewData, SellingNowData }) {
   // charts data state management
   const [dataSales, setDataSales] = useState([]);
   const [dataBuy, setDataBuy] = useState([]);
@@ -40,6 +45,28 @@ function Overview({ OverviewData }) {
   let tempSalesDataSet = [];
   let tempBuyDataSet = [];
   let labels = [OverviewData.doj];
+
+  // renderProdOnSale
+  const renderProdOnSale = (prodList) => {
+    if (prodList) {
+      return (
+        <ErrorBoundary>
+          <Suspense fallback={<FallbackLazy />}>
+            {prodList.map((item) => (
+              <SellingNowItem key={item.id} item={item} />
+            ))}
+          </Suspense>
+        </ErrorBoundary>
+      );
+    } else {
+      return (
+        <div className="overview_no_prod_found">
+          {" "}
+          No products found under this category.
+        </div>
+      );
+    }
+  };
 
   useEffect(() => {
     OverviewData.dataSet.dataSales.map((data) => tempSalesDataSet.push(data));
@@ -131,6 +158,18 @@ function Overview({ OverviewData }) {
             <Line data={dataPurchase} />
           </div>
         </div>
+        <div className="overview_stats_heading">PRODUCTS</div>
+        <div className="overview_products_sold">
+          <div className="overview_sub_heading">Retail products on sale</div>
+          <div className="overview_retail_products">
+            {renderProdOnSale(SellingNowData.retail)}
+          </div>
+          <div className="overview_sub_heading">Bulk products on sale</div>
+          <div className="overview_retail_products">
+            {renderProdOnSale(SellingNowData.bulk)}
+          </div>
+        </div>
+        <div className="overview_products_purchased"></div>
         <div className="overview_stats_heading">STATISTICS</div>
         <div className="overview_stats">
           <OverviewStatBox

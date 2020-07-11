@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import "./ProgressBar.css";
 
-function ProgressBar({ done, textInfo }) {
+function ProgressBar({ done, textInfo, symbol }) {
   const progressDoneWrapper = {
     width: `${done}%`,
   };
@@ -12,7 +12,8 @@ function ProgressBar({ done, textInfo }) {
         <div style={progressDoneWrapper} className="progress_done"></div>
       </div>
       <div className="progress_percent">
-        {done}% {textInfo}
+        {done}
+        {symbol} {textInfo}
       </div>
     </div>
   );

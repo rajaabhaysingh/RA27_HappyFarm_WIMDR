@@ -23,6 +23,11 @@
   color: #000000;
   font-size: 0.8rem;
 }
+.overview_sub_heading {
+  margin-top: 32px;
+  font-size: 0.8rem;
+  color: #5c5c5c;
+}
 
 .overview_stats_box {
   padding: 16px 0;
@@ -37,6 +42,14 @@
 .overview_stat_data {
   margin-top: 8px;
   font-size: 0.8rem;
+}
+.overview_no_prod_found {
+  margin-top: 8px;
+  border: 1px solid #ee5700;
+  font-size: 0.8rem;
+  color: #000000;
+  border-radius: 4px;
+  background: #fffbef;
 }
 
 /*for screen size larger or equal to 560px px*/
@@ -59,10 +72,13 @@
     width: 50%;
     margin-left: 4px;
   }
+  .overview_no_prod_found {
+    padding: 16px;
+  }
 }
 
 /*for screen size larger or equal to 560px px*/
-@media screen and (max-width: 561px) {
+@media screen and (max-width: 559px) {
   .overview_stats {
     margin-top: 16px;
     display: grid;
@@ -82,6 +98,9 @@
   .overview_chart_buy {
     width: 100%;
     margin-top: 8px;
+  }
+  .overview_no_prod_found {
+    padding: 8px;
   }
 }
 
