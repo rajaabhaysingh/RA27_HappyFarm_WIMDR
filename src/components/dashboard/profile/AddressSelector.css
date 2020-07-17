@@ -11,6 +11,7 @@
 .add_sel_info_item {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .add_sel_input {
   padding: 0 10px;
@@ -18,13 +19,11 @@
   height: 36px;
   border-radius: 4px;
   border: 1px solid #cccccc;
-  outline-color: #ee5700;
+  outline: none;
 }
-.add_sel_input:hover {
-  border: 1px solid #bbbbbb;
-}
-.add_sel_input_full {
-  width: 460px;
+.add_sel_input:focus {
+  border-color: #ee5700;
+  box-shadow: 0 0 0 1px #ee5700;
 }
 .add_sel_loc_btn {
   display: flex;
@@ -36,15 +35,11 @@
   border-radius: 2px;
   font-size: 1rem;
   cursor: pointer;
-  position: relative;
-  top: 0;
-  right: 34px;
 }
 .add_sel_loc_btn:hover {
   background: #dddddd;
 }
 .add_sel_dual_fields {
-  width: 482px;
   display: flex;
   justify-content: space-between;
 }
@@ -52,16 +47,8 @@
   display: flex;
   flex-direction: column;
 }
-.add_sel_select_half {
-  font-size: 0.9rem;
-  width: 235px;
-}
-.add_sel_input_half {
-  width: 213px;
-}
-.add_sel_select {
-  font-size: 0.9rem;
-  width: 482px;
+.add_sel_dual_group_spacer {
+  width: 16px;
 }
 .add_sel_phone_group {
   display: flex;
@@ -83,12 +70,72 @@
   justify-content: center;
   font-size: 0.9rem;
 }
-.add_sel_contact {
-  padding-left: 48px;
-  width: 175px;
-}
 .add_sel_verified {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .add_sel_name_input_full,
+  .add_sel_add_input_full {
+    width: 424px;
+    padding-right: 46px;
+  }
+  .add_sel_dual_fields {
+    width: 482px;
+  }
+  .add_sel_loc_btn {
+    position: relative;
+    top: 0;
+    right: 34px;
+  }
+  .add_sel_select_half {
+    font-size: 0.9rem;
+    width: 235px;
+  }
+  .add_sel_input_half {
+    width: 213px;
+  }
+  .add_sel_select {
+    font-size: 0.9rem;
+    width: 482px;
+  }
+  .add_sel_contact {
+    padding-left: 48px;
+    width: 175px;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .add_sel_add_input_full {
+    width: 100%;
+    padding-right: 46px;
+  }
+  .add_sel_name_input_full,
+  .add_sel_dual_fields,
+  .add_sel_input_half,
+  .add_sel_phone_group,
+  .add_sel_dual_group {
+    width: 100%;
+  }
+  .add_sel_loc_btn {
+    position: absolute;
+    top: 4px;
+    right: 4.5px;
+  }
+  .add_sel_select_half {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  .add_sel_select {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  .add_sel_contact {
+    padding-left: 48px;
+    width: 100%;
+  }
 }

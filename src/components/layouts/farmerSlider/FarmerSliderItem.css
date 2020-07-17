@@ -23,7 +23,9 @@
 .farmer_slider_item_image img {
   border-radius: 50%;
   object-fit: cover;
-  -o-object-fit: cover;
+  -o-object-fit: contain;
+  object-position: center;
+  -o-object-position: center;
 }
 
 .farmer_slider_item_details {

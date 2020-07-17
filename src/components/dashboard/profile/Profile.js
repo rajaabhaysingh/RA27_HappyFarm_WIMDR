@@ -7,6 +7,7 @@ import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
 const ProfileBasicInfo = lazy(() => import("./ProfileBasicInfo"));
+const Preferences = lazy(() => import("./Preferences"));
 
 function Profile({ profileData }) {
   return (
@@ -30,8 +31,7 @@ function Profile({ profileData }) {
           >
             <TabList className="profile_tab_list">
               <Tab className="profile_tab">Basic Info</Tab>
-              <Tab className="profile_tab">Preferences</Tab>
-              <Tab className="profile_tab">Payments</Tab>
+              <Tab className="profile_tab">Settings {"&"} Preferences</Tab>
             </TabList>
 
             {/* profile panel -- basic info */}
@@ -42,8 +42,13 @@ function Profile({ profileData }) {
                 </Suspense>
               </ErrorBoundary>
             </TabPanel>
-            <TabPanel className="profile_panel">Preferences</TabPanel>
-            <TabPanel className="profile_panel">Payments</TabPanel>
+            <TabPanel className="profile_panel">
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <Preferences profileData={profileData} />
+                </Suspense>
+              </ErrorBoundary>
+            </TabPanel>
           </Tabs>
         </div>
       </div>

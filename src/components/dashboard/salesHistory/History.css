@@ -1,0 +1,117 @@
+.sale_his_main_div,
+.sale_his_inner_div {
+  height: 100%;
+  width: 100%;
+}
+.sale_his_inner_div {
+  display: flex;
+  flex-direction: column;
+}
+.sale_his_heading {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.sale_his_labels {
+  margin-top: 32px;
+  width: calc(100% - 8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  border-bottom: 1px solid #ffdecb;
+  font-size: 0.8rem;
+  color: #333333;
+}
+.sale_his_container {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 32px;
+}
+.sale_his_item {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sale_his_item:nth-child(odd) {
+  background: #eeeeee;
+}
+.sale_his_name {
+  margin-left: 8px;
+  font-weight: bold;
+}
+.sale_his_qty {
+  margin-left: 8px;
+}
+.sale_his_time {
+  margin: 0 16px;
+  font-style: italic;
+  color: #5c5c5c;
+}
+.sale_his_link {
+  margin-right: 8px;
+  text-decoration: none;
+  color: #ee5700;
+}
+.sale_his_link:hover {
+  text-decoration: underline;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .sale_his_name,
+  .sale_his_qty,
+  .sale_his_time,
+  .sale_his_link {
+    width: 25%;
+  }
+  .sale_his_qty,
+  .sale_his_time,
+  .sale_his_link {
+    text-align: end;
+  }
+  .sale_his_name--heading,
+  .sale_his_qty--heading,
+  .sale_his_time--heading,
+  .sale_his_link--heading {
+    width: 25%;
+    margin-right: 16px;
+  }
+  .sale_his_qty--heading,
+  .sale_his_time--heading,
+  .sale_his_link--heading {
+    text-align: end;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .sale_his_name {
+    display: flex;
+    flex: 1;
+  }
+  .sale_his_name--heading {
+    display: flex;
+    flex: 1;
+  }
+  .sale_his_qty--heading {
+    width: 32px;
+    display: flex;
+    justify-content: center;
+  }
+  .sale_his_time--heading {
+    width: 130px;
+    display: flex;
+    justify-content: center;
+  }
+  .sale_his_link--heading {
+    width: 74px;
+    display: flex;
+    justify-content: center;
+  }
+}

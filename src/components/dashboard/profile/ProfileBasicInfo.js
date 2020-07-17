@@ -280,29 +280,6 @@ function ProfileBasicInfo({ profileData }) {
     }
   }, [timeLeft]);
 
-  // // render email otp btn
-  // const renderEmailOtpBtn = () => {
-  //   if (emailResendOtpBtnActive) {
-  //     return (
-  //       <button
-  //         type="button"
-  //         onClick={resendEmailOtp}
-  //         className="profile_resend_email_otp--active"
-  //       >
-  //         <i className="fas fa-redo-alt"></i>
-  //       </button>
-  //     );
-  //   } else {
-  //     return (
-  //       <button type="button" className="profile_resend_email_otp--inactive">
-  //         <div id="profile_email_otp_timer">
-  //           <strong>{timeLeft}</strong>
-  //         </div>
-  //       </button>
-  //     );
-  //   }
-  // };
-
   // handleEmailOtpBtnContent
   const handleEmailOtpBtnContent = () => {
     if (!emailOtpBtnGone) {
@@ -764,7 +741,7 @@ function ProfileBasicInfo({ profileData }) {
                   }}
                 >
                   <div className="profile_update_doc_warning">
-                    <strong>Alert!</strong> You're not recommended to update
+                    <strong>Alert!</strong> You're not recommended to update if
                     already verified. Updating it may immediately disqualify you
                     from ongoing schemes and offers (including cashback).{" "}
                     <br></br>Read{" "}
@@ -886,7 +863,6 @@ function ProfileBasicInfo({ profileData }) {
         <div className="profile_basic_info_item profile_full_name">
           <div className="profile_name_input_field_and_lock">
             <input
-              autoFocus
               onChange={handleChange("fullName")}
               value={fullName}
               type="text"
@@ -906,7 +882,7 @@ function ProfileBasicInfo({ profileData }) {
             <input
               onChange={handleChange("email")}
               value={email}
-              type="text"
+              type="email"
               className="profile_input profile_email_input"
               placeholder="Enter email-ID"
               disabled={isEmailDisabled}

@@ -64,7 +64,9 @@
   width: 100px;
   border-radius: 4px;
   object-fit: cover;
-  -o-object-fit: cover;
+  -o-object-fit: contain;
+  object-position: center;
+  -o-object-position: center;
 }
 
 .bulk_primary_details {

@@ -1,16 +1,6 @@
-.profile_main_div {
-  height: 100%;
-  width: 100%;
-}
-
 .profile_inner_div {
   height: 100%;
   width: 100%;
-}
-
-.profile_heading {
-  font-size: 1.5rem;
-  color: #333333;
 }
 
 .profile_description {
@@ -50,18 +40,20 @@
 
 .profile_tab {
   margin-right: 32px;
-  padding: 8px 0 4px 0;
+  padding: 8px 4px 4px 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid transparent;
   border-bottom: none;
   list-style: none;
   cursor: pointer;
   color: #8a8a8a;
   white-space: nowrap;
   font-size: 0.9rem;
-  border-bottom: 2px solid transparent;
+  border-left: 0px solid transparent;
+  border-top: 0px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 3px solid transparent;
 }
 
 .profile_tab:focus {
@@ -69,12 +61,12 @@
 }
 
 .profile_tab:hover {
-  border-bottom: 2px solid #ee5700;
+  border-bottom: 3px solid #ee5700;
 }
 
 .profile_tab--selected {
   color: #333333;
-  border-bottom: 2px solid #ee5700;
+  border-bottom: 3px solid #ee5700;
   font-size: 0.9rem;
 }
 
@@ -103,7 +95,29 @@
 
 /*for screen size larger or equal to 1024px px*/
 @media screen and (min-width: 1024px) {
+  .profile_main_div {
+    height: 100%;
+    width: 100%;
+  }
+  .profile_heading {
+    font-size: 1.5rem;
+    color: #333333;
+  }
 }
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
+  .profile_main_div {
+    padding: 0 8px;
+    height: 100%;
+    width: calc(100% - 16px);
+  }
+  .profile_heading {
+    margin-top: 8px;
+    font-size: 1.2rem;
+    color: #333333;
+    font-weight: bold;
+  }
+  .profile_tab {
+    font-weight: bold;
+  }
 }

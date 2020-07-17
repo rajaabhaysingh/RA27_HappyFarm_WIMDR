@@ -1,0 +1,124 @@
+.sales_inner_div {
+  height: 100%;
+  width: 100%;
+}
+
+.sales_description {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  color: #5c5c5c;
+  font-size: 0.8rem;
+}
+
+.sales_description_info_icon {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.sales_tab_container {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sales_tabs {
+  width: 100%;
+  font-size: 0.8rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sales_tab_list {
+  border-bottom: 1px solid #ee570023;
+  width: 100%;
+  display: flex;
+  padding: 0;
+  overflow-x: scroll;
+  overflow-y: visible;
+  scrollbar-width: none;
+}
+
+.sales_tab {
+  margin-right: 32px;
+  padding: 8px 4px 4px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: none;
+  list-style: none;
+  cursor: pointer;
+  color: #8a8a8a;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  border-left: 0px solid transparent;
+  border-top: 0px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.sales_tab:focus {
+  outline: none;
+}
+
+.sales_tab:hover {
+  border-bottom: 3px solid #ee5700;
+}
+
+.sales_tab--selected {
+  color: #333333;
+  border-bottom: 3px solid #ee5700;
+  font-size: 0.9rem;
+}
+
+.sales_tab--disabled {
+  color: #8a8a8a;
+  cursor: default;
+}
+
+.sales_panel {
+  display: none;
+  margin-top: 32px;
+}
+
+.sales_panel--selected {
+  display: block;
+}
+
+.sales_panel_data {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  column-gap: 4px;
+  row-gap: 4px;
+  overflow: scroll;
+  max-height: 360px;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .sales_main_div {
+    height: 100%;
+    width: 100%;
+  }
+  .sales_heading {
+    font-size: 1.5rem;
+    color: #333333;
+  }
+}
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .sales_main_div {
+    padding: 0 8px;
+    height: 100%;
+    width: calc(100% - 16px);
+    margin-bottom: 16px;
+  }
+  .sales_heading {
+    margin-top: 8px;
+    font-size: 1.2rem;
+    color: #333333;
+    font-weight: bold;
+  }
+  .sales_tab {
+    font-weight: bold;
+  }
+}

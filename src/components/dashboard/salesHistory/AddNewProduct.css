@@ -1,0 +1,139 @@
+.add_new_main_div,
+.add_new_inner_div {
+  height: 100%;
+  width: 100%;
+}
+.add_new_inner_div {
+  display: flex;
+  flex-direction: column;
+}
+.add_new_top_heading_and_utility {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add_new_heading {
+  font-weight: bold;
+  color: #000000;
+  font-size: 0.9rem;
+}
+.add_new_cancel_top {
+  padding: 6px 16px;
+  color: #cc0000;
+  border: 1px solid #cc0000;
+  background: #ffe8e8;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.add_new_cancel_top:hover {
+  color: #ffffff;
+  background: #cc0000;
+}
+.add_new_dual_fields,
+.add_new_negotiable,
+.add_new_fieldset {
+  display: flex;
+  align-items: center;
+}
+.add_new_dual_group,
+.add_new_select_half {
+  width: 100%;
+}
+.add_new_info_label {
+  font-size: 0.75rem;
+  color: #000000;
+}
+.add_new_select_half,
+.add_new_select {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+.add_new_dual_group_spacer {
+  width: 16px;
+}
+.add_new_info_label {
+  margin-top: 16px;
+}
+.add_new_input,
+.add_new_input_half {
+  padding: 0 10px;
+  margin-top: 8px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  font-size: 0.9rem;
+  outline: none;
+  color: #333333;
+}
+.add_new_input:focus,
+.add_new_input_half:focus {
+  border-color: #ee5700;
+  box-shadow: 0 0 0 1px #ee5700;
+}
+.add_new_desc {
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid #ee5700;
+  color: #000000;
+  background: #fffbef;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+.add_new_negotiable {
+  margin-top: 8px;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+.add_new_fieldset label,
+.add_new_nego_text {
+  font-size: 0.8rem;
+  font-weight: bold;
+  align-self: center;
+  color: #000000;
+}
+.add_new_radio_btn {
+  height: 24px;
+  width: 24px;
+  color: #ee5700;
+  margin-bottom: 4px;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .add_new_top_heading_and_utility,
+  .add_new_dual_fields,
+  .add_new_select,
+  .add_new_images {
+    width: 480px;
+  }
+  .add_new_input,
+  .add_new_desc,
+  .add_new_negotiable {
+    width: 458px;
+  }
+  .add_new_input_half {
+    width: calc(100% - 22px);
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .add_new_top_heading_and_utility,
+  .add_new_dual_fields,
+  .add_new_select,
+  .add_new_images {
+    width: 100%;
+  }
+  .add_new_input,
+  .add_new_negotiable,
+  .add_new_input_half,
+  .add_new_desc {
+    width: calc(100% - 22px);
+  }
+}

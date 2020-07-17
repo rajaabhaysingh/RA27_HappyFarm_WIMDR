@@ -5,6 +5,7 @@
 .profile_basic_info_heading {
   font-weight: bold;
   margin-bottom: 16px;
+  font-size: 0.9rem;
 }
 .profile_basic_info_content,
 .profile_address_content {
@@ -18,7 +19,6 @@
 }
 .profile_basic_info_item {
   margin-top: 8px;
-  width: 480px;
   display: flex;
   align-items: center;
 }
@@ -32,10 +32,6 @@
 .profile_name_input_field_and_lock {
   width: 100%;
 }
-.profile_email_input_field_and_lock,
-.profile_mobile_input_field_and_lock {
-  width: 350px;
-}
 .profile_input {
   display: flex;
   border-radius: 4px;
@@ -44,7 +40,11 @@
   color: #5c5c5c;
   background: none;
   border: 1px solid #cccccc;
-  outline-color: #ee5700;
+  outline: none;
+}
+.profile_input:focus {
+  border-color: #ee5700;
+  box-shadow: 0 0 0 1px #ee5700;
 }
 .profile_name_input {
   padding-left: 8px;
@@ -74,7 +74,7 @@
 .profile_edit_btn--lock {
   height: 30px;
   width: 30px;
-  border-radius: 2px;
+  border-radius: 1px;
   outline: none;
   border: none;
   font-size: 1rem;
@@ -89,7 +89,7 @@
 .profile_edit_btn--unlock {
   height: 30px;
   width: 30px;
-  border-radius: 2px;
+  border-radius: 1px;
   outline: none;
   border: none;
   font-size: 1rem;
@@ -100,10 +100,6 @@
   background: #eeeeee;
   position: absolute;
   right: 4px;
-}
-.profile_edit_btn--lock:hover,
-.profile_edit_btn--unlock:hover {
-  background: #dddddd;
 }
 .profile_email_otp--visible,
 .profile_mobile_otp--visible {
@@ -120,7 +116,7 @@
 .profile_verify_otp_go {
   height: 30px;
   width: 30px;
-  border-radius: 2px;
+  border-radius: 1px;
   background: #ee5700;
   color: #ffffff;
   border: none;
@@ -131,7 +127,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 4px;
+  right: 4.5px;
 }
 .profile_resend_email_otp--active,
 .profile_resend_mobile_otp--active {
@@ -148,11 +144,6 @@
   outline: none;
   border: none;
   cursor: pointer;
-}
-.profile_resend_email_otp--active:hover,
-.profile_resend_mobile_otp--active:hover {
-  background: #cccccc;
-  color: #ee5700;
 }
 .profile_resend_email_otp--inactive,
 .profile_resend_mobile_otp--inactive {
@@ -244,7 +235,6 @@
   border: 1px solid #cccccc;
   border-radius: 4px;
   height: 36px;
-  width: 478px;
   display: flex;
 }
 .profile_pwd_item {
@@ -274,25 +264,22 @@
   align-items: center;
   justify-content: center;
 }
-.profile_pwd_edit_btn:hover {
-  color: #ee5700;
-}
 .profile_address_heading {
   margin-top: 64px;
   margin-bottom: 32px;
   font-weight: bold;
+  font-size: 0.9rem;
 }
 .profile_reset_pwd_popup {
   display: flex;
   flex-direction: column;
-  margin: 32px;
 }
 .profile_reset_pwd_header {
   font-weight: bold;
+  font-size: 0.9rem;
 }
 .profile_pwd_input {
   margin-top: 8px;
-  width: 360px;
   height: 36px;
   padding: 0 12px;
 }
@@ -307,7 +294,6 @@
   border: 1px solid #ee5700;
   background: #fff4e7;
   border-radius: 4px;
-  width: 368px;
 }
 .profile_pwd_params {
   font-weight: bold;
@@ -331,9 +317,6 @@
   justify-content: center;
   border-radius: 4px;
   cursor: pointer;
-}
-.profile_reset_pwd_btn:hover {
-  background-color: #ee5700;
 }
 .profile_add_new_add_btn--visible {
   margin-top: 40px;
@@ -371,7 +354,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 480px;
 }
 .profile_new_add_cancel,
 .profile_new_add_save {
@@ -393,17 +375,8 @@
   background-color: #fa8c16;
   color: #ffffff;
 }
-.profile_new_add_cancel:hover {
-  background-color: #cccccc;
-  color: #000000;
-}
-.profile_new_add_save:hover {
-  background-color: #ee5700;
-  color: #ffffff;
-}
 .profile_basic_info_saved_address {
   border: 1px solid #fa8c16;
-  width: 456px;
   padding: 12px;
   margin-top: 16px;
   border-radius: 4px;
@@ -429,7 +402,6 @@
   justify-content: space-between;
 }
 .profile_saved_add_utility button {
-  width: 100px;
   height: 30px;
   border-radius: 2px;
   outline: none;
@@ -450,16 +422,6 @@
   background: #ffffff;
   color: #333333;
 }
-.saved_add_delete:hover {
-  background: #cc0000;
-  color: #ffffff;
-  border-color: #cc0000;
-}
-.saved_add_edit:hover {
-  background: #ee5700;
-  color: #ffffff;
-  border-color: #ee5700;
-}
 .profile_id_proof {
   display: flex;
   flex-direction: column;
@@ -468,6 +430,7 @@
   margin-top: 64px;
   margin-bottom: 8px;
   font-weight: bold;
+  font-size: 0.9rem;
 }
 .profile_id_proof_desc {
   color: #8a8a8a;
@@ -482,21 +445,20 @@
 }
 .profile_select_document {
   margin-top: 8px;
-  width: 482px;
   font-size: 0.9rem;
 }
 .profile_document_number {
   margin-top: 8px;
-  width: 456px;
   height: 36px;
   border-radius: 4px;
   border: 1px solid #cccccc;
   font-size: 0.9rem;
   padding: 0 12px;
-  outline-color: #ee5700;
+  outline: none;
 }
-.profile_document_number:hover {
-  border-color: #bbbbbb;
+.profile_document_number:focus {
+  border-color: #ee5700;
+  box-shadow: 0 0 0 1px #ee5700;
 }
 .profile_file_upload {
   display: flex;
@@ -517,7 +479,6 @@
 }
 .profile_file_container {
   margin-top: 12px;
-  width: 448px;
   padding: 16px;
   border: 1px solid #fa8c16;
   border-radius: 4px;
@@ -525,9 +486,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.profile_file_container:hover {
-  border-color: #ee5700;
 }
 .profile_file_input_filename {
   color: #8a8a8a;
@@ -545,9 +503,6 @@
   color: #ffffff;
   font-weight: bold;
   font-size: 0.9rem;
-}
-.profile_file_input_label:hover {
-  background: #ee5700;
 }
 .profile_document_error--visible {
   margin-top: 16px;
@@ -601,7 +556,6 @@
   text-align: center;
 }
 .profile_save_btn_container {
-  width: 480px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -620,9 +574,6 @@
   color: #ffffff;
   cursor: pointer;
 }
-.profile_save_btn--enabled:hover {
-  background: #092b38;
-}
 .profile_save_btn--disabled {
   background: #cccccc;
   color: #bbbbbb;
@@ -630,8 +581,6 @@
 }
 .profile_update_doc_warning {
   padding: 8px;
-  margin: 16px 16px 16px 16px;
-  width: 464px;
   border: 1px solid #990000;
   border-radius: 4px;
   background: #ffe4e4;
@@ -653,8 +602,194 @@
 
 /*for screen size larger or equal to 1024px px*/
 @media screen and (min-width: 1024px) {
+  .profile_basic_info_item {
+    width: 480px;
+  }
+  .profile_email_input_field_and_lock,
+  .profile_mobile_input_field_and_lock {
+    width: 350px;
+  }
+  .profile_edit_btn--lock:hover,
+  .profile_edit_btn--unlock:hover {
+    background: #dddddd;
+  }
+  .profile_resend_email_otp--active:hover,
+  .profile_resend_mobile_otp--active:hover {
+    background: #cccccc;
+    color: #ee5700;
+  }
+  .profile_pwd {
+    width: 478px;
+  }
+  .profile_pwd_edit_btn:hover {
+    color: #ee5700;
+  }
+  .profile_reset_pwd_popup {
+    margin: 32px;
+  }
+  .profile_pwd_input {
+    width: 360px;
+  }
+  .profile_pwd_guideline {
+    width: 368px;
+  }
+  .profile_reset_pwd_btn:hover,
+  .profile_file_input_label:hover {
+    background-color: #ee5700;
+  }
+  .profile_new_add_utility {
+    width: 480px;
+  }
+  .profile_new_add_cancel:hover {
+    background-color: #cccccc;
+    color: #000000;
+  }
+  .profile_new_add_save:hover {
+    background-color: #ee5700;
+    color: #ffffff;
+  }
+  .profile_basic_info_saved_address {
+    width: 456px;
+  }
+  .profile_saved_add_utility button {
+    width: 100px;
+  }
+  .saved_add_delete:hover {
+    background: #cc0000;
+    color: #ffffff;
+    border-color: #cc0000;
+  }
+  .saved_add_edit:hover {
+    background: #ee5700;
+    color: #ffffff;
+    border-color: #ee5700;
+  }
+  .profile_select_document {
+    width: 482px;
+  }
+  .profile_document_number {
+    width: 456px;
+  }
+  .profile_file_container {
+    width: 448px;
+  }
+  .profile_file_container:hover {
+    border-color: #ee5700;
+  }
+  .profile_save_btn_container {
+    width: 480px;
+  }
+
+  .profile_save_btn--enabled:hover {
+    background: #092b38;
+  }
+  .profile_update_doc_warning {
+    margin: 16px 16px 16px 16px;
+    width: 464px;
+  }
+}
+
+/*for screen size larger or equal to 400 px*/
+@media screen and (min-width: 400px) and (max-width: 1023px) {
+  .profile_pwd_input {
+    width: 320px;
+  }
+  .profile_pwd_guideline {
+    width: 328px;
+  }
+}
+
+/*for screen size less than 400 px*/
+@media screen and (max-width: 399px) {
+  .profile_pwd_input {
+    width: 290px;
+  }
+  .profile_pwd_guideline {
+    width: 298px;
+  }
 }
 
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
+  .profile_basic_info_main_div {
+    padding-bottom: 32px;
+  }
+  .profile_basic_info_item {
+    width: 100%;
+  }
+  .profile_email_input_field_and_lock,
+  .profile_mobile_input_field_and_lock {
+    width: 65%;
+  }
+  .profile_edit_btn--lock:active,
+  .profile_edit_btn--unlock:active {
+    background: #dddddd;
+  }
+  .profile_resend_email_otp--active:active,
+  .profile_resend_mobile_otp--active:active {
+    background: #cccccc;
+    color: #ee5700;
+  }
+  .profile_pwd {
+    width: calc(100% -2px);
+  }
+  .profile_pwd_edit_btn:active {
+    color: #ee5700;
+  }
+  .profile_reset_pwd_popup {
+    margin: 24px 16px;
+  }
+  .profile_reset_pwd_btn:active,
+  .profile_file_input_label:active {
+    background-color: #ee5700;
+  }
+  .profile_new_add_utility {
+    width: 100%;
+  }
+  .profile_new_add_cancel:active {
+    background-color: #cccccc;
+    color: #000000;
+  }
+  .profile_new_add_save:active {
+    background-color: #ee5700;
+    color: #ffffff;
+  }
+  .profile_basic_info_saved_address {
+    width: calc(100% - 26px);
+  }
+  .profile_saved_add_utility button {
+    width: 80px;
+  }
+  .saved_add_delete:active {
+    background: #cc0000;
+    color: #ffffff;
+    border-color: #cc0000;
+  }
+  .saved_add_edit:active {
+    background: #ee5700;
+    color: #ffffff;
+    border-color: #ee5700;
+  }
+  .profile_select_document {
+    width: 100%;
+  }
+  .profile_document_number {
+    width: calc(100% - 26px);
+  }
+  .profile_file_container {
+    width: calc(100% - 34px);
+  }
+  .profile_file_container:active {
+    border-color: #ee5700;
+  }
+  .profile_save_btn_container {
+    width: 100%;
+  }
+  .profile_save_btn--enabled:active {
+    background: #092b38;
+  }
+  .profile_update_doc_warning {
+    margin: 32px 16px;
+    width: calc(100% - 50px);
+  }
 }

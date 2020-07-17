@@ -22,6 +22,7 @@ import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 
 import DrawerToggleButton from "../sideDrawer/SideDrawerToggleButton";
+import BackdropDark from "../../backdrop/BackdropDark";
 
 const SearchBarPc = lazy(() => import("../searchBarPC/SearchBarPc"));
 const MenuTab = lazy(() => import("../menuTab/MenuTab"));
@@ -64,6 +65,12 @@ const Header = ({
   }
   // -----------------------------------------
 
+  //backdrop click handler
+  const backdropClickHandler = () => {
+    setIsSearchBarOpen(false);
+  };
+
+  // todo
   // ---handle header visiblity problem on screen resize---
   useEffect(() => {
     const windowSize = window.addEventListener("resize", () => {
@@ -226,6 +233,9 @@ const Header = ({
           {/* ------------ */}
 
           {/* ---Searcbar div for mobile device--- */}
+          {isSearchBarOpen && window.innerWidth >= 1024 && (
+            <BackdropDark alpha={0.7} click={backdropClickHandler} />
+          )}
           <div className={searchBarClass}>
             <div className="search_bar_mobile">
               {/* SearchBarAutoComplete */}

@@ -16,11 +16,14 @@ const PlacesAutocompleteComponent = lazy(() =>
 );
 
 function SearchBarPc({ productItems }) {
-  // useState hook to define initial Product search result state
+  // useState hook to define initial Product search result state and location
   const [productSuggestionStatePC, setProductSuggestionStatePC] = useState({
     productSuggestionPC: [],
     productQueryPC: "",
   });
+  const [address, setAddress] = useState("");
+  const [lat, setLat] = useState(undefined);
+  const [long, setLong] = useState(undefined);
 
   // destructuring the states of productSuggestionState
   const { productQueryPC } = productSuggestionStatePC;
@@ -82,10 +85,11 @@ function SearchBarPc({ productItems }) {
   }, [productSuggestionStatePC, productSuggestionSelectedPC]);
 
   // handle form submit
-  const handleSubmit = (e) => {
+  const handleSearch = (e) => {
     try {
       //search
       e.preventDefault();
+      console.log(productQueryPC, address, lat, long);
     } catch (error) {
       console.log(error);
     }
@@ -109,7 +113,7 @@ function SearchBarPc({ productItems }) {
   return (
     <div className="searchbar_main_div" id="searchbar_main_div">
       <div className="searchbar_container_div">
-        <form action="" onSubmit={handleSubmit}>
+        <form action="" onSubmit={handleSearch}>
           <div className="search_box_no_suggestions">
             <div className="product_search_field">
               {/* <div> for search icon */}
@@ -141,7 +145,12 @@ function SearchBarPc({ productItems }) {
               <div className="places_autocomplete_component">
                 <ErrorBoundary>
                   <Suspense fallback={<FallbackLazySecondary />}>
-                    <PlacesAutocompleteComponent />
+                    <PlacesAutocompleteComponent
+                      address={address}
+                      setAddress={setAddress}
+                      setLat={setLat}
+                      setLong={setLong}
+                    />
                   </Suspense>
                 </ErrorBoundary>
               </div>

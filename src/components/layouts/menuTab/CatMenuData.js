@@ -1,7 +1,7 @@
 const CatMenu = [
   {
     id: "VEG",
-    heading: "vegetables",
+    heading: "veggies",
     items: [
       { name: "Acorn squash", link: "#" },
       { name: "Ahipa", link: "#" },

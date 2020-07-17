@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, memo } from "react";
 import "./CentralContent.css";
 
-import { Router, Switch, Route, useRouteMatch } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 import FallbackLazy from "../FallbackLazy";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
@@ -27,7 +27,6 @@ function CentralContent({ profileData }) {
 
   return (
     <div className="central_content_main_div">
-      {/* {renderTab(currentTabNo)} */}
       <ErrorBoundary>
         <Suspense fallback={<FallbackLazy />}>
           <Switch>
@@ -42,16 +41,16 @@ function CentralContent({ profileData }) {
             <Route exact path={`${path}/profile`}>
               <Profile profileData={profileData} />
             </Route>
-            <Route exact path={`${path}/following`}>
+            <Route strict path={`${path}/following`}>
               <Following profileData={profileData} />
             </Route>
-            <Route exact path={`${path}/my-orders`}>
+            <Route strict path={`${path}/my-orders`}>
               <MyOrders profileData={profileData} />
             </Route>
-            <Route exact path={`${path}/sales-history`}>
+            <Route strict path={`${path}/sales`}>
               <SalesHistory profileData={profileData} />
             </Route>
-            <Route exact path={`${path}/transactions`}>
+            <Route strict path={`${path}/transactions`}>
               <Transactions
                 profileData={profileData}
                 transactionData={TransactionData}

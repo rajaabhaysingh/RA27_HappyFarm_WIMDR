@@ -11,6 +11,8 @@ function FallbackUI() {
         alignSelf: "center",
         alignItems: "center",
         justifyContent: "center",
+        display: "flex",
+        flex: "1",
       }}
     >
       <i className="fas fa-exclamation-triangle"></i> Error

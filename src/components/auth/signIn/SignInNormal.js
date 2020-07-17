@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useCallback } from "react";
 import "./SignInNormal.css";
 
 function SignInNormal({ formValues, handleChange, nextStep }) {
@@ -14,9 +14,19 @@ function SignInNormal({ formValues, handleChange, nextStep }) {
   };
   // -----------------------------
 
+  // ------handleSignIn------
+  const handleSignIn = useCallback(
+    (e) => {
+      e.preventDefault();
+      console.log(formValues);
+    },
+    [formValues]
+  );
+  // ------------------------
+
   return (
     <div className="sign_in_normal_main_div">
-      <form className="sign_in_form">
+      <form className="sign_in_form" onSubmit={handleSignIn}>
         <input
           required
           autoFocus

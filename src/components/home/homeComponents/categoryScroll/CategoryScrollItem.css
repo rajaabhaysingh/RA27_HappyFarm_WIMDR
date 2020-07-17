@@ -14,7 +14,9 @@
     border-radius: 5px;
     border: 1px solid #ee5700;
     object-fit: cover;
-    -o-object-fit: cover;
+    -o-object-fit: contain;
+    object-position: center;
+    -o-object-position: center;
   }
 
   .category_item:hover {

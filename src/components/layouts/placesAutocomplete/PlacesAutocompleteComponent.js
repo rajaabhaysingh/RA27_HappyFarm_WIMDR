@@ -1,4 +1,4 @@
-import React, { useState, memo, useCallback, lazy, Suspense } from "react";
+import React, { memo, useCallback, lazy, Suspense } from "react";
 import "./PlacesAutocompleteComponent.css";
 
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
@@ -21,7 +21,7 @@ const PlacesAutocomplete = lazy(() => import("react-places-autocomplete"));
 // configuring toast
 toast.configure();
 
-function PlacesAutocompleteComponent(props) {
+function PlacesAutocompleteComponent({ address, setAddress, setLat, setLong }) {
   // Log error status and clear dropdown when Google Maps API returns an error.
   const onError = useCallback((status, clearSuggestions) => {
     console.log("Google Maps API returned error with status: ", status);
@@ -36,19 +36,26 @@ function PlacesAutocompleteComponent(props) {
     },
   };
 
-  const [address, setAddress] = useState("");
+  const handleChange = useCallback(
+    (address) => {
+      setAddress(address);
+    },
+    [address]
+  );
 
-  const handleChange = useCallback((address) => {
-    setAddress(address);
-  }, []);
-
-  const handleSelect = useCallback((address) => {
-    setAddress(address);
-    geocodeByAddress(address)
-      .then((results) => getLatLng(results[0]))
-      .then((latLng) => console.log("Success", latLng))
-      .catch((error) => console.error("Error", error));
-  }, []);
+  const handleSelect = useCallback(
+    (address) => {
+      setAddress(address);
+      geocodeByAddress(address)
+        .then((results) => getLatLng(results[0]))
+        .then((latLng) => {
+          setLat(latLng.lat);
+          setLong(latLng.lng);
+        })
+        .catch((error) => console.error("Error", error));
+    },
+    [address]
+  );
 
   // --------------------------------------------------
   // ---------LOCATION SEARCH BLOCK STARTS HERE--------
@@ -70,6 +77,9 @@ function PlacesAutocompleteComponent(props) {
   const showPosition = (position) => {
     let posX = position.coords.latitude;
     let posY = position.coords.longitude;
+
+    setLat(posX);
+    setLong(posY);
 
     let currentLocation = "";
 
@@ -178,6 +188,7 @@ function PlacesAutocompleteComponent(props) {
                     const className = "suggestion_item";
                     return (
                       <div
+                        key={suggestion.id}
                         {...getSuggestionItemProps(suggestion, {
                           className,
                         })}

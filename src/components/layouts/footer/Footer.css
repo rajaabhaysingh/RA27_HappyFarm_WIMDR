@@ -12,6 +12,7 @@
 .footer_main_div {
   width: 100%;
   flex-direction: column;
+  background: #0b2e3b;
 }
 
 .footer_back_to_top {

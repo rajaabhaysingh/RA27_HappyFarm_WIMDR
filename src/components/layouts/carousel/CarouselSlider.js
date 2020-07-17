@@ -13,7 +13,7 @@ function CarouselSlider({ slides, borderRadius }) {
         infiniteLoop
         showArrows
         stopOnHover={false}
-        swipeable
+        swipeable={false}
         showStatus={false}
         showIndicators
       >

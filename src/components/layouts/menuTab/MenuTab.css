@@ -66,7 +66,7 @@
   }
 
   .category_tab--disabled {
-    color: GrayText;
+    color: gray;
     cursor: default;
   }
 
@@ -85,7 +85,7 @@
     column-gap: 4px;
     row-gap: 4px;
     overflow: scroll;
-    max-height: 360px;
+    max-height: 300px;
   }
 
   .cat_menu_items {

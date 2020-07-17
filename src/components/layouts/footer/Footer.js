@@ -2,8 +2,11 @@ import React, { memo } from "react";
 import "./Footer.css";
 
 import FooterCert from "../../../res/footer/footer_cert.svg";
+import FooterDetails from "./FooterDetails";
 
-function Footer({ details }) {
+function Footer() {
+  const details = FooterDetails;
+
   const handleScrollToTop = () => {
     if (
       document.body.scrollTop !== 0 ||

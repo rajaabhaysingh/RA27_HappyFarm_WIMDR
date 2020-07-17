@@ -91,7 +91,6 @@ const SellingNowItem = ({ item, tstampToTime }) => {
         <div className="sell_now_utilities">
           <button className="sell_now_update_details">View details</button>
           <div className="sell_now_spacer"></div>
-          {renderButton()}
           <div className="sell_now_edit_delete_group">
             <button className="sell_now_btn sell_now_edit">
               <i className="fas fa-pen"></i>
@@ -100,6 +99,7 @@ const SellingNowItem = ({ item, tstampToTime }) => {
               <i className="fas fa-trash-alt"></i>
             </button>
           </div>
+          {renderButton()}
         </div>
       </div>
     </div>

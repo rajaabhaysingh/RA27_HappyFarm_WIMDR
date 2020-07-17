@@ -34,6 +34,7 @@ const TopMessage = lazy(() => import("./components/layouts/header/TopMessage"));
 const BreadCrumbs = lazy(() =>
   import("./components/layouts/breadCrumbs/BreadCrumbs")
 );
+const SearchPage = lazy(() => import("./components/searchPage/SearchPage"));
 
 const App = (props) => {
   // default backdrop TRANSARENCY
@@ -212,7 +213,7 @@ const App = (props) => {
                   )}
                 />
                 <Route
-                  exact
+                  strict
                   path="/farmersolution"
                   render={(props) => (
                     <FarmersSolution
@@ -223,7 +224,7 @@ const App = (props) => {
                   )}
                 />
                 <Route
-                  exact
+                  strict
                   path="/offers"
                   render={(props) => (
                     <Offers
@@ -234,7 +235,7 @@ const App = (props) => {
                   )}
                 />
                 <Route
-                  exact
+                  strict
                   path="/premium"
                   render={(props) => (
                     <Premium
@@ -256,10 +257,21 @@ const App = (props) => {
                   )}
                 />
                 <Route
-                  exact
+                  strict
                   path="/category"
                   render={(props) => (
                     <Category
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
+                />
+                <Route
+                  strict
+                  path="/search"
+                  render={(props) => (
+                    <SearchPage
                       {...props}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}

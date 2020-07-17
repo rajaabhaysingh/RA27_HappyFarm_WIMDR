@@ -9,9 +9,7 @@ import Splash from "./Splash";
 
 render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Splash />
-    </Provider>
+    <Splash />
   </React.StrictMode>,
   document.getElementById("root")
 );

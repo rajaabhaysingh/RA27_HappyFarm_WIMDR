@@ -1,4 +1,4 @@
-import React, { memo, lazy, Suspense, useState } from "react";
+import React, { memo, lazy, Suspense, useState, useCallback } from "react";
 import "./AddressSelector.css";
 
 import addressData from "./addressData";
@@ -40,11 +40,14 @@ function AddressSelector({
   newZip,
 }) {
   // ----async creatable handlers----
-  const filterData = (inputValue) => {
-    return addressData.filter((i) =>
-      i.label.toLowerCase().includes(inputValue.toLowerCase())
-    );
-  };
+  const filterData = useCallback(
+    (inputValue) => {
+      return addressData.filter((i) =>
+        i.label.toLowerCase().includes(inputValue.toLowerCase())
+      );
+    },
+    [addressData]
+  );
 
   const promiseOptions = (inputValue) =>
     new Promise((resolve) => {
@@ -142,6 +145,14 @@ function AddressSelector({
   };
   // ----------LOCATION SEARCH BLOCK ENDS HERE---------
 
+  // arrowStyleWrapper
+  const arrowStyleWrapper = {
+    dropdownIndicator: (defaultStyles) => ({
+      ...defaultStyles,
+      color: "#ee5700",
+    }),
+  };
+
   return (
     <div className="add_selector_main_div">
       <ErrorBoundary>
@@ -151,7 +162,7 @@ function AddressSelector({
             <input
               required
               type="text"
-              className="add_sel_input add_sel_input_full"
+              className="add_sel_input add_sel_name_input_full"
               onChange={(e) => {
                 setNewName(e.target.value);
               }}
@@ -159,12 +170,12 @@ function AddressSelector({
               placeholder="Enter name"
             />
           </div>
-          <div className="add_sel_info_label">Address line 1:</div>
+          <div className="add_sel_info_label">Address line:</div>
           <div className="add_sel_info_item">
             <input
               required
               type="text"
-              className="add_sel_input add_sel_input_full"
+              className="add_sel_input add_sel_add_input_full"
               onChange={(e) => {
                 setNewAddressLine(e.target.value);
               }}
@@ -182,16 +193,16 @@ function AddressSelector({
               <Select
                 required
                 theme={customTheme}
-                options={[
-                  { value: "IN", label: "India" },
-                  { value: "PK", label: "Pakistan" },
-                ]}
+                options={[{ value: "IN", label: "India" }]}
                 className="add_sel_select_half add_sel_select_state"
-                placeholder="Select country..."
+                placeholder="Country..."
                 isSearchable
+                defaultValue={{ value: "IN", label: "India" }}
                 onChange={setNewCountry}
+                styles={arrowStyleWrapper}
               />
             </div>
+            <div className="add_sel_dual_group_spacer"></div>
             <div className="add_sel_dual_group">
               <div className="add_sel_info_label">Select your State/UT:</div>
               <AsyncSelect
@@ -201,9 +212,10 @@ function AddressSelector({
                 cacheOptions
                 defaultOptions
                 className="add_sel_select_half add_sel_select_state"
-                placeholder="Enter State/UT..."
+                placeholder="State/UT..."
                 isSearchable
                 onChange={setNewDiv1}
+                styles={arrowStyleWrapper}
               />
             </div>
           </div>
@@ -217,11 +229,13 @@ function AddressSelector({
                 cacheOptions
                 defaultOptions
                 className="add_sel_select_half add_sel_select_state"
-                placeholder="Enter district name..."
+                placeholder="District..."
                 isSearchable
                 onChange={setNewDiv2}
+                styles={arrowStyleWrapper}
               />
             </div>
+            <div className="add_sel_dual_group_spacer"></div>
             <div className="add_sel_dual_group">
               <div className="add_sel_info_label">
                 Select your sub-district:
@@ -232,9 +246,10 @@ function AddressSelector({
                 cacheOptions
                 defaultOptions
                 className="add_sel_select_half add_sel_select_state"
-                placeholder="Enter sub-district name..."
+                placeholder="Sub-district..."
                 isSearchable
                 onChange={setNewDiv3}
+                styles={arrowStyleWrapper}
               />
             </div>
           </div>
@@ -263,6 +278,7 @@ function AddressSelector({
             defaultOptions
             loadOptions={promiseOptions}
             onChange={setNewDiv4}
+            styles={arrowStyleWrapper}
           />
 
           <div className="add_sel_dual_fields">
@@ -281,6 +297,7 @@ function AddressSelector({
                 />
               </div>
             </div>
+            <div className="add_sel_dual_group_spacer"></div>
             <div className="add_sel_dual_group">
               <div className="add_sel_info_label">Contact no:</div>
               <div className="add_sel_info_item">

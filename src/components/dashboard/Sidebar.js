@@ -131,11 +131,11 @@ function Sidebar({ profileData }) {
           </li>
           <li>
             <NavLink
-              to={`${url}/sales-history`}
+              to={`${url}/sales`}
               className="sidebar_menu_item"
               activeClassName="sidebar_menu_item--active"
             >
-              <span className={setIconClass("/dashboard/sales-history")}>
+              <span className={setIconClass("/dashboard/sales")}>
                 <i className="fas fa-history"></i>
               </span>
               <span className="sidebar_menu_history">Sales {"&"} History</span>

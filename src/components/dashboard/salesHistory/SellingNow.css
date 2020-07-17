@@ -1,0 +1,37 @@
+.selling_now_main_div,
+.selling_now_inner_div {
+  height: 100%;
+  width: 100%;
+}
+.selling_now_inner_div,
+.selling_now_type_group {
+  display: flex;
+  flex-direction: column;
+}
+.selling_now_add_new_product,
+.selling_now_add_new_product_link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.selling_now_add_new_product_link {
+  padding: 8px 16px;
+  margin-top: 8px;
+  background: #fa8c16;
+  border: 4px double #ffffff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.selling_now_add_new_product_link:hover {
+  background: #ee5700;
+}
+.selling_now_heading {
+  margin-top: 32px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #000000;
+}

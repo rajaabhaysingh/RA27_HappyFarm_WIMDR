@@ -28,6 +28,10 @@
   left: 0;
   height: 100%;
   width: 100%;
+  object-fit: cover;
+  -o-object-fit: contain;
+  object-position: center;
+  -o-object-position: center;
   border-radius: 4px;
   box-shadow: 0 2px 4px #5c5c5c;
 }

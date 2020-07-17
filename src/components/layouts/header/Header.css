@@ -78,7 +78,7 @@
   .cat_menu_container--visible {
     width: 100%;
     position: absolute;
-    top: 50px;
+    top: 49px;
     left: 0px;
     display: flex;
   }
@@ -178,14 +178,13 @@
   /* CSS for mobile search bar */
   .search_bar_container_mobile--visible {
     position: absolute;
-    top: 100px;
-    width: calc(100% - 41px);
+    top: 178px;
+    z-index: 99999;
   }
   .search_bar_mobile {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
   }
 }
 
