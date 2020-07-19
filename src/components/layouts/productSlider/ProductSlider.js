@@ -40,7 +40,7 @@ function ProductSlider({ boldHeading, normalHeading, productsList }) {
                     isFresh={product.isFresh}
                     imageURL={product.imageURL}
                     name={product.name}
-                    otherSellers={product.otherSellers}
+                    prodRating={product.prodRating}
                     type={product.type}
                     category={product.category}
                     basePrice={product.basePrice}

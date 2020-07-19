@@ -7,6 +7,11 @@ import FallbackLazy from "../FallbackLazy";
 import HeaderImage from "../../res/searchPage/header_bg-01.png";
 import SearchResultData from "./SearchResultData";
 
+import ProductList from "../layouts/productSlider/ProductSliderList";
+const ProductSlider = lazy(() =>
+  import("../layouts/productSlider/ProductSlider")
+);
+
 const SearchBarPc = lazy(() => import("../layouts/searchBarPC/SearchBarPc"));
 const Footer = lazy(() => import("../layouts/footer/Footer"));
 const Pagination = lazy(() => import("./pagination/Pagination"));
@@ -42,6 +47,15 @@ const SearchPage = () => {
     }
   };
 
+  // getSortOptClass
+  const getSortOptClass = (activetype) => {
+    if (prodData.filters.sort === activetype) {
+      return "search_pg_sort_opt--active";
+    } else {
+      return "search_pg_sort_opt";
+    }
+  };
+
   return (
     <div className="search_pg_main_div">
       <div className="search_pg_inner_div">
@@ -56,18 +70,58 @@ const SearchPage = () => {
                   color: "#000000",
                 }}
               >
-                3208
+                {prodData.totRes}
               </span>
               products found
             </div>
-            <div className="search_pg_utility_main_div"></div>
+            <div className="search_pg_utility_main_div">
+              <div className="search_pg_alert_div">
+                <div className="search_pg_alert_header">
+                  CREATE PRODUCT ALERT
+                </div>
+                <div className="search_pg_alert_desc">
+                  Create a product alert and never miss new deals
+                </div>
+                <input
+                  placeholder="Product name"
+                  className="search_pg_alert_input"
+                  type="email"
+                />
+                <button className="search_pg_alert_submit">SET ALERT</button>
+              </div>
+              <div className="search_pg_type">
+                <div className="search_pg_type_heading">PRODUCT TYPE</div>
+                <div className="search_pg_type_options">
+                  <div className="search_pg_type_opt_item"></div>
+                </div>
+              </div>
+              <div className="search_pg_ratings"></div>
+              <div className="search_pg_assured"></div>
+              <div className="search_pg_avail"></div>
+              <div className="search_pg_search_rad"></div>
+              <div className="search_pg_price"></div>
+            </div>
           </div>
           <div className="search_pg_results">
             <div className="search_pg_results_filters">
               <div className="search_pg_spacer"></div>
-              <div className="search_pg_sort">Sort by</div>
+              <div className="search_pg_sort">
+                <div className="search_pg_sort_by_text">SORT BY:</div>
+                <div className={getSortOptClass("relevence")}>Relevence</div>
+                <div className={getSortOptClass("price_l_to_h")}>
+                  Price - Low to High
+                </div>
+                <div className={getSortOptClass("price_h_to_l")}>
+                  Price - High to Low
+                </div>
+                <div className={getSortOptClass("newest_first")}>
+                  Newest first
+                </div>
+                <div className={getSortOptClass("ratings")}>Ratings</div>
+              </div>
             </div>
             <div className="search_pg_results_items">
+              {/* <div className="search_pg_result_heading">NORMAL PRODUCTS</div> */}
               <div className="search_pg_normal">
                 <ErrorBoundary>
                   <Suspense fallback={<FallbackLazy />}>
@@ -78,7 +132,7 @@ const SearchPage = () => {
                         isFresh={product.isFresh}
                         imageURL={product.imageURL}
                         name={product.name}
-                        otherSellers={product.otherSellers}
+                        prodRating={product.prodRating}
                         type={product.type}
                         category={product.category}
                         basePrice={product.basePrice}
@@ -93,24 +147,64 @@ const SearchPage = () => {
                   </Suspense>
                 </ErrorBoundary>
               </div>
-            </div>
-            <div className="search_pg_pagination">
-              <ErrorBoundary>
-                <Suspense>
-                  <Pagination
-                    totalPage={5}
-                    activePage={2}
-                    gotoSpecificPage
-                    gotoNextPage
-                    gotoPrevPage
-                    gotoStart
-                    gotoEnd
-                  />
-                </Suspense>
-              </ErrorBoundary>
+              <div className="search_pg_result_heading">BULK DEALS</div>
+              <div className="search_pg_bulk">
+                <ErrorBoundary>
+                  <Suspense fallback={<FallbackLazy />}>
+                    {prodData.dataBulk.map((product) => (
+                      <BulkDealItem
+                        key={product.id}
+                        id={product.id}
+                        imageURL={product.imageURL}
+                        name={product.name}
+                        breed={product.breed}
+                        location={product.location}
+                        category={product.category}
+                        lotSizeDigit={product.lotSizeDigit}
+                        lotSizeUnit={product.lotSizeUnit}
+                        basePrice={product.basePrice}
+                        pricePerUnit={product.pricePerUnit}
+                        sellerId={product.sellerId}
+                        sellerRating={product.sellerRating}
+                        isNegotiable={product.isNegotiable}
+                        delTime={product.delTime}
+                        minBookVal={product.minBookVal}
+                        minBookValUnit={product.minBookValUnit}
+                        maxBookVal={product.maxBookVal}
+                        maxBookValUnit={product.maxBookValUnit}
+                        soldPercent={product.soldPercent}
+                      />
+                    ))}
+                  </Suspense>
+                </ErrorBoundary>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      {/* ad-bar */}
+      <div className="search_pg_product_slider_ad">
+        <ProductSlider
+          productsList={ProductList}
+          boldHeading="Sponsored"
+          normalHeading="products"
+          viewAllLink="#"
+        />
+      </div>
+      <div className="search_pg_pagination">
+        <ErrorBoundary>
+          <Suspense>
+            <Pagination
+              totalPage={5}
+              activePage={2}
+              gotoSpecificPage
+              gotoNextPage
+              gotoPrevPage
+              gotoStart
+              gotoEnd
+            />
+          </Suspense>
+        </ErrorBoundary>
       </div>
       <div className="search_pg_footer">
         <Footer />

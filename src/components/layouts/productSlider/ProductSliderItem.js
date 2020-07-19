@@ -1,12 +1,17 @@
-import React, { memo } from "react";
+import React, { memo, lazy, Suspense } from "react";
 import "./ProductSliderItem.css";
+
+import FallbackLazy from "../../FallbackLazy";
+import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
+
+const StarComponent = lazy(() => import("../starComponent/StarComponent"));
 
 function ProductSliderItem({
   isFresh,
   isNegotiable,
   imageURL,
   name,
-  otherSellers,
+  prodRating,
   type,
   category,
   basePrice,
@@ -15,27 +20,27 @@ function ProductSliderItem({
   addedUnit,
   location,
 }) {
-  let ContactSeller = "CONTACT SELLER";
+  let ContactSeller = "CALL SELLER";
   const screenSize = window.innerWidth;
   if (screenSize < 1024) {
-    ContactSeller = "CONTACT";
+    ContactSeller = "CALL";
   }
 
-  let freshWrapper = {};
-  if (!isFresh) {
-    freshWrapper = { display: "none" };
-  }
-
-  let negotiableWrapper = { border: "2px solid #cc0000" };
+  let negotiableWrapper = { border: "1px solid #cc0000" };
   if (isNegotiable) {
-    negotiableWrapper = { border: "2px solid #00cc00" };
+    negotiableWrapper = { border: "1px solid #00cc00" };
   }
+
+  // renderFreshTag
+  const renderFreshTag = () => {
+    if (isFresh) {
+      return <div className="product_fresh_tag">FRESH</div>;
+    }
+  };
 
   return (
     <div className="product_slider_item_main_div">
-      <div style={freshWrapper} className="product_fresh_tag">
-        FRESH
-      </div>
+      {renderFreshTag()}
       <div className="product_slider_item_inner_div">
         <div className="product_detail_group">
           <div className="product_image">
@@ -43,7 +48,11 @@ function ProductSliderItem({
           </div>
           <div className="product_name_and_seller">
             <div className="product_name">{name}</div>
-            <div className="total_sellers">({otherSellers} other sellers)</div>
+            <ErrorBoundary>
+              <Suspense fallback={<FallbackLazy />}>
+                <StarComponent rating={prodRating} />
+              </Suspense>
+            </ErrorBoundary>
           </div>
           <div className="product_desc">
             <div className="product_type">{type}</div>
@@ -51,7 +60,6 @@ function ProductSliderItem({
             <div className="product_category">{category}</div>
           </div>
           <div className="product_price">
-            <div className="product_rate_text">Price:</div>
             <div className="product_base_price">₹ {basePrice}</div>
             <div className="product_price_per_unit">/ {pricePerUnit}*</div>
           </div>

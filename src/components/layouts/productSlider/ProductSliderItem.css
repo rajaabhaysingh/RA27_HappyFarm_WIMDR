@@ -2,7 +2,7 @@
 @media screen and (min-width: 1024px) {
   .product_slider_item_main_div {
     position: relative;
-    min-width: 241px;
+    min-width: 220px;
     margin: 4px;
     border: 1px solid #ffdfcd;
     border-radius: 8px;
@@ -193,7 +193,7 @@
     background: #ffffff;
   }
 
-  .product_contact_utility button:active {
+  .product_contact_utility button:hover {
     background: #fffbef;
     border: 1px solid #ee5700;
   }
@@ -220,8 +220,8 @@
   .product_is_negotiable {
     margin-left: 4px;
     padding: 4px;
-    height: 18px;
-    width: 18px;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -229,7 +229,7 @@
     cursor: pointer;
   }
 
-  .product_is_negotiable:active {
+  .product_is_negotiable:hover {
     background: #fffbef;
     border: 1px solid #ee5700;
   }
@@ -247,7 +247,7 @@
     cursor: pointer;
   }
 
-  .product_add_to_fav:active {
+  .product_add_to_fav:hover {
     background: #fffbef;
     border: 1px solid #ee5700;
   }
@@ -259,7 +259,7 @@
     position: relative;
     margin: 4px;
     display: inline-block;
-    min-width: 196px;
+    min-width: 166px;
     border: 1px solid #ffdfcd;
     border-radius: 8px;
     box-shadow: 1px 1px 8px -3px #b3b3b3;
@@ -306,7 +306,7 @@
   .product_image img {
     width: 100%;
     display: inline-block;
-    height: 107px;
+    height: 100px;
     border-radius: 4px;
     object-fit: cover;
     -o-object-fit: contain;
@@ -473,8 +473,8 @@
   .product_is_negotiable {
     margin-left: 4px;
     padding: 4px;
-    height: 22px;
-    width: 22px;
+    height: 24px;
+    width: 24px;
     border-radius: 50%;
     display: flex;
     align-items: center;
