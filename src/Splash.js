@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy, memo } from "react";
+import React, { useState, useEffect, Suspense, lazy, memo } from "react";
 import "./Splash.css";
 
 import FallbackLazy from "./components/FallbackLazy";
@@ -8,31 +8,44 @@ import Logo from "./res/header/logo_144x144.png";
 
 const App = lazy(() => import("./App"));
 
-// import App from "./App";
-
 function Splash() {
-  const [isFlashVisible, setIsFlashVisible] = useState(true);
+  const [isFirstRender, setIsFirstRender] = useState(true);
 
-  let splashClassName = isFlashVisible
-    ? "splash_component--visible"
-    : "splash_component--hidden";
+  // renderSplash
+  const renderSplash = () => {
+    if (isFirstRender) {
+      return (
+        <div className="splash_component--visible">
+          <img src={Logo} alt="" />
+          <i className="fas fa-spin fa-spinner splash-spinner"></i>
+        </div>
+      );
+    }
+  };
 
   setTimeout(() => {
-    setIsFlashVisible(false);
+    setIsFirstRender(false);
   }, 1000);
+
+  useEffect(() => {}, [isFirstRender]);
+
+  // renderMainContent
+  const renderMainContent = () => {
+    return (
+      <div style={isFirstRender ? { display: "none" } : { display: "block" }}>
+        <ErrorBoundary>
+          <Suspense fallback={<FallbackLazy />}>
+            <App />
+          </Suspense>
+        </ErrorBoundary>
+      </div>
+    );
+  };
 
   return (
     <div className="splash_main_div">
-      <div className={splashClassName}>
-        <img src={Logo} alt="" />
-        <i className="fas fa-spin fa-spinner splash-spinner"></i>
-      </div>
-
-      <ErrorBoundary>
-        <Suspense fallback={<FallbackLazy />}>
-          <App />
-        </Suspense>
-      </ErrorBoundary>
+      {isFirstRender && renderSplash()}
+      {renderMainContent()}
     </div>
   );
 }

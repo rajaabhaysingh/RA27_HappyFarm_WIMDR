@@ -53,10 +53,20 @@
     height: 25px;
     margin: 0 32px;
   }
-  .navbar_menu_item {
-    margin: 0 4px;
+  .navbar_menu_list {
+    display: flex;
+    align-items: center;
   }
-  .navbar_menu_item:hover {
+  .navbar_menu_item a {
+    margin: 0 4px;
+    text-decoration: none;
+    color: #5c5c5c;
+  }
+  .navbar_menu_item--active {
+    font-weight: bold;
+    color: #000000;
+  }
+  .navbar_menu_item a:hover {
     cursor: pointer;
     color: black;
   }

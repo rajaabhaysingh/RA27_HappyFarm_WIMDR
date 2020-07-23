@@ -26,7 +26,8 @@ const FarmersSolution = lazy(() =>
 const Header = lazy(() => import("./components/layouts/header/Header"));
 const Home = lazy(() => import("./components/home/Home"));
 const Dashboard = lazy(() => import("./components/dashboard/Dashboard"));
-const Category = lazy(() => import("./components/category/Category"));
+const Products = lazy(() => import("./components/products/Products"));
+const Farmers = lazy(() => import("./components/farmers/Farmers"));
 const Contact = lazy(() => import("./components/contact/Contact"));
 const Offers = lazy(() => import("./components/offers/Offers"));
 const Premium = lazy(() => import("./components/premium/Premium"));
@@ -137,6 +138,40 @@ const App = (props) => {
     window.innerWidth < 1024 ? "91px" : "0px"
   );
   // -------------------------------------------
+
+  // // -----------re-render on resize-----------
+  // function debounce(fn, ms) {
+  //   let timer;
+  //   return (_) => {
+  //     clearTimeout(timer);
+  //     timer = setTimeout((_) => {
+  //       timer = null;
+  //       fn.apply(this, arguments);
+  //     }, ms);
+  //   };
+  // }
+
+  // const [dimensions, setDimensions] = React.useState({
+  //   height: window.innerHeight,
+  //   width: window.innerWidth,
+  // });
+
+  // useEffect(() => {
+  //   const debouncedHandleResize = debounce(function handleResize() {
+  //     setDimensions({
+  //       height: window.innerHeight,
+  //       width: window.innerWidth,
+  //     });
+  //     window.location.reload(false);
+  //   }, 500);
+
+  //   window.addEventListener("resize", debouncedHandleResize);
+
+  //   return () => {
+  //     window.removeEventListener("resize", debouncedHandleResize);
+  //   };
+  // });
+  // // -----------------------------------------
 
   return (
     <BrowserRouter>
@@ -258,9 +293,20 @@ const App = (props) => {
                 />
                 <Route
                   strict
-                  path="/category"
+                  path="/products"
                   render={(props) => (
-                    <Category
+                    <Products
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
+                />
+                <Route
+                  strict
+                  path="/farmers"
+                  render={(props) => (
+                    <Farmers
                       {...props}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}

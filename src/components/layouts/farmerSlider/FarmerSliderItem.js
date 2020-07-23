@@ -49,14 +49,15 @@ function FarmerSliderItem({ dpUrl, name, place, rating, productUrl }) {
         <div className="farmer_slider_item_utility">
           <div className="farmer_slider_show_product_link">
             <a href={productUrl} onClick={() => handleShowProductLink}>
-              Show products
+              Products
             </a>
           </div>
           <button
             className="farmer_slider_follow_toggle_button"
             onClick={() => handleFollowBtnClick}
           >
-            <i className="fas fa-user-plus"></i> &nbsp;&nbsp;Follow
+            <i style={{ marginRight: "4px" }} className="fas fa-user-plus"></i>
+            Follow
           </button>
         </div>
       </div>

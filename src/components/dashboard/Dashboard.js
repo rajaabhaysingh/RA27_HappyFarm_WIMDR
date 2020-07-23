@@ -11,12 +11,15 @@ const CentralContent = lazy(() => import("./CentralContent"));
 const AdDashboard = lazy(() => import("./AdDashboard"));
 
 function Dashboard({ isSearchBarOpen }) {
-  // close search bar by default in dashboard
-  const searchBarBtn = document.getElementById("navbar_search_btn_group");
+  // ------search should be open by default------
+  // const searchBarBtn = document.getElementById("navbar_search_btn_group");
 
-  if (searchBarBtn && isSearchBarOpen && window.innerWidth < 1024) {
-    // searchBarBtn.click();
-  }
+  // if (searchBarBtn && isSearchBarOpen && window.innerWidth < 1024) {
+  //   setTimeout(() => {
+  //     searchBarBtn.click();
+  //   }, 1000);
+  // }
+  // --------------------------------------
 
   return (
     <div className="dashboard_main_div">

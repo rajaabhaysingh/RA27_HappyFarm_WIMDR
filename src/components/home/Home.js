@@ -48,14 +48,15 @@ const getWidth = () => {
   return window.innerWidth;
 };
 
-function Home({ isSearchBarOpen }) {
+function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
   // ------search should be open by default------
-  const searchBarBtn = document.getElementById("navbar_search_btn_group");
+  // const searchBarBtn = document.getElementById("navbar_search_btn_group");
 
-  if (searchBarBtn && !isSearchBarOpen && window.innerWidth < 1024) {
-    searchBarBtn.click();
-  }
-
+  // if (searchBarBtn && !isSearchBarOpen && window.innerWidth < 1024) {
+  //   setTimeout(() => {
+  //     setIsSearchBarOpen(true);
+  //   }, 1000);
+  // }
   // --------------------------------------
 
   // calculation border radius based on device width ad passing as props

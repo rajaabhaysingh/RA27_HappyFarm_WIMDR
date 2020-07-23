@@ -1,0 +1,118 @@
+.farmers_main_div,
+.farmers_search_bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.farmers_header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.farmers_header_content {
+  background: #0f4153;
+  width: 100%;
+  position: relative;
+  padding-top: 30%;
+  box-sizing: border-box;
+}
+.farmers_header_content img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.farmers_search_form:hover {
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px #ee5700;
+}
+.farmers_search_input {
+  height: 36px;
+  display: flex;
+  flex: 1;
+  padding: 0 16px;
+  font-size: 0.9rem;
+  outline: none;
+  border-top: 1px solid;
+  border-right: 0;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-color: #ee5700 transparent #ee5700 #ee5700;
+  border-radius: 20px 0 0 20px;
+}
+.farmers_search_btn {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 0 20px 20px 0;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-left: 0;
+  border-color: #ee5700 #ee5700 #ee5700 transparent;
+  outline: none;
+  background: #dddddd;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.farmers_suggestions {
+  width: 100%;
+  margin-bottom: 12px;
+}
+.farmers_footer,
+.farmers_tripple_banner,
+.farmers_suggestions {
+  width: 100%;
+}
+
+/*for screen size larger or equal to 1024px px*/
+@media screen and (min-width: 1024px) {
+  .farmers_main_div {
+    margin-top: 109px;
+  }
+  .farmers_search_form {
+    width: 95%;
+    max-width: 768px;
+    display: flex;
+    align-items: center;
+  }
+  .farmers_search_bar {
+    position: absolute;
+    top: calc(50% - 19px);
+  }
+  .farmers_search_btn:hover {
+    background-color: #cccccc;
+  }
+  .farmers_stats {
+    margin-top: 32px;
+    padding: 32px;
+  }
+}
+
+/*for screen size less than 1024px px*/
+@media screen and (max-width: 1023px) {
+  .farmers_search_form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .farmers_search_bar {
+    position: absolute;
+    bottom: -19px;
+  }
+  .farmers_search_btn:active {
+    background-color: #cccccc;
+  }
+  .farmers_stats {
+    margin-top: 32px;
+    padding: 8px;
+  }
+}

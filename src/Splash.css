@@ -1,4 +1,5 @@
-.splash_main_div {
+.splash_main_div,
+.splash_main_content {
   height: 100%;
   width: 100%;
 }

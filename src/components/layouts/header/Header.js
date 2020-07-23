@@ -1,5 +1,6 @@
 import React, {
   useCallback,
+  useLayoutEffect,
   useState,
   memo,
   lazy,
@@ -8,7 +9,7 @@ import React, {
 } from "react";
 import "./Header.css";
 
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import LogoLightBg from "../../../res/header/logo_light_bg.png";
 import LogoDarkBg from "../../../res/header/logo_dark_bg.png";
@@ -92,11 +93,25 @@ const Header = ({
   }
 
   // detect click outside for searchBar PC-mode
-  const detectClickOutside = () => {
-    if (window.innerWidth >= 1024 && isSearchBarOpen) {
-      const searchBar = document.getElementById("signed_in_main_div");
+  const renderCloseOnDocumentClick = useCallback(() => {
+    const catList = document.getElementById("cat_menu_container--visible");
+
+    if (catList && isCatListOpen) {
+      window.addEventListener("click", function (e) {
+        if (!catList.contains(e.target)) {
+          setIsCatListOpen(false);
+          console.log("closed");
+        }
+      });
     }
-  };
+    if (catList && isCatListOpen) {
+      window.addEventListener("touchstart", function (e) {
+        if (!catList.contains(e.target)) {
+          setIsCatListOpen(false);
+        }
+      });
+    }
+  }, [isCatListOpen]);
 
   // handle toggle search bar condition
   const handleSearchBtnClick = useCallback(() => {
@@ -136,40 +151,56 @@ const Header = ({
         <div className="navbar_menu">
           <ul className="navbar_menu_list">
             <li className="navbar_menu_item">
-              <div
-                className="navbar_categories"
-                onMouseEnter={catListClickHandler}
-                onClick={catListClickHandler}
+              <NavLink
+                to="/products"
+                activeClassName="navbar_menu_item--active"
               >
-                <span>Products</span>
-                <span className="navbar_categories_down_icon">
-                  <i className="fas fa-caret-down"></i>
-                </span>
-              </div>
+                <div
+                  className="navbar_categories"
+                  onMouseEnter={catListClickHandler}
+                  onClick={catListClickHandler}
+                >
+                  <span>Products</span>
+                  <span className="navbar_categories_down_icon">
+                    <i className="fas fa-caret-down"></i>
+                  </span>
+                </div>
+              </NavLink>
             </li>
             <li className="navbar_menu_items_separator">
               <i className="fas fa-grip-lines-vertical"></i>
             </li>
             <li className="navbar_menu_item">
-              <span className="navbar_offers">Farmers</span>
+              <NavLink to="/farmers" activeClassName="navbar_menu_item--active">
+                <span className="navbar_offers">Farmers</span>
+              </NavLink>
             </li>
             <li className="navbar_menu_items_separator">
               <i className="fas fa-grip-lines-vertical"></i>
             </li>
             <li className="navbar_menu_item">
-              <span className="navbar_premium">Solution</span>
+              <NavLink
+                to="/solution"
+                activeClassName="navbar_menu_item--active"
+              >
+                <span className="navbar_premium">Solution</span>
+              </NavLink>
             </li>
             <li className="navbar_menu_items_separator">
               <i className="fas fa-grip-lines-vertical"></i>
             </li>
             <li className="navbar_menu_item">
-              <span className="navbar_farmers_solution">Offers</span>
+              <NavLink to="/offers" activeClassName="navbar_menu_item--active">
+                <span className="navbar_farmers_solution">Offers</span>
+              </NavLink>
             </li>
             <li className="navbar_menu_items_separator">
               <i className="fas fa-grip-lines-vertical"></i>
             </li>
             <li className="navbar_menu_item">
-              <span className="navbar_contact_help">Contact</span>
+              <NavLink to="/contact" activeClassName="navbar_menu_item--active">
+                <span className="navbar_contact_help">Contact</span>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -244,6 +275,7 @@ const Header = ({
           </div>
         </Suspense>
       </ErrorBoundary>
+      {renderCloseOnDocumentClick()}
       {/* ------------------------------ */}
     </header>
   );

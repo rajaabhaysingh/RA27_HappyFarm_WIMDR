@@ -21,13 +21,17 @@
     <div id="root"></div>
     
     <script>
-      if('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/serviceworker.js')
-                    .then((reg) => console.log('Success: ', reg.scope))
-                    .catch((err) => console.log('Failure: ', err));
-            })
-        }
+      // ServiceWorker is a progressive technology. Ignore unsupported browsers
+      if ('serviceWorker' in navigator) {
+        console.log('CLIENT: service worker registration in progress.');
+        navigator.serviceWorker.register('/serviceworker.js').then(function() {
+          console.log('CLIENT: service worker registration complete.');
+        }, function() {
+          console.log('CLIENT: service worker registration failure.');
+        });
+      } else {
+        console.log('CLIENT: service worker is not supported.');
+      }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEoiDfpQW73648IFxcQUNIupKCOJKf6IQ&libraries=places"></script>
   </body>

@@ -1,0 +1,60 @@
+.four_cards_main {
+  width: 100%;
+}
+.four_cards_item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 2px 2px 6px #cccccc;
+}
+.four_cards_item_graphics {
+  background: #0f4153;
+  width: 100%;
+  position: relative;
+  padding-top: 50%;
+  box-sizing: border-box;
+}
+.four_cards_item_graphics img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  object-fit: cover;
+  -o-object-fit: cover;
+  object-position: center;
+  -o-object-position: center;
+}
+.four_cards_item_heading {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.four_cards_item_desc {
+  /* margin-top: 16px; */
+  padding: 16px;
+  font-size: 0.8rem;
+}
+
+/*for screen size larger or equal to 640px px*/
+@media screen and (min-width: 640px) {
+  .four_cards_main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/*for screen size less than 640px px*/
+@media screen and (max-width: 639px) {
+  .four_cards_main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
