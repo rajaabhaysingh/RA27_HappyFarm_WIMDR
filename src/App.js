@@ -28,6 +28,7 @@ const Home = lazy(() => import("./components/home/Home"));
 const Dashboard = lazy(() => import("./components/dashboard/Dashboard"));
 const Products = lazy(() => import("./components/products/Products"));
 const Farmers = lazy(() => import("./components/farmers/Farmers"));
+const Solutions = lazy(() => import("./components/solutions/Solutions"));
 const Contact = lazy(() => import("./components/contact/Contact"));
 const Offers = lazy(() => import("./components/offers/Offers"));
 const Premium = lazy(() => import("./components/premium/Premium"));
@@ -35,7 +36,7 @@ const TopMessage = lazy(() => import("./components/layouts/header/TopMessage"));
 const BreadCrumbs = lazy(() =>
   import("./components/layouts/breadCrumbs/BreadCrumbs")
 );
-const SearchPage = lazy(() => import("./components/searchPage/SearchPage"));
+const Messages = lazy(() => import("./components/messages/Messages"));
 
 const App = (props) => {
   // default backdrop TRANSARENCY
@@ -138,40 +139,6 @@ const App = (props) => {
     window.innerWidth < 1024 ? "91px" : "0px"
   );
   // -------------------------------------------
-
-  // // -----------re-render on resize-----------
-  // function debounce(fn, ms) {
-  //   let timer;
-  //   return (_) => {
-  //     clearTimeout(timer);
-  //     timer = setTimeout((_) => {
-  //       timer = null;
-  //       fn.apply(this, arguments);
-  //     }, ms);
-  //   };
-  // }
-
-  // const [dimensions, setDimensions] = React.useState({
-  //   height: window.innerHeight,
-  //   width: window.innerWidth,
-  // });
-
-  // useEffect(() => {
-  //   const debouncedHandleResize = debounce(function handleResize() {
-  //     setDimensions({
-  //       height: window.innerHeight,
-  //       width: window.innerWidth,
-  //     });
-  //     window.location.reload(false);
-  //   }, 500);
-
-  //   window.addEventListener("resize", debouncedHandleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", debouncedHandleResize);
-  //   };
-  // });
-  // // -----------------------------------------
 
   return (
     <BrowserRouter>
@@ -315,9 +282,20 @@ const App = (props) => {
                 />
                 <Route
                   strict
-                  path="/search"
+                  path="/solutions"
                   render={(props) => (
-                    <SearchPage
+                    <Solutions
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
+                />
+                <Route
+                  strict
+                  path="/messages"
+                  render={(props) => (
+                    <Messages
                       {...props}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}

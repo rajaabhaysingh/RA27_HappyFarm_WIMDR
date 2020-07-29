@@ -70,9 +70,6 @@
 
 /*for screen size larger or equal to 1024px px*/
 @media screen and (min-width: 1024px) {
-  .search_pg_main_div {
-    margin-top: 109px;
-  }
   .search_pg_search_result_container,
   .search_pg_utility {
     display: flex;
@@ -202,11 +199,9 @@
   .search_pg_normal {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(166px, 1fr));
-    /* gap: 4px; */
   }
   .search_pg_bulk {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(345px, 1fr));
-    /* gap: 4px; */
   }
 }

@@ -1,5 +1,5 @@
 import React, { memo, useCallback, lazy, Suspense } from "react";
-import "./PlacesAutocompleteComponent.css";
+import "./PlacesAutocompleteAlt.css";
 
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
@@ -17,13 +17,43 @@ const PlacesAutocomplete = lazy(() => import("react-places-autocomplete"));
 // configuring toast
 toast.configure();
 
-function PlacesAutocompleteComponent({ address, setAddress, setLat, setLong }) {
+function PlacesAutocompleteAlt({
+  address,
+  setAddress,
+  setLat,
+  setLong,
+  placeholder,
+}) {
   // Log error status and clear dropdown when Google Maps API returns an error.
   const onError = useCallback((status, clearSuggestions) => {
-    handleToast(
-      "Google Maps API returned error with status: " + status,
-      "error"
-    );
+    switch (status.code) {
+      case status.PERMISSION_DENIED:
+        handleToast("Permission denied!", "error");
+        break;
+      case status.POSITION_UNAVAILABLE:
+        handleToast(
+          "Searched location: " + `${address}` + " is unavailable.",
+          "error"
+        );
+        break;
+      case status.TIMEOUT:
+        handleToast("Server timed out! Try again.", "error");
+        break;
+      case status.UNKNOWN_ERROR:
+        handleToast(
+          "An unknown error occured while fetching your location.",
+          "error"
+        );
+        break;
+
+      default:
+        handleToast(
+          "Unexpected error occured while fetching location." + status,
+          "error"
+        );
+        break;
+    }
+
     clearSuggestions();
   }, []);
 
@@ -152,7 +182,7 @@ function PlacesAutocompleteComponent({ address, setAddress, setLat, setLong }) {
   // --------------------------------------------------
 
   return (
-    <div className="places_component">
+    <div className="alt_places_component">
       <ErrorBoundary>
         <Suspense fallback={<FallbackLazySecondary />}>
           <PlacesAutocomplete
@@ -168,23 +198,25 @@ function PlacesAutocompleteComponent({ address, setAddress, setLat, setLong }) {
               getSuggestionItemProps,
               loading,
             }) => (
-              <div className="autocomplete_places_main_outer_div">
+              <div className="alt_autocomplete_places_main_outer_div">
                 <input
                   {...getInputProps({
-                    placeholder: "Select location",
-                    className: "location_search_input",
+                    placeholder: placeholder
+                      ? placeholder
+                      : "Enter location...",
+                    className: "alt_location_search_input",
                     autoFocus: false,
                     required: true,
                   })}
                 />
-                <div className="autocomplete_dropdown_container">
+                <div className="alt_autocomplete_dropdown_container">
                   {loading && (
-                    <div className="loading_location_div">
+                    <div className="alt_loading_location_div">
                       Loading... <i className="fas fa-circle-notch fa-spin"></i>
                     </div>
                   )}
                   {suggestions.map((suggestion) => {
-                    const className = "suggestion_item";
+                    const className = "alt_suggestion_item";
                     return (
                       <div
                         key={suggestion.id}
@@ -192,10 +224,10 @@ function PlacesAutocompleteComponent({ address, setAddress, setLat, setLong }) {
                           className,
                         })}
                       >
-                        <div className="suggestion_desc">
+                        <div className="alt_suggestion_desc">
                           {suggestion.description}
                         </div>
-                        <div className="up_left_arrow">
+                        <div className="alt_up_left_arrow">
                           <i className="fas fa-arrow-left"></i>
                         </div>
                       </div>
@@ -209,11 +241,12 @@ function PlacesAutocompleteComponent({ address, setAddress, setLat, setLong }) {
       </ErrorBoundary>
 
       {/* location utility btn */}
-      <div className="searchbar_utility_btn_location" onClick={getLocation}>
-        <i className="fas fa-crosshairs"></i>
+      <div className="alt_searchbar_utility_btn_location" onClick={getLocation}>
+        <i style={{ marginRight: "8px" }} className="fas fa-crosshairs"></i>
+        Detect
       </div>
     </div>
   );
 }
 
-export default memo(PlacesAutocompleteComponent);
+export default memo(PlacesAutocompleteAlt);

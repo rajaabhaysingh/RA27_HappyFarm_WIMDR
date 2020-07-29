@@ -1,9 +1,14 @@
 import React from "react";
 import "./FourCards.css";
 
-const FourCards = ({ data }) => {
+const FourCards = ({ data, pcGap, mobileGap }) => {
   return (
-    <div className="four_cards_main">
+    <div
+      style={
+        window.innerWidth < 640 ? { gap: `${mobileGap}` } : { gap: `${pcGap}` }
+      }
+      className="four_cards_main"
+    >
       {data.map((item) => (
         <div key={item.id} className="four_cards_item">
           <div className="four_cards_item_graphics">

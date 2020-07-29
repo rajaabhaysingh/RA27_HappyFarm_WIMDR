@@ -1,50 +1,58 @@
 /* For larger devices */
 @media screen and (min-width: 1024px) {
-  .places_component {
+  .alt_places_component {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
   }
-  .autocomplete_places_main_outer_div {
+  .alt_autocomplete_places_main_outer_div {
     display: flex;
     flex-direction: column;
     height: 100%;
     flex: 1;
   }
 
-  .location_search_input {
-    width: 100%;
+  .alt_location_search_input {
+    width: calc(100% - 80px);
     flex: 1;
-    height: 100%;
+    border-radius: 20px;
     outline: none;
-    border: none;
-    font-size: 0.9rem;
-    margin-right: 28px;
-    margin-left: 4px;
+    border: 1px solid #cccccc;
+    font-size: 0.85rem;
+    padding: 8px 64px 8px 16px;
   }
 
-  .searchbar_utility_btn_location {
+  .alt_location_search_input:focus {
+    border-color: #ee5700;
+    box-shadow: 0 0 0 1px #ee5700;
+  }
+
+  .alt_searchbar_utility_btn_location {
+    position: absolute;
+    right: 4px;
     margin-left: 12px;
-    padding: 8px;
+    padding: 6px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #5c5c5c;
-    border-radius: 50%;
+    color: #333333;
+    background: #dddddd;
+    border-radius: 20px;
     cursor: pointer;
+    font-weight: bold;
   }
 
-  .searchbar_utility_btn_location:hover {
-    background: #e2e2e2;
+  .alt_searchbar_utility_btn_location:hover {
+    background: #cccccc;
   }
 
-  .searchbar_utility_btn_location:active {
+  .alt_searchbar_utility_btn_location:active {
     transform: scale(0.95);
     color: black;
   }
 
-  .autocomplete_dropdown_container {
+  .alt_autocomplete_dropdown_container {
     width: 685px;
     background: #ffffff;
     border-radius: 12px;
@@ -55,7 +63,7 @@
     box-shadow: 0 1px 4px #5c5c5c;
   }
 
-  .loading_location_div {
+  .alt_loading_location_div {
     padding: 8px 16px;
     border-radius: 12px;
     height: 20px;
@@ -64,7 +72,7 @@
     justify-content: space-between;
   }
 
-  .suggestion_item {
+  .alt_suggestion_item {
     padding: 8px 16px 0 16px;
     height: 25px;
     display: flex;
@@ -76,67 +84,76 @@
     white-space: nowrap;
   }
 
-  .suggestion_desc {
+  .alt_suggestion_desc {
     max-width: 625px;
     overflow: scroll;
     white-space: nowrap;
     scrollbar-width: thin;
   }
 
-  .suggestion_item:hover {
+  .alt_suggestion_item:hover {
     background: #ffe1c0;
   }
 
-  .suggestion_item:active {
+  .alt_suggestion_item:active {
     background: #ffe1c0;
   }
 }
 
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
-  .places_component {
+  .alt_places_component {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
   }
 
-  .autocomplete_places_main_outer_div {
+  .alt_autocomplete_places_main_outer_div {
     display: flex;
     flex-direction: column;
     height: 100%;
     flex: 1;
   }
 
-  .location_search_input {
-    padding-left: 4px;
-    width: 100%;
+  .alt_location_search_input {
+    padding: 8px 88px 8px 12px;
+    width: calc(100% - 100px);
     flex: 1;
     height: 100%;
+    border-radius: 20px;
     font-size: 0.85rem;
     outline: none;
-    border: none;
+    border: 1px solid #cccccc;
   }
 
-  .searchbar_utility_btn_location {
+  .alt_location_search_input:focus {
+    border-color: #ee5700;
+    box-shadow: 0 0 0 1px #ee5700;
+  }
+
+  .alt_searchbar_utility_btn_location {
+    position: absolute;
+    right: 8px;
     margin: 0 0 0 8px;
-    padding: 6px;
+    padding: 6px 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #5c5c5c;
-    border-radius: 50%;
+    color: #333333;
+    background: #dddddd;
+    border-radius: 20px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
 
-  .searchbar_utility_btn_location:active {
+  .alt_searchbar_utility_btn_location:active {
     background: #e2e2e2;
     color: black;
     transform: scale(1.05);
   }
 
-  .autocomplete_dropdown_container {
+  .alt_autocomplete_dropdown_container {
     width: calc(100% - 32px);
     background: #ffffff;
     border-radius: 3px;
@@ -147,7 +164,7 @@
     left: 8px;
   }
 
-  .loading_location_div {
+  .alt_loading_location_div {
     padding: 8px 16px;
     border-radius: 12px;
     height: 20px;
@@ -156,7 +173,7 @@
     justify-content: space-between;
   }
 
-  .suggestion_item {
+  .alt_suggestion_item {
     padding: 8px 8px 0 8px;
     height: 25px;
     display: flex;
@@ -168,18 +185,18 @@
     white-space: nowrap;
   }
 
-  .suggestion_desc {
+  .alt_suggestion_desc {
     max-width: calc(100% - 30px);
     overflow: scroll;
     white-space: nowrap;
     scrollbar-width: thin;
   }
 
-  .suggestion_item:hover {
+  .alt_suggestion_item:hover {
     background: #ffe1c0;
   }
 
-  .suggestion_item:active {
+  .alt_suggestion_item:active {
     background: #ffe1c0;
   }
 }

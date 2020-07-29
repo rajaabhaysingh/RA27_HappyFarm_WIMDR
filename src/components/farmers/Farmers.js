@@ -77,7 +77,7 @@ const Farmers = () => {
       <div className="farmers_stats">
         <ErrorBoundary>
           <Suspense fallback={<FallbackLazy />}>
-            <FourCards data={data} />
+            <FourCards data={data} pcGap="32px" mobileGap="16px" />
           </Suspense>
         </ErrorBoundary>
       </div>

@@ -1,9 +1,7 @@
 import React, { useCallback, useState, memo, lazy, Suspense } from "react";
 import "./SearchBarPc.css";
 
-import EnvironmentFilled from "@ant-design/icons/EnvironmentFilled";
-import SearchOutlined from "@ant-design/icons/SearchOutlined";
-import ArrowLeftOutlined from "@ant-design/icons/ArrowLeftOutlined";
+import { useHistory } from "react-router-dom";
 
 import FallbackLazySecondary from "../../FallbackLazySecondary";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
@@ -15,7 +13,15 @@ const PlacesAutocompleteComponent = lazy(() =>
   import("../placesAutocomplete/PlacesAutocompleteComponent")
 );
 
-function SearchBarPc({ productItems }) {
+function SearchBarPc({
+  productItems,
+  isSearchBarOpen,
+  setIsSearchBarOpen,
+  filterProps,
+  sortOptions,
+}) {
+  let history = useHistory();
+
   // useState hook to define initial Product search result state and location
   const [productSuggestionStatePC, setProductSuggestionStatePC] = useState({
     productSuggestionPC: [],
@@ -77,7 +83,7 @@ function SearchBarPc({ productItems }) {
         {productSuggestionPC.map((item) => (
           <li key={item} onClick={() => productSuggestionSelectedPC(item)}>
             {item}
-            <ArrowLeftOutlined rotate="45" />
+            <i className="fas fa-arrow-left"></i>
           </li>
         ))}
       </ul>
@@ -89,7 +95,34 @@ function SearchBarPc({ productItems }) {
     try {
       //search
       e.preventDefault();
-      console.log(productQueryPC, address, lat, long);
+      if (productQueryPC === "") {
+        setProductSuggestionStatePC({
+          productQueryPC: "",
+        });
+      } else if (address === "") {
+        setAddress("");
+      } else {
+        if (
+          isSearchBarOpen &&
+          window.innerWidth >= 1024 &&
+          address !== "" &&
+          productQueryPC !== ""
+        ) {
+          console.log(isSearchBarOpen);
+
+          setIsSearchBarOpen(false);
+        }
+        console.log(productQueryPC, address, lat, long);
+        history.push(
+          `/products/search?q=${productQueryPC.toLowerCase()}&add=${address.toLowerCase()}&lat=${lat}&long=${long}&filters=${
+            filterProps
+              ? filterProps.map(
+                  (filterOption) => filterOption.toLowerCase() + ","
+                )
+              : "none"
+          }&sort=${sortOptions ? sortOptions : "relevence"}`
+        );
+      }
     } catch (error) {
       console.log(error);
     }
@@ -118,7 +151,7 @@ function SearchBarPc({ productItems }) {
             <div className="product_search_field">
               {/* <div> for search icon */}
               <div className="search_icon">
-                <SearchOutlined />
+                <i className="fas fa-search"></i>
               </div>
               {/* Input field for product search */}
               <input
@@ -138,7 +171,7 @@ function SearchBarPc({ productItems }) {
             </div>
             {/* <div> for location icon */}
             <div className="location_icon">
-              <EnvironmentFilled />
+              <i className="fas fa-map-marker-alt"></i>
             </div>
             <div className="loc_search_fields">
               {/* Input field for location search */}
@@ -156,7 +189,7 @@ function SearchBarPc({ productItems }) {
               </div>
               {/* search btn */}
               <button type="submit" className="search_button">
-                <SearchOutlined />
+                <i className="fas fa-search"></i>
               </button>
             </div>
           </div>

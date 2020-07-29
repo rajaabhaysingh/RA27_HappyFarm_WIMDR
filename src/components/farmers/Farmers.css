@@ -63,14 +63,14 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.farmers_suggestions {
-  width: 100%;
-  margin-bottom: 12px;
-}
 .farmers_footer,
 .farmers_tripple_banner,
 .farmers_suggestions {
   width: 100%;
+}
+.farmers_tripple_banner,
+.farmers_suggestions {
+  margin-bottom: 12px;
 }
 
 /*for screen size larger or equal to 1024px px*/
@@ -94,6 +94,9 @@
   .farmers_stats {
     margin-top: 32px;
     padding: 32px;
+  }
+  .farmers_tripple_banner {
+    margin-top: 32px;
   }
 }
 

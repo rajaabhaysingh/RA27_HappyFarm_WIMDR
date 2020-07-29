@@ -4,8 +4,6 @@ import "./SpeechRecognition.css";
 import PropTypes from "prop-types";
 import SpeechRecognition from "react-speech-recognition";
 
-import AudioOutlined from "@ant-design/icons/AudioOutlined";
-
 const propTypes = {
   // Props injected by SpeechRecognition
   transcript: PropTypes.string,
@@ -51,7 +49,7 @@ const Dictaphone = ({
       onMouseUp={handleMouseUp}
       onMouseLeave={stopListening}
     >
-      <AudioOutlined />
+      <i className="fas fa-microphone"></i>
     </div>
   );
 };

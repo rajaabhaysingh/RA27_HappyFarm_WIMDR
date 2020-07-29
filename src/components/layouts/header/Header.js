@@ -180,7 +180,7 @@ const Header = ({
             </li>
             <li className="navbar_menu_item">
               <NavLink
-                to="/solution"
+                to="/solutions"
                 activeClassName="navbar_menu_item--active"
               >
                 <span className="navbar_premium">Solution</span>
@@ -270,7 +270,11 @@ const Header = ({
           <div className={searchBarClass}>
             <div className="search_bar_mobile">
               {/* SearchBarAutoComplete */}
-              <SearchBarPc productItems={ProductOptions} />
+              <SearchBarPc
+                isSearchBarOpen={isSearchBarOpen}
+                setIsSearchBarOpen={setIsSearchBarOpen}
+                productItems={ProductOptions}
+              />
             </div>
           </div>
         </Suspense>

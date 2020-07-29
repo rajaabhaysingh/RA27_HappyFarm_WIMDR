@@ -1,10 +1,164 @@
+.solution_main_div,
+.solution_body,
+.solution_location_input,
+.solution_tripple_banner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.solution_header {
+  position: relative;
+  padding-top: 10%;
+  background: #facade;
+  box-sizing: border-box;
+}
+.solution_header img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
+  object-position: center;
+  -o-object-position: center;
+}
+.solution_notice_board {
+  border-radius: 8px;
+  background: #ee5700;
+  box-shadow: 1px 1px 4px #5c5c5c;
+}
+.solution_notice_header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+.solution_notice_content {
+  margin: 0 2px 2px 2px;
+  max-height: 300px;
+  width: calc(100% - 36px);
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 6px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+}
+.solution_notice_item {
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: #5c5c5c;
+  font-size: 0.8rem;
+}
+.solution_notice_item:hover {
+  color: #ee5700;
+}
+.solution_loc_container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 100;
+}
+.solution_loc_label {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+.solution_loc_autocomplete {
+  height: 36px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  position: relative;
+}
+.solution_loc_autocomplete:hover {
+  border-color: #aaaaaa;
+}
+.solution_infographics {
+  margin-top: 15px;
+}
+.solution_info_section,
+.solution_tripple_banner,
+.solution_ad_cat {
+  width: 100%;
+  margin-top: 16px;
+}
+.solution_info_header {
+  margin-top: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.solution_info_content {
+  margin-top: 16px;
+  width: 100%;
+  /* height: 200px; */
+}
+
 /*for screen size larger or equal to 1024px px*/
 @media screen and (min-width: 1024px) {
   .solution_main_div {
     margin-top: 109px;
   }
+  .solution_header {
+    margin: 16px 16px 0 16px;
+    border-radius: 8px;
+    width: calc(100% - 32px);
+  }
+  .solution_body_top {
+    padding: 32px;
+    width: calc(100% - 64px);
+    display: flex;
+  }
+  .solution_body_left,
+  .solution_body_right {
+    display: flex;
+    flex-direction: column;
+  }
+  .solution_body_left {
+    flex: 1;
+  }
+  .solution_loc_autocomplete {
+    padding-right: 3px;
+  }
+  .solution_location_input button:hover {
+    background: #cccccc;
+  }
+  .solution_body_right {
+    width: 360px;
+  }
+  .solution_notice_board {
+    margin-top: 21px;
+    margin-left: 32px;
+  }
 }
 
 /*for screen size less than 1024px px*/
 @media screen and (max-width: 1023px) {
+  .solution_body_top,
+  .solution_body_bottom {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+  }
+  .solution_header {
+    margin: 8px 8px 0 8px;
+    border-radius: 4px;
+    width: calc(100% - 16px);
+  }
+  .solution_body_left,
+  .solution_body_right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .solution_loc_autocomplete {
+    padding-right: 6px;
+  }
+  .solution_location_input button:active {
+    background: #cccccc;
+  }
 }

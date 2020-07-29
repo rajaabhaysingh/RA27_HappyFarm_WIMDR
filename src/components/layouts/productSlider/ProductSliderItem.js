@@ -1,12 +1,15 @@
 import React, { memo, lazy, Suspense } from "react";
 import "./ProductSliderItem.css";
 
+import { Link } from "react-router-dom";
+
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
 const StarComponent = lazy(() => import("../starComponent/StarComponent"));
 
 function ProductSliderItem({
+  id,
   isFresh,
   isNegotiable,
   imageURL,
@@ -38,46 +41,57 @@ function ProductSliderItem({
     }
   };
 
+  // handleProdClick
+  const handleProdClick = () => {
+    // log prodId to preffered prod suggestionList
+  };
+
   return (
     <div className="product_slider_item_main_div">
       {renderFreshTag()}
       <div className="product_slider_item_inner_div">
-        <div className="product_detail_group">
-          <div className="product_image">
-            <img src={imageURL} alt="product_image" />
-          </div>
-          <div className="product_name_and_seller">
-            <div className="product_name">{name}</div>
-            <ErrorBoundary>
-              <Suspense fallback={<FallbackLazy />}>
-                <StarComponent rating={prodRating} />
-              </Suspense>
-            </ErrorBoundary>
-          </div>
-          <div className="product_desc">
-            <div className="product_type">{type}</div>
-            <span>, </span>
-            <div className="product_category">{category}</div>
-          </div>
-          <div className="product_price">
-            <div className="product_base_price">₹ {basePrice}</div>
-            <div className="product_price_per_unit">/ {pricePerUnit}*</div>
-          </div>
-          <div className="product_posted">
-            <div className="product_posted_icon">
-              <i className="fas fa-clock"></i>
+        <Link
+          target="_blank"
+          className={"product_slider_item_prod_link"}
+          to={`/products/${name.toLowerCase()}&type=${type.toLowerCase()}&id=${id}`}
+        >
+          <div onClick={handleProdClick} className="product_detail_group">
+            <div className="product_image">
+              <img src={imageURL} alt="product_image" />
             </div>
-            <div className="product_posted_text">Added:</div>
-            <div className="product_posted_digit">{addedDigit}</div>
-            <div className="product_posted_unit">{addedUnit} ago</div>
-          </div>
-          <div className="product_location">
-            <div className="product_location_icon">
-              <i className="fas fa-map-marker-alt"></i>
+            <div className="product_name_and_seller">
+              <div className="product_name">{name}</div>
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <StarComponent rating={prodRating} />
+                </Suspense>
+              </ErrorBoundary>
             </div>
-            <div className="product_location_place">{location}</div>
+            <div className="product_desc">
+              <div className="product_type">{type}</div>
+              <span>, </span>
+              <div className="product_category">{category}</div>
+            </div>
+            <div className="product_price">
+              <div className="product_base_price">₹ {basePrice}</div>
+              <div className="product_price_per_unit">/ {pricePerUnit}*</div>
+            </div>
+            <div className="product_posted">
+              <div className="product_posted_icon">
+                <i className="fas fa-clock"></i>
+              </div>
+              <div className="product_posted_text">Added:</div>
+              <div className="product_posted_digit">{addedDigit}</div>
+              <div className="product_posted_unit">{addedUnit} ago</div>
+            </div>
+            <div className="product_location">
+              <div className="product_location_icon">
+                <i className="fas fa-map-marker-alt"></i>
+              </div>
+              <div className="product_location_place">{location}</div>
+            </div>
           </div>
-        </div>
+        </Link>
         <div className="product_utility_group">
           <div className="product_utility">
             <div className="product_contact_utility">

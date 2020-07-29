@@ -11,7 +11,6 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-  margin-right: 12px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
@@ -45,7 +44,9 @@
   .prod_cat_list {
     width: calc(100% - 32px);
     padding: 16px 16px 40px 16px;
-    justify-content: space-around;
+  }
+  .prod_cat_item {
+    margin-right: 16px;
   }
   .prod_cat_item:hover > img {
     transform: scale(1.05);
@@ -57,6 +58,9 @@
   .prod_cat_list {
     width: calc(100% - 16px);
     padding: 8px 8px 28px 8px;
+  }
+  .prod_cat_item {
+    margin-right: 12px;
   }
   .cat_item_img {
     height: 66px;

@@ -1,9 +1,6 @@
 import React, { memo, lazy, Suspense } from "react";
 import "./FarmerSlider.css";
 
-import DoubleLeftOutlined from "@ant-design/icons/DoubleLeftOutlined";
-import DoubleRightOutlined from "@ant-design/icons/DoubleRightOutlined";
-
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
@@ -60,7 +57,7 @@ function FarmerSlider({ boldHeading, normalHeading, farmersList }) {
         </div>
         <div className="farmer_slider_contents">
           <div className="farmer_slider_left_arrow">
-            <DoubleLeftOutlined />
+            <i className="fas fa-angle-double-left"></i>
           </div>
           <div className="farmer_slider_container">
             <ErrorBoundary>
@@ -82,7 +79,7 @@ function FarmerSlider({ boldHeading, normalHeading, farmersList }) {
           </div>
 
           <div className="farmer_slider_right_arrow">
-            <DoubleRightOutlined />
+            <i className="fas fa-angle-double-right"></i>
           </div>
         </div>
       </div>

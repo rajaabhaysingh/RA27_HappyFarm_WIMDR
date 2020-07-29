@@ -112,7 +112,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <li>
             <NavLink
               className="side_drawer_item_link"
-              to="/farmersolution"
+              to="/solutions"
               activeClassName="side_drawer_link_active"
               exact
             >

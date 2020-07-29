@@ -1,12 +1,6 @@
 import React, { useState, memo, lazy, Suspense } from "react";
 import "./BulkDealItem.css";
 
-import ClockCircleOutlined from "@ant-design/icons/ClockCircleOutlined";
-import EnvironmentOutlined from "@ant-design/icons/EnvironmentOutlined";
-import HeartFilled from "@ant-design/icons/HeartFilled";
-import PhoneFilled from "@ant-design/icons/PhoneFilled";
-import MessageFilled from "@ant-design/icons/MessageFilled";
-
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 

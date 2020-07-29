@@ -1,9 +1,6 @@
 import React, { lazy, Suspense, memo } from "react";
 import "./ProductSlider.css";
 
-import DoubleLeftOutlined from "@ant-design/icons/DoubleLeftOutlined";
-import DoubleRightOutlined from "@ant-design/icons/DoubleRightOutlined";
-
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
@@ -28,7 +25,7 @@ function ProductSlider({ boldHeading, normalHeading, productsList }) {
         </div>
         <div className="product_slider_contents">
           <div className="product_slider_left_arrow">
-            <DoubleLeftOutlined />
+            <i className="fas fa-angle-double-left"></i>
           </div>
           <div className="product_slider_container">
             <ErrorBoundary>
@@ -56,7 +53,7 @@ function ProductSlider({ boldHeading, normalHeading, productsList }) {
             </ErrorBoundary>
           </div>
           <div className="product_slider_right_arrow">
-            <DoubleRightOutlined />
+            <i className="fas fa-angle-double-right"></i>
           </div>
         </div>
       </div>

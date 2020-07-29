@@ -4,7 +4,7 @@ import "./StarComponent.css";
 import FullStar from "../../../res/farmerSlider/star_full.svg";
 import HalfStar from "../../../res/farmerSlider/star_half.svg";
 
-function StarComponent(props) {
+function StarComponent(props, size) {
   let rating = parseFloat(props.rating);
 
   if (rating >= 1 && rating < 1.25) {
@@ -34,83 +34,315 @@ function StarComponent(props) {
       case 1:
         return (
           <div className="star_component_star_group">
-            <img src={FullStar} alt="star" />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
           </div>
         );
 
       case 1.5:
         return (
           <div className="star_component_star_group">
-            <img src={FullStar} alt="star" />
-            <img src={HalfStar} alt="star" />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={HalfStar}
+              alt="star"
+            />
           </div>
         );
 
       case 2:
         return (
           <div className="star_component_star_group">
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
           </div>
         );
 
       case 2.5:
         return (
           <div className="star_component_star_group">
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={HalfStar} alt="star" />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={HalfStar}
+              alt="star"
+            />
           </div>
         );
 
       case 3:
         return (
           <div className="star_component_star_group">
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
           </div>
         );
 
       case 3.5:
         return (
           <div className="star_component_star_group">
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={HalfStar} alt="star" />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={HalfStar}
+              alt="star"
+            />
           </div>
         );
 
       case 4:
         return (
           <div className="star_component_star_group">
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
           </div>
         );
 
       case 4.5:
         return (
           <div className="star_component_star_group">
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={HalfStar} alt="star" />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={HalfStar}
+              alt="star"
+            />
           </div>
         );
 
       case 5:
         return (
           <div className="star_component_star_group">
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
-            <img src={FullStar} alt="star" />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
+            <img
+              style={
+                props.size
+                  ? { height: props.size, width: props.size }
+                  : { height: "10px", width: "10px" }
+              }
+              src={FullStar}
+              alt="star"
+            />
           </div>
         );
 

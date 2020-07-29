@@ -1,3 +1,7 @@
+.product_slider_item_prod_link {
+  text-decoration: none;
+}
+
 /*for screen size larger or equal to 1024px px*/
 @media screen and (min-width: 1024px) {
   .product_slider_item_main_div {
