@@ -72,13 +72,16 @@ self.addEventListener("fetch", function (event) {
         console.log("WORKER: fetch request failed in both cache and network.");
 
         // return new Response("", {
-        return new Response("/offline.html", {
-          status: 503,
-          statusText: "Service Unavailable",
-          headers: new Headers({
-            "Content-Type": "text/html",
-          }),
-        });
+        return new Response(
+          "<h3>Service Unavailable : Returned by ServiceWorker</h3>",
+          {
+            status: 503,
+            statusText: "Service Unavailable",
+            headers: new Headers({
+              "Content-Type": "text/html",
+            }),
+          }
+        );
       }
     })
   );

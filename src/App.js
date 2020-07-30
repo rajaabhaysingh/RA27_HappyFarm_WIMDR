@@ -37,6 +37,7 @@ const BreadCrumbs = lazy(() =>
   import("./components/layouts/breadCrumbs/BreadCrumbs")
 );
 const Messages = lazy(() => import("./components/messages/Messages"));
+const Cart = lazy(() => import("./components/cart/Cart"));
 
 const App = (props) => {
   // default backdrop TRANSARENCY
@@ -296,6 +297,17 @@ const App = (props) => {
                   path="/messages"
                   render={(props) => (
                     <Messages
+                      {...props}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
+                />
+                <Route
+                  strict
+                  path="/cart"
+                  render={(props) => (
+                    <Cart
                       {...props}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}

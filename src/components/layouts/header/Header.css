@@ -118,16 +118,14 @@
     height: 32px;
     border-radius: 20px;
     font-weight: 500;
-    color: #000000;
-    background: #ffffff;
+    color: #ffffff;
+    background: linear-gradient(#fac412, #fa8c16);
     outline: none;
-    border: 1px solid #ee5700;
+    border: none;
     cursor: pointer;
   }
   .sell_with_us_button_group button:hover {
-    color: #ffffff;
-    background: #ee5700;
-    outline: none;
+    background: linear-gradient(#fa8c16, #ee5700);
   }
   .signed_out_component,
   .signed_in_component {
