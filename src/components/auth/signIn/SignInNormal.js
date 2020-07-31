@@ -38,17 +38,17 @@ function SignInNormal({
     return OSName;
   };
 
-  // validateEmail
-  const validateEmail = (emailValue) => {
-    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return emailPattern.test(emailValue);
+  // validateMobile
+  const validateMobile = (phoneNumber) => {
+    var mobilePattern = /^[6-9]\d{9}$/;
+    return mobilePattern.test(phoneNumber);
   };
 
   // ------handleSignIn------
   const handleSignIn = useCallback(
     (e) => {
       e.preventDefault();
-      if (validateEmail(formValues.email_phone)) {
+      if (validateMobile(formValues.email_phone)) {
         setEmailError(null);
         if (formValues.password.length < 8) {
           setPwdError("Password must be at least 8 characters long.");
@@ -71,7 +71,7 @@ function SignInNormal({
                   userName: formValues.email_phone,
                 });
               } else {
-                setEmailError(
+                setPwdError(
                   "Some network error occured. Please try again later."
                 );
               }
@@ -79,11 +79,11 @@ function SignInNormal({
             .catch((error) => {
               console.log(error);
               // displaying login error
-              setPwdError("Invalid email or password.");
+              setPwdError("Invalid phone number or password.");
             });
         }
       } else {
-        setEmailError("Invalid email address.");
+        setEmailError("Invalid phone number.");
       }
     },
     [formValues]
@@ -101,7 +101,7 @@ function SignInNormal({
           name="email_phone"
           className="sign_in_email_mob"
           type="text"
-          placeholder="E-mail"
+          placeholder="Mobile number"
         />
         <div className="form_error">{emailError ? emailError : null}</div>
         <input

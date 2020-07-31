@@ -4,23 +4,23 @@ import "./SignUpMobile.css";
 import { Link } from "react-router-dom";
 
 function SignUpMobile({ formValues, handleChange, nextStep }) {
-  const [emailError, setEmailError] = useState(null);
+  const [mobError, setMobError] = useState(null);
 
-  // validateEmail
-  const validateEmail = (emailValue) => {
-    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return emailPattern.test(emailValue);
+  // validateMobile
+  const validateMobile = (phoneNumber) => {
+    var mobilePattern = /^[6-9]\d{9}$/;
+    return mobilePattern.test(phoneNumber);
   };
 
   // ---local form state mgmt-----
   const handleContinue = (e) => {
     try {
       e.preventDefault();
-      if (validateEmail(formValues.email)) {
-        emailError && setEmailError(null);
+      if (validateMobile(formValues.phone)) {
+        setMobError(null);
         nextStep();
       } else {
-        !emailError && setEmailError("Invalid email address.");
+        setMobError("Invalid mobile number.");
       }
     } catch (error) {
       console.log(error);
@@ -31,18 +31,18 @@ function SignUpMobile({ formValues, handleChange, nextStep }) {
   return (
     <div className="sign_up_mobile_main_div">
       <form className="sign_up_form" onSubmit={handleContinue}>
-        <div className="sign_up_label">Enter your email ID:</div>
+        <div className="sign_up_label">Enter your mobile number:</div>
         <input
           required
           autoFocus
-          name="email"
-          onChange={handleChange("email")}
+          name="phone"
+          onChange={handleChange("phone")}
           className="sign_up_mob"
-          type="email"
-          placeholder="Email id"
-          defaultValue={formValues.email}
+          type="tel"
+          placeholder="Mobile number"
+          defaultValue={formValues.phone}
         />
-        <div className="form_error">{emailError ? emailError : null}</div>
+        <div className="form_error">{mobError ? mobError : null}</div>
         <div className="sign_up_terms">
           By continuing, you agree to Farmted's{" "}
           <Link className="sign_up_terms_of_use" to="/">

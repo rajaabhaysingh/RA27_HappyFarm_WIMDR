@@ -12,7 +12,7 @@ function SignUp({ setIsSignInOpen }) {
   // -------local state mgmt---------
   const [signUpFormState, setSignUpFormState] = useState({
     step: 1,
-    email: "",
+    phone: "",
     otp: "",
     password: "",
     cnf_password: "",

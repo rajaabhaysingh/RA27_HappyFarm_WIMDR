@@ -38,20 +38,21 @@ function SignUpPwd({ handleChange, formValues, setIsSignInOpen }) {
 
   // ---local form state mgmt-----
   const handleSignUp = (e) => {
+    e.preventDefault();
     if (formValues.password === formValues.cnf_password) {
       if (validatePwd(formValues.password)) {
         setPwdError(null);
 
         // send registration POST request
         axios
-          .post("http://127.0.0.1:8000", {
+          .post("http://127.0.0.1:8000/accounts/register", {
             email: formValues.email,
             password: formValues.password,
           })
           .then((response) => {
             console.log(response);
 
-            if (response.status === 200) {
+            if (response.status === 201) {
               // redirect to login screen
               e.preventDefault();
               handleToast(
