@@ -8,7 +8,7 @@ import Popup from "reactjs-popup";
 
 const SignInUpReset = lazy(() => import("../../auth/SignInUpReset"));
 
-function SignedOutLinks() {
+function SignedOutLinks({ user, setUser }) {
   // -------Toggle user btn click F(n)----------------
   let [isSignedOutLinkOpen, setIsSignedOutLinkOpen] = useState(false);
 
@@ -101,7 +101,11 @@ function SignedOutLinks() {
           <div>
             <ErrorBoundary>
               <Suspense fallback={<FallbackLazy />}>
-                <SignInUpReset onClose={closeForm} />
+                <SignInUpReset
+                  onClose={closeForm}
+                  user={user}
+                  setUser={setUser}
+                />
               </Suspense>
             </ErrorBoundary>
             {renderCloseOnDocumentClick()}

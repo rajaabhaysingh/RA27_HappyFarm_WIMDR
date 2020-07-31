@@ -1,7 +1,20 @@
-import React, { memo, useCallback } from "react";
+import React, { useState, memo, useCallback } from "react";
 import "./SignInNormal.css";
 
-function SignInNormal({ formValues, handleChange, nextStep }) {
+import axios from "axios";
+
+function SignInNormal({
+  formValues,
+  handleChange,
+  nextStep,
+  onClose,
+  user,
+  setUser,
+}) {
+  const [emailError, setEmailError] = useState(null);
+  const [pwdError, setPwdError] = useState(null);
+
+  // handleResetPwd
   const handleResetPwd = (e) => {
     try {
       // if wrong mobile
@@ -14,11 +27,64 @@ function SignInNormal({ formValues, handleChange, nextStep }) {
   };
   // -----------------------------
 
+  // detect os
+  const detectOS = () => {
+    let OSName = "Unknown OS";
+    if (navigator.userAgent.indexOf("Win") != -1) OSName = "Windows";
+    if (navigator.userAgent.indexOf("Mac") != -1) OSName = "Macintosh";
+    if (navigator.userAgent.indexOf("Linux") != -1) OSName = "Linux";
+    if (navigator.userAgent.indexOf("Android") != -1) OSName = "Android";
+    if (navigator.userAgent.indexOf("like Mac") != -1) OSName = "iOS";
+    return OSName;
+  };
+
+  // validateEmail
+  const validateEmail = (emailValue) => {
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(emailValue);
+  };
+
   // ------handleSignIn------
   const handleSignIn = useCallback(
     (e) => {
       e.preventDefault();
-      console.log(formValues);
+      if (validateEmail(formValues.email_phone)) {
+        setEmailError(null);
+        if (formValues.password.length < 8) {
+          setPwdError("Password must be at least 8 characters long.");
+        } else {
+          setPwdError(null);
+          // send post request
+          axios
+            .post("", {
+              username: `${formValues.email_phone}`,
+              password: `${formValues.password}`,
+              login_device: `${detectOS()}`,
+            })
+            .then((response) => {
+              console.log(response);
+              // check for the response
+              if (response.status === 200) {
+                setUser({
+                  id: response.data.id,
+                  token: response.data.token,
+                  userName: formValues.email_phone,
+                });
+              } else {
+                setEmailError(
+                  "Some network error occured. Please try again later."
+                );
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+              // displaying login error
+              setPwdError("Invalid email or password.");
+            });
+        }
+      } else {
+        setEmailError("Invalid email address.");
+      }
     },
     [formValues]
   );
@@ -35,8 +101,9 @@ function SignInNormal({ formValues, handleChange, nextStep }) {
           name="email_phone"
           className="sign_in_email_mob"
           type="text"
-          placeholder="E-mail/Mobile"
+          placeholder="E-mail"
         />
+        <div className="form_error">{emailError ? emailError : null}</div>
         <input
           required
           onChange={handleChange("password")}
@@ -45,6 +112,7 @@ function SignInNormal({ formValues, handleChange, nextStep }) {
           type="password"
           placeholder="Enter password"
         />
+        <div className="form_error">{pwdError ? pwdError : null}</div>
         <input className="sign_in_login_btn" type="submit" value="LOGIN" />
         <div className="sign_in_forgot_pwd" onClick={handleResetPwd}>
           Forgot password ?
@@ -77,9 +145,5 @@ function SignInNormal({ formValues, handleChange, nextStep }) {
     </div>
   );
 }
-
-// function arePropsEqual(prevProps, nextProps) {
-//   return prevProps.formValues === nextProps.formValues;
-// }
 
 export default memo(SignInNormal);

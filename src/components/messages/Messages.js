@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Messages.css";
 
-import { USER_CONNECTED, LOG_OUT } from "./Events";
+import { LOG_OUT } from "./Events";
 
 import io from "socket.io-client";
 const socketUrl = "http://192.168.43.171:3231";
 
-const Messages = () => {
-  const [socket, setSocket] = useState(null);
-  const [user, setUser] = useState(null);
-
+const Messages = ({ socket, setSocket, user, setUser, settingUser }) => {
   useEffect(() => {
     initSocket();
   }, []);
@@ -25,19 +22,11 @@ const Messages = () => {
     setSocket({ socket });
   };
 
-  // ------- setting user property in state --------
-  const settingUser = (user) => {
-    socket.emit(USER_CONNECTED, user);
-    setUser({ user });
-  };
-  // -----------------------------------------------
-
   // ----- user log-out -----
   const logout = () => {
     socket.emit(LOG_OUT);
     setUser(null);
   };
-  // ------------------------
 
   return (
     <div className="msg_main_div">

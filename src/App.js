@@ -17,6 +17,10 @@ import ErrorBoundary from "./components/errorBoundary/ErrorBoundary";
 import SideDrawer from "./components/layouts/sideDrawer/SideDrawer";
 import BackdropDark from "./components/backdrop/BackdropDark";
 
+// --------- messages handling---------
+import { USER_CONNECTED } from "./components/messages/Events";
+// ------------------------------------
+
 const FileNotFound = lazy(() =>
   import("./components/layouts/fileNotFound/FileNotFound")
 );
@@ -40,6 +44,24 @@ const Messages = lazy(() => import("./components/messages/Messages"));
 const Cart = lazy(() => import("./components/cart/Cart"));
 
 const App = (props) => {
+  // -------------------------------------
+  // ---------handling messaging----------
+
+  const [socket, setSocket] = useState(null);
+  const [user, setUser] = useState({});
+
+  // ------- setting user property in state --------
+  const settingUser = useCallback(
+    (user) => {
+      socket.emit(USER_CONNECTED, user);
+      setUser({ user });
+    },
+    [USER_CONNECTED, user]
+  );
+
+  // -------------------------------------
+  // -------------------------------------
+
   // default backdrop TRANSARENCY
   let alpha = 0.75;
 
@@ -155,6 +177,8 @@ const App = (props) => {
           <ErrorBoundary>
             <Suspense fallback={<FallbackLazy />}>
               <Header
+                user={user}
+                setUser={setUser}
                 isSearchBarOpen={isSearchBarOpen}
                 setIsSearchBarOpen={setIsSearchBarOpen}
                 setMarginTop={setMarginTop}
@@ -199,6 +223,8 @@ const App = (props) => {
                   render={(props) => (
                     <Home
                       {...props}
+                      user={user}
+                      setUser={setUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -210,6 +236,8 @@ const App = (props) => {
                   render={() => (
                     <Dashboard
                       {...props}
+                      user={user}
+                      setUser={setUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -221,6 +249,8 @@ const App = (props) => {
                   render={(props) => (
                     <FarmersSolution
                       {...props}
+                      user={user}
+                      setUser={setUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -232,6 +262,8 @@ const App = (props) => {
                   render={(props) => (
                     <Offers
                       {...props}
+                      user={user}
+                      setUser={setUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -243,6 +275,8 @@ const App = (props) => {
                   render={(props) => (
                     <Premium
                       {...props}
+                      user={user}
+                      setUser={setUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -254,6 +288,8 @@ const App = (props) => {
                   render={(props) => (
                     <Contact
                       {...props}
+                      user={user}
+                      setUser={setUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -265,6 +301,8 @@ const App = (props) => {
                   render={(props) => (
                     <Products
                       {...props}
+                      user={user}
+                      setUser={setUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -276,6 +314,8 @@ const App = (props) => {
                   render={(props) => (
                     <Farmers
                       {...props}
+                      user={user}
+                      setUser={setUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -287,6 +327,8 @@ const App = (props) => {
                   render={(props) => (
                     <Solutions
                       {...props}
+                      user={user}
+                      setUser={setUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -298,6 +340,11 @@ const App = (props) => {
                   render={(props) => (
                     <Messages
                       {...props}
+                      socket={socket}
+                      setSocket={setSocket}
+                      user={user}
+                      setUser={setUser}
+                      settingUser={settingUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />
@@ -309,6 +356,8 @@ const App = (props) => {
                   render={(props) => (
                     <Cart
                       {...props}
+                      user={user}
+                      setUser={setUser}
                       isSearchBarOpen={isSearchBarOpen}
                       setIsSearchBarOpen={setIsSearchBarOpen}
                     />

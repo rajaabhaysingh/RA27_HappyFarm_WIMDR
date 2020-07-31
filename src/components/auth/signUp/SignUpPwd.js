@@ -1,17 +1,85 @@
-import React, { memo } from "react";
+import React, { useState, memo } from "react";
 import "./SignUpPwd.css";
 
-function SignUpPwd({ handleChange }) {
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// configuring toast
+toast.configure();
+
+function SignUpPwd({ handleChange, formValues, setIsSignInOpen }) {
+  // handleToast
+  const handleToast = (message, toastType) => {
+    if (toastType === "dark") {
+      toast.dark(message, {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+    } else if (toastType === "error") {
+      toast.error(message, {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+    } else if (toastType === "success") {
+      toast.success(message, {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+    } else {
+      toast(message);
+    }
+  };
+
+  // pwd error state mgmt
+  const [pwdError, setPwdError] = useState(null);
+
+  const validatePwd = (pwd) => {
+    const regexPwd = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+    return regexPwd.test(pwd);
+  };
+
   // ---local form state mgmt-----
   const handleSignUp = (e) => {
-    try {
-      // verify and sign-up
-      // if wrong pwd
-      // e.preventDefault();
-      // else
-      // redirdect to login-page
-    } catch (error) {
-      console.log(error);
+    if (formValues.password === formValues.cnf_password) {
+      if (validatePwd(formValues.password)) {
+        setPwdError(null);
+
+        // send registration POST request
+        axios
+          .post("http://127.0.0.1:8000", {
+            email: formValues.email,
+            password: formValues.password,
+          })
+          .then((response) => {
+            console.log(response);
+
+            if (response.status === 200) {
+              // redirect to login screen
+              e.preventDefault();
+              handleToast(
+                "Sign-up successful. Redirecting to login-screen.",
+                "success"
+              );
+              setTimeout(() => {
+                setIsSignInOpen(true);
+              }, 1000);
+            } else {
+              e.preventDefault();
+              setPwdError("Something went wrong. Please verify and try again.");
+            }
+            e.preventDefault();
+          })
+          .catch((error) => {
+            console.log(error);
+            e.preventDefault();
+          });
+      } else {
+        e.preventDefault();
+        setPwdError(
+          "Must be 8 characters long and contain numbers and letters."
+        );
+      }
+    } else {
+      e.preventDefault();
+      setPwdError("Password didn't match.");
     }
   };
   // -----------------------------
@@ -19,8 +87,8 @@ function SignUpPwd({ handleChange }) {
   return (
     <div className="sign_up_pwd_main_div">
       <form className="sign_up_form" onSubmit={handleSignUp}>
-        <div className="sign_up_label_pri">Mobile number:</div>
-        <div className="sign_up_pwd_mob">9898989898</div>
+        <div className="sign_up_label_pri">Email ID:</div>
+        <div className="sign_up_pwd_mob">{formValues.email}</div>
         <div className="sign_up_label_sec">Enter password:</div>
         <input
           required
@@ -37,6 +105,7 @@ function SignUpPwd({ handleChange }) {
           placeholder="Confirm password"
           onChange={handleChange("cnf_password")}
         />
+        <div className="form_error">{pwdError ? pwdError : null}</div>
         <div className="sign_up_pwd_params">Guidelines for password:</div>
 
         <ul className="sign_up_pwd_params_list">

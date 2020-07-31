@@ -1,3 +1,11 @@
+/* ------ */
+.form_error {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #cc0000;
+}
+/* ------ */
+
 .sign_in_up_main_div {
   display: flex;
   align-items: center;

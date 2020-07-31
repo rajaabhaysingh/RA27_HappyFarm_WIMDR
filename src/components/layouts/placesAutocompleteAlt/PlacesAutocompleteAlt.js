@@ -164,6 +164,7 @@ function PlacesAutocompleteAlt({
     handleToast(errMsg, "error");
   };
 
+  // handleToast
   const handleToast = (message, toastType) => {
     if (toastType === "dark") {
       toast.dark(message, {

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 import UserPlaceholder from "../../../res/header/user_placeholder.svg";
 
-function SignedInLinks() {
+function SignedInLinks({ user, setUser }) {
   // -------Toggle user btn click F(n)----------------
   let [isSignedLinkOpen, setIsSignedLinkOpen] = useState(false);
 
@@ -117,14 +117,14 @@ function SignedInLinks() {
             </NavLink>
           </li>
           <li className="signed_in_item" onClick={handleOptionClick}>
-            <NavLink className="signed_in_sign_out" to="/">
+            <div className="signed_in_sign_out">
               <div className="signed_in_icon signed_in_sign_out_icon">
                 <i className="fas fa-sign-out-alt"></i>
               </div>
               <div className="signed_in_text signed_in_sign_out_text">
                 Sign-Out
               </div>
-            </NavLink>
+            </div>
           </li>
         </ul>
         {renderCloseOnDocumentClick()}

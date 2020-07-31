@@ -29,6 +29,8 @@ const SearchBarPc = lazy(() => import("../searchBarPC/SearchBarPc"));
 const MenuTab = lazy(() => import("../menuTab/MenuTab"));
 
 const Header = ({
+  user,
+  setUser,
   isSearchBarOpen,
   setIsSearchBarOpen,
   setMarginTop,
@@ -215,11 +217,11 @@ const Header = ({
         </div>
         {/* Profile dropdown div */}
         <div className="signed_in_component">
-          <SignedInLinks />
+          <SignedInLinks user={user} setUser={setUser} />
         </div>
         {/* Profile dropdown div */}
         <div className="signed_out_component">
-          <SignedOutLinks />
+          <SignedOutLinks user={user} setUser={setUser} />
         </div>
         {/* Navbar end utilities (cart and notification icons) */}
         <div className="navbar_utilities">

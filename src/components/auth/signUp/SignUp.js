@@ -8,11 +8,11 @@ const SignUpMobile = lazy(() => import("./SignUpMobile"));
 const SignUpOtp = lazy(() => import("./SignUpOtp"));
 const SignUpPwd = lazy(() => import("./SignUpPwd"));
 
-function SignUp(props) {
+function SignUp({ setIsSignInOpen }) {
   // -------local state mgmt---------
   const [signUpFormState, setSignUpFormState] = useState({
     step: 1,
-    phone: "",
+    email: "",
     otp: "",
     password: "",
     cnf_password: "",
@@ -48,8 +48,8 @@ function SignUp(props) {
   );
   // ------------------------------------
 
-  const { step, phone, otp, password, cnf_password } = signUpFormState;
-  const formValues = { step, phone, otp, password, cnf_password };
+  const { step, email, otp, password, cnf_password } = signUpFormState;
+  const formValues = { step, email, otp, password, cnf_password };
 
   switch (step) {
     case 1:
@@ -88,7 +88,11 @@ function SignUp(props) {
         <div className="sign_up_main_div">
           <ErrorBoundary>
             <Suspense fallback={<FallbackLazy />}>
-              <SignUpPwd handleChange={handleChange} formValues={formValues} />
+              <SignUpPwd
+                setIsSignInOpen={setIsSignInOpen}
+                handleChange={handleChange}
+                formValues={formValues}
+              />
             </Suspense>
           </ErrorBoundary>
         </div>

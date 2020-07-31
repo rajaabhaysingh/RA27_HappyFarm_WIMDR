@@ -9,7 +9,7 @@ import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 const SignIn = lazy(() => import("./signIn/SignIn"));
 const SignUp = lazy(() => import("./signUp/SignUp"));
 
-function SignInUp({ onClose }) {
+function SignInUp({ onClose, user, setUser }) {
   // ----------sign-up / sign-in state mgmt---------
 
   // form toggle (between sign-in and sign-up) logic
@@ -22,14 +22,14 @@ function SignInUp({ onClose }) {
     formHeading: "Login",
     formDesc:
       "Get access to your Account, History, Wishlist, Recommendations and much more.",
-    bottomTextPrimary: "New to happyfarm? ",
+    bottomTextPrimary: "New to farmted? ",
     bottomTextSecondary: "Sign-up now.",
   };
 
   const signOutState = {
     formHeading: "Sign-up",
     formDesc:
-      "Seems you are new at Happyfarm. Create you accont to get maximum benefit from happyfarm.com",
+      "Seems you are new at Happyfarm. Create you accont to get maximum benefit from farmted.com",
     bottomTextPrimary: "Already have an account? ",
     bottomTextSecondary: "Login.",
   };
@@ -56,7 +56,7 @@ function SignInUp({ onClose }) {
       return (
         <ErrorBoundary>
           <Suspense fallback={<FallbackLazy />}>
-            <SignIn formState={formState} setFormState={setFormState} />
+            <SignIn user={user} setUser={setUser} />
           </Suspense>
         </ErrorBoundary>
       );
@@ -64,7 +64,7 @@ function SignInUp({ onClose }) {
       return (
         <ErrorBoundary>
           <Suspense fallback={<FallbackLazy />}>
-            <SignUp formState={formState} setFormState={setFormState} />
+            <SignUp setIsSignInOpen={setIsSignInOpen} />
           </Suspense>
         </ErrorBoundary>
       );

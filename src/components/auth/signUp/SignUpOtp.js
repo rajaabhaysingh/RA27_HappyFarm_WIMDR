@@ -2,13 +2,20 @@ import React, { useState, useRef, memo } from "react";
 import "./SignUpOtp.css";
 
 function SignUpOtp({ formValues, handleChange, nextStep, prevStep }) {
+  const [otpError, setOtpError] = useState(null);
+
   // ---local form state mgmt-----
   const handleConfirm = (e) => {
     try {
       // verify otp
       // if successful
-      nextStep();
       e.preventDefault();
+      if (formValues.otp.length === 6) {
+        otpError && setOtpError(null);
+        nextStep();
+      } else {
+        setOtpError("Invalid OTP - accepts any 6 digit OTP currently.");
+      }
       // else
       // error popup
     } catch (error) {
@@ -70,7 +77,7 @@ function SignUpOtp({ formValues, handleChange, nextStep, prevStep }) {
     <div className="sign_up_otp_main_div">
       <form className="sign_up_form" onSubmit={handleConfirm}>
         <div className="sign_up_label">
-          Enter 6-digit OTP sent on your mobile:
+          Enter OTP sent to your email address or open email to vefify:
         </div>
         <input
           required
@@ -82,6 +89,7 @@ function SignUpOtp({ formValues, handleChange, nextStep, prevStep }) {
           defaultValue={formValues.otp}
           ref={focusOtpRef}
         />
+        <div className="form_error">{otpError ? otpError : null}</div>
         <div className="sign_up_otp_params">
           Didn't receive OTP?
           <div className={timerClass}>

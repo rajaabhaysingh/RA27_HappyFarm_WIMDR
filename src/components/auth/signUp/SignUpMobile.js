@@ -1,17 +1,27 @@
-import React, { memo } from "react";
+import React, { useState, memo } from "react";
 import "./SignUpMobile.css";
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SignUpMobile({ formValues, handleChange, nextStep }) {
+  const [emailError, setEmailError] = useState(null);
+
+  // validateEmail
+  const validateEmail = (emailValue) => {
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(emailValue);
+  };
+
   // ---local form state mgmt-----
   const handleContinue = (e) => {
     try {
       e.preventDefault();
-      // if wrong mobile
-      // do sth
-      // else
-      nextStep();
+      if (validateEmail(formValues.email)) {
+        emailError && setEmailError(null);
+        nextStep();
+      } else {
+        !emailError && setEmailError("Invalid email address.");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -21,27 +31,28 @@ function SignUpMobile({ formValues, handleChange, nextStep }) {
   return (
     <div className="sign_up_mobile_main_div">
       <form className="sign_up_form" onSubmit={handleContinue}>
-        <div className="sign_up_label">Enter your mobile number:</div>
+        <div className="sign_up_label">Enter your email ID:</div>
         <input
           required
           autoFocus
-          name="phone"
-          onChange={handleChange("phone")}
+          name="email"
+          onChange={handleChange("email")}
           className="sign_up_mob"
-          type="tel"
-          placeholder="Mobile number"
-          defaultValue={formValues.phone}
+          type="email"
+          placeholder="Email id"
+          defaultValue={formValues.email}
         />
+        <div className="form_error">{emailError ? emailError : null}</div>
         <div className="sign_up_terms">
-          By continuing, you agree to Happyfarm's{" "}
-          <NavLink className="sign_up_terms_of_use" to="/">
+          By continuing, you agree to Farmted's{" "}
+          <Link className="sign_up_terms_of_use" to="/">
             Terms of Use
-          </NavLink>{" "}
+          </Link>{" "}
           and
-          <NavLink className="sign_up_privacy_policy" to="/">
+          <Link className="sign_up_privacy_policy" to="/">
             {" "}
             Privacy Policy
-          </NavLink>
+          </Link>
           .
         </div>
         <input
@@ -49,9 +60,9 @@ function SignUpMobile({ formValues, handleChange, nextStep }) {
           type="submit"
           value="CONTINUE"
         />
-        <NavLink className="sign_up_need_help" to="/">
+        <Link className="sign_up_need_help" to="/">
           Need help creating account?
-        </NavLink>
+        </Link>
       </form>
     </div>
   );
