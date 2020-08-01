@@ -11,6 +11,7 @@ import AdCategoryData1 from "../layouts/adCategoryGrid/AdCategoryData1";
 import AdCategoryData2 from "../layouts/adCategoryGrid/AdCategoryData2";
 import ProductList from "../layouts/productSlider/ProductSliderList";
 import FooterDetails from "../layouts/footer/FooterDetails";
+import BannerUrls from "../home/BannerUrls";
 
 const DoubleInfoBanner = lazy(() =>
   import("../layouts/doubleInfoBanner/DoubleInfoBanner")

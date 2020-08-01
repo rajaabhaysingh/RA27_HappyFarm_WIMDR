@@ -1,3 +1,13 @@
+.double_info_details_one img,
+.double_info_details_two img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
+  object-position: center;
+  -o-object-position: center;
+}
+
 /*for screen size more than 768px px*/
 @media screen and (min-width: 768px) {
   .double_info_main_div {
@@ -28,9 +38,7 @@
     border-radius: 8px;
     box-sizing: border-box;
     background-color: #0f4153;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    overflow: hidden;
   }
 
   .double_info_details_one:hover,
@@ -81,9 +89,7 @@
     background: #0f4153;
     border-radius: 8px;
     box-sizing: border-box;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    overflow: hidden;
   }
 
   .double_info_details_one {

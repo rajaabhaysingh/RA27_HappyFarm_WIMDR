@@ -15,7 +15,7 @@ function BreadCrumbs() {
   let url = window.location.href;
   url = url.replace("http://", "");
   url = url.replace("https://", "");
-  url = url.replace("farmted.000webhostapp.com", "Home");
+  url = url.replace("farmted.ml", "Home");
   url = url.replace("localhost:3000", "Home");
   url = url.replace("localhost:3001", "Home");
   url = url.replace("/", " ► ");

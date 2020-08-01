@@ -5,16 +5,14 @@ function TrippleInfoBanner({ banner1, banner2 }) {
   return (
     <div className="double_info_main_div">
       <div className="double_info_banner_sub_div_one">
-        <div
-          style={{ background: `url(${banner1})` }}
-          className="double_info_details_one"
-        ></div>
+        <div className="double_info_details_one">
+          <img src={banner1} alt="" />
+        </div>
       </div>
       <div className="double_info_banner_sub_div_two">
-        <div
-          style={{ background: `url(${banner2})` }}
-          className="double_info_details_two"
-        ></div>
+        <div className="double_info_details_two">
+          <img src={banner2} alt="" />
+        </div>
       </div>
     </div>
   );

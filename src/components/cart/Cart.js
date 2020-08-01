@@ -1,9 +1,10 @@
 import React, { useState, lazy, Suspense, memo } from "react";
 import "./Cart.css";
 
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
+
 import PrimeLogo from "../../res/cart/prime_logo.svg";
 
-import { Link } from "react-router-dom";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import FallbackLazy from "../FallbackLazy";
 
@@ -18,6 +19,8 @@ const Footer = lazy(() => import("../layouts/footer/Footer"));
 
 const Cart = (props) => {
   const cartData = CartData;
+
+  let { path, url } = useRouteMatch();
 
   // state to hold coupon off amount
   const [promoAmt, setPromoAmt] = useState(0.0);
@@ -274,29 +277,35 @@ const Cart = (props) => {
 
   return (
     <div className="cart_main_div">
-      <div className="cart_details_container">
-        <div className="cart_details_heading">SHOPPING CART</div>
-        <div className="cart_details">{renderCartItems()}</div>
-      </div>
-      <div className="cart_prod_suggestion">
-        <ErrorBoundary>
-          <Suspense fallback={<FallbackLazy />}>
-            <ProductSlider
-              productsList={ProductList}
-              boldHeading="Related products"
-              normalHeading="that you may need"
-              viewAllLink="#"
-            />
-          </Suspense>
-        </ErrorBoundary>
-      </div>
-      <div className="cart_footer">
-        <ErrorBoundary>
-          <Suspense fallback={<FallbackLazy />}>
-            <Footer details={FooterDetails} />
-          </Suspense>
-        </ErrorBoundary>
-      </div>
+      <Switch>
+        <Route exact strict path={path}>
+          <>
+            <div className="cart_details_container">
+              <div className="cart_details_heading">SHOPPING CART</div>
+              <div className="cart_details">{renderCartItems()}</div>
+            </div>
+            <div className="cart_prod_suggestion">
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <ProductSlider
+                    productsList={ProductList}
+                    boldHeading="Related products"
+                    normalHeading="that you may need"
+                    viewAllLink="#"
+                  />
+                </Suspense>
+              </ErrorBoundary>
+            </div>
+            <div className="cart_footer">
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <Footer details={FooterDetails} />
+                </Suspense>
+              </ErrorBoundary>
+            </div>
+          </>
+        </Route>
+      </Switch>
     </div>
   );
 };
