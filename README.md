@@ -1,8 +1,8 @@
 # Repo for SIH 2020 - Team HappyFarm
 
-# Hosted on [http://farmted.000webhostapp.com/](http://farmted.000webhostapp.com/)
+# Hosted on [http://farmted.ml/](http://farmted.ml/)
 
-May take time reflect changes on live website (http://farmted.000webhostapp.com/)
+May take time reflect changes on live website (http://farmted.ml/)
 
 # How to RUN
 
