@@ -84,5 +84,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
-<img src="https://happyfarmmedia.imfast.io/images/teamHappyFarm/TeamHappyFarm01.3.png" width = 500>
+<img src="https://happyfarmmedia.imfast.io/images/teamHappyFarm/RA27%20HappyFarm%20IIITS.png" width = 500>
 
