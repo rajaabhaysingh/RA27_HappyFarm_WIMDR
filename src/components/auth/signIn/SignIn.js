@@ -7,7 +7,7 @@ import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 const SignInNormal = lazy(() => import("./SignInNormal"));
 const SignInResetPwd = lazy(() => import("./SignInResetPwd"));
 
-function SignIn({ user, setUser, onClose }) {
+function SignIn({ user, setUser, onClose, setIsFormOpen }) {
   // --------managing sign-in states-----------
   const [signInFormState, setSignInFormState] = useState({
     // step: 1 is normal login sub-form
@@ -72,6 +72,7 @@ function SignIn({ user, setUser, onClose }) {
                 onClose={onClose}
                 user={user}
                 setUser={setUser}
+                setIsFormOpen={setIsFormOpen}
               />
             </Suspense>
           </ErrorBoundary>
@@ -90,6 +91,7 @@ function SignIn({ user, setUser, onClose }) {
                 onClose={onClose}
                 user={user}
                 setUser={setUser}
+                setIsFormOpen={setIsFormOpen}
               />
             </Suspense>
           </ErrorBoundary>

@@ -1,6 +1,8 @@
 import React from "react";
 import "./CategoryScrollItem.css";
 
+import { Link } from "react-router-dom";
+
 function CategoryScrollItem(props) {
   const handleItemClick = () => {
     try {
@@ -11,12 +13,17 @@ function CategoryScrollItem(props) {
   };
 
   return (
-    <div className="category_item" onClick={() => handleItemClick()}>
+    <Link
+      to={`/products/search?q=${props.categoryName}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+      className="category_item"
+      onClick={() => handleItemClick()}
+    >
       <div className="category_image">
-        <img src={props.iconURL} alt="category_item" />
+        <img src={props.iconUrl} alt="category_item" />
       </div>
       <div className="category_name">{props.categoryName}</div>
-    </div>
+    </Link>
   );
 }
 

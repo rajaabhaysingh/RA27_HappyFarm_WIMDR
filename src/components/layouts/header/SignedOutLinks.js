@@ -105,6 +105,7 @@ function SignedOutLinks({ user, setUser }) {
                   onClose={closeForm}
                   user={user}
                   setUser={setUser}
+                  setIsFormOpen={setIsFormOpen}
                 />
               </Suspense>
             </ErrorBoundary>

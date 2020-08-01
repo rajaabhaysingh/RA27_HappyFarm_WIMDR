@@ -1,8 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Repo for SIH 2020 - Team HappyFarm
 
-## Available Scripts
+# Hosted on `www.farmted.000webhostapp.com`
 
-In the project directory, you can run:
+May take time reflect changes on live website
+
+# How to RUN
+
+After cloning the repo
+
+### `npm install`
+
+After it successfully completes
+
+### Copy all three folders from `src/EditedModule` and paste it (by replacing) into `../node_modules`
+
+After that In the project directory, you can run:
 
 ### `npm start`
 

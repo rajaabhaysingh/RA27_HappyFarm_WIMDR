@@ -22,7 +22,7 @@ function CarouselSlider({ slides, borderRadius }) {
             className="carousel_slide_container"
             key={slide.name}
             style={{
-              backgroundImage: `url(${slide.imgUrl})`,
+              backgroundImage: `url(${slide.url})`,
             }}
           ></div>
         ))}

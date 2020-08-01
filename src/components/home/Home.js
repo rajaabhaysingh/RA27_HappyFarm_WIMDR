@@ -1,5 +1,7 @@
-import React, { memo, lazy, Suspense } from "react";
+import React, { useEffect, useState, memo, lazy, Suspense } from "react";
 import "./Home.css";
+
+import axios from "axios";
 
 import { Helmet } from "react-helmet";
 
@@ -8,14 +10,15 @@ import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
 // Importing data files
 import ProductOptions from "../layouts/ProductOptions";
-import topCarouselUrls from "./homeComponents/topCarousel/TopCarouselUrls";
-import Categories from "./homeComponents/categoryScroll/CategoryList";
+// import topCarouselUrls from "./homeComponents/topCarousel/TopCarouselUrls";
+// import CategoryList from "./homeComponents/categoryScroll/CategoryList";
 import FarmersList from "../layouts/farmerSlider/FarmerSliderList";
 import ProductList from "../layouts/productSlider/ProductSliderList";
 import BulkProdList from "../layouts/bulkDealSlider/BulkSliderList";
 import FooterDetails from "../layouts/footer/FooterDetails";
 import AdCategoryData1 from "../layouts/adCategoryGrid/AdCategoryData1";
 import AdCategoryData2 from "../layouts/adCategoryGrid/AdCategoryData2";
+import BannerUrls from "./BannerUrls";
 
 const CategoryScroll = lazy(() =>
   import("./homeComponents/categoryScroll/CategoryScroll")
@@ -48,7 +51,41 @@ const getWidth = () => {
   return window.innerWidth;
 };
 
+const baseUrl = "http://abhijitpatil.pythonanywhere.com";
+
 function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
+  // ----- fetching data state mgmt -----
+  const [topCarouselUrls, setTopCarouselUrls] = useState([]);
+  const [Categories, setCategories] = useState([]);
+  const [banner1, setBanner1] = useState({});
+
+  // dataFetcher
+  const dataFetcher = async () => {
+    let carousel = await axios
+      .get(baseUrl + "/top_carousel/")
+      .catch((error) => {
+        console.log(error);
+      });
+    setTopCarouselUrls(carousel.data.results);
+
+    let categories = await axios.get(baseUrl + "/category/").catch((error) => {
+      console.log(error);
+    });
+    console.log(categories);
+
+    setCategories(categories.data.results);
+  };
+
+  // ------------------------------------
+
+  useEffect(() => {
+    dataFetcher();
+  }, []);
+
+  useEffect(() => {
+    console.log();
+  }, [topCarouselUrls, Categories]);
+
   // ------search should be open by default------
   // const searchBarBtn = document.getElementById("navbar_search_btn_group");
 
@@ -60,10 +97,14 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
   // --------------------------------------
 
   // calculation border radius based on device width ad passing as props
-  let borderRadiusWrapperOne = { borderRadius: "0 0 0 0" };
+  let borderRadiusWrapperOne = {
+    borderRadius: "0 0 0 0",
+  };
 
   if (getWidth() >= 1024) {
-    borderRadiusWrapperOne = { borderRadius: "0 0 25px 25px" };
+    borderRadiusWrapperOne = {
+      borderRadius: "0 0 25px 25px",
+    };
   }
 
   return (
@@ -79,6 +120,7 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
             <CategoryScroll categoryList={Categories} />
           </div>
           <div className="first_image_carousel">
+            {console.log(topCarouselUrls)}
             <CarouselSlider
               slides={topCarouselUrls}
               borderRadius={borderRadiusWrapperOne}
@@ -94,7 +136,10 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* Double info banner */}
           <div className="double_info_banner_type_one">
-            <DoubleInfoBannerTypeOne />
+            <DoubleInfoBannerTypeOne
+              banner1={BannerUrls.url[0]}
+              banner2={BannerUrls.url[1]}
+            />
           </div>
           {/* Farmer slider - active farmers */}
           <div className="farmer_slider_component">
@@ -116,7 +161,11 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* tripple banner */}
           <div className="tripple_info_banner_component">
-            <TrippleInfoBanner />
+            <TrippleInfoBanner
+              banner1={BannerUrls.url[2]}
+              banner2={BannerUrls.url[3]}
+              banner3={BannerUrls.url[4]}
+            />
           </div>
           {/* bulk slider - active bulk deals */}
           <div className="bulk_slider_component">
@@ -129,7 +178,10 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* double slider */}
           <div className="double_info_banner_component">
-            <DoubleInfoBanner />
+            <DoubleInfoBanner
+              banner1={BannerUrls.url[5]}
+              banner2={BannerUrls.url[6]}
+            />
           </div>
           {/* product slider */}
           <div className="product_slider_component">
@@ -142,7 +194,11 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* tripple banner */}
           <div className="tripple_info_banner_component">
-            <TrippleInfoBanner />
+            <TrippleInfoBanner
+              banner1={BannerUrls.url[7]}
+              banner2={BannerUrls.url[8]}
+              banner3={BannerUrls.url[9]}
+            />
           </div>
           {/* bulk slider - active bulk deals */}
           <div className="bulk_slider_component">
@@ -155,7 +211,10 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* double slider */}
           <div className="double_info_banner_component">
-            <DoubleInfoBanner />
+            <DoubleInfoBanner
+              banner1={BannerUrls.url[10]}
+              banner2={BannerUrls.url[11]}
+            />
           </div>
           {/* ad category */}
           <div className="ad_cat_component ad_cat_1">
@@ -167,7 +226,10 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* double slider */}
           <div className="double_info_banner_component">
-            <DoubleInfoBanner />
+            <DoubleInfoBanner
+              banner1={BannerUrls.url[12]}
+              banner2={BannerUrls.url[13]}
+            />
           </div>
           {/* product slider */}
           <div className="product_slider_component">
@@ -189,7 +251,10 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* double slider */}
           <div className="double_info_banner_component">
-            <DoubleInfoBanner />
+            <DoubleInfoBanner
+              banner1={BannerUrls.url[14]}
+              banner2={BannerUrls.url[15]}
+            />
           </div>
           {/* ad category */}
           <div className="ad_cat_component ad_cat_1">
@@ -201,7 +266,10 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* double slider */}
           <div className="double_info_banner_component">
-            <DoubleInfoBanner />
+            <DoubleInfoBanner
+              banner1={BannerUrls.url[16]}
+              banner2={BannerUrls.url[17]}
+            />
           </div>
           {/* ad category */}
           <div className="ad_cat_component ad_cat_1">

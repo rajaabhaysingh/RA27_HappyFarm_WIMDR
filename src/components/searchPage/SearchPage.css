@@ -29,6 +29,7 @@
   font-weight: bold;
   margin-right: 12px;
   padding-bottom: 3px;
+  white-space: nowrap;
 }
 .search_pg_sort_opt--active {
   padding: 0 4px;
@@ -36,6 +37,7 @@
   color: #ee5700;
   border-bottom: 2px solid #ee5700;
   padding-bottom: 4px;
+  white-space: nowrap;
 }
 .search_pg_sort_opt {
   padding: 0 4px;
@@ -44,6 +46,7 @@
   border-bottom: 2px solid transparent;
   padding-bottom: 4px;
   cursor: pointer;
+  white-space: nowrap;
 }
 .search_pg_pagination {
   margin: 32px 0;
@@ -195,6 +198,14 @@
     height: 100%;
     width: calc(100% - 8px);
     padding: 4px;
+  }
+  .search_pg_sort {
+    margin-top: 16px;
+    width: 100%;
+    overflow: scroll;
+  }
+  .search_pg_utility {
+    display: none;
   }
   .search_pg_normal {
     display: grid;

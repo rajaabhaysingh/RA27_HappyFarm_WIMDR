@@ -1,4 +1,11 @@
-import React, { useState, memo, useCallback, lazy, Suspense } from "react";
+import React, {
+  memo,
+  useEffect,
+  useState,
+  useCallback,
+  lazy,
+  Suspense,
+} from "react";
 import "./SignUp.css";
 
 import FallbackLazy from "../../FallbackLazy";
@@ -9,6 +16,12 @@ const SignUpOtp = lazy(() => import("./SignUpOtp"));
 const SignUpPwd = lazy(() => import("./SignUpPwd"));
 
 function SignUp({ setIsSignInOpen }) {
+  // ---- session id state for mobile otp verification ----
+  const [sessionId, setSessionId] = useState("");
+
+  const apikey = "3caf8194-d049-11ea-9fa5-0200cd936042";
+  // ------------------------------------------------------
+
   // -------local state mgmt---------
   const [signUpFormState, setSignUpFormState] = useState({
     step: 1,
@@ -17,7 +30,6 @@ function SignUp({ setIsSignInOpen }) {
     password: "",
     cnf_password: "",
   });
-
   // --------------------------------
 
   // -----next/previous step mgmt--------
@@ -48,8 +60,19 @@ function SignUp({ setIsSignInOpen }) {
   );
   // ------------------------------------
 
-  const { step, email, otp, password, cnf_password } = signUpFormState;
-  const formValues = { step, email, otp, password, cnf_password };
+  const { step, phone, otp, password, cnf_password } = signUpFormState;
+
+  const formValues = {
+    step,
+    phone,
+    otp,
+    password,
+    cnf_password,
+  };
+
+  useEffect(() => {
+    console.log("signup rerendered");
+  }, [otp]);
 
   switch (step) {
     case 1:
@@ -61,6 +84,9 @@ function SignUp({ setIsSignInOpen }) {
                 nextStep={nextStep}
                 handleChange={handleChange}
                 formValues={formValues}
+                apikey={apikey}
+                sessionId={sessionId}
+                setSessionId={setSessionId}
               />
             </Suspense>
           </ErrorBoundary>
@@ -77,6 +103,8 @@ function SignUp({ setIsSignInOpen }) {
                 nextStep={nextStep}
                 handleChange={handleChange}
                 formValues={formValues}
+                apikey={apikey}
+                sessionId={sessionId}
               />
             </Suspense>
           </ErrorBoundary>

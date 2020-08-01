@@ -46,6 +46,11 @@ function ProductSliderItem({
     // log prodId to preffered prod suggestionList
   };
 
+  // handleCall
+  const handleCall = () => {
+    window.open("tel:9988789755");
+  };
+
   return (
     <div className="product_slider_item_main_div">
       {renderFreshTag()}
@@ -95,7 +100,7 @@ function ProductSliderItem({
         <div className="product_utility_group">
           <div className="product_utility">
             <div className="product_contact_utility">
-              <button>
+              <button onClick={handleCall}>
                 <div className="contact_symbol">
                   <i className="fas fa-phone-alt"></i>
                 </div>
@@ -103,9 +108,15 @@ function ProductSliderItem({
               </button>
             </div>
             <div className="product_other_utility">
-              <div style={negotiableWrapper} className="product_is_negotiable">
-                <i className="fas fa-comments"></i>
-              </div>
+              <Link style={{ textDecoration: "none" }} to="/messages">
+                <div
+                  style={negotiableWrapper}
+                  className="product_is_negotiable"
+                >
+                  <i className="fas fa-comments"></i>
+                </div>
+              </Link>
+
               <div className="product_add_to_fav">
                 <i className="fas fa-heart"></i>
               </div>

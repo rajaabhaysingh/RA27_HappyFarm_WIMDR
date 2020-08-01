@@ -42,13 +42,17 @@ const BreadCrumbs = lazy(() =>
 );
 const Messages = lazy(() => import("./components/messages/Messages"));
 const Cart = lazy(() => import("./components/cart/Cart"));
+const Favourites = lazy(() => import("./components/favourites/Favourites"));
 
 const App = (props) => {
   // -------------------------------------
   // ---------handling messaging----------
 
   const [socket, setSocket] = useState(null);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    id: undefined,
+    token: undefined,
+  });
 
   // ------- setting user property in state --------
   const settingUser = useCallback(
@@ -355,6 +359,19 @@ const App = (props) => {
                   path="/cart"
                   render={(props) => (
                     <Cart
+                      {...props}
+                      user={user}
+                      setUser={setUser}
+                      isSearchBarOpen={isSearchBarOpen}
+                      setIsSearchBarOpen={setIsSearchBarOpen}
+                    />
+                  )}
+                />
+                <Route
+                  strict
+                  path="/favourites"
+                  render={(props) => (
+                    <Favourites
                       {...props}
                       user={user}
                       setUser={setUser}

@@ -1,19 +1,28 @@
 import React, { memo } from "react";
 import "./TrippleInfoBanner.css";
 
-function TrippleInfoBanner() {
+function TrippleInfoBanner({ banner1, banner2, banner3 }) {
   return (
     <div className="tripple_info_main_div">
       <div className="tripple_info_banner_sub_div_one">
-        <div className="tripple_info_details_one"></div>
+        <div
+          style={{ background: `url(${banner1})` }}
+          className="tripple_info_details_one"
+        ></div>
       </div>
       {/* <div className="mid_spacer_tripple_banner"></div> */}
       <div className="tripple_info_banner_sub_div_two">
-        <div className="tripple_info_details_two"></div>
+        <div
+          style={{ background: `url(${banner2})` }}
+          className="tripple_info_details_two"
+        ></div>
       </div>
       {/* <div className="mid_spacer_tripple_banner"></div> */}
       <div className="tripple_info_banner_sub_div_three">
-        <div className="tripple_info_details_three"></div>
+        <div
+          style={{ background: `url(${banner3})` }}
+          className="tripple_info_details_three"
+        ></div>
       </div>
     </div>
   );

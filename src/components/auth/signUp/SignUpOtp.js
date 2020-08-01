@@ -1,27 +1,56 @@
-import React, { useState, useRef, memo } from "react";
+import React, { memo, useEffect, useState, useRef, useCallback } from "react";
 import "./SignUpOtp.css";
 
-function SignUpOtp({ formValues, handleChange, nextStep, prevStep }) {
+import axios from "axios";
+
+function SignUpOtp({
+  formValues,
+  handleChange,
+  nextStep,
+  prevStep,
+  apikey,
+  sessionId,
+}) {
   const [otpError, setOtpError] = useState(null);
 
-  // ---local form state mgmt-----
-  const handleConfirm = (e) => {
-    try {
-      // verify otp
-      // if successful
-      e.preventDefault();
-      if (formValues.otp.length === 6) {
-        otpError && setOtpError(null);
+  const url =
+    "https://2factor.in/API/V1/" +
+    apikey +
+    "/SMS/VERIFY/" +
+    sessionId +
+    "/" +
+    formValues.otp;
+
+  console.log(url);
+
+  useEffect(() => {
+    console.log(formValues);
+  }, [formValues.otp]);
+
+  // ---- otp submission -----
+  const verifyOtp = useCallback(async () => {
+    let res = await axios.get(url);
+
+    console.log(res.data.Details);
+
+    setTimeout(() => {
+      if (res.data.Details === "OTP Matched") {
         nextStep();
-      } else {
-        setOtpError("Invalid OTP - accepts any 6 digit OTP currently.");
       }
-      // else
-      // error popup
+    }, 1000);
+  }, [formValues]);
+  // ------------------------
+
+  // ---local form state mgmt-----
+  const handleConfirm = useCallback((e) => {
+    try {
+      e.preventDefault();
+      verifyOtp();
+      nextStep();
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
   // -----------------------------
 
   // use ref
@@ -77,7 +106,7 @@ function SignUpOtp({ formValues, handleChange, nextStep, prevStep }) {
     <div className="sign_up_otp_main_div">
       <form className="sign_up_form" onSubmit={handleConfirm}>
         <div className="sign_up_label">
-          Enter OTP sent to your email address or open email to vefify:
+          Enter OTP sent to your mobile number:
         </div>
         <input
           required
@@ -123,7 +152,6 @@ function SignUpOtp({ formValues, handleChange, nextStep, prevStep }) {
           </button>
         </div>
       </form>
-      {console.log("otp rendered")}
     </div>
   );
 }

@@ -15,7 +15,7 @@ function CategoryScroll({ categoryList }) {
               <CategoryScrollItem
                 key={category.name}
                 categoryName={category.name}
-                iconURL={category.catIconUrl}
+                iconUrl={category.iconUrl}
               />
             ))}
           </Suspense>

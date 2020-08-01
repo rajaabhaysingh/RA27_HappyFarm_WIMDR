@@ -9,7 +9,7 @@ import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 const SignIn = lazy(() => import("./signIn/SignIn"));
 const SignUp = lazy(() => import("./signUp/SignUp"));
 
-function SignInUp({ onClose, user, setUser }) {
+function SignInUp({ onClose, user, setUser, setIsFormOpen }) {
   // ----------sign-up / sign-in state mgmt---------
 
   // form toggle (between sign-in and sign-up) logic
@@ -56,7 +56,11 @@ function SignInUp({ onClose, user, setUser }) {
       return (
         <ErrorBoundary>
           <Suspense fallback={<FallbackLazy />}>
-            <SignIn user={user} setUser={setUser} />
+            <SignIn
+              user={user}
+              setUser={setUser}
+              setIsFormOpen={setIsFormOpen}
+            />
           </Suspense>
         </ErrorBoundary>
       );

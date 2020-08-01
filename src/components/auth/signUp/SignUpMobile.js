@@ -1,9 +1,18 @@
-import React, { useState, memo } from "react";
+import React, { memo, useCallback, useState } from "react";
 import "./SignUpMobile.css";
+
+import axios from "axios";
 
 import { Link } from "react-router-dom";
 
-function SignUpMobile({ formValues, handleChange, nextStep }) {
+function SignUpMobile({
+  formValues,
+  handleChange,
+  nextStep,
+  sessionId,
+  setSessionId,
+  apikey,
+}) {
   const [mobError, setMobError] = useState(null);
 
   // validateMobile
@@ -12,20 +21,41 @@ function SignUpMobile({ formValues, handleChange, nextStep }) {
     return mobilePattern.test(phoneNumber);
   };
 
+  // generateOTP
+  const generateOTP = useCallback(
+    async (phonenumber) => {
+      let res = await axios.get(
+        `http://2factor.in/API/V1/${apikey}/SMS/${phonenumber}/AUTOGEN`
+      );
+      setSessionId(res.data.Details);
+      console.log(res.data.Details);
+    },
+    [formValues]
+  );
+
   // ---local form state mgmt-----
-  const handleContinue = (e) => {
-    try {
-      e.preventDefault();
-      if (validateMobile(formValues.phone)) {
-        setMobError(null);
-        nextStep();
-      } else {
-        setMobError("Invalid mobile number.");
+  const handleContinue = useCallback(
+    (e) => {
+      try {
+        e.preventDefault();
+
+        if (formValues.phone.length === 10) {
+          setMobError(null);
+          // generateOTP(formValues.phone);
+          setSessionId("sdfghjk");
+
+          setTimeout(() => {
+            nextStep();
+          }, 1000);
+        } else {
+          setMobError("Invalid mobile number.");
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    },
+    [formValues]
+  );
   // -----------------------------
 
   return (

@@ -36,42 +36,43 @@ function SignUpPwd({ handleChange, formValues, setIsSignInOpen }) {
     return regexPwd.test(pwd);
   };
 
+  // detect os
+  const detectOS = () => {
+    let OSName = "Unknown OS";
+    if (navigator.userAgent.indexOf("Win") != -1) OSName = "Windows";
+    if (navigator.userAgent.indexOf("Mac") != -1) OSName = "Macintosh";
+    if (navigator.userAgent.indexOf("Linux") != -1) OSName = "Linux";
+    if (navigator.userAgent.indexOf("Android") != -1) OSName = "Android";
+    if (navigator.userAgent.indexOf("like Mac") != -1) OSName = "iOS";
+    return OSName;
+  };
+
   // ---local form state mgmt-----
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     if (formValues.password === formValues.cnf_password) {
       if (validatePwd(formValues.password)) {
         setPwdError(null);
 
         // send registration POST request
-        axios
-          .post("http://127.0.0.1:8000/accounts/register", {
-            email: formValues.email,
+        let res = await axios
+          .post("http://abhijitpatil.pythonanywhere.com/accounts/register/", {
+            phone: "+91" + formValues.phone,
             password: formValues.password,
-          })
-          .then((response) => {
-            console.log(response);
-
-            if (response.status === 201) {
-              // redirect to login screen
-              e.preventDefault();
-              handleToast(
-                "Sign-up successful. Redirecting to login-screen.",
-                "success"
-              );
-              setTimeout(() => {
-                setIsSignInOpen(true);
-              }, 1000);
-            } else {
-              e.preventDefault();
-              setPwdError("Something went wrong. Please verify and try again.");
-            }
-            e.preventDefault();
+            password_confirm: formValues.cnf_password,
+            registration_mode: detectOS(),
           })
           .catch((error) => {
             console.log(error);
-            e.preventDefault();
+            setPwdError(error);
           });
+        setPwdError("Successful! Redirecting to login page.");
+        setTimeout(() => {
+          console.log(res);
+          if (res.status === 201) {
+            setIsSignInOpen(true);
+          }
+        }, 1000);
       } else {
         e.preventDefault();
         setPwdError(
@@ -88,8 +89,8 @@ function SignUpPwd({ handleChange, formValues, setIsSignInOpen }) {
   return (
     <div className="sign_up_pwd_main_div">
       <form className="sign_up_form" onSubmit={handleSignUp}>
-        <div className="sign_up_label_pri">Email ID:</div>
-        <div className="sign_up_pwd_mob">{formValues.email}</div>
+        <div className="sign_up_label_pri">Mobile number:</div>
+        <div className="sign_up_pwd_mob">{formValues.phone}</div>
         <div className="sign_up_label_sec">Enter password:</div>
         <input
           required

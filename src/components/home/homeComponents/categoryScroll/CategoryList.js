@@ -1,78 +1,78 @@
 import Placeholder from "../../../../res/categoryScroll/placeholder.svg";
 
-const categoryList = [
+const CategoryList = [
   {
     name: "Veggies",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "Fruits",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "Pulses",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "Grains",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "Dairy",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "Herbs",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "Spices",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "Fodder",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "Fibers",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "Livestock",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "Flowers",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
   {
     name: "See all",
-    catIconUrl: Placeholder,
+    iconUrl: Placeholder,
     redirectUrl: "",
     catQuery: {},
   },
 ];
 
-export default categoryList;
+export default CategoryList;

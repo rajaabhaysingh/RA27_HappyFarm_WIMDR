@@ -1,6 +1,5 @@
 import React, {
   useCallback,
-  useLayoutEffect,
   useState,
   memo,
   lazy,
@@ -129,6 +128,22 @@ const Header = ({
 
   // --------------------------------------------------
 
+  const renderSignedInOutLinks = () => {
+    if (user.id || user.token) {
+      return (
+        <div className="signed_in_component">
+          <SignedInLinks user={user} setUser={setUser} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="signed_out_component">
+          <SignedOutLinks user={user} setUser={setUser} />
+        </div>
+      );
+    }
+  };
+
   return (
     <header className="header" data-testid="header">
       <nav className="container">
@@ -216,21 +231,20 @@ const Header = ({
           </button>
         </div>
         {/* Profile dropdown div */}
-        <div className="signed_in_component">
-          <SignedInLinks user={user} setUser={setUser} />
-        </div>
-        {/* Profile dropdown div */}
-        <div className="signed_out_component">
-          <SignedOutLinks user={user} setUser={setUser} />
-        </div>
+        {renderSignedInOutLinks()}
         {/* Navbar end utilities (cart and notification icons) */}
         <div className="navbar_utilities">
           <ul className="navbar_utilities_list">
-            <li className="navbar_utilities_item">
-              <div className="navbar_lang_icon">
-                <i className="fas fa-globe"></i>
-              </div>
-            </li>
+            <Link
+              style={{ textDecoration: "none", color: "inherit" }}
+              to="/cart"
+            >
+              <li className="navbar_utilities_item">
+                <div className="navbar_lang_icon">
+                  <i className="fas fa-shopping-basket"></i>
+                </div>
+              </li>
+            </Link>
           </ul>
         </div>
         {/* Navbar  search button */}

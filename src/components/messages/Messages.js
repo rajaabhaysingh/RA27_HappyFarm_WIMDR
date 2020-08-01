@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Messages.css";
 
+import HaltScreen from "../haltScreen/HaltScreen";
+
 import { LOG_OUT } from "./Events";
 
 import io from "socket.io-client";
@@ -31,7 +33,9 @@ const Messages = ({ socket, setSocket, user, setUser, settingUser }) => {
   return (
     <div className="msg_main_div">
       <div className="msg_friend_container"></div>
-      <div className="msg_chat_container"></div>
+      <div className="msg_chat_container">
+        <HaltScreen />
+      </div>
     </div>
   );
 };

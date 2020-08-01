@@ -34,6 +34,10 @@
     box-sizing: border-box;
     box-shadow: 1px 1px 8px -1px #a0a0a0;
     background-color: #0f4153;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .tripple_info_details_one:hover,
@@ -90,6 +94,9 @@
     background: #0f4153;
     border-radius: 8px;
     box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .tripple_info_details_one {

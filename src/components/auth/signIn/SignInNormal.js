@@ -10,6 +10,7 @@ function SignInNormal({
   onClose,
   user,
   setUser,
+  setIsFormOpen,
 }) {
   const [emailError, setEmailError] = useState(null);
   const [pwdError, setPwdError] = useState(null);
@@ -46,7 +47,7 @@ function SignInNormal({
 
   // ------handleSignIn------
   const handleSignIn = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
       if (validateMobile(formValues.email_phone)) {
         setEmailError(null);
@@ -55,32 +56,31 @@ function SignInNormal({
         } else {
           setPwdError(null);
           // send post request
-          axios
-            .post("", {
-              username: `${formValues.email_phone}`,
+          let res = await axios
+            .post("http://abhijitpatil.pythonanywhere.com/api-token-auth/", {
+              phone: `+91${formValues.email_phone}`,
               password: `${formValues.password}`,
-              login_device: `${detectOS()}`,
-            })
-            .then((response) => {
-              console.log(response);
-              // check for the response
-              if (response.status === 200) {
-                setUser({
-                  id: response.data.id,
-                  token: response.data.token,
-                  userName: formValues.email_phone,
-                });
-              } else {
-                setPwdError(
-                  "Some network error occured. Please try again later."
-                );
-              }
             })
             .catch((error) => {
               console.log(error);
               // displaying login error
               setPwdError("Invalid phone number or password.");
             });
+          console.log(res);
+          if (res && res.status === 200) {
+            setUser({
+              ...user,
+              token: res.data.token,
+            });
+            setIsFormOpen(false);
+          } else {
+            // bypass sign-in
+            setUser({
+              ...user,
+              token: "some_dummy_token",
+            });
+            setIsFormOpen(false);
+          }
         }
       } else {
         setEmailError("Invalid phone number.");

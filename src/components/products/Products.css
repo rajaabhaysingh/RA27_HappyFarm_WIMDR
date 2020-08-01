@@ -46,7 +46,7 @@
     padding: 16px 16px 40px 16px;
   }
   .prod_cat_item {
-    margin-right: 16px;
+    margin-right: 24px;
   }
   .prod_cat_item:hover > img {
     transform: scale(1.05);
