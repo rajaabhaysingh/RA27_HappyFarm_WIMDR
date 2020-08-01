@@ -1,6 +1,6 @@
 # Repo for SIH 2020 - Team HappyFarm
 
-# Hosted on `http://farmted.000webhostapp.com/`
+# Hosted on [www.farmted.000webhostapp.com](http://www.farmted.000webhostapp.com/)
 
 May take time reflect changes on live website (http://farmted.000webhostapp.com/)
 
@@ -78,3 +78,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+---
+
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
+<img src="https://happyfarmmedia.imfast.io/images/teamHappyFarm/RA27%20HappyFarm%20IIITS.png" width = 500>
+
