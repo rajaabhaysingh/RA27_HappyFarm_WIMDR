@@ -46,7 +46,6 @@ const BulkSlider = lazy(() => import("../layouts/bulkDealSlider/BulkSlider"));
 const SearchBarPc = lazy(() => import("../layouts/searchBarPC/SearchBarPc"));
 
 // Function to get width of screen
-// Returns 1024 if width is greater than 1024 pixels
 const getWidth = () => {
   return window.innerWidth;
 };
