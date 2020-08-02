@@ -29,8 +29,9 @@ function SignUpMobile({
       let res = await axios.get(
         `http://2factor.in/API/V1/${apikey}/SMS/${phonenumber}/AUTOGEN`
       );
+      // console.log(res);
       setSessionId(res.data.Details);
-      console.log(res.data.Details);
+      // console.log(res.data.Details);
     },
     [formValues]
   );
@@ -42,9 +43,10 @@ function SignUpMobile({
         e.preventDefault();
 
         if (formValues.phone.length === 10) {
+          console.log("phoneno: ", formValues.phone);
           setMobError(null);
-          // generateOTP(formValues.phone);
-          setSessionId("sdfghjk");
+          generateOTP(formValues.phone);
+          // setSessionId("07dd7e4d-5622-4940-84f7-6bec5c606d59");
 
           setTimeout(() => {
             nextStep();
