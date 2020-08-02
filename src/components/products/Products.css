@@ -44,6 +44,7 @@
   .prod_cat_list {
     width: calc(100% - 32px);
     padding: 16px 16px 40px 16px;
+    justify-content: space-around;
   }
   .prod_cat_item {
     margin-right: 24px;

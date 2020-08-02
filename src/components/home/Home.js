@@ -12,7 +12,7 @@ import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import ProductOptions from "../layouts/ProductOptions";
 // import topCarouselUrls from "./homeComponents/topCarousel/TopCarouselUrls";
 // import CategoryList from "./homeComponents/categoryScroll/CategoryList";
-import FarmersList from "../layouts/farmerSlider/FarmerSliderList";
+// import FarmersList from "../layouts/farmerSlider/FarmerSliderList";
 import ProductList from "../layouts/productSlider/ProductSliderList";
 import BulkProdList from "../layouts/bulkDealSlider/BulkSliderList";
 import FooterDetails from "../layouts/footer/FooterDetails";
@@ -50,13 +50,13 @@ const getWidth = () => {
   return window.innerWidth;
 };
 
-const baseUrl = "http://abhijitpatil.pythonanywhere.com";
-
 function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
   // ----- fetching data state mgmt -----
+  const baseUrl = "https://abhijitpatil.pythonanywhere.com";
+
   const [topCarouselUrls, setTopCarouselUrls] = useState([]);
   const [Categories, setCategories] = useState([]);
-  const [banner1, setBanner1] = useState({});
+  const [FarmersList, setFarmersList] = useState([]);
 
   // dataFetcher
   const dataFetcher = async () => {
@@ -70,9 +70,14 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
     let categories = await axios.get(baseUrl + "/category/").catch((error) => {
       console.log(error);
     });
-    console.log(categories);
-
     setCategories(categories.data.results);
+
+    let farmers = await axios
+      .get("https://randomuser.me/api/?results=20")
+      .catch((error) => {
+        console.log(error);
+      });
+    setFarmersList(farmers.data.results);
   };
 
   // ------------------------------------
@@ -83,7 +88,7 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
 
   useEffect(() => {
     console.log();
-  }, [topCarouselUrls, Categories]);
+  }, [topCarouselUrls, FarmersList, Categories]);
 
   // ------search should be open by default------
   // const searchBarBtn = document.getElementById("navbar_search_btn_group");

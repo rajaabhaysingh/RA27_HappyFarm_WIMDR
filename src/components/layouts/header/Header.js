@@ -8,6 +8,8 @@ import React, {
 } from "react";
 import "./Header.css";
 
+import { Translate } from "react-auto-translate";
+
 import { NavLink, Link } from "react-router-dom";
 
 import LogoLightBg from "../../../res/header/logo_light_bg.png";
@@ -28,6 +30,8 @@ const SearchBarPc = lazy(() => import("../searchBarPC/SearchBarPc"));
 const MenuTab = lazy(() => import("../menuTab/MenuTab"));
 
 const Header = ({
+  lang,
+  setLang,
   user,
   setUser,
   isSearchBarOpen,
@@ -177,7 +181,9 @@ const Header = ({
                   onMouseEnter={catListClickHandler}
                   onClick={catListClickHandler}
                 >
-                  <span>Products</span>
+                  <span>
+                    <Translate>Products</Translate>
+                  </span>
                   <span className="navbar_categories_down_icon">
                     <i className="fas fa-caret-down"></i>
                   </span>
@@ -235,16 +241,41 @@ const Header = ({
         {/* Navbar end utilities (cart and notification icons) */}
         <div className="navbar_utilities">
           <ul className="navbar_utilities_list">
-            <Link
-              style={{ textDecoration: "none", color: "inherit" }}
-              to="/cart"
-            >
-              <li className="navbar_utilities_item">
+            <li className="navbar_utilities_item">
+              <Link
+                style={{ textDecoration: "none", color: "inherit" }}
+                to="/cart"
+              >
                 <div className="navbar_lang_icon">
                   <i className="fas fa-shopping-basket"></i>
                 </div>
-              </li>
-            </Link>
+              </Link>
+            </li>
+            <li>
+              <select
+                value={lang.defLang}
+                onChange={(e) => {
+                  setLang({
+                    defLang: lang.prefLang,
+                    prefLang: e.target.value,
+                  });
+                }}
+              >
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="bn">Bengali</option>
+                <option value="ar">Arabic</option>
+                <option value="gu">Gujarati</option>
+                <option value="kn">Kannad</option>
+                <option value="ml">Malayalam</option>
+                <option value="mr">Marathi</option>
+                <option value="pa">Punjabi</option>
+                <option value="sd">Sindhi</option>
+                <option value="te">Telugu</option>
+                <option value="ta">Tamil</option>
+                <option value="ur">Urdu</option>
+              </select>
+            </li>
           </ul>
         </div>
         {/* Navbar  search button */}

@@ -1,12 +1,13 @@
-import React, { lazy, Suspense, memo } from "react";
+import React, { useEffect, useState, lazy, Suspense, memo } from "react";
 import "./Products.css";
+
+import axios from "axios";
 
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
 import FallbackLazy from "../FallbackLazy";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
-import ProdCatList from "./ProdCatList";
 import AdCategoryData1 from "../layouts/adCategoryGrid/AdCategoryData1";
 import AdCategoryData2 from "../layouts/adCategoryGrid/AdCategoryData2";
 import ProductList from "../layouts/productSlider/ProductSliderList";
@@ -30,8 +31,32 @@ const Product = lazy(() => import("./Product"));
 const SearchPage = lazy(() => import("../searchPage/SearchPage"));
 
 const Products = () => {
-  const prodList = ProdCatList;
+  // ----- fetching data state mgmt -----
+  const baseUrl = "https://abhijitpatil.pythonanywhere.com";
 
+  const [Categories, setCategories] = useState([]);
+
+  // dataFetcher
+  const dataFetcher = async () => {
+    let categories = await axios.get(baseUrl + "/category/").catch((error) => {
+      console.log(error);
+    });
+    console.log(categories);
+
+    setCategories(categories.data.results);
+  };
+
+  // ------------------------------------
+
+  useEffect(() => {
+    dataFetcher();
+  }, []);
+
+  useEffect(() => {
+    console.log();
+  }, [Categories]);
+
+  // for routing
   let { path, url } = useRouteMatch();
 
   return (
@@ -41,14 +66,10 @@ const Products = () => {
           <ErrorBoundary>
             <Suspense fallback={<FallbackLazy />}>
               <div className="prod_cat_list">
-                {prodList.map((item) => (
-                  <Link to={`${url}/`}>
+                {Categories.map((item) => (
+                  <Link to={`${url}/search?q=${item.name}`}>
                     <div key={item.name} className="prod_cat_item">
-                      <img
-                        className="cat_item_img"
-                        src={item.catIconUrl}
-                        alt=""
-                      />
+                      <img className="cat_item_img" src={item.iconUrl} alt="" />
                       <div className="cat_item_name">{item.name}</div>
                     </div>
                   </Link>
@@ -56,7 +77,11 @@ const Products = () => {
               </div>
               {/* tripple banner */}
               <div className="prod_tripple_banner">
-                <TrippleInfoBanner />
+                <TrippleInfoBanner
+                  banner1={BannerUrls.url[24]}
+                  banner2={BannerUrls.url[23]}
+                  banner3={BannerUrls.url[22]}
+                />
               </div>
               {/* ad category */}
               <div className="prod_ad_cat ">
@@ -68,7 +93,10 @@ const Products = () => {
               </div>
               {/* double banner */}
               <div className="prod_double_banner">
-                <DoubleInfoBanner />
+                <DoubleInfoBanner
+                  banner1={BannerUrls.url[25]}
+                  banner2={BannerUrls.url[21]}
+                />
               </div>
               {/* ad category */}
               <div className="prod_ad_cat ">
@@ -80,7 +108,10 @@ const Products = () => {
               </div>
               {/* double banner */}
               <div className="prod_double_banner">
-                <DoubleInfoBanner />
+                <DoubleInfoBanner
+                  banner1={BannerUrls.url[20]}
+                  banner2={BannerUrls.url[19]}
+                />
               </div>
               {/* product slider */}
               <div className="product_slider_component">
@@ -93,7 +124,10 @@ const Products = () => {
               </div>
               {/* double banner */}
               <div className="prod_double_banner">
-                <DoubleInfoBanner />
+                <DoubleInfoBanner
+                  banner1={BannerUrls.url[18]}
+                  banner2={BannerUrls.url[17]}
+                />
               </div>
               {/* ad category */}
               <div className="prod_ad_cat ">
@@ -105,7 +139,10 @@ const Products = () => {
               </div>
               {/* double banner */}
               <div className="prod_double_banner">
-                <DoubleInfoBanner />
+                <DoubleInfoBanner
+                  banner1={BannerUrls.url[15]}
+                  banner2={BannerUrls.url[16]}
+                />
               </div>
               {/* ad category */}
               <div className="prod_ad_cat ">
@@ -117,7 +154,11 @@ const Products = () => {
               </div>
               {/* tripple banner */}
               <div className="prod_tripple_banner">
-                <TrippleInfoBanner />
+                <TrippleInfoBanner
+                  banner1={BannerUrls.url[12]}
+                  banner2={BannerUrls.url[11]}
+                  banner3={BannerUrls.url[10]}
+                />
               </div>
               {/* ad category */}
               <div className="prod_ad_cat ">
@@ -129,7 +170,10 @@ const Products = () => {
               </div>
               {/* double banner */}
               <div className="prod_double_banner">
-                <DoubleInfoBanner />
+                <DoubleInfoBanner
+                  banner1={BannerUrls.url[14]}
+                  banner2={BannerUrls.url[13]}
+                />
               </div>
               {/* product slider */}
               <div className="product_slider_component">

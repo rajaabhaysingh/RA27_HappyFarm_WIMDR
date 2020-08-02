@@ -1,12 +1,14 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import "./Farmers.css";
+
+import axios from "axios";
 
 import FallbackLazy from "../FallbackLazy";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
 import Placeholder from "../../res/categoryScroll/placeholder.svg";
 
-import FarmersList from "../layouts/farmerSlider/FarmerSliderList";
+// import FarmersList from "../layouts/farmerSlider/FarmerSliderList";
 import FooterDetails from "../layouts/footer/FooterDetails";
 const data = [
   {
@@ -45,8 +47,34 @@ const TrippleInfoBanner = lazy(() =>
 const Footer = lazy(() => import("../layouts/footer/Footer"));
 
 const Farmers = () => {
-  const [farmerSearch, setFarmerSearch] = useState("");
+  // ----- fetching data state mgmt -----
+  const baseUrl = "https://abhijitpatil.pythonanywhere.com";
+
+  const [FarmersList, setFarmersList] = useState([]);
+
+  // dataFetcher
+  const dataFetcher = async () => {
+    let farmers = await axios
+      .get("https://randomuser.me/api/?results=20")
+      .catch((error) => {
+        console.log(error);
+      });
+    setFarmersList(farmers.data.results);
+  };
+
+  // ------------------------------------
+
+  useEffect(() => {
+    dataFetcher();
+  }, []);
+
+  useEffect(() => {
+    console.log();
+  }, [FarmersList]);
+
   // handleFarmersSearch
+  const [farmerSearch, setFarmerSearch] = useState("");
+
   const handleFarmersSearch = (e) => {
     e.preventDefault();
   };

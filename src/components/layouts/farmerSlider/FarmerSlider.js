@@ -4,41 +4,9 @@ import "./FarmerSlider.css";
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
-import {
-  List,
-  AutoSizer,
-  CellMeasurer,
-  CellMeasurerCache,
-} from "react-virtualized";
-
-import { ColumnSizer, Grid } from "react-virtualized";
-
 const FarmerSliderItem = lazy(() => import("./FarmerSliderItem"));
 
 function FarmerSlider({ boldHeading, normalHeading, farmersList }) {
-  const child = () => {
-    return (
-      <div>
-        <ErrorBoundary>
-          <Suspense fallback={<FallbackLazy />}>
-            {farmersList.map((farmer) => (
-              <FarmerSliderItem
-                key={farmer.id}
-                name={farmer.name}
-                place={farmer.place}
-                dpUrl={farmer.dpUrl}
-                rating={farmer.rating}
-                profileUrl={farmer.profileUrl}
-                productUrl={farmer.productUrl}
-                isAd={farmer.isAd}
-              />
-            ))}
-          </Suspense>
-        </ErrorBoundary>
-      </div>
-    );
-  };
-
   return (
     <div className="farmer_slider_main_div">
       <div className="farmer_slider_inner_main_div">
@@ -62,16 +30,18 @@ function FarmerSlider({ boldHeading, normalHeading, farmersList }) {
           <div className="farmer_slider_container">
             <ErrorBoundary>
               <Suspense fallback={<FallbackLazy />}>
+                {console.log(farmersList)}
                 {farmersList.map((farmer) => (
                   <FarmerSliderItem
-                    key={farmer.id}
-                    name={farmer.name}
-                    place={farmer.place}
-                    dpUrl={farmer.dpUrl}
-                    rating={farmer.rating}
-                    profileUrl={farmer.profileUrl}
-                    productUrl={farmer.productUrl}
-                    isAd={farmer.isAd}
+                    key={farmer.id.name}
+                    id={farmer.id.value}
+                    name={`${farmer.name.title} ${farmer.name.first} ${farmer.name.last}`}
+                    place={`${farmer.location.city}, ${farmer.location.state} `}
+                    dpUrl={farmer.picture.thumbnail}
+                    rating={`${Math.floor(Math.random() * 5)}`}
+                    profileUrl={"/"}
+                    productUrl={"/"}
+                    isAd={farmer.dob.age > 25 ? true : false}
                   />
                 ))}
               </Suspense>

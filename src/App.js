@@ -9,6 +9,8 @@ import React, {
 } from "react";
 import "./App.css";
 
+import { Translator } from "react-auto-translate";
+
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import FallbackLazy from "./components/FallbackLazy";
@@ -44,8 +46,30 @@ const Messages = lazy(() => import("./components/messages/Messages"));
 const Cart = lazy(() => import("./components/cart/Cart"));
 const Favourites = lazy(() => import("./components/favourites/Favourites"));
 
+// for language translation part
+// This is just an example of how you could wire this to localStorage
+const cacheProvider = {
+  get: (language, key) =>
+    ((JSON.parse(localStorage.getItem("translations")) || {})[key] || {})[
+      language
+    ],
+  set: (language, key, value) => {
+    const existing = JSON.parse(localStorage.getItem("translations")) || {
+      [key]: {},
+    };
+    existing[key] = { ...existing[key], [language]: value };
+    localStorage.setItem("translations", JSON.stringify(existing));
+  },
+};
+
 const App = (props) => {
+  // ----- language translation part -----
+  const [lang, setLang] = useState({
+    defLang: "en",
+    prefLang: "en",
+  });
   // -------------------------------------
+
   // ---------handling messaging----------
 
   const [socket, setSocket] = useState(null);
@@ -63,7 +87,6 @@ const App = (props) => {
     [USER_CONNECTED, user]
   );
 
-  // -------------------------------------
   // -------------------------------------
 
   // default backdrop TRANSARENCY
@@ -169,231 +192,240 @@ const App = (props) => {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        {/* Main header components */}
-        <header className="header_main">
-          <ErrorBoundary>
-            <Suspense fallback={<FallbackLazy />}>
-              <TopMessage />
-            </Suspense>
-          </ErrorBoundary>
-          {/* Passing drawerToggleClickHandler prop uner the name drawerClickHandler */}
-          <ErrorBoundary>
-            <Suspense fallback={<FallbackLazy />}>
-              <Header
-                user={user}
-                setUser={setUser}
-                isSearchBarOpen={isSearchBarOpen}
-                setIsSearchBarOpen={setIsSearchBarOpen}
-                setMarginTop={setMarginTop}
-                drawerClickHandler={drawerToggleClickHandler}
-              />
-            </Suspense>
-          </ErrorBoundary>
-
-          <div
-            className="side_drawer_components"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            id="side_drawer_components"
-          >
+      <Translator
+        cacheProvider={cacheProvider}
+        to={lang.prefLang}
+        from={lang.defLang}
+        googleApiKey="AIzaSyC9qu--9R3WiQi62kY7kgp_wG2p17jpmu4"
+      >
+        <div className="App">
+          {/* Main header components */}
+          <header className="header_main">
             <ErrorBoundary>
               <Suspense fallback={<FallbackLazy />}>
-                <SideDrawer
-                  setIsDrawerOpen={setIsDrawerOpen}
-                  showDrawer={isDrawerOpen}
-                  translatePercent={"-100%"}
+                <TopMessage />
+              </Suspense>
+            </ErrorBoundary>
+            {/* Passing drawerToggleClickHandler prop uner the name drawerClickHandler */}
+            <ErrorBoundary>
+              <Suspense fallback={<FallbackLazy />}>
+                <Header
+                  lang={lang}
+                  setLang={setLang}
+                  user={user}
+                  setUser={setUser}
+                  isSearchBarOpen={isSearchBarOpen}
+                  setIsSearchBarOpen={setIsSearchBarOpen}
+                  setMarginTop={setMarginTop}
+                  drawerClickHandler={drawerToggleClickHandler}
                 />
               </Suspense>
             </ErrorBoundary>
-            {backDropDark}
-          </div>
-          <ErrorBoundary>
-            <Suspense fallback={<FallbackLazy />}>
-              <BreadCrumbs />
-            </Suspense>
-          </ErrorBoundary>
-        </header>
 
-        {/* Body comp */}
-        <main className="body_main" style={{ marginTop: `${marginTop}` }}>
-          <ErrorBoundary>
-            <Suspense fallback={<FallbackLazy />}>
-              <Switch>
-                <Route
-                  exact
-                  path="/"
-                  render={(props) => (
-                    <Home
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  strict
-                  path="/dashboard"
-                  render={() => (
-                    <Dashboard
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  strict
-                  path="/farmersolution"
-                  render={(props) => (
-                    <FarmersSolution
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  strict
-                  path="/offers"
-                  render={(props) => (
-                    <Offers
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  strict
-                  path="/premium"
-                  render={(props) => (
-                    <Premium
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  exact
-                  path="/contact"
-                  render={(props) => (
-                    <Contact
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  strict
-                  path="/products"
-                  render={(props) => (
-                    <Products
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  strict
-                  path="/farmers"
-                  render={(props) => (
-                    <Farmers
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  strict
-                  path="/solutions"
-                  render={(props) => (
-                    <Solutions
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  strict
-                  path="/messages"
-                  render={(props) => (
-                    <Messages
-                      {...props}
-                      socket={socket}
-                      setSocket={setSocket}
-                      user={user}
-                      setUser={setUser}
-                      settingUser={settingUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  strict
-                  path="/cart"
-                  render={(props) => (
-                    <Cart
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  strict
-                  path="/favourites"
-                  render={(props) => (
-                    <Favourites
-                      {...props}
-                      user={user}
-                      setUser={setUser}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-                <Route
-                  render={(props) => (
-                    <FileNotFound
-                      {...props}
-                      isSearchBarOpen={isSearchBarOpen}
-                      setIsSearchBarOpen={setIsSearchBarOpen}
-                    />
-                  )}
-                />
-              </Switch>
-            </Suspense>
-          </ErrorBoundary>
-        </main>
-      </div>
+            <div
+              className="side_drawer_components"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              id="side_drawer_components"
+            >
+              <ErrorBoundary>
+                <Suspense fallback={<FallbackLazy />}>
+                  <SideDrawer
+                    setIsDrawerOpen={setIsDrawerOpen}
+                    showDrawer={isDrawerOpen}
+                    translatePercent={"-100%"}
+                  />
+                </Suspense>
+              </ErrorBoundary>
+              {backDropDark}
+            </div>
+            <ErrorBoundary>
+              <Suspense fallback={<FallbackLazy />}>
+                <BreadCrumbs />
+              </Suspense>
+            </ErrorBoundary>
+          </header>
+
+          {/* Body comp */}
+          <main className="body_main" style={{ marginTop: `${marginTop}` }}>
+            <ErrorBoundary>
+              <Suspense fallback={<FallbackLazy />}>
+                <Switch>
+                  <Route
+                    exact
+                    path="/"
+                    render={(props) => (
+                      <Home
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    strict
+                    path="/dashboard"
+                    render={() => (
+                      <Dashboard
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    strict
+                    path="/farmersolution"
+                    render={(props) => (
+                      <FarmersSolution
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    strict
+                    path="/offers"
+                    render={(props) => (
+                      <Offers
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    strict
+                    path="/premium"
+                    render={(props) => (
+                      <Premium
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    exact
+                    path="/contact"
+                    render={(props) => (
+                      <Contact
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    strict
+                    path="/products"
+                    render={(props) => (
+                      <Products
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    strict
+                    path="/farmers"
+                    render={(props) => (
+                      <Farmers
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    strict
+                    path="/solutions"
+                    render={(props) => (
+                      <Solutions
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    strict
+                    path="/messages"
+                    render={(props) => (
+                      <Messages
+                        {...props}
+                        socket={socket}
+                        setSocket={setSocket}
+                        user={user}
+                        setUser={setUser}
+                        settingUser={settingUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    strict
+                    path="/cart"
+                    render={(props) => (
+                      <Cart
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    strict
+                    path="/favourites"
+                    render={(props) => (
+                      <Favourites
+                        {...props}
+                        user={user}
+                        setUser={setUser}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                  <Route
+                    render={(props) => (
+                      <FileNotFound
+                        {...props}
+                        isSearchBarOpen={isSearchBarOpen}
+                        setIsSearchBarOpen={setIsSearchBarOpen}
+                      />
+                    )}
+                  />
+                </Switch>
+              </Suspense>
+            </ErrorBoundary>
+          </main>
+        </div>
+      </Translator>
     </BrowserRouter>
   );
 };

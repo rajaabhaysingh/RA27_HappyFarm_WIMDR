@@ -16,6 +16,7 @@ const ProductSlider = lazy(() =>
   import("../layouts/productSlider/ProductSlider")
 );
 const Footer = lazy(() => import("../layouts/footer/Footer"));
+const CheckOut = lazy(() => import("./checkout/CheckOut"));
 
 const Cart = (props) => {
   const cartData = CartData;
@@ -304,6 +305,13 @@ const Cart = (props) => {
               </ErrorBoundary>
             </div>
           </>
+        </Route>
+        <Route path={`${path}/checkout`}>
+          <ErrorBoundary>
+            <Suspense fallback={<FallbackLazy />}>
+              <CheckOut />
+            </Suspense>
+          </ErrorBoundary>
         </Route>
       </Switch>
     </div>
