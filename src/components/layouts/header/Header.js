@@ -39,6 +39,14 @@ const Header = ({
   setMarginTop,
   drawerClickHandler,
 }) => {
+  // handleLanguageChange
+  const handleLanguageChange = (e) => {
+    setLang({
+      defLang: lang.prefLang,
+      prefLang: e.target.value,
+    });
+  };
+
   // -------CATEGORY LIST F(n)----------------
   let [isCatListOpen, setIsCatListOpen] = useState(false);
 
@@ -195,7 +203,9 @@ const Header = ({
             </li>
             <li className="navbar_menu_item">
               <NavLink to="/farmers" activeClassName="navbar_menu_item--active">
-                <span className="navbar_offers">Farmers</span>
+                <span className="navbar_offers">
+                  <Translate>Farmers</Translate>
+                </span>
               </NavLink>
             </li>
             <li className="navbar_menu_items_separator">
@@ -206,7 +216,9 @@ const Header = ({
                 to="/solutions"
                 activeClassName="navbar_menu_item--active"
               >
-                <span className="navbar_premium">Solution</span>
+                <span className="navbar_premium">
+                  <Translate>Solution</Translate>
+                </span>
               </NavLink>
             </li>
             <li className="navbar_menu_items_separator">
@@ -214,7 +226,9 @@ const Header = ({
             </li>
             <li className="navbar_menu_item">
               <NavLink to="/offers" activeClassName="navbar_menu_item--active">
-                <span className="navbar_farmers_solution">Offers</span>
+                <span className="navbar_farmers_solution">
+                  <Translate>Offers</Translate>
+                </span>
               </NavLink>
             </li>
             <li className="navbar_menu_items_separator">
@@ -222,7 +236,9 @@ const Header = ({
             </li>
             <li className="navbar_menu_item">
               <NavLink to="/contact" activeClassName="navbar_menu_item--active">
-                <span className="navbar_contact_help">Contact</span>
+                <span className="navbar_contact_help">
+                  <Translate>Contact</Translate>
+                </span>
               </NavLink>
             </li>
           </ul>
@@ -232,10 +248,29 @@ const Header = ({
         {/* Sell with us button */}
         <div className="sell_with_us_button_group">
           <button className="sell_with_us_button">
-            Sell with us
+            <Translate>Sell with us</Translate>
             <i className="fas fa-plus"></i>
           </button>
         </div>
+        <select
+          className="navbar_language_selector"
+          value={lang.defLang}
+          onChange={handleLanguageChange}
+        >
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="bn">বাংলা</option>
+          <option value="ar">عربى</option>
+          <option value="gu">ગુજરાતી</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="ml">മലയാളം</option>
+          <option value="mr">मराठी</option>
+          <option value="pa">ਪੰਜਾਬੀ</option>
+          <option value="sd">سنڌي</option>
+          <option value="te">తెలుగు</option>
+          <option value="ta">தமிழ்</option>
+          <option value="ur">اردو</option>
+        </select>
         {/* Profile dropdown div */}
         {renderSignedInOutLinks()}
         {/* Navbar end utilities (cart and notification icons) */}
@@ -250,31 +285,6 @@ const Header = ({
                   <i className="fas fa-shopping-basket"></i>
                 </div>
               </Link>
-            </li>
-            <li>
-              <select
-                value={lang.defLang}
-                onChange={(e) => {
-                  setLang({
-                    defLang: lang.prefLang,
-                    prefLang: e.target.value,
-                  });
-                }}
-              >
-                <option value="en">English</option>
-                <option value="hi">Hindi</option>
-                <option value="bn">Bengali</option>
-                <option value="ar">Arabic</option>
-                <option value="gu">Gujarati</option>
-                <option value="kn">Kannad</option>
-                <option value="ml">Malayalam</option>
-                <option value="mr">Marathi</option>
-                <option value="pa">Punjabi</option>
-                <option value="sd">Sindhi</option>
-                <option value="te">Telugu</option>
-                <option value="ta">Tamil</option>
-                <option value="ur">Urdu</option>
-              </select>
             </li>
           </ul>
         </div>
@@ -293,6 +303,7 @@ const Header = ({
             </div>
           </button>
         </div>
+
         {/* End spacer div */}
         <div className="spacer_end"></div>
       </nav>

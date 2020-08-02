@@ -1,6 +1,8 @@
 import React, { memo, lazy, Suspense } from "react";
 import "./ProductSliderItem.css";
 
+import { Translate } from "react-auto-translate";
+
 import { Link } from "react-router-dom";
 
 import FallbackLazy from "../../FallbackLazy";
@@ -37,7 +39,11 @@ function ProductSliderItem({
   // renderFreshTag
   const renderFreshTag = () => {
     if (isFresh) {
-      return <div className="product_fresh_tag">FRESH</div>;
+      return (
+        <div className="product_fresh_tag">
+          <Translate>FRESH</Translate>
+        </div>
+      );
     }
   };
 
@@ -65,7 +71,9 @@ function ProductSliderItem({
               <img src={imageURL} alt="product_image" />
             </div>
             <div className="product_name_and_seller">
-              <div className="product_name">{name}</div>
+              <div className="product_name">
+                <Translate>{name}</Translate>
+              </div>
               <ErrorBoundary>
                 <Suspense fallback={<FallbackLazy />}>
                   <StarComponent rating={prodRating} />
@@ -73,27 +81,43 @@ function ProductSliderItem({
               </ErrorBoundary>
             </div>
             <div className="product_desc">
-              <div className="product_type">{type}</div>
+              <div className="product_type">
+                <Translate>{type}</Translate>
+              </div>
               <span>, </span>
-              <div className="product_category">{category}</div>
+              <div className="product_category">
+                <Translate>{category}</Translate>
+              </div>
             </div>
             <div className="product_price">
-              <div className="product_base_price">₹ {basePrice}</div>
-              <div className="product_price_per_unit">/ {pricePerUnit}*</div>
+              <div className="product_base_price">
+                ₹ <Translate>{basePrice}</Translate>
+              </div>
+              <div className="product_price_per_unit">
+                / <Translate>{pricePerUnit}</Translate>*
+              </div>
             </div>
             <div className="product_posted">
               <div className="product_posted_icon">
                 <i className="fas fa-clock"></i>
               </div>
-              <div className="product_posted_text">Added:</div>
-              <div className="product_posted_digit">{addedDigit}</div>
-              <div className="product_posted_unit">{addedUnit} ago</div>
+              <div className="product_posted_text">
+                <Translate>Added:</Translate>
+              </div>
+              <div className="product_posted_digit">
+                <Translate>{addedDigit}</Translate>
+              </div>
+              <div className="product_posted_unit">
+                <Translate>{addedUnit} ago</Translate>
+              </div>
             </div>
             <div className="product_location">
               <div className="product_location_icon">
                 <i className="fas fa-map-marker-alt"></i>
               </div>
-              <div className="product_location_place">{location}</div>
+              <div className="product_location_place">
+                <Translate>{location}</Translate>
+              </div>
             </div>
           </div>
         </Link>
@@ -104,7 +128,9 @@ function ProductSliderItem({
                 <div className="contact_symbol">
                   <i className="fas fa-phone-alt"></i>
                 </div>
-                <div className="button_text">{ContactSeller}</div>
+                <div className="button_text">
+                  <Translate>{ContactSeller}</Translate>
+                </div>
               </button>
             </div>
             <div className="product_other_utility">

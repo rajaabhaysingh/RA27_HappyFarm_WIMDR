@@ -2,6 +2,7 @@ import React, { useState, memo, useCallback } from "react";
 import "./SignInNormal.css";
 
 import axios from "axios";
+import { Translate } from "react-auto-translate";
 
 function SignInNormal({
   formValues,
@@ -90,6 +91,8 @@ function SignInNormal({
   );
   // ------------------------
 
+  // placeholders
+
   return (
     <div className="sign_in_normal_main_div">
       <form className="sign_in_form" onSubmit={handleSignIn}>
@@ -103,7 +106,9 @@ function SignInNormal({
           type="text"
           placeholder="Mobile number"
         />
-        <div className="form_error">{emailError ? emailError : null}</div>
+        <div className="form_error">
+          <Translate>{emailError ? emailError : null}</Translate>
+        </div>
         <input
           required
           onChange={handleChange("password")}
@@ -112,14 +117,18 @@ function SignInNormal({
           type="password"
           placeholder="Enter password"
         />
-        <div className="form_error">{pwdError ? pwdError : null}</div>
+        <div className="form_error">
+          <Translate>{pwdError ? pwdError : null}</Translate>
+        </div>
         <input className="sign_in_login_btn" type="submit" value="LOGIN" />
         <div className="sign_in_forgot_pwd" onClick={handleResetPwd}>
-          Forgot password ?
+          <Translate>Forgot password ?</Translate>
         </div>
         <div className="sign_in_using_container">
           <div className="sign_in_using_or">OR</div>
-          <div className="sign_in_using_desc">SIGN IN USING</div>
+          <div className="sign_in_using_desc">
+            <Translate>SIGN IN USING</Translate>
+          </div>
           <div className="sign_in_ext_btn">
             <button
               type="button"

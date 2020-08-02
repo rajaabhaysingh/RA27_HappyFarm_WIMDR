@@ -68,6 +68,10 @@ const App = (props) => {
     defLang: "en",
     prefLang: "en",
   });
+
+  useEffect(() => {
+    console.log(lang);
+  }, [lang]);
   // -------------------------------------
 
   // ---------handling messaging----------

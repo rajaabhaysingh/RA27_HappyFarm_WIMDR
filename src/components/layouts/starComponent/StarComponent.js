@@ -1,6 +1,8 @@
 import React, { memo } from "react";
 import "./StarComponent.css";
 
+import { Translate } from "react-auto-translate";
+
 import FullStar from "../../../res/farmerSlider/star_full.svg";
 import HalfStar from "../../../res/farmerSlider/star_half.svg";
 
@@ -348,7 +350,9 @@ function StarComponent(props, size) {
 
       default:
         return (
-          <div className="star_component_no_rating">Rating unavailable</div>
+          <div className="star_component_no_rating">
+            <Translate>Rating unavailable</Translate>
+          </div>
         );
     }
   };

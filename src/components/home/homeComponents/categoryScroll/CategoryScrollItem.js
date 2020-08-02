@@ -2,6 +2,7 @@ import React from "react";
 import "./CategoryScrollItem.css";
 
 import { Link } from "react-router-dom";
+import { Translate } from "react-auto-translate";
 
 function CategoryScrollItem(props) {
   const handleItemClick = () => {
@@ -22,7 +23,9 @@ function CategoryScrollItem(props) {
       <div className="category_image">
         <img src={props.iconUrl} alt="category_item" />
       </div>
-      <div className="category_name">{props.categoryName}</div>
+      <div className="category_name">
+        <Translate>{props.categoryName}</Translate>
+      </div>
     </Link>
   );
 }

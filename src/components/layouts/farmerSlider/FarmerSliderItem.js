@@ -1,6 +1,8 @@
 import React, { lazy, memo, Suspense } from "react";
 import "./FarmerSliderItem.css";
 
+import { Translate } from "react-auto-translate";
+
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
@@ -33,8 +35,12 @@ function FarmerSliderItem({ dpUrl, name, place, rating, productUrl }) {
             <img src={dpUrl} alt="farmer" />
           </div>
           <div className="farmer_slider_item_details">
-            <div className="farmer_slider_name">{name}</div>
-            <div className="farmer_slider_place">{place}</div>
+            <div className="farmer_slider_name">
+              <Translate>{name}</Translate>
+            </div>
+            <div className="farmer_slider_place">
+              <Translate>{place}</Translate>
+            </div>
             <div className="farmer_slider_star_rating">
               <ErrorBoundary>
                 <Suspense fallback={<FallbackLazy />}>
@@ -47,7 +53,7 @@ function FarmerSliderItem({ dpUrl, name, place, rating, productUrl }) {
         <div className="farmer_slider_item_utility">
           <div className="farmer_slider_show_product_link">
             <a href={productUrl} onClick={() => handleShowProductLink}>
-              Products
+              <Translate>Products</Translate>
             </a>
           </div>
           <button
@@ -55,7 +61,7 @@ function FarmerSliderItem({ dpUrl, name, place, rating, productUrl }) {
             onClick={() => handleFollowBtnClick}
           >
             <i style={{ marginRight: "4px" }} className="fas fa-user-plus"></i>
-            Follow
+            <Translate>Follow</Translate>
           </button>
         </div>
       </div>

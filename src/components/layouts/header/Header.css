@@ -194,6 +194,18 @@
     align-items: center;
     justify-content: center;
   }
+  .navbar_language_selector {
+    margin: 0 10px;
+    border-radius: 20px;
+    padding: 0 16px;
+    background: #333333;
+    font-weight: bold;
+    color: #ffffff;
+    height: 32px;
+  }
+  .navbar_language_selector select::-ms-expand {
+    display: none;
+  }
 }
 
 /*for screen size less than 1024px px*/
@@ -320,5 +332,9 @@
     background: #ffffff;
     border-radius: 3px;
     box-sizing: border-box;
+  }
+  .navbar_language_selector {
+    height: 30px;
+    border-radius: 20px;
   }
 }

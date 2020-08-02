@@ -1,6 +1,8 @@
 import React, { lazy, Suspense, memo } from "react";
 import "./ProductSlider.css";
 
+import { Translate } from "react-auto-translate";
+
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
@@ -14,12 +16,19 @@ function ProductSlider({ boldHeading, normalHeading, productsList }) {
           <div className="product_slider_header_content">
             <div className="product_slider_header_heading">
               <span>
-                <strong>{boldHeading}</strong>
+                <strong>
+                  <Translate>{boldHeading}</Translate>
+                </strong>
               </span>
-              <span> {normalHeading} </span>
+              <span>
+                {" "}
+                <Translate>{normalHeading}</Translate>{" "}
+              </span>
             </div>
             <div className="product_slider_header_view_all">
-              <button>View all</button>
+              <button>
+                <Translate>View all</Translate>
+              </button>
             </div>
           </div>
         </div>
