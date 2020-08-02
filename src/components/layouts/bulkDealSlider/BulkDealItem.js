@@ -53,9 +53,8 @@ function BulkDealItem({
                     <Translate>{name}</Translate>
                   </div>
                   <div className="bulk_desc">
-                    <Translate>
-                      {breed}, {category}
-                    </Translate>
+                    <Translate>{breed}</Translate>,{" "}
+                    <Translate>{category}</Translate>
                   </div>
                   <div className="bulk_location">
                     <i className="fas fa-map-marker-alt"></i> &nbsp;
@@ -65,9 +64,10 @@ function BulkDealItem({
               </div>
               <div className="bulk_details_sec">
                 <div className="bulk_lot_size">
+                  <Translate>Stock size:</Translate>{" "}
                   <Translate>
-                    {" "}
-                    Stock size: {lotSizeDigit} {lotSizeUnit}
+                    {lotSizeDigit}
+                    {lotSizeUnit}
                   </Translate>
                 </div>
                 <div className="bulk_price">
@@ -142,20 +142,20 @@ function BulkDealItem({
                       onChange={handleChange}
                     >
                       <option className="bulk_book_option" value="mg">
-                        <Translate>miligram</Translate>
+                        mg
                       </option>
                       <option className="bulk_book_option" value="g">
-                        <Translate>gram</Translate>
+                        gram
                       </option>
                       <option
                         className="bulk_book_option"
                         defaultValue
                         value="kg"
                       >
-                        <Translate>kg</Translate>
+                        kg
                       </option>
                       <option className="bulk_book_option" value="quintel">
-                        <Translate>quintel</Translate>
+                        quintel
                       </option>
                     </select>
                   </div>

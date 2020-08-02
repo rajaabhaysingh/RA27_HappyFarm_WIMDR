@@ -77,12 +77,13 @@ function SignInNormal({
             setIsFormOpen(false);
           } else {
             // bypass sign-in
-            setUser({
-              ...user,
-              token: "some_dummy_token",
-            });
-            setIsFormOpen(false);
+            // setUser({
+            //   ...user,
+            //   token: "some_dummy_token",
+            // });
+            // setIsFormOpen(false);
           }
+          console.log(user.token);
         }
       } else {
         setEmailError("Invalid phone number.");
