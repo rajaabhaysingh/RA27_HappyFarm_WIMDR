@@ -1,6 +1,8 @@
 import React, { useState, memo, lazy, Suspense, useCallback } from "react";
 import "./SignedOutLinks.css";
 
+import { Translate } from "react-auto-translate";
+
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
@@ -83,7 +85,7 @@ function SignedOutLinks({ user, setUser }) {
                 <i className="fas fa-sign-in-alt"></i>
               </div>
               <div className="signed_out_text signed_out_sign_in_text">
-                Login / Sign-up
+                <Translate>Login / Sign-up</Translate>
               </div>
             </div>
           </li>

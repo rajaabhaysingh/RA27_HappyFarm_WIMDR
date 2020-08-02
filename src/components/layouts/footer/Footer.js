@@ -1,6 +1,8 @@
 import React, { memo } from "react";
 import "./Footer.css";
 
+import { Translate } from "react-auto-translate";
+
 import FooterCert from "../../../res/footer/footer_cert.svg";
 import FooterDetails from "./FooterDetails";
 
@@ -20,7 +22,7 @@ function Footer() {
   return (
     <div className="footer_main_div">
       <div className="footer_back_to_top" onClick={handleScrollToTop}>
-        Back to top
+        <Translate>Back to top</Translate>
         <div className="footer_arrow_top">
           <i className="fas fa-arrow-circle-up"></i>
         </div>
@@ -28,17 +30,21 @@ function Footer() {
       <div className="footer_inner_div">
         <div className="footer_contact">
           <div className="footer_contact_info">
-            <div className="footer_contact_info_heading">CONTACT INFO</div>
+            <div className="footer_contact_info_heading">
+              <Translate>CONTACT INFO</Translate>
+            </div>
             <div className="footer_contact_info_details">
               {details.contactDetails.map((contactItem) => (
                 <div key={contactItem} className="footer_contact_info_item">
-                  {contactItem}
+                  <Translate>{contactItem}</Translate>
                 </div>
               ))}
             </div>
           </div>
           <div className="footer_contact_social">
-            <div className="footer_contact_social_heading">FOLLOW US</div>
+            <div className="footer_contact_social_heading">
+              <Translate>FOLLOW US</Translate>
+            </div>
             <div className="footer_contact_social_icons">
               <div className="footer_social_icon facebook">
                 <i className="fab fa-facebook"></i>
@@ -60,21 +66,25 @@ function Footer() {
         </div>
         <div className="footer_info_container">
           <div className="footer_info_services">
-            <div className="footer_info_services_heading">SERVICES</div>
+            <div className="footer_info_services_heading">
+              <Translate>SERVICES</Translate>
+            </div>
             <div className="footer_info_services_options">
               {details.services.map((serviceItem) => (
                 <div key={serviceItem.name} className="footer_services_item">
-                  {serviceItem.name}
+                  <Translate>{serviceItem.name}</Translate>
                 </div>
               ))}
             </div>
           </div>
           <div className="footer_info_policies">
-            <div className="footer_info_policies_heading">INFORMATION</div>
+            <div className="footer_info_policies_heading">
+              <Translate>INFORMATION</Translate>
+            </div>
             <div className="footer_info_policies_options">
               {details.info.map((infoItem) => (
                 <div key={infoItem.name} className="footer_policies_item">
-                  {infoItem.name}
+                  <Translate>{infoItem.name}</Translate>
                 </div>
               ))}
             </div>
@@ -82,9 +92,11 @@ function Footer() {
         </div>
         <div className="footer_newsletter">
           <div className="footer_newsletter_heading">
-            Subscribe to happyfarm newsletter
+            <Translate>Subscribe to farmted newsletter</Translate>
           </div>
-          <div className="footer_newsletter_details">{details.newsletter}:</div>
+          <div className="footer_newsletter_details">
+            <Translate>{details.newsletter}</Translate>:
+          </div>
           <div className="footer_newsletter_form">
             <form>
               <input
@@ -105,20 +117,24 @@ function Footer() {
         <div className="footer_bottom_cert">
           <div className="footer_bottom_cert_info">
             <div className="footer_bottom_cert_item">
-              <i className="fas fa-coins"></i> &nbsp; Sell with us
+              <i className="fas fa-coins"></i> &nbsp;{" "}
+              <Translate>Sell with us</Translate>
             </div>
             <div className="footer_bottom_cert_item">
-              <i className="fas fa-ad"></i> &nbsp; Advertise
+              <i className="fas fa-ad"></i> &nbsp;{" "}
+              <Translate>Advertise</Translate>
             </div>
             <div className="footer_bottom_cert_item">
-              <i className="fas fa-stamp"></i> &nbsp; Legal
+              <i className="fas fa-stamp"></i> &nbsp;{" "}
+              <Translate>Legal</Translate>
             </div>
             <div className="footer_bottom_cert_item">
-              <i className="fas fa-comment-alt"></i> &nbsp; Feedback
+              <i className="fas fa-comment-alt"></i> &nbsp;{" "}
+              <Translate>Feedback</Translate>
             </div>
           </div>
           <div className="footer_bottom_copyright">
-            © 2020-2021 Happyfarm.com
+            © <Translate>2020-2021 farmted.com</Translate>
           </div>
           <img src={FooterCert} alt="secure-payment-services" />
         </div>

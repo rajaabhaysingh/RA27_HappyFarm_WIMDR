@@ -17,6 +17,14 @@ const CartData = {
       purchasedQtyUnit: "gram",
       taxPerc: 18.0,
       deliveryCharge: 10.0,
+      // linkeItem
+      // status
+      // ----------
+      // cartItemId
+      // foreignKey
+      // purchasedQty
+      // purchasedQtyUnit
+      //
     },
     {
       id: "d32",

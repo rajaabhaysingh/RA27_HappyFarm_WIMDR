@@ -8,6 +8,8 @@ import React, {
 } from "react";
 import "./AddNewProduct.css";
 
+import { Translate } from "react-auto-translate";
+
 import { useHistory } from "react-router-dom";
 
 import FallbackLazy from "../../FallbackLazy";
@@ -162,7 +164,9 @@ const AddNewProduct = ({ profileData }) => {
         <>
           <div className="add_new_dual_fields">
             <div className="add_new_dual_group">
-              <div className="add_new_info_label">Enter product quantity:</div>
+              <div className="add_new_info_label">
+                <Translate>Enter product quantity:</Translate>
+              </div>
               <input
                 type="text"
                 className="add_new_input_half"
@@ -173,7 +177,9 @@ const AddNewProduct = ({ profileData }) => {
             </div>
             <div className="add_new_dual_group_spacer"></div>
             <div className="add_new_dual_group">
-              <div className="add_new_info_label">Quantity unit:</div>
+              <div className="add_new_info_label">
+                <Translate>Quantity unit:</Translate>
+              </div>
               <AsyncSelect
                 styles={arrowStyleWrapper2}
                 required
@@ -198,7 +204,9 @@ const AddNewProduct = ({ profileData }) => {
           {/* shelf life */}
           <div className="add_new_dual_fields">
             <div className="add_new_dual_group">
-              <div className="add_new_info_label">Product's shelf life:</div>
+              <div className="add_new_info_label">
+                <Translate>Product's shelf life:</Translate>
+              </div>
               <input
                 type="text"
                 className="add_new_input_half"
@@ -209,7 +217,9 @@ const AddNewProduct = ({ profileData }) => {
             </div>
             <div className="add_new_dual_group_spacer"></div>
             <div className="add_new_dual_group">
-              <div className="add_new_info_label">Time unit:</div>
+              <div className="add_new_info_label">
+                <Translate>Time unit:</Translate>
+              </div>
               <AsyncSelect
                 styles={arrowStyleWrapper2}
                 required
@@ -243,20 +253,22 @@ const AddNewProduct = ({ profileData }) => {
           <ErrorBoundary>
             <Suspense fallback={<FallbackLazy />}>
               <div className="add_new_top_heading_and_utility">
-                <div className="add_new_heading">ADD NEW PRODUCT</div>
+                <div className="add_new_heading">
+                  <Translate>ADD NEW PRODUCT</Translate>
+                </div>
                 <div
                   className="add_new_cancel_top"
                   onClick={() => {
                     history.goBack();
                   }}
                 >
-                  <i className="fas fa-times"></i> Cancel
+                  <i className="fas fa-times"></i> <Translate>Cancel</Translate>
                 </div>
               </div>
               <div className="add_new_dual_fields">
                 <div className="add_new_dual_group">
                   <div className="add_new_info_label">
-                    Select product category:
+                    <Translate>Select product category:</Translate>
                   </div>
                   <Select
                     styles={arrowStyleWrapper}
@@ -278,7 +290,9 @@ const AddNewProduct = ({ profileData }) => {
                 </div>
                 <div className="add_new_dual_group_spacer"></div>
                 <div className="add_new_dual_group">
-                  <div className="add_new_info_label">Select sub-category:</div>
+                  <div className="add_new_info_label">
+                    <Translate>Select sub-category:</Translate>
+                  </div>
                   <AsyncSelect
                     styles={arrowStyleWrapper}
                     required
@@ -302,7 +316,7 @@ const AddNewProduct = ({ profileData }) => {
               </div>
               {/* name */}
               <div className="add_new_info_label">
-                Enter/Select product name:
+                <Translate>Enter/Select product name:</Translate>
               </div>
               <AsyncCreatableSelect
                 styles={arrowStyleWrapper}
@@ -323,19 +337,31 @@ const AddNewProduct = ({ profileData }) => {
                 }
               />
               {/* description */}
-              <div className="add_new_info_label">Product's description:</div>
+              <div className="add_new_info_label">
+                <Translate>Product's description:</Translate>
+              </div>
               <div className="add_new_desc">
                 <span style={{ color: "#ee5700" }}>
                   <i className="fas fa-info-circle"></i>
                 </span>{" "}
-                Please enter complete product detail like type, breed,
-                seasonal/non-seasonal, color, cultivation/production time, etc
-                briefly here. <br></br>
+                <Translate>
+                  Please enter complete product detail like type, breed,
+                  seasonal/non-seasonal, color, cultivation/production time, etc
+                  briefly here.
+                </Translate>{" "}
+                <br></br>
                 <span style={{ color: "#ee5700", cursor: "pointer" }}>
-                  <strong>Click here</strong>
+                  <strong>
+                    <Translate>Click here</Translate>
+                  </strong>
                 </span>{" "}
-                if you want to fill up complete description form{" "}
-                <em>(optional)</em>.
+                <Translate>
+                  if you want to fill up complete description form
+                </Translate>{" "}
+                <em>
+                  <Translate>(optional)</Translate>
+                </em>
+                .
               </div>
               <input
                 type="text"
@@ -346,15 +372,16 @@ const AddNewProduct = ({ profileData }) => {
               />
               {/* normal/bulk */}
               <div className="add_new_info_label">
-                Select sell type:{" "}
+                <Translate>Select sell type:</Translate>{" "}
                 <span style={{ color: "#ee5700" }}>
                   {" "}
-                  Need help <i className="fas fa-question-circle"></i>
+                  <Translate>Need help</Translate>{" "}
+                  <i className="fas fa-question-circle"></i>
                 </span>
               </div>
               <div className="add_new_negotiable">
                 <span className="add_new_nego_text">
-                  Sell as bulk item or normal ?
+                  <Translate>Sell as bulk item or normal ?</Translate>
                 </span>
                 <div
                   className="add_new_fieldset"
@@ -372,7 +399,9 @@ const AddNewProduct = ({ profileData }) => {
                     }
                   }}
                 >
-                  <label htmlFor="bulk">Bulk</label>
+                  <label htmlFor="bulk">
+                    <Translate>Bulk</Translate>
+                  </label>
                   <span style={{ width: "4px" }}></span>
                   <input
                     defaultChecked={isBulk ? true : false}
@@ -383,7 +412,9 @@ const AddNewProduct = ({ profileData }) => {
                     name="sell_type"
                   />
                   <div className="add_new_dual_group_spacer"></div>
-                  <label htmlFor="normal">Normal</label>
+                  <label htmlFor="normal">
+                    <Translate>Normal</Translate>
+                  </label>
                   <span style={{ width: "4px" }}></span>
                   <input
                     defaultChecked={isBulk ? false : true}
@@ -402,7 +433,9 @@ const AddNewProduct = ({ profileData }) => {
               {/* base price */}
               <div className="add_new_dual_fields">
                 <div className="add_new_dual_group">
-                  <div className="add_new_info_label">Base price (in ₹):</div>
+                  <div className="add_new_info_label">
+                    <Translate>Base price (in ₹):</Translate>
+                  </div>
                   <input
                     type="text"
                     className="add_new_input_half"
@@ -413,7 +446,9 @@ const AddNewProduct = ({ profileData }) => {
                 </div>
                 <div className="add_new_dual_group_spacer"></div>
                 <div className="add_new_dual_group">
-                  <div className="add_new_info_label">Per Qty digits</div>
+                  <div className="add_new_info_label">
+                    <Translate>Per Qty digits</Translate>
+                  </div>
                   <input
                     type="text"
                     className="add_new_input_half"
@@ -424,7 +459,9 @@ const AddNewProduct = ({ profileData }) => {
                 </div>
                 <div className="add_new_dual_group_spacer"></div>
                 <div className="add_new_dual_group">
-                  <div className="add_new_info_label">Per Qty unit:</div>
+                  <div className="add_new_info_label">
+                    <Translate>Per Qty unit:</Translate>
+                  </div>
                   <AsyncSelect
                     styles={arrowStyleWrapper}
                     required
@@ -448,10 +485,14 @@ const AddNewProduct = ({ profileData }) => {
               </div>
               {/* radio */}
               <div className="add_new_info_label">
-                Do you want to negotiate buyers over product's price ?
+                <Translate>
+                  Do you want to negotiate buyers over product's price ?
+                </Translate>
               </div>
               <div className="add_new_negotiable">
-                <span className="add_new_nego_text">Price negotiable ?</span>
+                <span className="add_new_nego_text">
+                  <Translate>Price negotiable ?</Translate>
+                </span>
                 <div
                   className="add_new_fieldset"
                   onChange={(e) => {
@@ -468,7 +509,9 @@ const AddNewProduct = ({ profileData }) => {
                     }
                   }}
                 >
-                  <label htmlFor="nego_yes">Yes</label>
+                  <label htmlFor="nego_yes">
+                    <Translate>Yes</Translate>
+                  </label>
                   <span style={{ width: "4px" }}></span>
                   <input
                     defaultChecked={isNegotiable ? true : false}
@@ -479,7 +522,9 @@ const AddNewProduct = ({ profileData }) => {
                     name="negotiable"
                   />
                   <div className="add_new_dual_group_spacer"></div>
-                  <label htmlFor="nego_no">No</label>
+                  <label htmlFor="nego_no">
+                    <Translate>No</Translate>
+                  </label>
                   <span style={{ width: "4px" }}></span>
                   <input
                     defaultChecked={isNegotiable ? false : true}
@@ -492,13 +537,21 @@ const AddNewProduct = ({ profileData }) => {
                 </div>
               </div>
               {/* product image uploader */}
-              <div className="add_new_info_label">Select product's images:</div>
+              <div className="add_new_info_label">
+                <Translate>Select product's images:</Translate>
+              </div>
               <div className="add_new_desc">
                 <span style={{ color: "#ee5700" }}>
                   <i className="fas fa-info-circle"></i>
                 </span>{" "}
-                Maximum <strong>8</strong> image files allowed, with file size
-                less than <strong>2 MB</strong> each.
+                <Translate>Maximum</Translate> <strong>8</strong> i
+                <Translate>
+                  mage files allowed, with file size less than
+                </Translate>{" "}
+                <strong>
+                  <Translate>2 MB</Translate>
+                </strong>{" "}
+                <Translate>each.</Translate>
               </div>
               <ImageUploader
                 formState={formState}
@@ -512,13 +565,16 @@ const AddNewProduct = ({ profileData }) => {
               />
               {/* product thumbnail uploader */}
               <div className="add_new_info_label">
-                Select product thumbnail:
+                <Translate>Select product thumbnail:</Translate>
               </div>
               <div className="add_new_desc">
                 <span style={{ color: "#ee5700" }}>
                   <i className="fas fa-info-circle"></i>
                 </span>{" "}
-                This image will be used to feature your product on our website.
+                <Translate>
+                  This image will be used to feature your product on our
+                  website.
+                </Translate>
               </div>
               <ImageUploader
                 formState={formState}
@@ -529,11 +585,9 @@ const AddNewProduct = ({ profileData }) => {
                 previewClass={"img_upld_preview"}
               />
               <div className="add_new_submit_container">
-                <input
-                  className="add_new_submit_btn"
-                  type="submit"
-                  value="PUT ON SELL"
-                />
+                <button className="add_new_submit_btn" type="submit">
+                  <Translate>PUT ON SELL</Translate>
+                </button>
               </div>
             </Suspense>
           </ErrorBoundary>

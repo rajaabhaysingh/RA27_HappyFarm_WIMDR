@@ -1,6 +1,8 @@
 import React, { useState, memo, lazy, Suspense } from "react";
 import "./BulkDealItem.css";
 
+import { Translate } from "react-auto-translate";
+
 import FallbackLazy from "../../FallbackLazy";
 import ErrorBoundary from "../../errorBoundary/ErrorBoundary";
 
@@ -47,32 +49,48 @@ function BulkDealItem({
                   <img src={imageURL} alt="product" />
                 </div>
                 <div className="bulk_primary_details">
-                  <div className="bulk_name">{name}</div>
+                  <div className="bulk_name">
+                    <Translate>{name}</Translate>
+                  </div>
                   <div className="bulk_desc">
-                    {breed}, {category}
+                    <Translate>
+                      {breed}, {category}
+                    </Translate>
                   </div>
                   <div className="bulk_location">
-                    <i className="fas fa-map-marker-alt"></i> &nbsp;{location}
+                    <i className="fas fa-map-marker-alt"></i> &nbsp;
+                    <Translate>{location}</Translate>
                   </div>
                 </div>
               </div>
               <div className="bulk_details_sec">
                 <div className="bulk_lot_size">
-                  Stock size: {lotSizeDigit} {lotSizeUnit}
+                  <Translate>
+                    {" "}
+                    Stock size: {lotSizeDigit} {lotSizeUnit}
+                  </Translate>
                 </div>
                 <div className="bulk_price">
-                  <span style={{ color: "#5c5c5c" }}>Base price:</span>&nbsp;
+                  <span style={{ color: "#5c5c5c" }}>
+                    <Translate>Base price:</Translate>
+                  </span>
+                  &nbsp;
                   <span style={{ fontWeight: "bold" }}>
-                    {basePrice} / {pricePerUnit}
+                    <Translate>
+                      {basePrice} / {pricePerUnit}
+                    </Translate>
                   </span>
                 </div>
               </div>
             </div>
             <div className="bulk_info_top_right">
               <button className="bulk_product_contact_btn">
-                <i className="fas fa-phone-alt"></i> CONTACT
+                <i className="fas fa-phone-alt"></i>{" "}
+                <Translate>CONTACT</Translate>
               </button>
-              <div className="bulk_profile_link">SELLER PROFILE</div>
+              <div className="bulk_profile_link">
+                <Translate>SELLER PROFILE</Translate>
+              </div>
               <div className="bulk_rating">
                 <div className="bulk_rating_star">
                   <ErrorBoundary>
@@ -81,7 +99,9 @@ function BulkDealItem({
                     </Suspense>
                   </ErrorBoundary>
                 </div>
-                <div className="bulk_rating_text">SELLER RATING</div>
+                <div className="bulk_rating_text">
+                  <Translate>SELLER RATING</Translate>
+                </div>
               </div>
               <div className="bulk_utility">
                 <div className="bulk_utility_nego">
@@ -97,14 +117,18 @@ function BulkDealItem({
             <div className="bulk_expected_del_icon">
               <i className="fas fa-clock"></i>
             </div>
-            <div className="bulk_expected_del_text">Next delivery in:</div>
-            <div className="bulk_expected_del_time">{delTime}*</div>
+            <div className="bulk_expected_del_text">
+              <Translate>Next delivery in:</Translate>
+            </div>
+            <div className="bulk_expected_del_time">
+              <Translate>{delTime}</Translate>*
+            </div>
           </div>
           <div className="bulk_info_bottom">
             <form onSubmit={handleSubmit}>
               <div className="bulk_form_left">
                 <label className="bulk_book_label">
-                  Your need:
+                  <Translate>Your need:</Translate>
                   <div className="bulk_form_input_container">
                     <input
                       placeholder="Enter qty"
@@ -118,20 +142,20 @@ function BulkDealItem({
                       onChange={handleChange}
                     >
                       <option className="bulk_book_option" value="mg">
-                        mg
+                        <Translate>miligram</Translate>
                       </option>
                       <option className="bulk_book_option" value="g">
-                        g
+                        <Translate>gram</Translate>
                       </option>
                       <option
                         className="bulk_book_option"
                         defaultValue
                         value="kg"
                       >
-                        kg
+                        <Translate>kg</Translate>
                       </option>
                       <option className="bulk_book_option" value="quintel">
-                        quintel
+                        <Translate>quintel</Translate>
                       </option>
                     </select>
                   </div>

@@ -1,6 +1,8 @@
 import React, { memo, useCallback, useState } from "react";
 import "./SignUpMobile.css";
 
+import { Translate } from "react-auto-translate";
+
 import axios from "axios";
 
 import { Link } from "react-router-dom";
@@ -72,16 +74,18 @@ function SignUpMobile({
           placeholder="Mobile number"
           defaultValue={formValues.phone}
         />
-        <div className="form_error">{mobError ? mobError : null}</div>
+        <div className="form_error">
+          <Translate>{mobError ? mobError : null}</Translate>
+        </div>
         <div className="sign_up_terms">
-          By continuing, you agree to Farmted's{" "}
+          <Translate>By continuing, you agree to Farmted's</Translate>{" "}
           <Link className="sign_up_terms_of_use" to="/">
-            Terms of Use
+            <Translate>Terms of Use</Translate>
           </Link>{" "}
-          and
+          <Translate>and</Translate>
           <Link className="sign_up_privacy_policy" to="/">
             {" "}
-            Privacy Policy
+            <Translate>Privacy Policy</Translate>
           </Link>
           .
         </div>
@@ -91,7 +95,7 @@ function SignUpMobile({
           value="CONTINUE"
         />
         <Link className="sign_up_need_help" to="/">
-          Need help creating account?
+          <Translate>Need help creating account?</Translate>
         </Link>
       </form>
     </div>

@@ -1,6 +1,8 @@
 import React, { useState, lazy, Suspense, memo } from "react";
 import "./Cart.css";
 
+import { Translate } from "react-auto-translate";
+
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
 import PrimeLogo from "../../res/cart/prime_logo.svg";
@@ -30,10 +32,16 @@ const Cart = (props) => {
   const renderIsDeliverable = (isDeliverable) => {
     if (isDeliverable) {
       return (
-        <div style={{ color: "#008800" }}>Door-step delivery available.</div>
+        <div style={{ color: "#008800" }}>
+          <Translate>Door-step delivery available.</Translate>
+        </div>
       );
     } else {
-      return <div style={{ color: "#cc0000" }}>Delivery not available.</div>;
+      return (
+        <div style={{ color: "#cc0000" }}>
+          <Translate>Delivery not available.</Translate>
+        </div>
+      );
     }
   };
 
@@ -58,13 +66,15 @@ const Cart = (props) => {
         <>
           <img src={PrimeLogo} alt="" />
           <div className="cart_tot_header_content">
-            <div className="cart_tot_header_top">Join premium membership</div>
+            <div className="cart_tot_header_top">
+              <Translate>Join premium membership</Translate>
+            </div>
             <div className="cart_tot_header_desc">
-              Get free delivery and much more*
+              <Translate>Get free delivery and much more*</Translate>
             </div>
             <div className="cart_tot_header_link">
               <Link className="cart_normal_link" to="/premium">
-                View details
+                <Translate>View details</Translate>
               </Link>
             </div>
           </div>
@@ -80,9 +90,13 @@ const Cart = (props) => {
       return (
         <>
           <i style={{ marginRight: "4px" }} className="fas fa-info-circle"></i>{" "}
-          Your order does not qualify for Pay on Delivery because it contains
-          items from sellers that don’t offer Pay on Delivery.
-          <Link className="cart_normal_link">Learn more</Link>
+          <Translate>
+            Your order does not qualify for Pay on Delivery because it contains
+            items from sellers that don’t offer Pay on Delivery.
+          </Translate>
+          <Link className="cart_normal_link">
+            <Translate>Learn more</Translate>
+          </Link>
         </>
       );
     }
@@ -134,36 +148,45 @@ const Cart = (props) => {
                     <img src={item.imgUrl} alt="" />
                     <div className="cart_item_info">
                       <div className="cart_item_name_type_grp">
-                        <div className="cart_item_name">{item.name}</div>
+                        <div className="cart_item_name">
+                          <Translate>{item.name}</Translate>
+                        </div>
                         <div className="cart_item_type_grp">
-                          {item.type}, {item.cat}
+                          <Translate>
+                            {item.type}, {item.cat}
+                          </Translate>
                         </div>
                       </div>
                       <div className="cart_item_price">
-                        Purchase price:
+                        <Translate>Purchase price:</Translate>
                         <span
                           style={{
                             fontWeight: "bold",
                             marginLeft: "4px",
                           }}
                         >
-                          ₹{item.purchasedPrice.toFixed(2)} per{" "}
-                          {item.purchasedPricePerDigit}{" "}
-                          {item.purchasedPricePerUnit}
+                          ₹
+                          <Translate>
+                            {item.purchasedPrice.toFixed(2)} per{" "}
+                            {item.purchasedPricePerDigit}{" "}
+                            {item.purchasedPricePerUnit}
+                          </Translate>
                         </span>
                       </div>
                       <div className="cart_item_del_avail">
                         {renderIsDeliverable(item.isDeliverable)}
                       </div>
                       <div className="cart_item_purch_qty">
-                        Purchased quantity:
+                        <Translate>Purchased quantity:</Translate>
                         <span
                           style={{
                             fontWeight: "bold",
                             marginLeft: "4px",
                           }}
                         >
-                          {item.purchasedQty} {item.purchasedQtyUnit}
+                          <Translate>
+                            {item.purchasedQty} {item.purchasedQtyUnit}
+                          </Translate>
                         </span>
                       </div>
                       <div className="cart_item_utility">
@@ -172,7 +195,7 @@ const Cart = (props) => {
                             style={{ marginRight: "4px" }}
                             className="fas fa-edit"
                           ></i>{" "}
-                          Update
+                          <Translate>Update</Translate>
                         </Link>
                         <div style={{ margin: "0 8px" }}>|</div>
                         <Link className="cart_italics_link">
@@ -181,7 +204,7 @@ const Cart = (props) => {
                             style={{ marginRight: "4px" }}
                             className="fas fa-trash"
                           ></i>{" "}
-                          Delete
+                          <Translate>Delete</Translate>
                         </Link>
                       </div>
                     </div>
@@ -206,7 +229,8 @@ const Cart = (props) => {
             <div className="cart_total_desc">
               <div className="cart_total_sub_total">
                 <span className="cart_total_sub_total_text cart_total_spaced_left">
-                  Sub-total ({cartData.items.length} items):
+                  <Translate>Sub-total</Translate> ({cartData.items.length}{" "}
+                  <Translate>items</Translate>):
                 </span>
                 <span className="cart_total_sub_total_amt cart_total_spaced_right">
                   ₹{calcSubTotal()}
@@ -214,19 +238,21 @@ const Cart = (props) => {
               </div>
               <div className="cart_total_delivery">
                 <span className="cart_total_spaced_left">
-                  Delivery charges:
+                  <Translate> Delivery charges:</Translate>
                 </span>
                 <span className="cart_total_spaced_right">
                   ₹{calcDelCharges()}
                 </span>
               </div>
               <div className="cart_total_tax">
-                <span className="cart_total_spaced_left">GST:</span>
+                <span className="cart_total_spaced_left">
+                  <Translate>GST:</Translate>
+                </span>
                 <span className="cart_total_spaced_right">₹{calcTax()}</span>
               </div>
               <div className="cart_total_promotion">
                 <span className="cart_total_spaced_left">
-                  Promotional offer applied:
+                  <Translate>Promotional offer applied:</Translate>
                 </span>
                 <span className="cart_total_spaced_right">-₹{promoAmt}</span>
               </div>
@@ -239,7 +265,9 @@ const Cart = (props) => {
                 }}
               ></div>
               <div className="cart_total_net_payable">
-                <span className="cart_total_spaced_left">Net Payable:</span>
+                <span className="cart_total_spaced_left">
+                  <Translate>Net Payable:</Translate>
+                </span>
                 <span className="cart_total_spaced_right">
                   ₹
                   {(
@@ -250,12 +278,16 @@ const Cart = (props) => {
                   ).toFixed(2)}
                 </span>
               </div>
-              <button className="cart_total_del_btn">REQUEST DELIVERY</button>
-              <button className="cart_total_sch_btn">SCHEDULE PICKUP</button>
+              <button className="cart_total_del_btn">
+                <Translate>REQUEST DELIVERY</Translate>
+              </button>
+              <button className="cart_total_sch_btn">
+                <Translate>SCHEDULE PICKUP</Translate>
+              </button>
               <div className="cart_total_apply_coupon">
-                Have a coupon ?{" "}
+                <Translate>Have a coupon ?</Translate>{" "}
                 <span className="cartApplyCoupon" onClick={handleApplyCoupon}>
-                  Apply here.
+                  <Translate>Apply here.</Translate>
                 </span>
               </div>
             </div>
@@ -267,9 +299,13 @@ const Cart = (props) => {
       return (
         <div className="cart_empty">
           <img src="" alt="" />
-          <div>Oops! Your cart is empty.</div>
+          <div>
+            <Translate>Oops! Your cart is empty.</Translate>
+          </div>
           <button>
-            <Link to="/">Continue Shopping</Link>
+            <Link to="/">
+              <Translate>Continue Shopping</Translate>
+            </Link>
           </button>
         </div>
       );
@@ -282,7 +318,9 @@ const Cart = (props) => {
         <Route exact strict path={path}>
           <>
             <div className="cart_details_container">
-              <div className="cart_details_heading">SHOPPING CART</div>
+              <div className="cart_details_heading">
+                <Translate>SHOPPING CART</Translate>
+              </div>
               <div className="cart_details">{renderCartItems()}</div>
             </div>
             <div className="cart_prod_suggestion">

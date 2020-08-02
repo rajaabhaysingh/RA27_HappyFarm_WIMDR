@@ -1,6 +1,8 @@
 import React, { memo } from "react";
 import "./TopMessage.css";
 
+import { Translate } from "react-auto-translate";
+
 function TopMessage() {
   return (
     <div className="top_message_main_div">
@@ -8,7 +10,7 @@ function TopMessage() {
         <i className="fas fa-fire-alt"></i>
         <span>
           <a href="/" style={{ marginLeft: "4px", color: "inherit" }}>
-            Upcoming events
+            <Translate>Upcoming events</Translate>
             <span style={{ marginLeft: "4px" }}></span>
           </a>
         </span>
@@ -16,11 +18,16 @@ function TopMessage() {
       <div className="top_message_center">
         <i className="fas fa-crown"></i>
         <span style={{ marginLeft: "4px" }}>
-          <strong>Flat 40% off</strong> on subscribing Premium membership
+          <strong>
+            <Translate>Flat 40% off</Translate>
+          </strong>{" "}
+          <Translate>on subscribing Premium membership</Translate>
         </span>
         <span style={{ marginLeft: "8px" }}>
           <a href="/" style={{ textDecoration: "underline", color: "inherit" }}>
-            <strong>View benefits...</strong>
+            <strong>
+              <Translate>View benefits...</Translate>
+            </strong>
           </a>
         </span>
       </div>
@@ -28,7 +35,7 @@ function TopMessage() {
         <i className="fas fa-tractor"></i>
         <span>
           <a href="/" style={{ color: "inherit", marginLeft: "4px" }}>
-            Farmer's page
+            <Translate>Farmer's page</Translate>
           </a>
         </span>
       </div>

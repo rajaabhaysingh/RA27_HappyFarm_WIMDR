@@ -1,6 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import "./SalesHistory.css";
 
+import { Translate } from "react-auto-translate";
+
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -25,10 +27,12 @@ function SellHistory({ profileData }) {
   return (
     <div className="sales_main_div">
       <div className="sales_inner_div">
-        <div className="sales_heading">Sales {"&"} History</div>
+        <div className="sales_heading">
+          <Translate>Sales {"&"} History</Translate>
+        </div>
         <div className="sales_description">
           <div className="sales_description_text">
-            Manage and view your sales here.
+            <Translate>Manage and view your sales here.</Translate>
           </div>
           <i className="fas fa-info-circle sales_description_info_icon"></i>
         </div>

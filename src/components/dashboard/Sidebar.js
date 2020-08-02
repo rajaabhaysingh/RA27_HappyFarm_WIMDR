@@ -1,6 +1,8 @@
 import React, { memo } from "react";
 import "./Sidebar.css";
 
+import { Translate } from "react-auto-translate";
+
 import { useLocation, NavLink, useRouteMatch } from "react-router-dom";
 
 function Sidebar({ profileData }) {
@@ -45,19 +47,30 @@ function Sidebar({ profileData }) {
             </button>
           </div>
           <div className="sidebar_user_details">
-            <div className="sidebar_username">Hello, {fullName}</div>
+            <div className="sidebar_username">
+              <Translate>Hello, {fullName}</Translate>
+            </div>
             <div className="sidebar_plan">
-              <div className="sidebar_plan_text">Plan:</div>
-              <div className="sidebar_plan_value">{plan}</div>
+              <div className="sidebar_plan_text">
+                <Translate>Plan:</Translate>
+              </div>
+              <div className="sidebar_plan_value">
+                <Translate>{plan}</Translate>
+              </div>
             </div>
             <div className="sidebar_contact">
-              <i className="fas fa-phone-alt"></i> {mobileCode} {mobileNumber}
+              <i className="fas fa-phone-alt"></i>{" "}
+              <Translate>
+                {mobileCode} {mobileNumber}
+              </Translate>
             </div>
           </div>
         </div>
         <div className="sell_new_product_button_group">
           <button className="sell_new_product_button">
-            <span className="sell_new_product_text">Sell now</span>
+            <span className="sell_new_product_text">
+              <Translate>Sell now</Translate>
+            </span>
             <span
               style={{ marginLeft: "8px" }}
               className="sell_new_product_icon"
@@ -66,7 +79,9 @@ function Sidebar({ profileData }) {
             </span>
           </button>
           <button className="buy_new_product_button">
-            <span className="sell_new_product_text">Buy now</span>
+            <span className="sell_new_product_text">
+              <Translate>Buy now</Translate>
+            </span>
             <span
               style={{ marginLeft: "8px" }}
               className="sell_new_product_icon"
@@ -76,7 +91,9 @@ function Sidebar({ profileData }) {
           </button>
         </div>
       </div>
-      <div className="menu_text_display">MENU</div>
+      <div className="menu_text_display">
+        <Translate>MENU</Translate>
+      </div>
       <div className="sidebar_menu" data-testid="sidebar_menu">
         <ul className="sidebar_menu_list">
           <li>
@@ -90,7 +107,9 @@ function Sidebar({ profileData }) {
               <span className={setIconClass("/dashboard")}>
                 <i className="fas fa-chart-area"></i>
               </span>
-              <span className="sidebar_menu_overview">Overview</span>
+              <span className="sidebar_menu_overview">
+                <Translate>Overview</Translate>
+              </span>
             </NavLink>
           </li>
           <li>
@@ -102,7 +121,9 @@ function Sidebar({ profileData }) {
               <span className={setIconClass("/dashboard/profile")}>
                 <i className="fas fa-user"></i>
               </span>
-              <span className="sidebar_menu_profile">Profile {"&"} Info</span>
+              <span className="sidebar_menu_profile">
+                <Translate>Profile {"&"} Info</Translate>
+              </span>
             </NavLink>
           </li>
           <li>
@@ -114,7 +135,9 @@ function Sidebar({ profileData }) {
               <span className={setIconClass("/dashboard/following")}>
                 <i className="fas fa-users"></i>
               </span>
-              <span className="sidebar_menu_following">Following</span>
+              <span className="sidebar_menu_following">
+                <Translate>Following</Translate>
+              </span>
             </NavLink>
           </li>
           <li>
@@ -126,7 +149,9 @@ function Sidebar({ profileData }) {
               <span className={setIconClass("/dashboard/my-orders")}>
                 <i className="fas fa-shopping-basket"></i>
               </span>
-              <span className="sidebar_menu_selling_now">My orders</span>
+              <span className="sidebar_menu_selling_now">
+                <Translate>My orders</Translate>
+              </span>
             </NavLink>
           </li>
           <li>
@@ -138,7 +163,9 @@ function Sidebar({ profileData }) {
               <span className={setIconClass("/dashboard/sales")}>
                 <i className="fas fa-history"></i>
               </span>
-              <span className="sidebar_menu_history">Sales {"&"} History</span>
+              <span className="sidebar_menu_history">
+                <Translate>Sales {"&"} History</Translate>
+              </span>
             </NavLink>
           </li>
           <li>
@@ -150,7 +177,9 @@ function Sidebar({ profileData }) {
               <span className={setIconClass("/dashboard/transactions")}>
                 <i className="fas fa-rupee-sign"></i>
               </span>
-              <span className="sidebar_menu_transactions">Transactions</span>
+              <span className="sidebar_menu_transactions">
+                <Translate>Transactions</Translate>
+              </span>
             </NavLink>
           </li>
         </ul>
@@ -159,7 +188,9 @@ function Sidebar({ profileData }) {
         <span>
           <i className="fas fa-power-off"></i>
         </span>
-        <span style={{ marginLeft: "8px" }}>Logout</span>
+        <span style={{ marginLeft: "8px" }}>
+          <Translate>Logout</Translate>
+        </span>
       </div>
     </div>
   );

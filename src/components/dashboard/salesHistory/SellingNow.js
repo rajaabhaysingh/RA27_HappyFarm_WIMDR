@@ -1,6 +1,8 @@
 import React, { memo, lazy, Suspense } from "react";
 import "./SellingNow.css";
 
+import { Translate } from "react-auto-translate";
+
 import { useRouteMatch, Link } from "react-router-dom";
 
 import FallbackLazy from "../../FallbackLazy";
@@ -68,7 +70,7 @@ const SellingNow = ({ profileData }) => {
       return (
         <div className="overview_no_prod_found">
           {" "}
-          No products found under this category.
+          <Translate>No products found under this category.</Translate>
         </div>
       );
     }
@@ -79,16 +81,21 @@ const SellingNow = ({ profileData }) => {
       <div className="selling_now_inner_div">
         <div className="selling_now_add_new_product">
           <Link className="selling_now_add_new_product_link" to={`${url}/new`}>
-            Add new product on sale <span style={{ width: "8px" }}></span>{" "}
+            <Translate>Add new product on sale</Translate>{" "}
+            <span style={{ width: "8px" }}></span>{" "}
             <i className="fas fa-plus"></i>
           </Link>
         </div>
         <div className="selling_now_type_group">
-          <div className="selling_now_heading">RETAIL PRODUCTS</div>
+          <div className="selling_now_heading">
+            <Translate>RETAIL PRODUCTS</Translate>
+          </div>
           {renderProdOnSale(SellingNowData.retail)}
         </div>
         <div className="selling_now_type_group">
-          <div className="selling_now_heading">BULK PRODUCTS</div>
+          <div className="selling_now_heading">
+            <Translate>BULK PRODUCTS</Translate>
+          </div>
           {renderProdOnSale(SellingNowData.bulk)}
         </div>
       </div>

@@ -1,6 +1,8 @@
 import React, { useState, memo } from "react";
 import "./SignUpPwd.css";
 
+import { Translate } from "react-auto-translate";
+
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -89,9 +91,15 @@ function SignUpPwd({ handleChange, formValues, setIsSignInOpen }) {
   return (
     <div className="sign_up_pwd_main_div">
       <form className="sign_up_form" onSubmit={handleSignUp}>
-        <div className="sign_up_label_pri">Mobile number:</div>
-        <div className="sign_up_pwd_mob">{formValues.phone}</div>
-        <div className="sign_up_label_sec">Enter password:</div>
+        <div className="sign_up_label_pri">
+          <Translate>Mobile number:</Translate>
+        </div>
+        <div className="sign_up_pwd_mob">
+          <Translate>{formValues.phone}</Translate>
+        </div>
+        <div className="sign_up_label_sec">
+          <Translate>Enter password:</Translate>
+        </div>
         <input
           required
           autoFocus
@@ -107,18 +115,24 @@ function SignUpPwd({ handleChange, formValues, setIsSignInOpen }) {
           placeholder="Confirm password"
           onChange={handleChange("cnf_password")}
         />
-        <div className="form_error">{pwdError ? pwdError : null}</div>
-        <div className="sign_up_pwd_params">Guidelines for password:</div>
+        <div className="form_error">
+          <Translate>{pwdError ? pwdError : null}</Translate>
+        </div>
+        <div className="sign_up_pwd_params">
+          <Translate>Guidelines for password:</Translate>
+        </div>
 
         <ul className="sign_up_pwd_params_list">
           <li className="sign_up_pwd_params_item">
-            Password must be at least 8 characters long.
+            <Translate>Password must be at least 8 characters long.</Translate>
           </li>
           <li className="sign_up_pwd_params_item">
-            It must include uppercase or lowercase characters ([A-Z], [a-z])
+            <Translate>
+              It must include uppercase or lowercase characters ([A-Z], [a-z])
+            </Translate>
           </li>
           <li className="sign_up_pwd_params_item">
-            It must include numbers ([0-9])
+            <Translate>It must include numbers ([0-9])</Translate>
           </li>
         </ul>
 

@@ -202,9 +202,8 @@
     font-weight: bold;
     color: #ffffff;
     height: 32px;
-  }
-  .navbar_language_selector select::-ms-expand {
-    display: none;
+    outline: none;
+    border: none;
   }
 }
 
@@ -336,5 +335,10 @@
   .navbar_language_selector {
     height: 30px;
     border-radius: 20px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    background: #ffffff;
+    color: #ee5700;
   }
 }

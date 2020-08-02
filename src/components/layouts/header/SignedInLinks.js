@@ -1,6 +1,8 @@
 import React, { useState, memo } from "react";
 import "./SignedInLinks.css";
 
+import { Translate } from "react-auto-translate";
+
 import { NavLink } from "react-router-dom";
 
 import UserPlaceholder from "../../../res/header/user_placeholder.svg";
@@ -82,7 +84,7 @@ function SignedInLinks({ user, setUser }) {
                 <i className="fas fa-chart-area"></i>
               </div>
               <div className="signed_in_text signed_in_my_profile_text">
-                Dashboard
+                <Translate>Dashboard</Translate>
               </div>
             </NavLink>
           </li>
@@ -92,7 +94,7 @@ function SignedInLinks({ user, setUser }) {
                 <i className="fas fa-envelope-open-text"></i>
               </div>
               <div className="signed_in_text signed_in_message_text">
-                Messages
+                <Translate>Messages</Translate>
               </div>
             </NavLink>
           </li>
@@ -102,7 +104,7 @@ function SignedInLinks({ user, setUser }) {
                 <i className="fas fa-heart"></i>
               </div>
               <div className="signed_in_text signed_in_favourites_text">
-                Favourites
+                <Translate>Favourites</Translate>
               </div>
             </NavLink>
           </li>
@@ -112,7 +114,7 @@ function SignedInLinks({ user, setUser }) {
                 <i className="fas fa-star"></i>
               </div>
               <div className="signed_in_text signed_in_rewards_text">
-                Rewards
+                <Translate>Rewards</Translate>
               </div>
             </NavLink>
           </li>
@@ -122,7 +124,7 @@ function SignedInLinks({ user, setUser }) {
                 <i className="fas fa-sign-out-alt"></i>
               </div>
               <div className="signed_in_text signed_in_sign_out_text">
-                Sign-Out
+                <Translate>Sign-Out</Translate>
               </div>
             </div>
           </li>

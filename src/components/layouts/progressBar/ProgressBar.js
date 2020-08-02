@@ -1,6 +1,8 @@
 import React, { memo } from "react";
 import "./ProgressBar.css";
 
+import { Translate } from "react-auto-translate";
+
 function ProgressBar({ done, textInfo, symbol }) {
   const progressDoneWrapper = {
     width: `${done}%`,
@@ -12,8 +14,10 @@ function ProgressBar({ done, textInfo, symbol }) {
         <div style={progressDoneWrapper} className="progress_done"></div>
       </div>
       <div className="progress_percent">
-        {done}
-        {symbol} {textInfo}
+        <Translate>{done}</Translate>
+        <Translate>
+          {symbol} {textInfo}
+        </Translate>
       </div>
     </div>
   );

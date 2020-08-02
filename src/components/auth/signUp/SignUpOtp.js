@@ -1,6 +1,8 @@
 import React, { memo, useEffect, useState, useRef, useCallback } from "react";
 import "./SignUpOtp.css";
 
+import { Translate } from "react-auto-translate";
+
 import axios from "axios";
 
 function SignUpOtp({
@@ -106,7 +108,7 @@ function SignUpOtp({
     <div className="sign_up_otp_main_div">
       <form className="sign_up_form" onSubmit={handleConfirm}>
         <div className="sign_up_label">
-          Enter OTP sent to your mobile number:
+          <Translate>Enter OTP sent to your mobile number:</Translate>
         </div>
         <input
           required
@@ -118,11 +120,15 @@ function SignUpOtp({
           defaultValue={formValues.otp}
           ref={focusOtpRef}
         />
-        <div className="form_error">{otpError ? otpError : null}</div>
+        <div className="form_error">
+          <Translate>{otpError ? otpError : null}</Translate>
+        </div>
         <div className="sign_up_otp_params">
-          Didn't receive OTP?
+          <Translate>Didn't receive OTP?</Translate>
           <div className={timerClass}>
-            <span style={{ marginLeft: "8px" }}>Please wait...</span>
+            <span style={{ marginLeft: "8px" }}>
+              <Translate>Please wait...</Translate>
+            </span>
             <span
               id="sign_up_resend_otp_timer"
               style={{
@@ -137,7 +143,7 @@ function SignUpOtp({
           {/* following div is just a spacer div */}
           <div style={{ display: "flex", flex: "1" }}></div>
           <div className={resendBtnClass} onClick={handleResendOtp}>
-            RESEND OTP
+            <Translate>RESEND OTP</Translate>
           </div>
         </div>
 
@@ -148,7 +154,7 @@ function SignUpOtp({
             type="button"
             onClick={prevStep}
           >
-            CHANGE NUMBER
+            <Translate>CHANGE NUMBER</Translate>
           </button>
         </div>
       </form>

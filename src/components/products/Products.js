@@ -1,6 +1,8 @@
 import React, { useEffect, useState, lazy, Suspense, memo } from "react";
 import "./Products.css";
 
+import { Translate } from "react-auto-translate";
+
 import axios from "axios";
 
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
@@ -70,7 +72,9 @@ const Products = () => {
                   <Link to={`${url}/search?q=${item.name}`}>
                     <div key={item.name} className="prod_cat_item">
                       <img className="cat_item_img" src={item.iconUrl} alt="" />
-                      <div className="cat_item_name">{item.name}</div>
+                      <div className="cat_item_name">
+                        <Translate>{item.name}</Translate>
+                      </div>
                     </div>
                   </Link>
                 ))}

@@ -1,5 +1,7 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import "./Product.css";
+
+import axios from "axios";
 
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import FallbackLazy from "../FallbackLazySecondary";
@@ -39,6 +41,31 @@ const Footer = lazy(() => import("../layouts/footer/Footer"));
 
 // main component function
 const Product = () => {
+  // ----- fetching data state mgmt -----
+  const baseUrl = "https://abhijitpatil.pythonanywhere.com";
+
+  const [FarmersList, setFarmersList] = useState([]);
+
+  // dataFetcher
+  const dataFetcher = async () => {
+    let farmers = await axios
+      .get("https://randomuser.me/api/?results=20")
+      .catch((error) => {
+        console.log(error);
+      });
+    setFarmersList(farmers.data.results);
+  };
+
+  // ------------------------------------
+
+  useEffect(() => {
+    dataFetcher();
+  }, []);
+
+  useEffect(() => {
+    console.log();
+  }, [FarmersList]);
+
   const stripes = Stripes;
   const prodData = ProdData;
   const offers = Offers;
@@ -546,7 +573,7 @@ const Product = () => {
               <ErrorBoundary>
                 <Suspense fallback={<FallbackLazy />}>
                   <FarmerSlider
-                    farmersList={farmersList}
+                    farmersList={FarmersList}
                     boldHeading="Active farmers"
                     normalHeading="in your area"
                     viewAllLink="#"

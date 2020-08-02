@@ -1,6 +1,8 @@
 import React, { memo } from "react";
 import "./MenuTab.css";
 
+import { Translate } from "react-auto-translate";
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 function MenuTab({ catList }) {
@@ -17,7 +19,7 @@ function MenuTab({ catList }) {
         <TabList className="category_tab_list">
           {catList.map((subCat) => (
             <Tab key={subCat.id} className="category_tab">
-              {subCat.heading}
+              <Translate>{subCat.heading}</Translate>
             </Tab>
           ))}
         </TabList>
@@ -27,7 +29,9 @@ function MenuTab({ catList }) {
             <div className="category_panel_data">
               {subCat.items.map((item) => (
                 <div key={item.name} className="cat_menu_items">
-                  <a href={item.link}>{item.name}</a>
+                  <a href={item.link}>
+                    <Translate>{item.name}</Translate>
+                  </a>
                 </div>
               ))}
             </div>

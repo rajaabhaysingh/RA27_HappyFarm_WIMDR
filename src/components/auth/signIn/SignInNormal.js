@@ -1,8 +1,9 @@
 import React, { useState, memo, useCallback } from "react";
 import "./SignInNormal.css";
 
-import axios from "axios";
 import { Translate } from "react-auto-translate";
+
+import axios from "axios";
 
 function SignInNormal({
   formValues,
@@ -134,19 +135,20 @@ function SignInNormal({
               type="button"
               className="sign_in_using_google sign_in_using_btn"
             >
-              <i className="fab fa-google"></i> Google
+              <i className="fab fa-google"></i> <Translate>Google</Translate>
             </button>
             <button
               type="button"
               className="sign_in_using_fb sign_in_using_btn"
             >
-              <i className="fab fa-facebook-f"></i> Facebook
+              <i className="fab fa-facebook-f"></i>{" "}
+              <Translate>Facebook</Translate>
             </button>
             <button
               type="button"
               className="sign_in_using_twitter sign_in_using_btn"
             >
-              <i className="fab fa-twitter"></i> Twitter
+              <i className="fab fa-twitter"></i> <Translate>Twitter</Translate>
             </button>
           </div>
         </div>

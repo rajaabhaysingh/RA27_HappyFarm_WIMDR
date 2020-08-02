@@ -1,6 +1,8 @@
 import React, { useState, memo, lazy, Suspense } from "react";
 import "./SignInUpReset.css";
 
+import { Translate } from "react-auto-translate";
+
 import LoginGraphics from "../../res/login/login_graphic.svg";
 
 import FallbackLazy from "../FallbackLazy";
@@ -81,8 +83,12 @@ function SignInUp({ onClose, user, setUser, setIsFormOpen }) {
       <div className="sign_in_up_inner_div">
         <div className="sign_in_up_graphics">
           <div className="sign_in_up_graphics_text">
-            <div className="sign_in_up_graphics_heading">{formHeading}</div>
-            <div className="sign_in_up_graphics_desc">{formDesc}</div>
+            <div className="sign_in_up_graphics_heading">
+              <Translate>{formHeading}</Translate>
+            </div>
+            <div className="sign_in_up_graphics_desc">
+              <Translate>{formDesc}</Translate>
+            </div>
           </div>
           <div className="sign_in_up_graphics_image">
             <img src={LoginGraphics} alt="" />
@@ -100,9 +106,11 @@ function SignInUp({ onClose, user, setUser, setIsFormOpen }) {
             className="sign_in_up_sign_up"
             onClick={handleToggleFormState}
           >
-            {bottomTextPrimary}
+            <Translate>{bottomTextPrimary}</Translate>
             <span style={{ marginLeft: "4px" }}>
-              <strong>{bottomTextSecondary}</strong>
+              <strong>
+                <Translate>{bottomTextSecondary}</Translate>
+              </strong>
             </span>
           </button>
         </div>

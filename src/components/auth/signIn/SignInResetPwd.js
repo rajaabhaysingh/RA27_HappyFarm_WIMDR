@@ -1,6 +1,8 @@
 import React, { memo } from "react";
 import "./SignInResetPwd.css";
 
+import { Translate } from "react-auto-translate";
+
 import Popup from "reactjs-popup";
 
 function SignInResetPwd({ formValues, handleChange, prevStep }) {
@@ -28,7 +30,7 @@ function SignInResetPwd({ formValues, handleChange, prevStep }) {
     <div className="sign_in_reset_pwd_main_div">
       <form className="sign_in_reset_pwd_form">
         <div className="sign_in_reset_pwd_label_pri">
-          Enter registered mobile number:
+          <Translate>Enter registered mobile number:</Translate>
         </div>
         <input
           required
@@ -44,9 +46,11 @@ function SignInResetPwd({ formValues, handleChange, prevStep }) {
           type="button"
           onClick={handleRequestOtp}
         >
-          REQUEST OTP
+          <Translate>REQUEST OTP</Translate>
         </button>
-        <div className="sign_in_reset_pwd_label_sec">Enter OTP:</div>
+        <div className="sign_in_reset_pwd_label_sec">
+          <Translate>Enter OTP:</Translate>
+        </div>
         <input
           required
           className="sign_in_reset_pwd_otp"
@@ -55,7 +59,7 @@ function SignInResetPwd({ formValues, handleChange, prevStep }) {
           onChange={handleChange("otp")}
         />
         <div className="sign_in_reset_pwd_label_tert">
-          Enter new password:
+          <Translate>Enter new password:</Translate>
           <Popup
             trigger={
               <span style={{ marginLeft: "8px", color: "#5c5c5c" }}>
@@ -71,18 +75,23 @@ function SignInResetPwd({ formValues, handleChange, prevStep }) {
             }}
           >
             <div className="sign_in_reset_pwd_pwd_params">
-              Guidelines for password:
+              <Translate>Guidelines for password:</Translate>
             </div>
 
             <ul className="sign_in_reset_pwd_pwd_params_list">
               <li className="sign_in_reset_pwd_pwd_params_item">
-                Password must be at least 8 characters long.
+                <Translate>
+                  Password must be at least 8 characters long.
+                </Translate>
               </li>
               <li className="sign_in_reset_pwd_pwd_params_item">
-                It must include uppercase or lowercase characters ([A-Z], [a-z])
+                <Translate>
+                  It must include uppercase or lowercase characters ([A-Z],
+                  [a-z])
+                </Translate>
               </li>
               <li className="sign_in_reset_pwd_pwd_params_item">
-                It must include numbers ([0-9])
+                <Translate>It must include numbers ([0-9])</Translate>
               </li>
             </ul>
           </Popup>
@@ -109,14 +118,14 @@ function SignInResetPwd({ formValues, handleChange, prevStep }) {
             onClick={handleReturnBack}
           >
             <i className="fas fa-arrow-left"></i>
-            <span style={{ marginLeft: "8px" }}>GO BACK</span>
+            <span style={{ marginLeft: "8px" }}>
+              <Translate>GO BACK</Translate>
+            </span>
           </button>
 
-          <input
-            className="sign_in_reset_pwd_btn"
-            type="submit"
-            value="SUBMIT"
-          />
+          <button className="sign_in_reset_pwd_btn" type="submit">
+            <Translate>SUBMIT</Translate>
+          </button>
         </div>
       </form>
     </div>

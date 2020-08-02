@@ -1,6 +1,8 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import "./Farmers.css";
 
+import { Translate } from "react-auto-translate";
+
 import axios from "axios";
 
 import FallbackLazy from "../FallbackLazy";
@@ -97,7 +99,7 @@ const Farmers = () => {
             />
             <button className="farmers_search_btn">
               <i style={{ marginRight: "8px" }} className="fas fa-search"></i>{" "}
-              Search
+              <Translate>Search</Translate>
             </button>
           </form>
         </div>

@@ -1,6 +1,8 @@
 import React, { memo } from "react";
 import "./SideDrawer.css";
 
+import { Translate } from "react-auto-translate";
+
 import { NavLink } from "react-router-dom";
 
 const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
@@ -26,20 +28,22 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <div className="side_drawer_back_icon">
             <i className="fas fa-seedling"></i>
           </div>
-          <div className="side_drawer_back_text">Logo here</div>
+          <div className="side_drawer_back_text"></div>
         </div>
         <div className="side_drawer_header_spacer"></div>
         <div className="side_drawer_change_language">
           <div className="side_drawer_change_language_icon">
             <i className="fas fa-cog"></i>
           </div>
-          <div className="side_drawer_change_language_text">Settings</div>
+          <div className="side_drawer_change_language_text">
+            <Translate>Settings</Translate>
+          </div>
         </div>
       </div>
       {/* sidebar sell with us button */}
       <div className="side_drawer_sell_with_us_btn_container">
         <button className="side_drawer_sell_with_us_btn">
-          Sell with us <i className="fas fa-plus"></i>
+          <Translate>Sell with us</Translate> <i className="fas fa-plus"></i>
         </button>
       </div>
       <div className="side_drawer_menu_list">
@@ -54,7 +58,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-home"></i>
               </div>
-              Home
+              <Translate>Home</Translate>
             </NavLink>
           </li>
           <li>
@@ -67,7 +71,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-th"></i>
               </div>
-              Products
+              <Translate>Products</Translate>
             </NavLink>
           </li>
           <li>
@@ -80,7 +84,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-chart-area"></i>
               </div>
-              Dashboard
+              <Translate>Dashboard</Translate>
             </NavLink>
           </li>
           <li>
@@ -93,7 +97,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-envelope-open-text"></i>
               </div>
-              Messages
+              <Translate>Messages</Translate>
             </NavLink>
           </li>
           <li>
@@ -106,7 +110,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-users"></i>
               </div>
-              Farmers
+              <Translate>Farmers</Translate>
             </NavLink>
           </li>
           <li>
@@ -119,7 +123,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-tractor"></i>
               </div>
-              Agro Solution
+              <Translate>Agro Solution</Translate>
             </NavLink>
           </li>
           <li>
@@ -132,7 +136,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-tags"></i>
               </div>
-              Offers
+              <Translate>Offers</Translate>
             </NavLink>
           </li>
           <li>
@@ -145,7 +149,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-award"></i>
               </div>
-              Premium
+              <Translate>Premium</Translate>
             </NavLink>
           </li>
           <li>
@@ -158,7 +162,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-question-circle"></i>
               </div>
-              FAQs {"&"} Help
+              <Translate>FAQs {"&"} Help</Translate>
             </NavLink>
           </li>
         </ul>
@@ -176,7 +180,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-headset"></i>
               </div>
-              Contact
+              <Translate>Contact</Translate>
             </NavLink>
           </li>
           <li>
@@ -189,7 +193,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-info-circle"></i>
               </div>
-              About Us
+              <Translate>About Us</Translate>
             </NavLink>
           </li>
           <li>
@@ -202,7 +206,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-bell"></i>
               </div>
-              Notification
+              <Translate>Notification</Translate>
             </NavLink>
           </li>
           <li>
@@ -215,7 +219,7 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
               <div className="side_drawer_menu_items_logo">
                 <i className="fas fa-stamp"></i>
               </div>
-              Legal
+              <Translate>Legal</Translate>
             </NavLink>
           </li>
         </ul>
@@ -228,7 +232,9 @@ const SideDrawer = ({ showDrawer, setIsDrawerOpen }) => {
           <div className="side_drawer_footer_icon_android">
             <i className="fab fa-google-play"></i>
           </div>
-          <div className="footer_text">Download App</div>
+          <div className="footer_text">
+            <Translate>Download App</Translate>
+          </div>
           <div className="side_drawer_footer_icon_ios">
             <i className="fab fa-app-store"></i>
           </div>
