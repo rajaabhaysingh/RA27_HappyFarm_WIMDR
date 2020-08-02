@@ -30,7 +30,6 @@ function SignUpOtp({
   // ---- otp submission -----
   const verifyOtp = useCallback(async () => {
     let res = await axios.get(url);
-
     console.log(res.data.Details);
 
     setTimeout(() => {
@@ -42,15 +41,18 @@ function SignUpOtp({
   // ------------------------
 
   // ---local form state mgmt-----
-  const handleConfirm = useCallback((e) => {
-    try {
-      e.preventDefault();
-      verifyOtp();
-      nextStep();
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+  const handleConfirm = useCallback(
+    (e) => {
+      try {
+        e.preventDefault();
+        verifyOtp();
+        // nextStep();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [formValues]
+  );
   // -----------------------------
 
   // use ref
@@ -111,6 +113,7 @@ function SignUpOtp({
         <input
           required
           autoFocus
+          name="otp"
           className="sign_up_otp"
           type="text"
           placeholder="Enter OTP"

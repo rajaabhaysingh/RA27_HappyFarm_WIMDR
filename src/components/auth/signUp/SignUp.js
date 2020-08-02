@@ -19,7 +19,8 @@ function SignUp({ setIsSignInOpen }) {
   // ---- session id state for mobile otp verification ----
   const [sessionId, setSessionId] = useState("");
 
-  const apikey = "3caf8194-d049-11ea-9fa5-0200cd936042";
+  // const apikey = "3caf8194-d049-11ea-9fa5-0200cd936042"; //old
+  const apikey = "feb3782d-d4e6-11ea-9fa5-0200cd936042";
   // ------------------------------------------------------
 
   // -------local state mgmt---------
