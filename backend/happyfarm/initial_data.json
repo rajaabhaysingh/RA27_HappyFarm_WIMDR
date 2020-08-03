@@ -1,0 +1,1202 @@
+[
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "authtoken",
+            "model": "token"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "background_task",
+            "model": "completedtask"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "background_task",
+            "model": "task"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "api",
+            "model": "customuser"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 10,
+        "fields": {
+            "app_label": "api",
+            "model": "adcategorydata"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 11,
+        "fields": {
+            "app_label": "api",
+            "model": "cart"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 12,
+        "fields": {
+            "app_label": "api",
+            "model": "item"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 13,
+        "fields": {
+            "app_label": "api",
+            "model": "itemcategory"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 14,
+        "fields": {
+            "app_label": "api",
+            "model": "topcarouselurl"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 15,
+        "fields": {
+            "app_label": "api",
+            "model": "transaction"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 16,
+        "fields": {
+            "app_label": "api",
+            "model": "itemimage"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 17,
+        "fields": {
+            "app_label": "api",
+            "model": "idproof"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 18,
+        "fields": {
+            "app_label": "api",
+            "model": "connections"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 19,
+        "fields": {
+            "app_label": "api",
+            "model": "cartitem"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 20,
+        "fields": {
+            "app_label": "api",
+            "model": "address"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 21,
+        "fields": {
+            "app_label": "api",
+            "model": "addata"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "9c132mt3zrdyzmcc55u94uk9ru1kuufo",
+        "fields": {
+            "session_data": "MmVhZWNlNWEzZmM3NWUwNjNjNjBmYzFmM2JkYzg4OTdiY2U4NmE4Zjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxZWM3NzZlYmY5OTI4MzA0ZTlkMDhlZDA0NTQ1ZDhjZTY3NzJhMjQ5In0=",
+            "expire_date": "2020-08-13T13:11:39.937Z"
+        }
+    },
+    {
+        "model": "api.itemimage",
+        "pk": 1,
+        "fields": {
+            "item": 1,
+            "image": "item_images/82318BAC-F9A4-4528-957A-89A7B20CC9F4.png.jpg",
+            "alternate_image_url": null
+        }
+    },
+    {
+        "model": "api.itemcategory",
+        "pk": "Veggies",
+        "fields": {
+            "iconUrl": "https://static.vecteezy.com/system/resources/thumbnails/000/381/503/small/ZZZZZ2344.jpg",
+            "redirectUrl": "#"
+        }
+    },
+    {
+        "model": "api.topcarouselurl",
+        "pk": 1,
+        "fields": {
+            "name": "Photo\u00a01",
+            "url": "https://static.vecteezy.com/system/resources/thumbnails/000/381/503/small/ZZZZZ2344.jpg"
+        }
+    },
+    {
+        "model": "api.adcategorydata",
+        "pk": 1,
+        "fields": {
+            "titleLeft1": "Grains\u00a0and\u00a0Pulses",
+            "titleLeft2": "buy\u00a0the\u00a0taste\u00a0of\u00a0India...",
+            "titleRight1": null,
+            "titleRight2": "View\u00a0all",
+            "bgImage": "linear-gradient(#ffffff,\u00a0#0f4153,\u00a0#ffffff)",
+            "bgImagePC": "linear-gradient(#ffffff,\u00a0#cfcfcf,\u00a0#ffffff)",
+            "btnColor": "linear-gradient(#18607a,\u00a0#0c3b4d)",
+            "fontColor": "#000000",
+            "fontColorPC": "#000000",
+            "graphicsLeftUrl": "none",
+            "graphicsRightUrl": "none",
+            "viewAllLink": "#"
+        }
+    },
+    {
+        "model": "api.addata",
+        "pk": 1,
+        "fields": {
+            "category": 1,
+            "offerVal": "Upto\u00a030%\u00a0off",
+            "adImgUrl": "https://static.vecteezy.com/system/resources/thumbnails/000/381/503/small/ZZZZZ2344.jpg",
+            "adTitle": "Grapefruit",
+            "adDesc": "Tropica\u00a0juicy\u00a0fruit",
+            "adSubDesc": "from\u00a0\u20b9\u00a059.00\u00a0/\u00a0kg",
+            "adLink": "#"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 4,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 4,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 4,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 4,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 5,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 5,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 5,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 5,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add Token",
+            "content_type": 6,
+            "codename": "add_token"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change Token",
+            "content_type": 6,
+            "codename": "change_token"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete Token",
+            "content_type": 6,
+            "codename": "delete_token"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view Token",
+            "content_type": 6,
+            "codename": "view_token"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add completed task",
+            "content_type": 7,
+            "codename": "add_completedtask"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change completed task",
+            "content_type": 7,
+            "codename": "change_completedtask"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete completed task",
+            "content_type": 7,
+            "codename": "delete_completedtask"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view completed task",
+            "content_type": 7,
+            "codename": "view_completedtask"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add task",
+            "content_type": 8,
+            "codename": "add_task"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change task",
+            "content_type": 8,
+            "codename": "change_task"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete task",
+            "content_type": 8,
+            "codename": "delete_task"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view task",
+            "content_type": 8,
+            "codename": "view_task"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add User",
+            "content_type": 9,
+            "codename": "add_customuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change User",
+            "content_type": 9,
+            "codename": "change_customuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete User",
+            "content_type": 9,
+            "codename": "delete_customuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view User",
+            "content_type": 9,
+            "codename": "view_customuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 37,
+        "fields": {
+            "name": "Can add Ad Category Data",
+            "content_type": 10,
+            "codename": "add_adcategorydata"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 38,
+        "fields": {
+            "name": "Can change Ad Category Data",
+            "content_type": 10,
+            "codename": "change_adcategorydata"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 39,
+        "fields": {
+            "name": "Can delete Ad Category Data",
+            "content_type": 10,
+            "codename": "delete_adcategorydata"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 40,
+        "fields": {
+            "name": "Can view Ad Category Data",
+            "content_type": 10,
+            "codename": "view_adcategorydata"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 41,
+        "fields": {
+            "name": "Can add Cart",
+            "content_type": 11,
+            "codename": "add_cart"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 42,
+        "fields": {
+            "name": "Can change Cart",
+            "content_type": 11,
+            "codename": "change_cart"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 43,
+        "fields": {
+            "name": "Can delete Cart",
+            "content_type": 11,
+            "codename": "delete_cart"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 44,
+        "fields": {
+            "name": "Can view Cart",
+            "content_type": 11,
+            "codename": "view_cart"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 45,
+        "fields": {
+            "name": "Can add Item",
+            "content_type": 12,
+            "codename": "add_item"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 46,
+        "fields": {
+            "name": "Can change Item",
+            "content_type": 12,
+            "codename": "change_item"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 47,
+        "fields": {
+            "name": "Can delete Item",
+            "content_type": 12,
+            "codename": "delete_item"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 48,
+        "fields": {
+            "name": "Can view Item",
+            "content_type": 12,
+            "codename": "view_item"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 49,
+        "fields": {
+            "name": "Can add Category",
+            "content_type": 13,
+            "codename": "add_itemcategory"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 50,
+        "fields": {
+            "name": "Can change Category",
+            "content_type": 13,
+            "codename": "change_itemcategory"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 51,
+        "fields": {
+            "name": "Can delete Category",
+            "content_type": 13,
+            "codename": "delete_itemcategory"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 52,
+        "fields": {
+            "name": "Can view Category",
+            "content_type": 13,
+            "codename": "view_itemcategory"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 53,
+        "fields": {
+            "name": "Can add TopCarousel",
+            "content_type": 14,
+            "codename": "add_topcarouselurl"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 54,
+        "fields": {
+            "name": "Can change TopCarousel",
+            "content_type": 14,
+            "codename": "change_topcarouselurl"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 55,
+        "fields": {
+            "name": "Can delete TopCarousel",
+            "content_type": 14,
+            "codename": "delete_topcarouselurl"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 56,
+        "fields": {
+            "name": "Can view TopCarousel",
+            "content_type": 14,
+            "codename": "view_topcarouselurl"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 57,
+        "fields": {
+            "name": "Can add Transaction",
+            "content_type": 15,
+            "codename": "add_transaction"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 58,
+        "fields": {
+            "name": "Can change Transaction",
+            "content_type": 15,
+            "codename": "change_transaction"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 59,
+        "fields": {
+            "name": "Can delete Transaction",
+            "content_type": 15,
+            "codename": "delete_transaction"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 60,
+        "fields": {
+            "name": "Can view Transaction",
+            "content_type": 15,
+            "codename": "view_transaction"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 61,
+        "fields": {
+            "name": "Can add Item Image",
+            "content_type": 16,
+            "codename": "add_itemimage"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 62,
+        "fields": {
+            "name": "Can change Item Image",
+            "content_type": 16,
+            "codename": "change_itemimage"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 63,
+        "fields": {
+            "name": "Can delete Item Image",
+            "content_type": 16,
+            "codename": "delete_itemimage"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 64,
+        "fields": {
+            "name": "Can view Item Image",
+            "content_type": 16,
+            "codename": "view_itemimage"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 65,
+        "fields": {
+            "name": "Can add id proof",
+            "content_type": 17,
+            "codename": "add_idproof"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 66,
+        "fields": {
+            "name": "Can change id proof",
+            "content_type": 17,
+            "codename": "change_idproof"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 67,
+        "fields": {
+            "name": "Can delete id proof",
+            "content_type": 17,
+            "codename": "delete_idproof"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 68,
+        "fields": {
+            "name": "Can view id proof",
+            "content_type": 17,
+            "codename": "view_idproof"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 69,
+        "fields": {
+            "name": "Can add Connection",
+            "content_type": 18,
+            "codename": "add_connections"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 70,
+        "fields": {
+            "name": "Can change Connection",
+            "content_type": 18,
+            "codename": "change_connections"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 71,
+        "fields": {
+            "name": "Can delete Connection",
+            "content_type": 18,
+            "codename": "delete_connections"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 72,
+        "fields": {
+            "name": "Can view Connection",
+            "content_type": 18,
+            "codename": "view_connections"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 73,
+        "fields": {
+            "name": "Can add Cart Item",
+            "content_type": 19,
+            "codename": "add_cartitem"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 74,
+        "fields": {
+            "name": "Can change Cart Item",
+            "content_type": 19,
+            "codename": "change_cartitem"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 75,
+        "fields": {
+            "name": "Can delete Cart Item",
+            "content_type": 19,
+            "codename": "delete_cartitem"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 76,
+        "fields": {
+            "name": "Can view Cart Item",
+            "content_type": 19,
+            "codename": "view_cartitem"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 77,
+        "fields": {
+            "name": "Can add address",
+            "content_type": 20,
+            "codename": "add_address"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 78,
+        "fields": {
+            "name": "Can change address",
+            "content_type": 20,
+            "codename": "change_address"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 79,
+        "fields": {
+            "name": "Can delete address",
+            "content_type": 20,
+            "codename": "delete_address"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 80,
+        "fields": {
+            "name": "Can view address",
+            "content_type": 20,
+            "codename": "view_address"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 81,
+        "fields": {
+            "name": "Can add Ad Data",
+            "content_type": 21,
+            "codename": "add_addata"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 82,
+        "fields": {
+            "name": "Can change Ad Data",
+            "content_type": 21,
+            "codename": "change_addata"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 83,
+        "fields": {
+            "name": "Can delete Ad Data",
+            "content_type": 21,
+            "codename": "delete_addata"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 84,
+        "fields": {
+            "name": "Can view Ad Data",
+            "content_type": 21,
+            "codename": "view_addata"
+        }
+    },
+    {
+        "model": "api.customuser",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$0J1r6zTmWOps$rYuCuJDPOCwjV5PjOGIPNggia4tuA/7vL/d6k99Iyb0=",
+            "last_login": "2020-07-30T13:11:39.824Z",
+            "is_superuser": true,
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-07-30T13:11:24.100Z",
+            "email": "test@test.com",
+            "first_name": "",
+            "last_name": "",
+            "phone": "+919898989898",
+            "phoneVerified": false,
+            "plan": "free",
+            "prefLang": "en",
+            "gender": "",
+            "date_of_joining": "2020-07-30T13:11:24.326Z",
+            "bank_account_no": "",
+            "ifsc_code": "",
+            "registration_mode": "website",
+            "current_location_latitude": null,
+            "current_location_longitude": null,
+            "profile_photo": "",
+            "alternate_profile_url": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "api.idproof",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "status": "pending",
+            "name": "Aadhar",
+            "file": "id_proofs/aadhar_clg_id.pdf"
+        }
+    },
+    {
+        "model": "api.item",
+        "pk": 1,
+        "fields": {
+            "name": "Tomato",
+            "group": "bulk",
+            "status": "in_stock",
+            "seller": 1,
+            "date_of_creation": "2020-07-30T13:16:16.145Z",
+            "date_of_expiry": "2020-07-30T13:14:51Z",
+            "is_negotiable": true,
+            "description": "Tangy Tomatoes",
+            "delivery_preference": "pick_up",
+            "breed": "Hybrid",
+            "location": "Aliganj,\u00a0Bhagalpur",
+            "category": "Vegetable",
+            "lotSizeDigit": "500.000000",
+            "lotSizeUnit": "kg",
+            "addedDigit": null,
+            "addedUnit": null,
+            "basePrice": "17.000000",
+            "pricePerUnit": "kg",
+            "minBookVal": "500.000000",
+            "minBookValUnit": "mg",
+            "maxBookVal": "1.000000",
+            "maxBookValUnit": "kg",
+            "isFresh": true,
+            "item_type": null
+        }
+    },
+    {
+        "model": "api.item",
+        "pk": 2,
+        "fields": {
+            "name": "Tomato",
+            "group": "individual",
+            "status": "draft",
+            "seller": 1,
+            "date_of_creation": "2020-07-30T13:17:34.057Z",
+            "date_of_expiry": "2020-07-30T13:16:28Z",
+            "is_negotiable": true,
+            "description": "Tangy Tomatoes",
+            "delivery_preference": "pick_up",
+            "breed": "",
+            "location": "Aliganj,\u00a0Bhagalpur",
+            "category": "Vegetable",
+            "lotSizeDigit": null,
+            "lotSizeUnit": null,
+            "addedDigit": "37.000000",
+            "addedUnit": "minutes",
+            "basePrice": "17.000000",
+            "pricePerUnit": "kg",
+            "minBookVal": null,
+            "minBookValUnit": null,
+            "maxBookVal": null,
+            "maxBookValUnit": null,
+            "isFresh": true,
+            "item_type": "Hybrid"
+        }
+    },
+    {
+        "model": "api.cart",
+        "pk": 1,
+        "fields": {
+            "status": "Current",
+            "buyer": 1
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2020-07-30T13:12:13.248Z",
+            "user": 1,
+            "content_type": 13,
+            "object_id": "Veggies",
+            "object_repr": "ItemCategory object (Veggies)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2020-07-30T13:13:11.199Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "1",
+            "object_repr": "AdCategoryData object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2020-07-30T13:13:41.259Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "1",
+            "object_repr": "AdData object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2020-07-30T13:14:23.425Z",
+            "user": 1,
+            "content_type": 17,
+            "object_id": "1",
+            "object_repr": "IdProof object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2020-07-30T13:16:16.160Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "1",
+            "object_repr": "Tomato",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2020-07-30T13:17:34.062Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "2",
+            "object_repr": "Tomato",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2020-07-30T13:18:05.225Z",
+            "user": 1,
+            "content_type": 14,
+            "object_id": "1",
+            "object_repr": "TopCarouselUrl object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2020-07-30T13:26:31.706Z",
+            "user": 1,
+            "content_type": 16,
+            "object_id": "1",
+            "object_repr": "ItemImage object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    }
+]

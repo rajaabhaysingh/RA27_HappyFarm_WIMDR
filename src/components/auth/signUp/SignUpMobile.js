@@ -45,7 +45,7 @@ function SignUpMobile({
         if (formValues.phone.length === 10) {
           console.log("phoneno: ", formValues.phone);
           setMobError(null);
-          // generateOTP(formValues.phone);
+          generateOTP(formValues.phone);
           // setSessionId("07dd7e4d-5622-4940-84f7-6bec5c606d59");
 
           setTimeout(() => {
