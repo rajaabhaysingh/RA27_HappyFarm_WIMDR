@@ -1,0 +1,5647 @@
+[
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "token"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "background_task",
+      "model": "completedtask"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "background_task",
+      "model": "task"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "api",
+      "model": "customuser"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "api",
+      "model": "cart"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "api",
+      "model": "item"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "api",
+      "model": "transaction"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "api",
+      "model": "itemimage"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "api",
+      "model": "idproof"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "api",
+      "model": "connections"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "api",
+      "model": "cartitem"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "api",
+      "model": "address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add Token",
+      "content_type": 6,
+      "codename": "add_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change Token",
+      "content_type": 6,
+      "codename": "change_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete Token",
+      "content_type": 6,
+      "codename": "delete_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view Token",
+      "content_type": 6,
+      "codename": "view_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add completed task",
+      "content_type": 7,
+      "codename": "add_completedtask"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change completed task",
+      "content_type": 7,
+      "codename": "change_completedtask"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete completed task",
+      "content_type": 7,
+      "codename": "delete_completedtask"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view completed task",
+      "content_type": 7,
+      "codename": "view_completedtask"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add task",
+      "content_type": 8,
+      "codename": "add_task"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change task",
+      "content_type": 8,
+      "codename": "change_task"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete task",
+      "content_type": 8,
+      "codename": "delete_task"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view task",
+      "content_type": 8,
+      "codename": "view_task"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add User",
+      "content_type": 9,
+      "codename": "add_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change User",
+      "content_type": 9,
+      "codename": "change_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete User",
+      "content_type": 9,
+      "codename": "delete_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view User",
+      "content_type": 9,
+      "codename": "view_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add Cart",
+      "content_type": 10,
+      "codename": "add_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change Cart",
+      "content_type": 10,
+      "codename": "change_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete Cart",
+      "content_type": 10,
+      "codename": "delete_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view Cart",
+      "content_type": 10,
+      "codename": "view_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add Item",
+      "content_type": 11,
+      "codename": "add_item"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change Item",
+      "content_type": 11,
+      "codename": "change_item"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete Item",
+      "content_type": 11,
+      "codename": "delete_item"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view Item",
+      "content_type": 11,
+      "codename": "view_item"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add Transaction",
+      "content_type": 12,
+      "codename": "add_transaction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change Transaction",
+      "content_type": 12,
+      "codename": "change_transaction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete Transaction",
+      "content_type": 12,
+      "codename": "delete_transaction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view Transaction",
+      "content_type": 12,
+      "codename": "view_transaction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add Item Image",
+      "content_type": 13,
+      "codename": "add_itemimage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change Item Image",
+      "content_type": 13,
+      "codename": "change_itemimage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete Item Image",
+      "content_type": 13,
+      "codename": "delete_itemimage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view Item Image",
+      "content_type": 13,
+      "codename": "view_itemimage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add id proof",
+      "content_type": 14,
+      "codename": "add_idproof"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change id proof",
+      "content_type": 14,
+      "codename": "change_idproof"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete id proof",
+      "content_type": 14,
+      "codename": "delete_idproof"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view id proof",
+      "content_type": 14,
+      "codename": "view_idproof"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add Connection",
+      "content_type": 15,
+      "codename": "add_connections"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change Connection",
+      "content_type": 15,
+      "codename": "change_connections"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete Connection",
+      "content_type": 15,
+      "codename": "delete_connections"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can view Connection",
+      "content_type": 15,
+      "codename": "view_connections"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add Cart Item",
+      "content_type": 16,
+      "codename": "add_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change Cart Item",
+      "content_type": 16,
+      "codename": "change_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete Cart Item",
+      "content_type": 16,
+      "codename": "delete_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can view Cart Item",
+      "content_type": 16,
+      "codename": "view_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+      "name": "Can add address",
+      "content_type": 17,
+      "codename": "add_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+      "name": "Can change address",
+      "content_type": 17,
+      "codename": "change_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+      "name": "Can delete address",
+      "content_type": 17,
+      "codename": "delete_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+      "name": "Can view address",
+      "content_type": 17,
+      "codename": "view_address"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "ramcharan@mail.com",
+      "phone": "+919822603281",
+      "first_name": "Ram",
+      "last_name": "Charan",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/51.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "name": "Ram Charan",
+      "country": "India",
+      "state": "MAHARASHTRA",
+      "dist": "NAGPUR",
+      "subDist": "Kuhi",
+      "villageCity": "Dhamna",
+      "address": "Block No. 23, Dhamna, Kuhi, Nagpur, Maharashtra",
+      "pin": "440024",
+      "contact": "+919822603281",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:30:10.636Z",
+      "email": "renukas@mail.com",
+      "phone": "+919822603282",
+      "first_name": "Renuka",
+      "last_name": "Saokar",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/82.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.80",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "name": "Renuka Saokar",
+      "country": "India",
+      "state": "MAHARASHTRA",
+      "dist": "NAGPUR",
+      "subDist": "Nagpur (Rural)",
+      "villageCity": "Pardi",
+      "address": "Block No. 14, Pardi, Nagpur (Rural), Maharashtra",
+      "pin": "440024",
+      "contact": "+919822603282",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "lpandit@mail.com",
+      "phone": "+919822603283",
+      "first_name": "Liladhar",
+      "last_name": "Pandit",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/52.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.23",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "name": "Liladhar Pandit",
+      "country": "India",
+      "state": "MAHARASHTRA",
+      "dist": "NAGPUR",
+      "subDist": "Nagpur (Rural)",
+      "villageCity": "Pardi",
+      "address": "Block No. 14, Pardi, Nagpur (Rural), Maharashtra",
+      "pin": "440024",
+      "contact": "+919822603283",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:30:10.636Z",
+      "email": "sheelap@mail.com",
+      "phone": "+919822603284",
+      "first_name": "Sheela",
+      "last_name": "Pradhan",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-01T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/87.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.20",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 4,
+    "fields": {
+      "user": 4,
+      "name": "Sheela Pradhan",
+      "country": "India",
+      "state": "MAHARASHTRA",
+      "dist": "NAGPUR",
+      "subDist": "Nagpur (Rural)",
+      "villageCity": "Nawegaon",
+      "address": "Block No. 12, Nawegaon, Nagpur (Rural), Maharashtra",
+      "pin": "440024",
+      "contact": "+919822603284",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 4,
+    "fields": {
+      "user": 4,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:30:10.636Z",
+      "email": "shlokp@mail.com",
+      "phone": "+919822603285",
+      "first_name": "Shlok",
+      "last_name": "Pandey",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-01T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/12.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.60",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 5,
+    "fields": {
+      "user": 5,
+      "name": "Shlok Pandey",
+      "country": "India",
+      "state": "MAHARASHTRA",
+      "dist": "NAGPUR",
+      "subDist": "Nagpur (Rural)",
+      "villageCity": "Rui",
+      "address": "Block No. 12, Rui, Nagpur (Rural), Maharashtra",
+      "pin": "440024",
+      "contact": "+919822603285",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 5,
+    "fields": {
+      "user": 5,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:30:10.636Z",
+      "email": "rahulp@mail.com",
+      "phone": "+919822603286",
+      "first_name": "Rahul",
+      "last_name": "Patel",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-01T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/10.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.60",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 6,
+    "fields": {
+      "user": 6,
+      "name": "Shlok Pandey",
+      "country": "India",
+      "state": "MAHARASHTRA",
+      "dist": "NAGPUR",
+      "subDist": "Katol",
+      "villageCity": "Bori",
+      "address": "Block No. 12, Bori, Katol, Maharashtra",
+      "pin": "440024",
+      "contact": "+919822603286",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 6,
+    "fields": {
+      "user": 6,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:30:10.636Z",
+      "email": "rahulp@mail.com",
+      "phone": "+919822603287",
+      "first_name": "Rahul",
+      "last_name": "Patel",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-01T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/10.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.60",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 7,
+    "fields": {
+      "user": 7,
+      "name": "Rahul Patel",
+      "country": "India",
+      "state": "MAHARASHTRA",
+      "dist": "NAGPUR",
+      "subDist": "Katol",
+      "villageCity": "Bori",
+      "address": "Block No. 12, Bori, Katol, Maharashtra",
+      "pin": "440024",
+      "contact": "+919822603287",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 7,
+    "fields": {
+      "user": 7,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:30:10.636Z",
+      "email": "sumans@mail.com",
+      "phone": "+919822603288",
+      "first_name": "Suman",
+      "last_name": "Sharma",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-01T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/11.jpg",
+      "alternate_profile_url": null,
+      "rating": "3.60",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 8,
+    "fields": {
+      "user": 8,
+      "name": "Suman Sharma",
+      "country": "India",
+      "state": "MAHARASHTRA",
+      "dist": "NAGPUR",
+      "subDist": "Katol",
+      "villageCity": "Dodki",
+      "address": "Block No. 12, Dodki, Katol, Maharashtra",
+      "pin": "440024",
+      "contact": "+919822603288",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 8,
+    "fields": {
+      "user": 8,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:30:10.636Z",
+      "email": "ranis@mail.com",
+      "phone": "+919822603289",
+      "first_name": "Rani",
+      "last_name": "Singh",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-01T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/34.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.98",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 9,
+    "fields": {
+      "user": 9,
+      "name": "Rani Singh",
+      "country": "India",
+      "state": "MAHARASHTRA",
+      "dist": "NAGPUR",
+      "subDist": "Katol",
+      "villageCity": "Fetri",
+      "address": "Block No. 12, Fetri, Katol, Maharashtra",
+      "pin": "440024",
+      "contact": "+919822603289",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 9,
+    "fields": {
+      "user": 9,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:30:10.636Z",
+      "email": "ranis@mail.com",
+      "phone": "+919822603290",
+      "first_name": "Raja",
+      "last_name": "Singh",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-01T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/51.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.96",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 10,
+    "fields": {
+      "user": 10,
+      "name": "Raja Singh",
+      "country": "India",
+      "state": "MAHARASHTRA",
+      "dist": "NAGPUR",
+      "subDist": "Katol",
+      "villageCity": "Fetri",
+      "address": "Block No. 13, Fetri, Katol, Maharashtra",
+      "pin": "440024",
+      "contact": "+919822603290",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 10,
+    "fields": {
+      "user": 10,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "nanireddy@mail.com",
+      "phone": "+919800000000",
+      "first_name": "Nani",
+      "last_name": "Reddy",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/52.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 11,
+    "fields": {
+      "user": 11,
+      "name": "Nani Reddy",
+      "country": "India",
+      "state": "ANDHRA PRADESH",
+      "dist": "KRISHNA",
+      "subDist": "Vijayawada",
+      "villageCity": "Tadepalle",
+      "address": "Block No. 23, Tadepalle, Krishna, AndhraPradesh",
+      "pin": "520001",
+      "contact": "+919800000000",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 11,
+    "fields": {
+      "user": 11,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "deepthisingh@mail.com",
+      "phone": "+918765432107",
+      "first_name": "Deepthi",
+      "last_name": "Singh",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/36.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 12,
+    "fields": {
+      "user": 12,
+      "name": "Deepthi Singh",
+      "country": "India",
+      "state": "ANDHRA PRADESH",
+      "dist": "KRISHNA",
+      "subDist": "Vijayawada",
+      "villageCity": "Tadepalle",
+      "address": "Block No. 23, Tadepalle, Krishna, AndhraPradesh",
+      "pin": "520001",
+      "contact": "+918765432107",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 12,
+    "fields": {
+      "user": 12,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 13,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "venkatesh@mail.com",
+      "phone": "+919876542103",
+      "first_name": "Venkatesh",
+      "last_name": "Akkinani",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/53.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 13,
+    "fields": {
+      "user": 1,
+      "name": "Venkatesh Akkinani",
+      "country": "India",
+      "state": "ANDHRA PRADESH",
+      "dist": "KRISHNA",
+      "subDist": "Vijayawada",
+      "villageCity": "Kothuru",
+      "address": "Block No. 3, Kothuru, Krishna, AndhraPradesh",
+      "pin": "520001",
+      "contact": "+919876542103",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 13,
+    "fields": {
+      "user": 13,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 14,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "prachi@mail.com",
+      "phone": "+919875432106",
+      "first_name": "Prachi",
+      "last_name": "Jaiswal",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/38.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 14,
+    "fields": {
+      "user": 14,
+      "name": "Prachi Jaiswal",
+      "country": "India",
+      "state": "ANDHRA PRADESH",
+      "dist": "KRISHNA",
+      "subDist": "Vijayawada",
+      "villageCity": "Kothuru",
+      "address": "Block No. 3, Kothuru, Krishna, AndhraPradesh",
+      "pin": "520001",
+      "contact": "+919875432106",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 14,
+    "fields": {
+      "user": 14,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 15,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "ninaddighe@mail.com",
+      "phone": "+919765432108",
+      "first_name": "Ninad",
+      "last_name": "Dighe",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/57.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 15,
+    "fields": {
+      "user": 15,
+      "name": "Ninad Dighe",
+      "country": "India",
+      "state": "ANDHRA PRADESH",
+      "dist": "KRISHNA",
+      "subDist": "Vijayawada",
+      "villageCity": "Rayanapadu",
+      "address": "Block No. 33, Rayanapadu, Krishna, AndhraPradesh",
+      "pin": "520001",
+      "contact": "+919765432108",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 15,
+    "fields": {
+      "user": 15,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 16,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "smritigupta@mail.com",
+      "phone": "+919876532104",
+      "first_name": "Smriti",
+      "last_name": "Gupta",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/40.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 16,
+    "fields": {
+      "user": 16,
+      "name": "Smriti Gupta",
+      "country": "India",
+      "state": "ANDHRA PRADESH",
+      "dist": "KRISHNA",
+      "subDist": "Vijayawada",
+      "villageCity": "Rayanapadu",
+      "address": "Block No. 33, Rayanapadu, Krishna, AndhraPradesh",
+      "pin": "520001",
+      "contact": "+9198765432104",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 16,
+    "fields": {
+      "user": 16,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 17,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "ashish@mail.com",
+      "phone": "+919877543210",
+      "first_name": "Ashish",
+      "last_name": "Patel",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/36.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 17,
+    "fields": {
+      "user": 17,
+      "name": "Ashish Patel",
+      "country": "India",
+      "state": "ANDHRA PRADESH",
+      "dist": "KRISHNA",
+      "subDist": "Vijayawada",
+      "villageCity": "Shahabad",
+      "address": "Block No. 7F, Shahabad, Krishna, AndhraPradesh",
+      "pin": "520001",
+      "contact": "+919877543210",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 17,
+    "fields": {
+      "user": 17,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 18,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "manishanegi@mail.com",
+      "phone": "+919876643210",
+      "first_name": "Manisha",
+      "last_name": "Negi",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/42.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 18,
+    "fields": {
+      "user": 18,
+      "name": "Manisha Negi",
+      "country": "India",
+      "state": "ANDHRA PRADESH",
+      "dist": "KRISHNA",
+      "subDist": "Vijayawada",
+      "villageCity": "Shahabad",
+      "address": "Block No. 56, Shahabad, Krishna, AndhraPradesh",
+      "pin": "520001",
+      "contact": "+919876643210",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 18,
+    "fields": {
+      "user": 18,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 19,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "talaljawaid@mail.com",
+      "phone": "+919876553210",
+      "first_name": "Talal ",
+      "last_name": "Jawaid",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/61.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 19,
+    "fields": {
+      "user": 19,
+      "name": "Talal Jawaid",
+      "country": "India",
+      "state": "ANDHRA PRADESH",
+      "dist": "KRISHNA",
+      "subDist": "Vijayawada",
+      "villageCity": "Vemavaram",
+      "address": "Block No. 6G, Vemavaram, Krishna, AndhraPradesh",
+      "pin": "520001",
+      "contact": "+919876553210",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 19,
+    "fields": {
+      "user": 19,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 20,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "laishawadhwa@mail.com",
+      "phone": "+919876443210",
+      "first_name": "Laisha ",
+      "last_name": "Wadhwa",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/44.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 20,
+    "fields": {
+      "user": 20,
+      "name": "Laisha Wadhwa",
+      "country": "India",
+      "state": "ANDHRA PRADESH",
+      "dist": "KRISHNA",
+      "subDist": "Vijayawada",
+      "villageCity": "Vemavaram",
+      "address": "Block No. 5D, Vemavaram, Krishna, AndhraPradesh",
+      "pin": "520001",
+      "contact": "+919876443210",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 20,
+    "fields": {
+      "user": 20,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 21,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "vikhyat.vd7@mail.com",
+      "phone": "+918008702554",
+      "first_name": "Vikhyat",
+      "last_name": "Devireddy",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/52.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 21,
+    "fields": {
+      "user": 21,
+      "name": "Vikhyat Devireddy",
+      "country": "India",
+      "state": "TELANGANA",
+      "dist": "RANGA REDDY",
+      "subDist": "Gandipet",
+      "villageCity": "Kokapet (OG)",
+      "address": "Villa 64, Eden Gardens, Gandipet main road, Kokapet, Hyderabad",
+      "pin": "500075",
+      "contact": "+918008702554",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 21,
+    "fields": {
+      "user": 21,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 22,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "rithikarairao2@mail.com",
+      "phone": "+919515735642",
+      "first_name": "Rithika",
+      "last_name": "Rairao",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/52.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 22,
+    "fields": {
+      "user": 22,
+      "name": "Rithika Rairao",
+      "country": "India",
+      "state": "TELANGANA",
+      "dist": "RANGA REDDY",
+      "subDist": "Chevella",
+      "villageCity": "Gundal",
+      "address": "92 Tulip, L&T Serene County, Gachibowli, Hyderabad",
+      "pin": "500032",
+      "contact": "+919515735642",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 22,
+    "fields": {
+      "user": 22,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 23,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "namithakothuru@mail.com",
+      "phone": "+919246191111",
+      "first_name": "Namitha",
+      "last_name": "Kothuru",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/50.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 23,
+    "fields": {
+      "user": 23,
+      "name": "Namitha Kothuru",
+      "country": "India",
+      "state": "TELANGANA",
+      "dist": "HYDERABAD",
+      "subDist": "Himayatnagar",
+      "villageCity": "Himayatnagar",
+      "address": "102, Arecube Origins, Himayatnagar, Hyderabad",
+      "pin": "500029",
+      "contact": "+919246191111",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 23,
+    "fields": {
+      "user": 23,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 24,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "deepaknayani@mail.com",
+      "phone": "+917893295929",
+      "first_name": "Deepak",
+      "last_name": "Nayani",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/42.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 24,
+    "fields": {
+      "user": 24,
+      "name": "Deepak Nayani",
+      "country": "India",
+      "state": "TELANGANA",
+      "dist": "RANGA REDDY",
+      "subDist": "Gandipet",
+      "villageCity": "Bandlaguda  (Jagir) (CT)",
+      "address": "Villa 162, Maple Town Villas, Bandlaguda, Hyderabad",
+      "pin": "500075",
+      "contact": "+917893295929",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 24,
+    "fields": {
+      "user": 24,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 25,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "ananyavura01@mail.com",
+      "phone": "+918374474961",
+      "first_name": "Ananya",
+      "last_name": "Vura",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/45.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 25,
+    "fields": {
+      "user": 25,
+      "name": "Ananya Vura",
+      "country": "India",
+      "state": "TELANGANA",
+      "dist": "RANGA REDDY",
+      "subDist": "Gandipet",
+      "villageCity": "Gungurthy",
+      "address": "Villa 162, Maple Town Villas, Bandlaguda, Hyderabad",
+      "pin": "500075",
+      "contact": "+918374474961",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 25,
+    "fields": {
+      "user": 25,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 26,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "nihaarika@mail.com",
+      "phone": "+919392099999",
+      "first_name": "Nihaarika",
+      "last_name": "Dontheneni",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/26.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 26,
+    "fields": {
+      "user": 26,
+      "name": "Nihaarika Dontheneni",
+      "country": "India",
+      "state": "TELANGANA",
+      "dist": "RANGA REDDY",
+      "subDist": "Shamshabad",
+      "villageCity": "Shamshabad (CT)",
+      "address": "Plot 420, Near shamshabad ps, Shamshabad, Hyderabad",
+      "pin": "501218",
+      "contact": "+919392099999",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 26,
+    "fields": {
+      "user": 26,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 27,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "saketh@mail.com",
+      "phone": "+919392099991",
+      "first_name": "Saketh",
+      "last_name": "Vaddi",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/36.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 27,
+    "fields": {
+      "user": 27,
+      "name": "Saketh Vaddi",
+      "country": "India",
+      "state": "TELANGANA",
+      "dist": "RANGA REDDY",
+      "subDist": "Shamshabad",
+      "villageCity": "Bamhoury",
+      "address": "Plot 4120, Bamhoury, Shamshabad, Hyderabad",
+      "pin": "501218",
+      "contact": "+919392099991",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 27,
+    "fields": {
+      "user": 27,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 28,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "abhinav.s@mail.com",
+      "phone": "+918008411662",
+      "first_name": "Abhinav",
+      "last_name": "Samavedam",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "male",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/men/34.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 28,
+    "fields": {
+      "user": 28,
+      "name": "Abhinav Samavedam",
+      "country": "India",
+      "state": "TELANGANA",
+      "dist": "RANGA REDDY",
+      "subDist": "Chevella",
+      "villageCity": "Gundal",
+      "address": "131 Marigold, L&T Seerene County, Gundal, Chevella, Hyderabad",
+      "pin": "500032",
+      "contact": "+918008411662",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 28,
+    "fields": {
+      "user": 28,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 29,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "raghavvi@mail.com",
+      "phone": "+917569084402",
+      "first_name": "Raghavvi",
+      "last_name": "Mehrotra",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/19.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 29,
+    "fields": {
+      "user": 29,
+      "name": "Raghavvi Mehrtora",
+      "country": "India",
+      "state": "TELANGANA",
+      "dist": "HYDERABAD",
+      "subDist": "Khairatabad",
+      "villageCity": "Khairatabad",
+      "address": "D-504, Keshav Dale Apt, Khairatabad, Hyderabad",
+      "pin": "500004",
+      "contact": "+917569084402",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 29,
+    "fields": {
+      "user": 29,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.customuser",
+    "pk": 30,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$H1JdEbK6x1Fd$Z/ku4VM3WvPy2tK3UwZyle6TV7wsP5kvWcL40HMzZIU=",
+      "last_login": "2020-08-02T23:41:47.870Z",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-08-02T23:41:10.636Z",
+      "email": "choti@mail.com",
+      "phone": "+918297393982",
+      "first_name": "Bhavna",
+      "last_name": "Ahuja",
+      "phoneVerified": true,
+      "plan": "free",
+      "prefLang": "en",
+      "gender": "female",
+      "date_of_joining": "2020-08-02T23:41:10.734Z",
+      "bank_account_no": "98765432100",
+      "ifsc_code": "SBIN0011144",
+      "registration_mode": "website",
+      "current_location_latitude": null,
+      "current_location_longitude": null,
+      "profile_photo": "https://randomuser.me/api/portraits/women/37.jpg",
+      "alternate_profile_url": null,
+      "rating": "4.69",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 30,
+    "fields": {
+      "user": 30,
+      "name": "Bhavna Ahuja",
+      "country": "India",
+      "state": "TELANGANA",
+      "dist": "HYDERABAD",
+      "subDist": "Ameerpet",
+      "villageCity": "Somajiguda",
+      "address": "4120, Varun Sargham Vilas, Somajiguda, Hyderabad",
+      "pin": "500082",
+      "contact": "+918297393982",
+      "isDefault": true
+    }
+  },
+  {
+    "model": "api.idproof",
+    "pk": 30,
+    "fields": {
+      "user": 30,
+      "status": "pending",
+      "name": "Aadhar",
+      "file": "https://happyfarmmedia.imfast.io/id_proofs/AadharCard.jfif"
+    }
+  },
+  {
+    "model": "api.cart",
+    "pk": 1,
+    "fields": {
+      "status": "Current",
+      "buyer": 1
+    }
+  },
+  {
+    "model": "api.adcategorydata",
+    "pk": 1,
+    "fields": {
+      "titleLeft1": "Grains and Pulses",
+      "titleLeft2": "buy the taste of India...",
+      "titleRight1": null,
+      "titleRight2": "View all",
+      "bgImage": "linear-gradient(#ffffff, #0f4153,#ffffff)",
+      "bgImagePC": "linear-gradient(#ffffff,#cfcfcf,#ffffff)",
+      "btnColor": "linear-gradient(#18607a,#0c3b4d)",
+      "fontColor": "#000000",
+      "fontColorPC": "#000000",
+      "graphicsLeftUrl": "none",
+      "graphicsRightUrl": "none",
+      "viewAllLink": "#"
+    }
+  },
+  {
+    "model": "api.addata",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "offerVal": "Upto 30% off",
+      "adImgUrl": "https://happyfarmmedia.imfast.io/images/banner/GrainsPulses.png",
+      "adTitle": "Grains and Pulses",
+      "adDesc": "taste of India",
+      "adSubDesc": "from 20.00kg",
+      "adLink": "#"
+    }
+  },
+  {
+    "model": "api.adcategorydata",
+    "pk": 2,
+    "fields": {
+      "titleLeft1": "Flowers",
+      "titleLeft2": "Long Stemmed FLowers",
+      "titleRight1": null,
+      "titleRight2": "View all",
+      "bgImage": "linear-gradient(#ffffff, #0f4153,#ffffff)",
+      "bgImagePC": "linear-gradient(#ffffff,#cfcfcf,#ffffff)",
+      "btnColor": "linear-gradient(#18607a,#0c3b4d)",
+      "fontColor": "#000000",
+      "fontColorPC": "#000000",
+      "graphicsLeftUrl": "none",
+      "graphicsRightUrl": "none",
+      "viewAllLink": "#"
+    }
+  },
+  {
+    "model": "api.addata",
+    "pk": 2,
+    "fields": {
+      "category": 2,
+      "offerVal": "Upto 20% off",
+      "adImgUrl": "https://happyfarmmedia.imfast.io/images/banner/FlowerBanner1.png",
+      "adTitle": "Flowers",
+      "adDesc": "Long Stemmed Flowers",
+      "adSubDesc": "from 21 quantity",
+      "adLink": "#"
+    }
+  },
+  {
+    "model": "api.adcategorydata",
+    "pk": 3,
+    "fields": {
+      "titleLeft1": "Vegetables",
+      "titleLeft2": "buy the taste of India...",
+      "titleRight1": null,
+      "titleRight2": "View all",
+      "bgImage": "linear-gradient(#ffffff, #0f4153,#ffffff)",
+      "bgImagePC": "linear-gradient(#ffffff,#cfcfcf,#ffffff)",
+      "btnColor": "linear-gradient(#18607a,#0c3b4d)",
+      "fontColor": "#000000",
+      "fontColorPC": "#000000",
+      "graphicsLeftUrl": "none",
+      "graphicsRightUrl": "none",
+      "viewAllLink": "#"
+    }
+  },
+  {
+    "model": "api.addata",
+    "pk": 3,
+    "fields": {
+      "category": 3,
+      "offerVal": "Upto 30% off",
+      "adImgUrl": "https://happyfarmmedia.imfast.io/images/banner/veggies.jpg",
+      "adTitle": "Vegetables",
+      "adDesc": "Healthy Lifestyle",
+      "adSubDesc": "from 10.00kg",
+      "adLink": "#"
+    }
+  },
+  {
+    "model": "api.adcategorydata",
+    "pk": 4,
+    "fields": {
+      "titleLeft1": "Vegetables",
+      "titleLeft2": "buy the taste of India...",
+      "titleRight1": null,
+      "titleRight2": "View all",
+      "bgImage": "linear-gradient(#ffffff, #0f4153,#ffffff)",
+      "bgImagePC": "linear-gradient(#ffffff,#cfcfcf,#ffffff)",
+      "btnColor": "linear-gradient(#18607a,#0c3b4d)",
+      "fontColor": "#000000",
+      "fontColorPC": "#000000",
+      "graphicsLeftUrl": "none",
+      "graphicsRightUrl": "none",
+      "viewAllLink": "#"
+    }
+  },
+  {
+    "model": "api.addata",
+    "pk": 4,
+    "fields": {
+      "category": 4,
+      "offerVal": "Upto 30% off",
+      "adImgUrl": "https://happyfarmmedia.imfast.io/images/banner/farm2home.jpg",
+      "adTitle": "Vegetables",
+      "adDesc": "Healthy Lifestyle",
+      "adSubDesc": "from 10.00kg",
+      "adLink": "#"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 1,
+    "fields": {
+      "name": "Potato",
+      "group": "bulk",
+      "status": "draft",
+      "seller": 1,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Vegetable",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Vegetable",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/veggies/potato/potato6.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 1,
+    "fields": {
+      "item": 1,
+      "image": "https://happyfarmmedia.imfast.io/images/products/veggies/potato/potato8.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 1,
+    "fields": {
+      "brief": "Fresh Potatoes",
+      "item": 1
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 1,
+    "fields": {
+      "ItemDescription": 1,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 2,
+    "fields": {
+      "ItemDescription": 1,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 2,
+    "fields": {
+      "name": "Potato",
+      "group": "individual",
+      "status": "draft",
+      "seller": 1,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Vegetable",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Vegetable",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/veggies/potato/potato6.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 2,
+    "fields": {
+      "item": 2,
+      "image": "https://happyfarmmedia.imfast.io/images/products/veggies/potato/potato8.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 2,
+    "fields": {
+      "brief": "Fresh Potatoes",
+      "item": 2
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 3,
+    "fields": {
+      "ItemDescription": 2,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 4,
+    "fields": {
+      "ItemDescription": 2,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 3,
+    "fields": {
+      "name": "Tomato",
+      "group": "bulk",
+      "status": "draft",
+      "seller": 1,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Vegetable",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Vegetable",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/veggies/Tomato/tomato12.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 3,
+    "fields": {
+      "item": 3,
+      "image": "https://happyfarmmedia.imfast.io/images/products/veggies/Tomato/tomato16.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 3,
+    "fields": {
+      "brief": "Fresh Tomatoes",
+      "item": 3
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 5,
+    "fields": {
+      "ItemDescription": 3,
+      "key": "Color",
+      "value": "Red"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 6,
+    "fields": {
+      "ItemDescription": 3,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 4,
+    "fields": {
+      "name": "Tomato",
+      "group": "individual",
+      "status": "draft",
+      "seller": 2,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Vegetable",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Vegetable",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/veggies/Tomato/tomato5.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 4,
+    "fields": {
+      "item": 4,
+      "image": "https://happyfarmmedia.imfast.io/images/products/veggies/Tomato/tomato17.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 4,
+    "fields": {
+      "brief": "Fresh Tomatoes",
+      "item": 4
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 7,
+    "fields": {
+      "ItemDescription": 4,
+      "key": "Color",
+      "value": "Red"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 8,
+    "fields": {
+      "ItemDescription": 4,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 5,
+    "fields": {
+      "name": "Wheat",
+      "group": "individual",
+      "status": "draft",
+      "seller": 2,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Cereals",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Pardi, Nagpur",
+      "category": "Grains",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/cereals/wheat/wheat13.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 5,
+    "fields": {
+      "item": 5,
+      "image": "https://happyfarmmedia.imfast.io/images/products/cereals/wheat/wheat12.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 5,
+    "fields": {
+      "brief": "Best quality wheat",
+      "item": 5
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 9,
+    "fields": {
+      "ItemDescription": 5,
+      "key": "Quality",
+      "value": "HMT"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 10,
+    "fields": {
+      "ItemDescription": 5,
+      "key": "Size",
+      "value": "Large"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 6,
+    "fields": {
+      "name": "Cashew",
+      "group": "individual",
+      "status": "draft",
+      "seller": 3,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Best Quality Cashews",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Pardi, Nagpur",
+      "category": "Nuts",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/nuts/cashew/cashew1.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 6,
+    "fields": {
+      "item": 6,
+      "image": "https://happyfarmmedia.imfast.io/images/products/nuts/cashew/cashew2.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 6,
+    "fields": {
+      "brief": "Best quality Nuts",
+      "item": 6
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 11,
+    "fields": {
+      "ItemDescription": 6,
+      "key": "Origin",
+      "value": "Diu"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 12,
+    "fields": {
+      "ItemDescription": 6,
+      "key": "Size",
+      "value": "Medium"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 7,
+    "fields": {
+      "name": "Almonds",
+      "group": "individual",
+      "status": "draft",
+      "seller": 4,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Best Quality Almonds",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Nawegaon, Nagpur",
+      "category": "Nuts",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/nuts/almonds/almond2.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 7,
+    "fields": {
+      "item": 7,
+      "image": "https://happyfarmmedia.imfast.io/images/products/nuts/almonds/almond4.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 7,
+    "fields": {
+      "brief": "Best quality Nuts",
+      "item": 7
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 13,
+    "fields": {
+      "ItemDescription": 7,
+      "key": "Origin",
+      "value": "Diu"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 14,
+    "fields": {
+      "ItemDescription": 7,
+      "key": "Size",
+      "value": "Medium"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 8,
+    "fields": {
+      "name": "Chickpea",
+      "group": "individual",
+      "status": "draft",
+      "seller": 5,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Best Quality Chickpea",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Rui, Nagpur",
+      "category": "Pulses",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/pulses/pulses1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 8,
+    "fields": {
+      "item": 8,
+      "image": "https://happyfarmmedia.imfast.io/images/products/pulses/pulses1.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 8,
+    "fields": {
+      "brief": "Best quality Pulses",
+      "item": 8
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 15,
+    "fields": {
+      "ItemDescription": 8,
+      "key": "Quality",
+      "value": "Best"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 16,
+    "fields": {
+      "ItemDescription": 8,
+      "key": "Dried",
+      "value": "Yes"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 9,
+    "fields": {
+      "name": "Red Lentils",
+      "group": "individual",
+      "status": "draft",
+      "seller": 6,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Best Quality Lentils",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Bori, Nagpur",
+      "category": "Pulses",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/pulses/pulses4.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 9,
+    "fields": {
+      "item": 9,
+      "image": "https://happyfarmmedia.imfast.io/images/products/pulses/pulses4.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 9,
+    "fields": {
+      "brief": "Best quality Pulses",
+      "item": 9
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 17,
+    "fields": {
+      "ItemDescription": 9,
+      "key": "Quality",
+      "value": "Best"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 18,
+    "fields": {
+      "ItemDescription": 9,
+      "key": "Dries",
+      "value": "Yes"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 10,
+    "fields": {
+      "name": "Carrot",
+      "group": "individual",
+      "status": "draft",
+      "seller": 7,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Best Quality Carrots",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Bori, Nagpur",
+      "category": "Veggies",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/veggies/carrot/carrot15.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 10,
+    "fields": {
+      "item": 10,
+      "image": "https://happyfarmmedia.imfast.io/images/products/veggies/carrot/carrot21.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 10,
+    "fields": {
+      "brief": "Best quality Carrots",
+      "item": 10
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 19,
+    "fields": {
+      "ItemDescription": 10,
+      "key": "Color",
+      "value": "Orange"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 20,
+    "fields": {
+      "ItemDescription": 10,
+      "key": "Taste",
+      "value": "Sweet"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 11,
+    "fields": {
+      "name": "Carrot",
+      "group": "individual",
+      "status": "draft",
+      "seller": 8,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Best Quality Carrots",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Katol, Nagpur",
+      "category": "Veggies",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/veggies/carrot/carrot5.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 11,
+    "fields": {
+      "item": 11,
+      "image": "https://happyfarmmedia.imfast.io/images/products/veggies/carrot/carrot20.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 11,
+    "fields": {
+      "brief": "Best quality Carrots",
+      "item": 11
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 21,
+    "fields": {
+      "ItemDescription": 11,
+      "key": "Color",
+      "value": "Orange"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 22,
+    "fields": {
+      "ItemDescription": 11,
+      "key": "Taste",
+      "value": "Sweet"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 12,
+    "fields": {
+      "name": "Onion",
+      "group": "individual",
+      "status": "draft",
+      "seller": 9,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Best Quality Onions",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Katol, Nagpur",
+      "category": "Veggies",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/veggies/onion/onion13.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 12,
+    "fields": {
+      "item": 12,
+      "image": "https://happyfarmmedia.imfast.io/images/products/veggies/onion/onion7.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 12,
+    "fields": {
+      "brief": "Best quality Onions",
+      "item": 12
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 23,
+    "fields": {
+      "ItemDescription": 12,
+      "key": "Color",
+      "value": "Red"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 23,
+    "fields": {
+      "ItemDescription": 12,
+      "key": "Taste",
+      "value": "Sweet"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 13,
+    "fields": {
+      "name": "Onion",
+      "group": "individual",
+      "status": "draft",
+      "seller": 10,
+      "date_of_creation": "2020-08-02T23:47:52.216Z",
+      "date_of_expiry": "2020-08-04T23:46:39Z",
+      "is_negotiable": false,
+      "description": "Best Quality Onions",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Katol, Nagpur",
+      "category": "Veggies",
+      "lotSizeDigit": null,
+      "lotSizeUnit": null,
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "12.00",
+      "shelfLifeSubDigit": "15.00",
+      "shelfLifeUnit": "hour",
+      "shelfLifeSubUnit": "min",
+      "minBookVal": "10.00",
+      "minBookValUnit": "kg",
+      "maxBookVal": "50.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": "Hybrid",
+      "rating": "4.80",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/veggies/onion/onion10.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 13,
+    "fields": {
+      "item": 13,
+      "image": "https://happyfarmmedia.imfast.io/images/products/veggies/onion/onion1.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 13,
+    "fields": {
+      "brief": "Best quality Onions",
+      "item": 13
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 25,
+    "fields": {
+      "ItemDescription": 13,
+      "key": "Color",
+      "value": "Red"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 26,
+    "fields": {
+      "ItemDescription": 13,
+      "key": "Taste",
+      "value": "Sweet"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 21,
+    "fields": {
+      "name": "Apple",
+      "group": "bulk",
+      "status": "draft",
+      "seller": 11,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Juicy Apples",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Fruit",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/veggies/Apple_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 21,
+    "fields": {
+      "item": 21,
+      "image": "https://happyfarmmedia.imfast.io/images/products/fruits/Apple_3.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 21,
+    "fields": {
+      "brief": "Juicy Apples",
+      "item": 21
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 21,
+    "fields": {
+      "ItemDescription": 21,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 22,
+    "fields": {
+      "name": "Apple",
+      "group": "individual",
+      "status": "draft",
+      "seller": 12,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Juicy Apples",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Fruit",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/veggies/Apple_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 22,
+    "fields": {
+      "item": 22,
+      "image": "https://happyfarmmedia.imfast.io/images/products/fruits/Apple_3.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 22,
+    "fields": {
+      "brief": "Juicy Apples",
+      "item": 22
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 22,
+    "fields": {
+      "ItemDescription": 22,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 23,
+    "fields": {
+      "name": "Guava",
+      "group": "bulk",
+      "status": "draft",
+      "seller": 13,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Fresh Guavas",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Fruit",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/fruits/Guava_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 23,
+    "fields": {
+      "item": 23,
+      "image": "https://happyfarmmedia.imfast.io/images/products/fruits/Guava_2.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 23,
+    "fields": {
+      "brief": "Fresh Guavas",
+      "item": 23
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 23,
+    "fields": {
+      "ItemDescription": 23,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 24,
+    "fields": {
+      "name": "Guava",
+      "group": "individual",
+      "status": "draft",
+      "seller": 14,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Fresh Guavas",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Fruit",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/fruits/Guava_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 24,
+    "fields": {
+      "item": 24,
+      "image": "https://happyfarmmedia.imfast.io/images/products/fruits/Guava_3.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 24,
+    "fields": {
+      "brief": "Fresh Guavas",
+      "item": 24
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 24,
+    "fields": {
+      "ItemDescription": 24,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 25,
+    "fields": {
+      "name": "Custard Apple",
+      "group": "individual",
+      "status": "draft",
+      "seller": 15,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Cream, Sweet ",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Fruit",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/fruits/Custard_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 25,
+    "fields": {
+      "item": 25,
+      "image": "https://happyfarmmedia.imfast.io/images/products/fruits/Custard_2.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 25,
+    "fields": {
+      "brief": "Cream, Sweet",
+      "item": 25
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 25,
+    "fields": {
+      "ItemDescription": 25,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 26,
+    "fields": {
+      "name": "Mango",
+      "group": "individual",
+      "status": "draft",
+      "seller": 16,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Juicy Mangoes ",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Fruit",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/fruits/Mango_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 26,
+    "fields": {
+      "item": 26,
+      "image": "https://happyfarmmedia.imfast.io/images/products/fruits/Mango_3.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 26,
+    "fields": {
+      "brief": "Juicy Mangoes",
+      "item": 26
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 26,
+    "fields": {
+      "ItemDescription": 26,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 27,
+    "fields": {
+      "name": "Grapes",
+      "group": "individual",
+      "status": "draft",
+      "seller": 17,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Fresh and Sweet",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Fruit",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/fruits/Grapes_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 27,
+    "fields": {
+      "item": 27,
+      "image": "https://happyfarmmedia.imfast.io/images/products/fruits/Grapes_2.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 27,
+    "fields": {
+      "brief": "Fresh and Sweet",
+      "item": 27
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 27,
+    "fields": {
+      "ItemDescription": 27,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 28,
+    "fields": {
+      "name": "Avacado",
+      "group": "individual",
+      "status": "draft",
+      "seller": 18,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Fresh Avacados",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Fruit",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/fruits/Avacado_2.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 28,
+    "fields": {
+      "item": 28,
+      "image": "https://happyfarmmedia.imfast.io/images/products/fruits/Avacado_1.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 28,
+    "fields": {
+      "brief": "Fresh Avacados",
+      "item": 28
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 28,
+    "fields": {
+      "ItemDescription": 28,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 29,
+    "fields": {
+      "name": " Green Grapes",
+      "group": "individual",
+      "status": "draft",
+      "seller": 19,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Fresh and Sweet",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Fruit",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/fruits/Grapes_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 29,
+    "fields": {
+      "item": 29,
+      "image": "https://happyfarmmedia.imfast.io/images/products/fruits/Grapes_3.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 29,
+    "fields": {
+      "brief": "Fresh and Sweet",
+      "item": 29
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 29,
+    "fields": {
+      "ItemDescription": 29,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 30,
+    "fields": {
+      "name": "Cheese",
+      "group": "individual",
+      "status": "draft",
+      "seller": 20,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Best in Quality ",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Dairy",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "litre",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "litre",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "ml",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "litre",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "2",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/dairy/Cheese_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 30,
+    "fields": {
+      "item": 30,
+      "image": "https://happyfarmmedia.imfast.io/images/products/dairy/Cheese_2.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 30,
+    "fields": {
+      "brief": "Best in Quality",
+      "item": 30
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 30,
+    "fields": {
+      "ItemDescription": 30,
+      "key": "Quality",
+      "value": "Pure"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 31,
+    "fields": {
+      "name": "Milk",
+      "group": "individual",
+      "status": "draft",
+      "seller": 11,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Rich with Nutrients",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Dairy",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "litre",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "litre",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "ml",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "litre",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "2",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/dairy/Milk_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 31,
+    "fields": {
+      "item": 31,
+      "image": "https://happyfarmmedia.imfast.io/images/products/dairy/Milk_2.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 31,
+    "fields": {
+      "brief": "Rich with Nutrients",
+      "item": 31
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 31,
+    "fields": {
+      "ItemDescription": 31,
+      "key": "Quality",
+      "value": "Pure"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 32,
+    "fields": {
+      "name": "Butter",
+      "group": "Bluck",
+      "status": "draft",
+      "seller": 12,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Best in Quality",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Dairy",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/dairy/Butter.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 32,
+    "fields": {
+      "item": 32,
+      "image": "https://happyfarmmedia.imfast.io/images/products/dairy/Butter.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 32,
+    "fields": {
+      "brief": "Best in Quality",
+      "item": 32
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 32,
+    "fields": {
+      "ItemDescription": 32,
+      "key": "Quality",
+      "value": "Pure"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 33,
+    "fields": {
+      "name": "Cinnamon",
+      "group": "individual",
+      "status": "draft",
+      "seller": 13,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Best in Quality",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Spices",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/spices/Cinna1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 33,
+    "fields": {
+      "item": 33,
+      "image": "https://happyfarmmedia.imfast.io/images/products/spices/Cinna2.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 33,
+    "fields": {
+      "brief": "Best in Quality",
+      "item": 33
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 33,
+    "fields": {
+      "ItemDescription": 33,
+      "key": "Quality",
+      "value": "Pure"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 34,
+    "fields": {
+      "name": "Tumeric",
+      "group": "individual",
+      "status": "draft",
+      "seller": 14,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Best in Quality",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Spices",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/spices/Turmer1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 34,
+    "fields": {
+      "item": 34,
+      "image": "https://happyfarmmedia.imfast.io/images/products/spices/Turmer2.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 34,
+    "fields": {
+      "brief": "Best in Quality",
+      "item": 34
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 34,
+    "fields": {
+      "ItemDescription": 34,
+      "key": "Colour",
+      "value": "yellow"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 35,
+    "fields": {
+      "name": "Red Chilli",
+      "group": "individual",
+      "status": "draft",
+      "seller": 15,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Spicy Chillis",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Spices",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/spices/Turmer1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 35,
+    "fields": {
+      "item": 35,
+      "image": "https://happyfarmmedia.imfast.io/images/products/spices/Turmer2.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 35,
+    "fields": {
+      "brief": "Spicy Chillis",
+      "item": 35
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 35,
+    "fields": {
+      "ItemDescription": 35,
+      "key": "Colour",
+      "value": "Red"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 36,
+    "fields": {
+      "name": "Tamarind",
+      "group": "individual",
+      "status": "draft",
+      "seller": 16,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Best in Quality",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Spices",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/spices/Tam1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 36,
+    "fields": {
+      "item": 36,
+      "image": "https://happyfarmmedia.imfast.io/images/products/spices/Tam3.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 36,
+    "fields": {
+      "brief": "Best in Quality",
+      "item": 36
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 36,
+    "fields": {
+      "ItemDescription": 36,
+      "key": "Quality",
+      "value": "Pure"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 37,
+    "fields": {
+      "name": "Peper",
+      "group": "individual",
+      "status": "draft",
+      "seller": 17,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Best in Quality",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Spices",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/spices/Peper1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 37,
+    "fields": {
+      "item": 37,
+      "image": "https://happyfarmmedia.imfast.io/images/products/spices/Peper1.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 37,
+    "fields": {
+      "brief": "Best in Quality",
+      "item": 37
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 37,
+    "fields": {
+      "ItemDescription": 37,
+      "key": "Colour",
+      "value": "Black"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 38,
+    "fields": {
+      "name": "Groundnuts",
+      "group": "individual",
+      "status": "draft",
+      "seller": 18,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "Best in Quality",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Oilseeds",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/oilseeds/Gd_2.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 38,
+    "fields": {
+      "item": 38,
+      "image": "https://happyfarmmedia.imfast.io/images/products/oilseeds/Gd_3.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 38,
+    "fields": {
+      "brief": "Best in Quality",
+      "item": 38
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 38,
+    "fields": {
+      "ItemDescription": 38,
+      "key": "Quality",
+      "value": "Pure"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 39,
+    "fields": {
+      "name": "Mustard Seeds",
+      "group": "individual",
+      "status": "draft",
+      "seller": 19,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "From Nature",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Oilseeds",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/oilseeds/Must_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 39,
+    "fields": {
+      "item": 39,
+      "image": "https://happyfarmmedia.imfast.io/images/products/oilseeds/Must_2.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 39,
+    "fields": {
+      "brief": "From Nature",
+      "item": 39
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 39,
+    "fields": {
+      "ItemDescription": 39,
+      "key": "Quality",
+      "value": "Pure"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 40,
+    "fields": {
+      "name": "Sunflower Seeds",
+      "group": "individual",
+      "status": "draft",
+      "seller": 20,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "From Nature",
+      "delivery_preference": "pick_up",
+      "breed": "",
+      "location": "Aliganj,\u00a0Bhagalpur",
+      "category": "Oilseeds",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/oilseeds/Sun_1.png"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 40,
+    "fields": {
+      "item": 40,
+      "image": "https://happyfarmmedia.imfast.io/images/products/oilseeds/Sun_2.png",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 40,
+    "fields": {
+      "brief": "From Nature",
+      "item": 40
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 40,
+    "fields": {
+      "ItemDescription": 40,
+      "key": "Quality",
+      "value": "Pure"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 41,
+    "fields": {
+      "name": "Wheat",
+      "group": "bulk",
+      "status": "draft",
+      "seller": 21,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "cereals",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Cereals",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/cereals/wheat/wheat1%20.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 41,
+    "fields": {
+      "item": 41,
+      "image": "https://happyfarmmedia.imfast.io/images/products/cereals/wheat/wheat12.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 41,
+    "fields": {
+      "brief": "Fresh Wheat",
+      "item": 41
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 41,
+    "fields": {
+      "ItemDescription": 41,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 42,
+    "fields": {
+      "ItemDescription": 41,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 42,
+    "fields": {
+      "name": "rice",
+      "group": "bulk",
+      "status": "draft",
+      "seller": 22,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "cereals",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Cereals",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/cereals/rice/rice1.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 42,
+    "fields": {
+      "item": 42,
+      "image": "https://happyfarmmedia.imfast.io/images/products/cereals/rice/rice10.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 42,
+    "fields": {
+      "brief": "Fresh Rice",
+      "item": 42
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 43,
+    "fields": {
+      "ItemDescription": 42,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 44,
+    "fields": {
+      "ItemDescription": 42,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 43,
+    "fields": {
+      "name": "mint",
+      "group": "individual",
+      "status": "draft",
+      "seller": 23,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "herbs",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Herbs",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/herbs/mint/mint1.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 43,
+    "fields": {
+      "item": 43,
+      "image": "https://happyfarmmedia.imfast.io/images/products/herbs/mint/mint10.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 43,
+    "fields": {
+      "brief": "Fresh Mint",
+      "item": 43
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 45,
+    "fields": {
+      "ItemDescription": 43,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 46,
+    "fields": {
+      "ItemDescription": 43,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 44,
+    "fields": {
+      "name": "tarragon",
+      "group": "individual",
+      "status": "draft",
+      "seller": 24,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "herbs",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Herbs",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/herbs/tarragon/tarragon1.jpeg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 44,
+    "fields": {
+      "item": 44,
+      "image": "https://happyfarmmedia.imfast.io/images/products/herbs/tarragon/tarragon10.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 44,
+    "fields": {
+      "brief": "Fresh Tarragon",
+      "item": 44
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 47,
+    "fields": {
+      "ItemDescription": 44,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 48,
+    "fields": {
+      "ItemDescription": 44,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 45,
+    "fields": {
+      "name": "chicken",
+      "group": "individual",
+      "status": "draft",
+      "seller": 25,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "meat_eggs",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Meat_Eggs",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/meat_eggs/Chicken%20/chicken1.jpeg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 45,
+    "fields": {
+      "item": 45,
+      "image": "https://happyfarmmedia.imfast.io/images/products/meat_eggs/Chicken%20/chicken10.jpeg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 45,
+    "fields": {
+      "brief": "Fresh Chicken",
+      "item": 45
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 48,
+    "fields": {
+      "ItemDescription": 45,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 49,
+    "fields": {
+      "ItemDescription": 45,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 46,
+    "fields": {
+      "name": "Quail",
+      "group": "individual",
+      "status": "draft",
+      "seller": 26,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "meat_eggs",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Meat_Eggs",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/meat_eggs/Quail/quail1.jpeg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 46,
+    "fields": {
+      "item": 46,
+      "image": "https://happyfarmmedia.imfast.io/images/products/meat_eggs/Quail/quail10.jpeg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 46,
+    "fields": {
+      "brief": "Fresh Quail",
+      "item": 46
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 49,
+    "fields": {
+      "ItemDescription": 46,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 50,
+    "fields": {
+      "ItemDescription": 46,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 47,
+    "fields": {
+      "name": "Goat",
+      "group": "individual",
+      "status": "draft",
+      "seller": 27,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "meat_eggs",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Meat_Eggs",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/meat_eggs/Goat/goat1.jpeg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 47,
+    "fields": {
+      "item": 47,
+      "image": "https://happyfarmmedia.imfast.io/images/products/meat_eggs/Goat/goat10.jpeg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 47,
+    "fields": {
+      "brief": "Fresh Goat Meat",
+      "item": 47
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 51,
+    "fields": {
+      "ItemDescription": 47,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 52,
+    "fields": {
+      "ItemDescription": 47,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 48,
+    "fields": {
+      "name": "Fish",
+      "group": "individual",
+      "status": "draft",
+      "seller": 28,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "meat_eggs",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Meat_Eggs",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/seafood/Fish/fish1.jpeg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 48,
+    "fields": {
+      "item": 48,
+      "image": "https://happyfarmmedia.imfast.io/images/products/seafood/Fish/fish10.jpeg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 48,
+    "fields": {
+      "brief": "Fresh Fish Meat",
+      "item": 48
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 53,
+    "fields": {
+      "ItemDescription": 48,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 54,
+    "fields": {
+      "ItemDescription": 48,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 49,
+    "fields": {
+      "name": "Prawns",
+      "group": "individual",
+      "status": "draft",
+      "seller": 29,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "meat_eggs",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Meat_Eggs",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/seafood/Prawns/prawns1.jpeg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 49,
+    "fields": {
+      "item": 49,
+      "image": "https://happyfarmmedia.imfast.io/images/products/seafood/Prawns/prawns10.jpeg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 49,
+    "fields": {
+      "brief": "Fresh Prawn Meat",
+      "item": 49
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 55,
+    "fields": {
+      "ItemDescription": 49,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 56,
+    "fields": {
+      "ItemDescription": 49,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.item",
+    "pk": 50,
+    "fields": {
+      "name": "squid",
+      "group": "individual",
+      "status": "draft",
+      "seller": 30,
+      "date_of_creation": "2020-08-02T23:46:21.050Z",
+      "date_of_expiry": "2020-08-04T23:42:32Z",
+      "is_negotiable": true,
+      "description": "meat_eggs",
+      "delivery_preference": "pick_up",
+      "breed": "Hybrid",
+      "location": "Kuhi, Nagpur",
+      "category": "Meat_Eggs",
+      "lotSizeDigit": "100.00",
+      "lotSizeUnit": "kg",
+      "basePrice": "100.00",
+      "basePricePerDigit": "10.00",
+      "pricePerUnit": "kg",
+      "shelfLifeDigit": "10.00",
+      "shelfLifeSubDigit": "20.00",
+      "shelfLifeUnit": "hours",
+      "shelfLifeSubUnit": "minutes",
+      "minBookVal": "500.00",
+      "minBookValUnit": "mg",
+      "maxBookVal": "100.00",
+      "maxBookValUnit": "kg",
+      "isFresh": true,
+      "item_type": null,
+      "rating": "4.20",
+      "weightCat": "1",
+      "thumbnail": "https://happyfarmmedia.imfast.io/images/products/seafood/squid/squid1.jpg"
+    }
+  },
+  {
+    "model": "api.itemimage",
+    "pk": 50,
+    "fields": {
+      "item": 50,
+      "image": "https://happyfarmmedia.imfast.io/images/products/seafood/squid/squid10.jpg",
+      "alternate_image_url": null
+    }
+  },
+  {
+    "model": "api.itemdescription",
+    "pk": 50,
+    "fields": {
+      "brief": "Fresh Squid Meat",
+      "item": 50
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 57,
+    "fields": {
+      "ItemDescription": 50,
+      "key": "size",
+      "value": "medium"
+    }
+  },
+  {
+    "model": "api.itemtable",
+    "pk": 58,
+    "fields": {
+      "ItemDescription": 50,
+      "key": "Ripened",
+      "value": "Naturally"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Veggies",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/veggies.jpg",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Fruits",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/fruits.jpg",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Pulses",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/Pulses.jpg",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Grains",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/grains.jpg",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Dairy",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/Dairy.jpg",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Herbs",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/herbs.png",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Spices",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/spices.png",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Fodder",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/Fodder.jpg",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Fibers",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/Fiber.jpg",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Livestock",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/Poultry.jpg",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Flowers",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/flowers.jpg",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.itemcategory",
+    "pk": "Fisheries",
+    "fields": {
+      "iconUrl": "https://happyfarmmedia.imfast.io/images/itemCategories/Fisheries.jpg",
+      "redirectUrl": "#"
+    }
+  },
+  {
+    "model": "api.topcarouselurl",
+    "pk": 1,
+    "fields": {
+      "name": "vegetableBanner5",
+      "url": "https://happyfarmmedia.imfast.io/images/banner/vegetableBanner5.png"
+    }
+  },
+  {
+    "model": "api.topcarouselurl",
+    "pk": 2,
+    "fields": {
+      "name": "DairyBanner1",
+      "url": "https://happyfarmmedia.imfast.io/images/banner/DairyBanner1.png"
+    }
+  },
+  {
+    "model": "api.topcarouselurl",
+    "pk": 3,
+    "fields": {
+      "name": "Fish",
+      "url": "https://happyfarmmedia.imfast.io/images/banner/Fish.png"
+    }
+  },
+  {
+    "model": "api.topcarouselurl",
+    "pk": 4,
+    "fields": {
+      "name": "FlourBanner1",
+      "url": "https://happyfarmmedia.imfast.io/images/banner/FlourBanner1.png"
+    }
+  },
+  {
+    "model": "api.topcarouselurl",
+    "pk": 5,
+    "fields": {
+      "name": "PulsesBanner1",
+      "url": "https://happyfarmmedia.imfast.io/images/banner/PulsesBanner1.png"
+    }
+  },
+  {
+    "model": "api.topcarouselurl",
+    "pk": 6,
+    "fields": {
+      "name": "FlowerBanner1",
+      "url": "https://happyfarmmedia.imfast.io/images/banner/FlowerBanner1.png"
+    }
+  },
+  {
+    "model": "api.topcarouselurl",
+    "pk": 7,
+    "fields": {
+      "name": "FruitsBanner3",
+      "url": "https://happyfarmmedia.imfast.io/images/banner/FruitsBanner3.jpg"
+    }
+  }
+]
