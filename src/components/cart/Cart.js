@@ -1,16 +1,25 @@
-import React, { useState, lazy, Suspense, memo } from "react";
+import React, { useEffect, useState, lazy, Suspense, memo } from "react";
 import "./Cart.css";
+
+import Popup from "reactjs-popup";
 
 import { Translate } from "react-auto-translate";
 
-import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import axios from "axios";
+
+import {
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useHistory,
+} from "react-router-dom";
 
 import PrimeLogo from "../../res/cart/prime_logo.svg";
 
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import FallbackLazy from "../FallbackLazy";
 
-import CartData from "./CartData";
 import ProductList from "../layouts/productSlider/ProductSliderList";
 import FooterDetails from "../layouts/footer/FooterDetails";
 
@@ -21,7 +30,104 @@ const Footer = lazy(() => import("../layouts/footer/Footer"));
 const CheckOut = lazy(() => import("./checkout/CheckOut"));
 
 const Cart = (props) => {
-  const cartData = CartData;
+  // const cartData = CartData;
+  let history = useHistory();
+
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+
+  // ----- fetching data state mgmt -----
+  const baseUrl = "https://abhijitpatil.pythonanywhere.com";
+
+  const [cartData, setCartData] = useState([]);
+
+  // dataFetcher
+  const dataFetcher = async () => {
+    let cartItems = await axios
+      .get(baseUrl + "/my/cart/current/", {
+        headers: {
+          Authorization: "JWT " + localStorage.getItem("token"), //the token is a variable which holds the token
+        },
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    setTimeout(() => {
+      console.log(cartItems.data.cart_items_obj);
+      setCartData(cartItems.data.cart_items_obj);
+    }, 1000);
+  };
+
+  // ------------------------------------
+
+  useEffect(() => {
+    dataFetcher();
+  }, []);
+
+  useEffect(() => {
+    console.log();
+  }, [cartData]);
+
+  // handleDeleteItem
+  const handleDeleteItem = async (e) => {
+    let req = await axios
+      .delete(baseUrl + "/my/cart/current/" + e.target.value.id, {
+        headers: {
+          Authorization: "JWT " + localStorage.getItem("token"), //the token is a variable which holds the token
+        },
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    setTimeout(() => {
+      dataFetcher();
+    }, 1000);
+  };
+
+  // handleCheckout
+  const handleCheckout = async () => {
+    let refactor = await axios
+      .get(baseUrl + "/my/cart/current/", {
+        headers: {
+          Authorization: "JWT " + localStorage.getItem("token"), //the token is a variable which holds the token
+        },
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setTimeout(() => {
+      refactor.data.cart_items_obj.forEach((item) => {
+        console.log(item.purchasedPrice);
+        console.log(item.item_details.basePrice);
+        if (item.purchasedPrice !== item.item_details.basePrice) {
+          setIsPopUpOpen(true);
+        }
+      });
+    }, 1000);
+    //
+  };
+
+  // doRefactor
+  const doRefactor = async () => {
+    let refactordCart = await axios
+      .get(baseUrl + "/my/cart/clean_items/", {
+        headers: {
+          Authorization: "JWT " + localStorage.getItem("token"), //the token is a variable which holds the token
+        },
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setTimeout(() => {
+      if (refactordCart.status === 200) {
+        setCartData(refactordCart.data.cart_items_obj);
+        setIsPopUpOpen(false);
+      }
+    }, 1000);
+  };
+  // ----------------------------------
 
   let { path, url } = useRouteMatch();
 
@@ -29,11 +135,11 @@ const Cart = (props) => {
   const [promoAmt, setPromoAmt] = useState(0.0);
 
   // renderIsDeliverable
-  const renderIsDeliverable = (isDeliverable) => {
-    if (isDeliverable) {
+  const renderIsNegotiable = (isNeg) => {
+    if (isNeg) {
       return (
         <div style={{ color: "#008800" }}>
-          <Translate>Door-step delivery available.</Translate>
+          <Translate>Delivery available.</Translate>
         </div>
       );
     } else {
@@ -47,10 +153,12 @@ const Cart = (props) => {
 
   // calcuatePrice
   const calcuatePrice = (item) => {
-    if (item.purchasedQtyUnit === item.purchasedPricePerUnit) {
+    console.log(item);
+    if (item.purchasedQtyUnit === item.item_details.pricePerUnit) {
       return (
-        (item.purchasedQty / item.purchasedPricePerDigit) *
-        item.purchasedPrice
+        (parseFloat(item.purchasedQty).toFixed(2) /
+          parseFloat(item.item_details.basePricePerDigit).toFixed(2)) *
+        parseFloat(item.item_details.basePrice).toFixed(2)
       ).toFixed(2);
     } else {
       // check for units and calculate price here
@@ -107,11 +215,11 @@ const Cart = (props) => {
 
   // renderCartItems
   const renderCartItems = () => {
-    if (cartData.items) {
+    if (cartData !== []) {
       const calcSubTotal = () => {
         let tempTot = 0.0;
 
-        cartData.items.forEach((item) => {
+        cartData.forEach((item) => {
           tempTot = +tempTot + +calcuatePrice(item);
         });
 
@@ -121,8 +229,8 @@ const Cart = (props) => {
       const calcDelCharges = () => {
         let delTot = 0.0;
 
-        cartData.items.forEach((item) => {
-          delTot = +delTot + +item.deliveryCharge;
+        cartData.forEach((item) => {
+          delTot = +delTot + +0;
         });
 
         return delTot.toFixed(2);
@@ -131,8 +239,9 @@ const Cart = (props) => {
       const calcTax = () => {
         let taxTot = 0.0;
 
-        cartData.items.forEach((item) => {
-          taxTot = +taxTot + +((calcuatePrice(item) * item.taxPerc) / 100);
+        cartData.forEach((item) => {
+          taxTot =
+            +taxTot + +((calcuatePrice(item) * parseFloat(item.taxPerc)) / 100);
         });
 
         return taxTot.toFixed(2);
@@ -141,19 +250,21 @@ const Cart = (props) => {
       return (
         <>
           <div className="cart_items">
-            {cartData.items.map((item) => (
+            {cartData.map((item) => (
               <>
-                <div key={item.key} className="cart_item">
+                {console.log(item.item_details.name)}
+                <div key={item.id} className="cart_item">
                   <div className="cart_item_details">
-                    <img src={item.imgUrl} alt="" />
+                    <img src={item.item_details.thumbnail} alt="" />
                     <div className="cart_item_info">
                       <div className="cart_item_name_type_grp">
                         <div className="cart_item_name">
-                          <Translate>{item.name}</Translate>
+                          <Translate>{item.item_details.name}</Translate>
                         </div>
                         <div className="cart_item_type_grp">
                           <Translate>
-                            {item.type}, {item.cat}
+                            {item.item_details.item_type},{" "}
+                            {item.item_details.category}
                           </Translate>
                         </div>
                       </div>
@@ -167,14 +278,17 @@ const Cart = (props) => {
                         >
                           ₹
                           <Translate>
-                            {item.purchasedPrice.toFixed(2)} per{" "}
-                            {item.purchasedPricePerDigit}{" "}
-                            {item.purchasedPricePerUnit}
+                            {parseFloat(item.item_details.basePrice).toFixed(2)}{" "}
+                            per{" "}
+                            {parseFloat(
+                              item.item_details.basePricePerDigit
+                            ).toFixed(2)}{" "}
+                            {item.item_details.pricePerUnit}
                           </Translate>
                         </span>
                       </div>
                       <div className="cart_item_del_avail">
-                        {renderIsDeliverable(item.isDeliverable)}
+                        {renderIsNegotiable(item.item_details.isNegotiable)}
                       </div>
                       <div className="cart_item_purch_qty">
                         <Translate>Purchased quantity:</Translate>
@@ -185,27 +299,48 @@ const Cart = (props) => {
                           }}
                         >
                           <Translate>
-                            {item.purchasedQty} {item.purchasedQtyUnit}
+                            {parseFloat(item.purchasedQty).toFixed(2)}{" "}
+                            {item.purchasedQtyUnit}
                           </Translate>
                         </span>
                       </div>
                       <div className="cart_item_utility">
-                        <Link className="cart_italics_link">
+                        <div className="cart_italics_link">
                           <i
                             style={{ marginRight: "4px" }}
                             className="fas fa-edit"
                           ></i>{" "}
                           <Translate>Update</Translate>
-                        </Link>
+                        </div>
                         <div style={{ margin: "0 8px" }}>|</div>
-                        <Link className="cart_italics_link">
+                        <div
+                          onClick={async () => {
+                            await axios
+                              .delete(baseUrl + "/my/cartitem/" + item.id, {
+                                headers: {
+                                  Authorization:
+                                    "JWT " + localStorage.getItem("token"), //the token is a variable which holds the token
+                                },
+                              })
+                              .catch((err) => {
+                                console.log(err);
+                              });
+
+                            setTimeout(() => {
+                              dataFetcher();
+                            }, 1000);
+                          }}
+                          value={item}
+                          className="cart_italics_link"
+                          style={{ cursor: "pointer" }}
+                        >
                           {" "}
                           <i
                             style={{ marginRight: "4px" }}
                             className="fas fa-trash"
                           ></i>{" "}
                           <Translate>Delete</Translate>
-                        </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -229,7 +364,7 @@ const Cart = (props) => {
             <div className="cart_total_desc">
               <div className="cart_total_sub_total">
                 <span className="cart_total_sub_total_text cart_total_spaced_left">
-                  <Translate>Sub-total</Translate> ({cartData.items.length}{" "}
+                  <Translate>Sub-total</Translate> ({cartData.length}{" "}
                   <Translate>items</Translate>):
                 </span>
                 <span className="cart_total_sub_total_amt cart_total_spaced_right">
@@ -279,10 +414,10 @@ const Cart = (props) => {
                 </span>
               </div>
               <button className="cart_total_del_btn">
-                <Translate>REQUEST DELIVERY</Translate>
-              </button>
-              <button className="cart_total_sch_btn">
                 <Translate>SCHEDULE PICKUP</Translate>
+              </button>
+              <button onClick={handleCheckout} className="cart_total_sch_btn">
+                <Translate>CHECKOUT AND DELIVERY</Translate>
               </button>
               <div className="cart_total_apply_coupon">
                 <Translate>Have a coupon ?</Translate>{" "}
@@ -303,7 +438,7 @@ const Cart = (props) => {
             <Translate>Oops! Your cart is empty.</Translate>
           </div>
           <button>
-            <Link to="/">
+            <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
               <Translate>Continue Shopping</Translate>
             </Link>
           </button>
@@ -352,6 +487,75 @@ const Cart = (props) => {
           </ErrorBoundary>
         </Route>
       </Switch>
+      <Popup
+        open={isPopUpOpen}
+        modal
+        closeOnDocumentClick
+        lockScroll
+        contentStyle={{
+          borderRadius: "8px",
+        }}
+      >
+        <div
+          style={{
+            margin: "16px",
+            borderRadius: "6px",
+            padding: "32px",
+            background: "#fffbef",
+            color: "#880000",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Translate>
+            Alert! The base price of one or more item(s) has/have changed, since
+            you added them. We request you to refactor your cart.
+          </Translate>{" "}
+          <br />
+          <Translate>Click CONTINUE to buy or CANCEL to </Translate>
+          <div style={{ display: "flex", marginTop: "32px" }}>
+            <button
+              style={{
+                height: "38px",
+                width: "100px",
+                borderRadius: "4px",
+                background: "#ee5700",
+                color: "#ffffff",
+                fontWeight: "bold",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "none",
+                outline: "none",
+              }}
+              onClick={doRefactor}
+            >
+              <Translate>CONTINUE</Translate>
+            </button>
+            <button
+              style={{
+                marginLeft: "16px",
+                height: "38px",
+                width: "100px",
+                borderRadius: "4px",
+                background: "#dddddd",
+                color: "#333333",
+                fontWeight: "bold",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "none",
+                outline: "none",
+              }}
+              onClick={() => setIsPopUpOpen(false)}
+            >
+              <Translate>CANCEL</Translate>
+            </button>
+          </div>
+        </div>
+      </Popup>
     </div>
   );
 };

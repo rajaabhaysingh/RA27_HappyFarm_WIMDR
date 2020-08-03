@@ -32,7 +32,12 @@ const Footer = lazy(() => import("../layouts/footer/Footer"));
 const Product = lazy(() => import("./Product"));
 const SearchPage = lazy(() => import("../searchPage/SearchPage"));
 
-const Products = ({ user, setUser }) => {
+const Products = ({
+  user,
+  setUser,
+  isSignedOutLinkOpen,
+  setIsSignedOutLinkOpen,
+}) => {
   // ----- fetching data state mgmt -----
   const baseUrl = "https://abhijitpatil.pythonanywhere.com";
 
@@ -198,7 +203,12 @@ const Products = ({ user, setUser }) => {
           <SearchPage />
         </Route>
         <Route path={`${path}/:prodId`}>
-          <Product user={user} setUser={setUser} />
+          <Product
+            user={user}
+            setUser={setUser}
+            isSignedOutLinkOpen={isSignedOutLinkOpen}
+            setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
+          />
         </Route>
       </Switch>
     </div>

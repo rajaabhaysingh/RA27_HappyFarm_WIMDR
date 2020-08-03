@@ -74,13 +74,18 @@ const App = (props) => {
   }, [lang]);
   // -------------------------------------
 
+  // is dign-in window open
+  const [isSignedOutLinkOpen, setIsSignedOutLinkOpen] = useState(false);
+
   // ---------handling messaging----------
 
   const [socket, setSocket] = useState(null);
   const [user, setUser] = useState({
-    id: undefined,
-    token: undefined,
+    id: localStorage.getItem("id"),
+    token: localStorage.getItem("token"),
   });
+
+  useEffect(() => {}, [user]);
 
   // ------- setting user property in state --------
   const settingUser = useCallback(
@@ -222,6 +227,8 @@ const App = (props) => {
                   setIsSearchBarOpen={setIsSearchBarOpen}
                   setMarginTop={setMarginTop}
                   drawerClickHandler={drawerToggleClickHandler}
+                  isSignedOutLinkOpen={isSignedOutLinkOpen}
+                  setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                 />
               </Suspense>
             </ErrorBoundary>
@@ -279,6 +286,8 @@ const App = (props) => {
                         setUser={setUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />
@@ -292,6 +301,8 @@ const App = (props) => {
                         setUser={setUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />
@@ -305,6 +316,8 @@ const App = (props) => {
                         setUser={setUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />
@@ -318,6 +331,8 @@ const App = (props) => {
                         setUser={setUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />
@@ -331,6 +346,8 @@ const App = (props) => {
                         setUser={setUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />
@@ -344,6 +361,8 @@ const App = (props) => {
                         setUser={setUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />
@@ -357,6 +376,8 @@ const App = (props) => {
                         setUser={setUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />
@@ -370,6 +391,8 @@ const App = (props) => {
                         setUser={setUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />
@@ -386,6 +409,8 @@ const App = (props) => {
                         settingUser={settingUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />
@@ -399,6 +424,8 @@ const App = (props) => {
                         setUser={setUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />
@@ -412,6 +439,8 @@ const App = (props) => {
                         setUser={setUser}
                         isSearchBarOpen={isSearchBarOpen}
                         setIsSearchBarOpen={setIsSearchBarOpen}
+                        isSignedOutLinkOpen={isSignedOutLinkOpen}
+                        setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
                       />
                     )}
                   />

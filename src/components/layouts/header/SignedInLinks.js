@@ -50,6 +50,12 @@ function SignedInLinks({ user, setUser }) {
     return;
   };
 
+  // handleSignOut
+  const handleSignOut = () => {
+    localStorage.removeItem("token");
+    setUser({});
+  };
+
   // -----------------------------------------
 
   return (
@@ -118,7 +124,7 @@ function SignedInLinks({ user, setUser }) {
               </div>
             </NavLink>
           </li>
-          <li className="signed_in_item" onClick={handleOptionClick}>
+          <li className="signed_in_item" onClick={handleSignOut}>
             <div className="signed_in_sign_out">
               <div className="signed_in_icon signed_in_sign_out_icon">
                 <i className="fas fa-sign-out-alt"></i>

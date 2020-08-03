@@ -2,33 +2,13 @@ import React, { useState, memo } from "react";
 import "./SignUpPwd.css";
 
 import { Translate } from "react-auto-translate";
+import Popup from "reactjs-popup";
 
 import axios from "axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
-// configuring toast
-toast.configure();
 
 function SignUpPwd({ handleChange, formValues, setIsSignInOpen }) {
-  // handleToast
-  const handleToast = (message, toastType) => {
-    if (toastType === "dark") {
-      toast.dark(message, {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
-    } else if (toastType === "error") {
-      toast.error(message, {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
-    } else if (toastType === "success") {
-      toast.success(message, {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
-    } else {
-      toast(message);
-    }
-  };
+  // popup state
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
   // pwd error state mgmt
   const [pwdError, setPwdError] = useState(null);
@@ -68,11 +48,14 @@ function SignUpPwd({ handleChange, formValues, setIsSignInOpen }) {
             console.log(error);
             setPwdError(error);
           });
-        setPwdError("Successful! Redirecting to login page.");
         setTimeout(() => {
           console.log(res);
           if (res.status === 201) {
-            setIsSignInOpen(true);
+            setIsPopUpOpen(true);
+            setTimeout(() => {
+              setIsPopUpOpen(false);
+              setIsSignInOpen(true);
+            }, 1000);
           }
         }, 1000);
       } else {
@@ -138,6 +121,27 @@ function SignUpPwd({ handleChange, formValues, setIsSignInOpen }) {
 
         <input className="sign_up_sign_up_btn" type="submit" value="SIGN UP" />
       </form>
+      <Popup
+        open={isPopUpOpen}
+        modal
+        closeOnDocumentClick
+        lockScroll
+        contentStyle={{
+          borderRadius: "8px",
+        }}
+      >
+        <div
+          style={{
+            margin: "16px",
+            borderRadius: "6px",
+            padding: "32px",
+            background: "#008800",
+            color: "#ffffff",
+          }}
+        >
+          Sign-up successful. Redirecting to login screen.
+        </div>
+      </Popup>
     </div>
   );
 }

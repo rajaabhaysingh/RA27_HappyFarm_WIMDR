@@ -4,6 +4,11 @@ import "./SignInNormal.css";
 import { Translate } from "react-auto-translate";
 
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// configuring toast
+toast.configure();
 
 function SignInNormal({
   formValues,
@@ -29,6 +34,25 @@ function SignInNormal({
     }
   };
   // -----------------------------
+
+  // handleToast
+  const handleToast = (message, toastType) => {
+    if (toastType === "dark") {
+      toast.dark(message, {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+    } else if (toastType === "error") {
+      toast.error(message, {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+    } else if (toastType === "success") {
+      toast.success(message, {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+    } else {
+      toast(message);
+    }
+  };
 
   // detect os
   const detectOS = () => {
@@ -74,8 +98,11 @@ function SignInNormal({
               ...user,
               token: res.data.token,
             });
+            localStorage.setItem("token", res.data.token);
+            handleToast("Sign-in successful", "success");
             setIsFormOpen(false);
           } else {
+            handleToast("Sign-in failed", "error");
             // bypass sign-in
             // setUser({
             //   ...user,

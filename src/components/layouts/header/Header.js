@@ -38,6 +38,8 @@ const Header = ({
   setIsSearchBarOpen,
   setMarginTop,
   drawerClickHandler,
+  isSignedOutLinkOpen,
+  setIsSignedOutLinkOpen,
 }) => {
   // handleLanguageChange
   const handleLanguageChange = (e) => {
@@ -140,17 +142,23 @@ const Header = ({
 
   // --------------------------------------------------
 
+  // renderSignedInOutLinks
   const renderSignedInOutLinks = () => {
-    if (user.id || user.token) {
+    if (user.token) {
       return (
-        <div className="signed_in_component">
+        <div id="signed_in_component" className="signed_in_component">
           <SignedInLinks user={user} setUser={setUser} />
         </div>
       );
     } else {
       return (
-        <div className="signed_out_component">
-          <SignedOutLinks user={user} setUser={setUser} />
+        <div id="signed_out_component" className="signed_out_component">
+          <SignedOutLinks
+            user={user}
+            setUser={setUser}
+            isSignedOutLinkOpen={isSignedOutLinkOpen}
+            setIsSignedOutLinkOpen={setIsSignedOutLinkOpen}
+          />
         </div>
       );
     }

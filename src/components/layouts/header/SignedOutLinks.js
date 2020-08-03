@@ -10,9 +10,13 @@ import Popup from "reactjs-popup";
 
 const SignInUpReset = lazy(() => import("../../auth/SignInUpReset"));
 
-function SignedOutLinks({ user, setUser }) {
+function SignedOutLinks({
+  user,
+  setUser,
+  isSignedOutLinkOpen,
+  setIsSignedOutLinkOpen,
+}) {
   // -------Toggle user btn click F(n)----------------
-  let [isSignedOutLinkOpen, setIsSignedOutLinkOpen] = useState(false);
 
   let userBtnClickHandler = () => {
     if (!isSignedOutLinkOpen) {

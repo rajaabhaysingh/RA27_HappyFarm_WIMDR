@@ -333,7 +333,9 @@
     box-sizing: border-box;
   }
   .navbar_language_selector {
-    height: 30px;
+    height: 26px;
+    width: 40px;
+    margin-right: 10px;
     border-radius: 20px;
     font-weight: bold;
     outline: none;
