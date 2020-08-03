@@ -44,18 +44,24 @@ function ProductSlider({ boldHeading, normalHeading, productsList }) {
                     key={product.id}
                     id={product.id}
                     isFresh={product.isFresh}
-                    imageURL={product.imageURL}
+                    imageURL={
+                      product.thumbnail
+                        ? product.thumbnail
+                        : product.alt_thumbnail
+                    }
                     name={product.name}
-                    prodRating={product.prodRating}
-                    type={product.type}
+                    prodRating={product.rating}
+                    type={product.item_type}
                     category={product.category}
                     basePrice={product.basePrice}
                     pricePerUnit={product.pricePerUnit}
-                    addedDigit={product.addedDigit}
-                    addedUnit={product.addedUnit}
+                    addedDigit={product.addedDigit ? product.addedDigit : 25}
+                    addedUnit={
+                      product.addedUnit ? product.addedUnit : "minutes"
+                    }
                     location={product.location}
-                    isNegotiable={product.isNegotiable}
-                    sellerId={product.sellerId}
+                    isNegotiable={product.is_negotiable}
+                    sellerId={product.seller}
                   />
                 ))}
               </Suspense>

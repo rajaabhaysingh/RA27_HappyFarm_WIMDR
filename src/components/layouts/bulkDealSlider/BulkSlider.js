@@ -34,7 +34,11 @@ function BulkSlider({ productsList, boldHeading, normalHeading }) {
                   <BulkDealItem
                     key={product.id}
                     id={product.id}
-                    imageURL={product.imageURL}
+                    imageURL={
+                      product.thumbnail
+                        ? product.thumbnail
+                        : product.alt_thumbnail
+                    }
                     name={product.name}
                     breed={product.breed}
                     location={product.location}
@@ -42,11 +46,11 @@ function BulkSlider({ productsList, boldHeading, normalHeading }) {
                     lotSizeDigit={product.lotSizeDigit}
                     lotSizeUnit={product.lotSizeUnit}
                     basePrice={product.basePrice}
-                    pricePerUnit={product.pricePerUnit}
-                    sellerId={product.sellerId}
-                    sellerRating={product.sellerRating}
+                    basePricePerUnit={product.basePricePerUnit}
+                    sellerId={product.seller}
+                    sellerRating={product.rating}
                     isNegotiable={product.isNegotiable}
-                    delTime={product.delTime}
+                    delTime={`${(Math.random() * 4).toFixed(1)} hours`}
                     minBookVal={product.minBookVal}
                     minBookValUnit={product.minBookValUnit}
                     maxBookVal={product.maxBookVal}

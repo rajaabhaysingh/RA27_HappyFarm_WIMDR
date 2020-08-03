@@ -48,7 +48,7 @@ function SignUpOtp({
       try {
         e.preventDefault();
         verifyOtp();
-        // nextStep();
+        nextStep();
       } catch (error) {
         console.log(error);
       }

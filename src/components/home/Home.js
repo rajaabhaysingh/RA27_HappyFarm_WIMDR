@@ -13,8 +13,8 @@ import ProductOptions from "../layouts/ProductOptions";
 // import topCarouselUrls from "./homeComponents/topCarousel/TopCarouselUrls";
 // import CategoryList from "./homeComponents/categoryScroll/CategoryList";
 // import FarmersList from "../layouts/farmerSlider/FarmerSliderList";
-import ProductList from "../layouts/productSlider/ProductSliderList";
-import BulkProdList from "../layouts/bulkDealSlider/BulkSliderList";
+// import ProductList from "../layouts/productSlider/ProductSliderList";
+// import BulkProdList from "../layouts/bulkDealSlider/BulkSliderList";
 import FooterDetails from "../layouts/footer/FooterDetails";
 import AdCategoryData1 from "../layouts/adCategoryGrid/AdCategoryData1";
 import AdCategoryData2 from "../layouts/adCategoryGrid/AdCategoryData2";
@@ -57,6 +57,13 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
   const [topCarouselUrls, setTopCarouselUrls] = useState([]);
   const [Categories, setCategories] = useState([]);
   const [FarmersList, setFarmersList] = useState([]);
+  const [ProductList, setProductList] = useState([]);
+  const [ProductList2, setProductList2] = useState([]);
+  const [ProductList3, setProductList3] = useState([]);
+  const [ProductList4, setProductList4] = useState([]);
+  const [bulkProdList, setBulkProdList] = useState([]);
+  const [bulkProdList2, setBulkProdList2] = useState([]);
+  const [bulkProdList3, setBulkProdList3] = useState([]);
 
   // dataFetcher
   const dataFetcher = async () => {
@@ -78,6 +85,50 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
         console.log(error);
       });
     setFarmersList(farmers.data.results);
+
+    let products = await axios
+      .get(baseUrl + "/item/?limit=12&offset=1&group=individual")
+      .catch((error) => {
+        console.log(error);
+      });
+    setProductList(products.data.results);
+    let products2 = await axios
+      .get(baseUrl + "/item/?limit=25&offset=13&group=individual")
+      .catch((error) => {
+        console.log(error);
+      });
+    setProductList2(products2.data.results);
+    let products3 = await axios
+      .get(baseUrl + "/item/?limit=37&offset=25&group=individual")
+      .catch((error) => {
+        console.log(error);
+      });
+    setProductList3(products3.data.results);
+    let products4 = await axios
+      .get(baseUrl + "/item/?limit=37&offset=25&group=individual")
+      .catch((error) => {
+        console.log(error);
+      });
+    setProductList4(products4.data.results);
+
+    let bulk = await axios
+      .get(baseUrl + "/item/?limit=12&offset=1&group=bulk")
+      .catch((error) => {
+        console.log(error);
+      });
+    setBulkProdList(bulk.data.results);
+    let bulk2 = await axios
+      .get(baseUrl + "/item/?limit=25&offset=12&group=bulk")
+      .catch((error) => {
+        console.log(error);
+      });
+    setBulkProdList2(bulk2.data.results);
+    let bulk3 = await axios
+      .get(baseUrl + "/item/?limit=37&offset=25&group=bulk")
+      .catch((error) => {
+        console.log(error);
+      });
+    setBulkProdList3(bulk3.data.results);
   };
 
   // ------------------------------------
@@ -88,7 +139,15 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
 
   useEffect(() => {
     console.log();
-  }, [topCarouselUrls, FarmersList, Categories]);
+  }, [
+    topCarouselUrls,
+    FarmersList,
+    Categories,
+    ProductList,
+    ProductList2,
+    ProductList3,
+    ProductList4,
+  ]);
 
   // ------search should be open by default------
   // const searchBarBtn = document.getElementById("navbar_search_btn_group");
@@ -174,7 +233,7 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           {/* bulk slider - active bulk deals */}
           <div className="bulk_slider_component">
             <BulkSlider
-              productsList={BulkProdList}
+              productsList={bulkProdList}
               boldHeading="Bulk deals"
               normalHeading="in your area"
               viewAllLink="#"
@@ -190,7 +249,7 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           {/* product slider */}
           <div className="product_slider_component">
             <ProductSlider
-              productsList={ProductList}
+              productsList={ProductList2}
               boldHeading="Based on your"
               normalHeading="Profile and history"
               viewAllLink="#"
@@ -207,7 +266,7 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           {/* bulk slider - active bulk deals */}
           <div className="bulk_slider_component">
             <BulkSlider
-              productsList={BulkProdList}
+              productsList={bulkProdList2}
               boldHeading="Bulk deals"
               normalHeading="in your area"
               viewAllLink="#"
@@ -238,7 +297,7 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           {/* product slider */}
           <div className="product_slider_component">
             <ProductSlider
-              productsList={ProductList}
+              productsList={ProductList3}
               boldHeading="Recently added"
               normalHeading="products"
               viewAllLink="#"
@@ -247,7 +306,7 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           {/* bulk slider - active bulk deals */}
           <div className="bulk_slider_component">
             <BulkSlider
-              productsList={BulkProdList}
+              productsList={bulkProdList3}
               boldHeading="Bulk deals"
               normalHeading="in your area"
               viewAllLink="#"
@@ -286,7 +345,7 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           {/* product slider */}
           <div className="product_slider_component">
             <ProductSlider
-              productsList={ProductList}
+              productsList={ProductList4}
               boldHeading="Based on your"
               normalHeading="Profile and history"
               viewAllLink="#"

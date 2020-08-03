@@ -34,6 +34,7 @@ const Cart = (props) => {
   let history = useHistory();
 
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+  const [finalAmount, setFinalAmount] = useState(undefined);
 
   // ----- fetching data state mgmt -----
   const baseUrl = "https://abhijitpatil.pythonanywhere.com";
@@ -100,8 +101,14 @@ const Cart = (props) => {
       refactor.data.cart_items_obj.forEach((item) => {
         console.log(item.purchasedPrice);
         console.log(item.item_details.basePrice);
-        if (item.purchasedPrice !== item.item_details.basePrice) {
+        if (
+          parseFloat(item.purchasedPrice).toFixed(2) !==
+          parseFloat(item.item_details.basePrice).toFixed(2)
+        ) {
+          console.log("refactored condition true");
           setIsPopUpOpen(true);
+        } else {
+          history.push(`${url}/checkout`);
         }
       });
     }, 1000);
@@ -124,6 +131,8 @@ const Cart = (props) => {
       if (refactordCart.status === 200) {
         setCartData(refactordCart.data.cart_items_obj);
         setIsPopUpOpen(false);
+        // todo
+        // cart refactored... please proceed to checkout
       }
     }, 1000);
   };
@@ -153,7 +162,6 @@ const Cart = (props) => {
 
   // calcuatePrice
   const calcuatePrice = (item) => {
-    console.log(item);
     if (item.purchasedQtyUnit === item.item_details.pricePerUnit) {
       return (
         (parseFloat(item.purchasedQty).toFixed(2) /

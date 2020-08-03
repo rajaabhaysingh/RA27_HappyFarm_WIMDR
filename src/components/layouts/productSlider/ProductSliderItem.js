@@ -64,7 +64,8 @@ function ProductSliderItem({
         <Link
           target="_blank"
           className={"product_slider_item_prod_link"}
-          to={`/products/${name.toLowerCase()}&type=${type.toLowerCase()}&id=${id}`}
+          // to="/"
+          to={`/products/?${name}&type=${type}&id=${id}`}
         >
           <div onClick={handleProdClick} className="product_detail_group">
             <div className="product_image">
