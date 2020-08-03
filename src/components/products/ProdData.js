@@ -31,7 +31,7 @@ export const ProdData = {
   shelfLifeSubUnit: "mins",
   minOrderQtyDigit: 500,
   minOrderQtyUnit: "mg",
-  desc: {
+  description: {
     brief:
       "prod_page_qty lorem ipsvd.cffe.eervg bfceffue eg evygeygvyegvcecervrfb rb rt rb.bhe fyefvyefbue ueb ueb je jefb jvheb fhvevfhedeef in order of Rs.50 using BHIM UPI. Available on latest version of the Amazon App on first ever transaction on Amazon Pay UPI. Cashback within 5 day.",
     table: [

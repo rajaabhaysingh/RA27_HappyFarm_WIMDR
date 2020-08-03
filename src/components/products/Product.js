@@ -16,7 +16,6 @@ import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
 import { Stripes, ProdData, Offers, Review, adBanners } from "./ProdData";
 
-import ProductSliderList from "../layouts/productSlider/ProductSliderList";
 import FooterDetails from "../layouts/footer/FooterDetails";
 import Placeholder from "../../res/categoryScroll/placeholder.svg";
 import Placeholder2 from "../../res/productSlider/placeholder.jpg";
@@ -47,6 +46,8 @@ const Footer = lazy(() => import("../layouts/footer/Footer"));
 // configuring toast
 toast.configure();
 
+console.log(window.location.pathname.split("/").pop());
+
 // main component function
 const Product = ({
   user,
@@ -60,6 +61,8 @@ const Product = ({
   const baseUrl = "https://abhijitpatil.pythonanywhere.com";
 
   const [FarmersList, setFarmersList] = useState([]);
+  const [ProductSliderList, setProductSliderList] = useState([]);
+  const [prodData, setProdData] = useState({});
 
   // dataFetcher
   const dataFetcher = async () => {
@@ -69,6 +72,18 @@ const Product = ({
         console.log(error);
       });
     setFarmersList(farmers.data.results);
+    let products = await axios
+      .get(baseUrl + "/item/?limit=40&offset=25&group=individual")
+      .catch((error) => {
+        console.log(error);
+      });
+    setProductSliderList(products.data.results);
+
+    let product = await axios.get(baseUrl + `/item/4/}`).catch((error) => {
+      console.log(error);
+    });
+    console.log(product);
+    setProdData(product.data.results);
   };
 
   // ------------------------------------
@@ -79,10 +94,10 @@ const Product = ({
 
   useEffect(() => {
     console.log();
-  }, [FarmersList]);
+  }, [FarmersList, ProductSliderList]);
 
   const stripes = Stripes;
-  const prodData = ProdData;
+  // const prodData = ProdData;
   const offers = Offers;
   const review = Review;
   const productList = ProductSliderList;
@@ -350,7 +365,12 @@ const Product = ({
               <div className="prod_page_prod_container">
                 <div className="prod_page_prod">
                   <div className="prod_page_prod_images">
-                    <ProdImageWithZoom prodImages={prodImages} />
+                    <ProdImageWithZoom
+                      prodImages={[
+                        // prodData.item_images[0].alt_image,
+                        prodData.alt_thumbnail,
+                      ]}
+                    />
                   </div>
                   <div className="prod_page_prod_details">
                     <div className="prod_page_pri_det_seller">
@@ -359,8 +379,8 @@ const Product = ({
                           <Translate>{prodData.name}</Translate>
                         </div>
                         <div className="prod_page_type">
-                          <Translate>{prodData.type}</Translate>,{" "}
-                          <Translate>{prodData.cat}</Translate>
+                          <Translate>{prodData.item_type}</Translate>,{" "}
+                          <Translate>{prodData.category}</Translate>
                         </div>
                         <div className="prod_page_prod_rating">
                           <ErrorBoundary>
@@ -377,7 +397,7 @@ const Product = ({
                         <Link
                           target="_blank"
                           className="prod_page_seller_link"
-                          to={`/farmers/${prodData.sellerId}`}
+                          to={`/farmers/${prodData.seller}`}
                         >
                           <Translate>Seller's profile</Translate>
                         </Link>
@@ -413,7 +433,7 @@ const Product = ({
                         <Translate>{prodData.basePrice}</Translate>{" "}
                         <Translate>per</Translate>{" "}
                         <Translate>{prodData.basePricePerDigit}</Translate>{" "}
-                        <Translate>{prodData.basePricePerUnit}</Translate>
+                        <Translate>{prodData.pricePerUnit}</Translate>
                       </div>
                       <div className="prod_page_life">
                         <i
@@ -486,11 +506,11 @@ const Product = ({
                           <Translate>PRODUCT DESCRIPTION</Translate>
                         </div>
                         <div className="prod_page_prod_desc_brief">
-                          <Translate>{prodData.desc.brief}</Translate>
+                          <Translate>{prodData.description.brief}</Translate>
                         </div>
-                        {prodData.desc.table && (
+                        {prodData.description.table && (
                           <div className="prod_page_prod_desc_table">
-                            {prodData.desc.table.map((item) => (
+                            {prodData.description.table.map((item) => (
                               <div
                                 className="prod_page_prod_desc_table_item"
                                 key={item.key}

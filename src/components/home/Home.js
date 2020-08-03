@@ -64,6 +64,7 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
   const [bulkProdList, setBulkProdList] = useState([]);
   const [bulkProdList2, setBulkProdList2] = useState([]);
   const [bulkProdList3, setBulkProdList3] = useState([]);
+  const [adCatData, setAdCatData] = useState([]);
 
   // dataFetcher
   const dataFetcher = async () => {
@@ -112,7 +113,7 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
     setProductList4(products4.data.results);
 
     let bulk = await axios
-      .get(baseUrl + "/item/?limit=12&offset=1&group=bulk")
+      .get(baseUrl + "/item/?limit=16&offset=3&group=bulk")
       .catch((error) => {
         console.log(error);
       });
@@ -129,6 +130,11 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
         console.log(error);
       });
     setBulkProdList3(bulk3.data.results);
+
+    let adCat = await axios.get(baseUrl + "/ad_category/").catch((error) => {
+      console.log(error);
+    });
+    setAdCatData(adCat.data.results);
   };
 
   // ------------------------------------
@@ -147,6 +153,9 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
     ProductList2,
     ProductList3,
     ProductList4,
+    setBulkProdList,
+    setBulkProdList2,
+    setBulkProdList3,
   ]);
 
   // ------search should be open by default------
@@ -281,11 +290,11 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* ad category */}
           <div className="ad_cat_component ad_cat_1">
-            <AdCategoryGrid dataList={AdCategoryData1} />
+            <AdCategoryGrid dataList={adCatData[0]} />
           </div>
           {/* ad category */}
           <div className="ad_cat_component ad_cat_1">
-            <AdCategoryGrid dataList={AdCategoryData2} />
+            <AdCategoryGrid dataList={adCatData[1]} />
           </div>
           {/* double slider */}
           <div className="double_info_banner_component">
@@ -321,11 +330,11 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* ad category */}
           <div className="ad_cat_component ad_cat_1">
-            <AdCategoryGrid dataList={AdCategoryData1} />
+            <AdCategoryGrid dataList={adCatData[2]} />
           </div>
           {/* ad category */}
           <div className="ad_cat_component ad_cat_1">
-            <AdCategoryGrid dataList={AdCategoryData2} />
+            <AdCategoryGrid dataList={adCatData[3]} />
           </div>
           {/* double slider */}
           <div className="double_info_banner_component">
@@ -336,11 +345,11 @@ function Home({ isSearchBarOpen, setIsSearchBarOpen }) {
           </div>
           {/* ad category */}
           <div className="ad_cat_component ad_cat_1">
-            <AdCategoryGrid dataList={AdCategoryData1} />
+            <AdCategoryGrid dataList={adCatData[0]} />
           </div>
           {/* ad category */}
           <div className="ad_cat_component ad_cat_1">
-            <AdCategoryGrid dataList={AdCategoryData2} />
+            <AdCategoryGrid dataList={adCatData[1]} />
           </div>
           {/* product slider */}
           <div className="product_slider_component">

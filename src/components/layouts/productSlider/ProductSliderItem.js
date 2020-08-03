@@ -65,7 +65,7 @@ function ProductSliderItem({
           target="_blank"
           className={"product_slider_item_prod_link"}
           // to="/"
-          to={`/products/?${name}&type=${type}&id=${id}`}
+          to={`/products/${id}`}
         >
           <div onClick={handleProdClick} className="product_detail_group">
             <div className="product_image">
